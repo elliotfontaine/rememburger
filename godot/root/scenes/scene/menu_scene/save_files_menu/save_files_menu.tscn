@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6f713ef85lcj"]
+[gd_scene format=3 uid="uid://b6f713ef85lcj"]
 
 [ext_resource type="Script" uid="uid://k866n7lfw1hf" path="res://root/scenes/scene/menu_scene/save_files_menu/save_files_menu.gd" id="1_e3gbg"]
 [ext_resource type="PackedScene" uid="uid://boueadrfx15jl" path="res://root/scenes/scene/menu_scene/save_files_menu/menu_save_file/menu_save_file.tscn" id="3_50r0p"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://root/scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="4_3rsfr"]
 [ext_resource type="PackedScene" uid="uid://blj2ibtiuk6nf" path="res://root/scenes/scene/menu_scene/save_files_menu/menu_textbox_dialog/menu_textbox_dialog.tscn" id="6_jkppb"]
 
-[node name="SaveFilesMenu" type="Control"]
+[node name="SaveFilesMenu" type="Control" unique_id=1031152221]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ size_flags_vertical = 3
 script = ExtResource("1_e3gbg")
 menu_save_file_pck = ExtResource("3_50r0p")
 
-[node name="RootMarginContainer" type="MarginContainer" parent="."]
+[node name="RootMarginContainer" type="MarginContainer" parent="." unique_id=1505020203]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,18 +26,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="RootMarginContainer"]
+[node name="Panel" type="Panel" parent="RootMarginContainer" unique_id=1170480296]
 z_index = -4096
 layout_mode = 2
 
-[node name="RootVBoxContainer" type="VBoxContainer" parent="RootMarginContainer"]
+[node name="RootVBoxContainer" type="VBoxContainer" parent="RootMarginContainer" unique_id=2109009714]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer"]
+[node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer" unique_id=2045847434]
 layout_mode = 2
 
-[node name="SaveFilesMenuScrollContainer" type="ScrollContainer" parent="RootMarginContainer/RootVBoxContainer"]
+[node name="SaveFilesMenuScrollContainer" type="ScrollContainer" parent="RootMarginContainer/RootVBoxContainer" unique_id=2046611578]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
@@ -45,61 +45,63 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="SaveFilesMenuMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer"]
+[node name="SaveFilesMenuMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer" unique_id=1044047539]
 custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="SaveFilesMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer"]
+[node name="SaveFilesMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer" unique_id=1597993946]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="SaveFilesVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer"]
+[node name="SaveFilesVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer" unique_id=2143247018]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="MenuSaveFile1" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer/SaveFilesVBoxContainer" instance=ExtResource("3_50r0p")]
+[node name="MenuSaveFile1" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer/SaveFilesVBoxContainer" unique_id=1564031739 instance=ExtResource("3_50r0p")]
 layout_mode = 2
 
-[node name="MenuSaveFile2" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer/SaveFilesVBoxContainer" instance=ExtResource("3_50r0p")]
+[node name="MenuSaveFile2" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer/SaveFilesVBoxContainer" unique_id=2022643481 instance=ExtResource("3_50r0p")]
 layout_mode = 2
 
-[node name="MenuSaveFile3" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer/SaveFilesVBoxContainer" instance=ExtResource("3_50r0p")]
+[node name="MenuSaveFile3" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer/SaveFilesVBoxContainer" unique_id=1947616716 instance=ExtResource("3_50r0p")]
 layout_mode = 2
 
-[node name="ControlGrabFocus" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer/SaveFilesVBoxContainer" instance=ExtResource("4_3rsfr")]
+[node name="ControlGrabFocus" parent="RootMarginContainer/RootVBoxContainer/SaveFilesMenuScrollContainer/SaveFilesMenuMarginContainer/SaveFilesMarginContainer/SaveFilesVBoxContainer" unique_id=1555620457 instance=ExtResource("4_3rsfr")]
 unique_name_in_owner = true
 recursive = true
 manual = true
 
-[node name="FooterHSeparator" type="HSeparator" parent="RootMarginContainer/RootVBoxContainer"]
+[node name="FooterHSeparator" type="HSeparator" parent="RootMarginContainer/RootVBoxContainer" unique_id=1286930455]
 layout_mode = 2
 
-[node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer"]
+[node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer" unique_id=1997315183]
 custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer" unique_id=1664193612]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="BackMenuButton" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("3_eqnf7")]
+[node name="BackMenuButton" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer/HBoxContainer" unique_id=1189085669 instance=ExtResource("3_eqnf7")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "       Back       "
 label = "MENU_LABEL_BACK"
 
-[node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer/HBoxContainer"]
+[node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootVBoxContainer/FooterMarginContainer/HBoxContainer" unique_id=1244955002]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MenuTextboxDialog" parent="." instance=ExtResource("6_jkppb")]
+[node name="MenuTextboxDialog" parent="." unique_id=2047956528 instance=ExtResource("6_jkppb")]
 unique_name_in_owner = true
+oversampling_override = 1.0
+size = Vector2i(500, 576)
+visible = false

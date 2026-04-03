@@ -21,12 +21,16 @@ resources_spreadsheet_view/fold_docks=false
 Log/use_utc_time_format=true
 Log/break_on_error=false
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="TakinGodotTemplate"
 config/version="0.7.2"
 run/main_scene="res://root/scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://root/assets/image/boot_splash/png/boot_splash_2560_1440.png"
 config/icon="res://root/assets/image/boot_splash/png/icon_1024_1024.png"
@@ -43,16 +47,16 @@ manager/music/bus="Music"
 
 [autoload]
 
-DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+DebugMenu="*uid://cggqb75a8w8r"
 Log="*res://addons/logger/logger.gd"
 LogWrapper="*res://root/autoload/wrapper/log_wrapper/log_wrapper.tscn"
 TranslationServerWrapper="*res://root/autoload/wrapper/translation_server_wrapper/translation_server_wrapper.tscn"
-SceneManager="*res://addons/scene_manager/scene_manager.tscn"
-Scenes="*res://addons/scene_manager/scenes.gd"
+SceneManager="*uid://2iy8wfgenjka"
+Scenes="*uid://cqhqqsh5oectt"
 SceneManagerWrapper="*res://root/autoload/wrapper/scene_manager_wrapper/scene_manager_wrapper.tscn"
 AudioManagerWrapper="*res://root/autoload/wrapper/audio_manager_wrapper/audio_manager_wrapper.tscn"
-SoundManager="*res://addons/resonate/sound_manager/sound_manager.gd"
-MusicManager="*res://addons/resonate/music_manager/music_manager.gd"
+SoundManager="*uid://cwmemkwby0n6r"
+MusicManager="*uid://b7gw800fl3qms"
 SignalBus="*res://root/autoload/signal_bus/signal_bus.tscn"
 Data="*res://root/autoload/data/data.tscn"
 Overlay="*res://root/autoload/overlay/overlay.tscn"
