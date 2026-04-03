@@ -52,7 +52,7 @@ func _init_action_handler() -> void:
 
 
 func _action_play_save_file_menu_button() -> void:
-	var menu_save_file: MenuSaveFile = get_toggled_save_file()
+	var menu_save_file: MenuSaveFile = _menu_save_files[0] #get_toggled_save_file()
 	if menu_save_file == null:
 		return
 	process_mode = PROCESS_MODE_DISABLED

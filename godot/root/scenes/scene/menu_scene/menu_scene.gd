@@ -41,6 +41,10 @@ func _toggle(menu: Control) -> void:
 	if _current_menu == credits_menu:
 		credits_menu.credits.reset()
 
+	if _current_menu == save_files_menu:
+		var save_0: MenuSaveFile = save_files_menu._menu_save_files[0]
+		save_0.play_save_menu_button.pressed.emit()
+
 
 func _connect_signals() -> void:
 	options_menu.back_menu_button.confirmed.connect(_toggle.bind(main_menu))
