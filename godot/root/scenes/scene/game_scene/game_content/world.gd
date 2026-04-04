@@ -9,4 +9,3 @@ func _ready() -> void:
 	take_order_button.pressed.connect(SignalBus.take_order_button_pressed.emit)
 	reject_button.pressed.connect(SignalBus.reject_button_pressed.emit)
 	
-	
