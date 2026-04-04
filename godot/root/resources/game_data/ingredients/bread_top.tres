@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://cpnp1ydnfbh0"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_c1iln"]
+[ext_resource type="Texture2D" uid="uid://chx6lejmv5cxg" path="res://root/assets/image/game/animal/png/round_outline/snake.png" id="2_tr0eb"]
+
+[resource]
+script = ExtResource("1_c1iln")
+name = "Bread Top"
+texture = ExtResource("2_tr0eb")
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"

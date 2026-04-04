@@ -1,0 +1,2 @@
+class_name CustomerView
+extends Node2D

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cokofndbolbnc"]
+
+[ext_resource type="Script" uid="uid://cn4h0q5jio38i" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_view.gd" id="1_6qvyg"]
+[ext_resource type="PackedScene" uid="uid://c3fpwahskxru5" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_head.tscn" id="2_kb6fh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pp4aq"]
+size = Vector2(200, 300)
+
+[node name="CustomerView" type="Node2D" unique_id=1253566926]
+script = ExtResource("1_6qvyg")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1342528121]
+position = Vector2(0, -150)
+texture = SubResource("PlaceholderTexture2D_pp4aq")
+
+[node name="CustomerHead" parent="." unique_id=696342410 instance=ExtResource("2_kb6fh")]
+position = Vector2(0, -328)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=37236276]
