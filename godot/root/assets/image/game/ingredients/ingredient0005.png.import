@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://fx6rvuj3yri"
-=======
-uid="uid://c0aj8xcw3afvl"
->>>>>>> ea7c47f (add ingredient sprites)
-path="res://.godot/imported/ingredient0000.png-aa280facb7ebe4d2d59bcfad3facd898.ctex"
+uid="uid://ddiuhvpd1a4bu"
+path="res://.godot/imported/ingredient0005.png-2dfc822737b5db3a91efc7ec8069dcdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://root/assets/image/game/ingredients/ingredient0000.png"
-dest_files=["res://.godot/imported/ingredient0000.png-aa280facb7ebe4d2d59bcfad3facd898.ctex"]
+source_file="res://root/assets/image/game/ingredients/ingredient0005.png"
+dest_files=["res://.godot/imported/ingredient0005.png-2dfc822737b5db3a91efc7ec8069dcdc.ctex"]
 
 [params]
 
