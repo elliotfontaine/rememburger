@@ -21,3 +21,5 @@ mono_crash.*.json
 
 # OSX 
 .DS_Store
+
+*.kra~
