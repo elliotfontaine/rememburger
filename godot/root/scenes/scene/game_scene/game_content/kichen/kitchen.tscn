@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bkwmgrw0mg3p8"]
+
+[ext_resource type="Script" uid="uid://nfuolcwpownw" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.gd" id="1_b8wqn"]
+[ext_resource type="Texture2D" uid="uid://l12io2kll5l2" path="res://root/assets/image/game/backgrounds/counter.png" id="2_re3it"]
+[ext_resource type="PackedScene" uid="uid://bf5nf4k4h46ll" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen_movable_item.tscn" id="3_re3it"]
+
+[node name="Kitchen" type="Node2D" unique_id=52084164]
+script = ExtResource("1_b8wqn")
+
+[node name="Counter" type="Sprite2D" parent="." unique_id=974440304]
+texture = ExtResource("2_re3it")
+
+[node name="SurfaceArea2D" type="Area2D" parent="." unique_id=445852507]
+input_pickable = false
+priority = 10
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="SurfaceArea2D" unique_id=713418726]
+position = Vector2(-0.9119727, 0)
+scale = Vector2(0.08804696, 1)
+polygon = PackedVector2Array(-887, 291, 890, 292, 936, 707, -938, 710)
+
+[node name="KitchenMovableItem" parent="." unique_id=1364679981 instance=ExtResource("3_re3it")]
+position = Vector2(-527, -56)
