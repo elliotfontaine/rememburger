@@ -29,11 +29,13 @@ func _update_debug_overlay() -> void:
 	var customer_strings: PackedStringArray
 	var info: String = ""
 	for customer: CustomerData in queue:
-		var customer_string = str(customer)
+		var customer_string := str(customer)
 		customer_strings.append(customer_string)
-		info += ", ".join([
+		info += " | ".join([
 			customer_string,
-			"points: %s" % int(customer.points),
+			"State: %s" % CustomerData.State.keys()[customer.state],
+			"Has Ordered: %s" % customer.has_ordered,
+			"Points: %s" % int(customer.points),
 			str(customer.order),
 		])
 		info += "\n"

@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://kbjd1qfc42hv"]
 
+[ext_resource type="Script" uid="uid://ca5kxy50hhij5" path="res://root/scenes/scene/game_scene/game_content/world.gd" id="1_fha1o"]
 [ext_resource type="Texture2D" uid="uid://b3u74laisk1q3" path="res://root/assets/image/game/backgrounds/background.png" id="1_sf5dl"]
 [ext_resource type="PackedScene" uid="uid://djb3vsrvt5j3a" path="res://root/scenes/scene/game_scene/game_content/queue/queue_view.tscn" id="2_fha1o"]
 [ext_resource type="Texture2D" uid="uid://l12io2kll5l2" path="res://root/assets/image/game/backgrounds/counter.png" id="3_q3v8v"]
 [ext_resource type="Script" uid="uid://dwnln27j38rxd" path="res://root/scenes/scene/game_scene/game_content/mouse_following_camera_2d.gd" id="4_gr6f7"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sf5dl"]
+radius = 70.0
+
 [node name="World" type="Node2D" unique_id=20499566]
+script = ExtResource("1_fha1o")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=301049078]
 texture = ExtResource("1_sf5dl")
@@ -23,3 +28,29 @@ limit_top = -1080
 limit_right = 1000
 limit_bottom = 1080
 script = ExtResource("4_gr6f7")
+
+[node name="RejectButton" type="Button" parent="." unique_id=655152088]
+unique_name_in_owner = true
+offset_left = 559.0
+offset_top = -64.0
+offset_right = 658.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 32
+text = "Reject"
+
+[node name="TakeOrderButton" type="Button" parent="." unique_id=457387453]
+unique_name_in_owner = true
+offset_left = 711.0
+offset_top = -64.0
+offset_right = 884.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 32
+text = "Take Order"
+
+[node name="ServingSpot" type="Area2D" parent="." unique_id=1634379125]
+unique_name_in_owner = true
+position = Vector2(796, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ServingSpot" unique_id=560963190]
+shape = SubResource("CircleShape2D_sf5dl")
+metadata/_edit_lock_ = true
