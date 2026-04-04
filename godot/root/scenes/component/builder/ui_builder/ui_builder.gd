@@ -24,7 +24,7 @@ func _ready() -> void:
 	attach_components = [twist_component, control_focus_on_hover]
 
 	# Will ignore target nodes of types [Tree], [GameButton].
-	no_condition_classes = [Tree, GameButton]
+	no_condition_classes = [Tree]#[Tree, GameButton]
 
 	# Scale down the [TwistMotion] animation for larger targets: [SaveFileButton], [CodeTextEdit].
 	customize = {}

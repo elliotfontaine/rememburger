@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c3fpwahskxru5"]
+
+[ext_resource type="Texture2D" uid="uid://bqhxc1xlrppdf" path="res://root/assets/image/game/animal/png/round/monkey.png" id="1_md3wb"]
+[ext_resource type="Script" uid="uid://cero5jwsqq8el" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_head.gd" id="1_q8t7r"]
+
+[node name="CustomerHead" type="Node2D" unique_id=1340818636]
+script = ExtResource("1_q8t7r")
+
+[node name="HeadBase" type="Sprite2D" parent="." unique_id=1411690242]
+texture = ExtResource("1_md3wb")
+
+[node name="Nose" type="Sprite2D" parent="." unique_id=1682873534]
+
+[node name="Hair" type="Sprite2D" parent="." unique_id=2063415270]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1048909411]
