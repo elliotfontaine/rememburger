@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://b8wlv8umfojft"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_engi1"]
+[ext_resource type="Texture2D" uid="uid://dt4novxhq4cvv" path="res://root/assets/image/game/ingredients/ingredient0004.png" id="2_10mna"]
+
+[resource]
+script = ExtResource("1_engi1")
+name = "Burnt Steak"
+texture = ExtResource("2_10mna")
+type = 2
+processed = false
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"

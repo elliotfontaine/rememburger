@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://cgvbeut67x3ce"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_41hye"]
+
+[resource]
+script = ExtResource("1_41hye")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([".tres", ".res"]),
+&"class_restrictions": Array[StringName]([&"IngredientData"]),
+&"recursive_scan": false,
+&"scan_directories": Array[String](["res://root/resources/game_data/ingredients"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://0dymqmq6edu": &"tomato",
+&"uid://8obao1n8tbwt": &"pickle",
+&"uid://b5ddnp1hgn4r0": &"steak_cooked",
+&"uid://b8wlv8umfojft": &"steak_burnt",
+&"uid://c8g8p02n3xos0": &"barbecue",
+&"uid://cdqvbitx3ohbi": &"ketchup",
+&"uid://cpnp1ydnfbh0": &"bread_top",
+&"uid://d4lx5e0um04f6": &"bread_bottom",
+&"uid://dn2dc53ny82fr": &"cheddar",
+&"uid://dyy8kochupuji": &"mustard",
+&"uid://ows3bing7gnt": &"tomato_slice",
+&"uid://oyldj532t43n": &"steak_raw",
+&"uid://rgdlrubmmt6g": &"pickle_slice"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"barbecue": &"uid://c8g8p02n3xos0",
+&"bread_bottom": &"uid://d4lx5e0um04f6",
+&"bread_top": &"uid://cpnp1ydnfbh0",
+&"cheddar": &"uid://dn2dc53ny82fr",
+&"ketchup": &"uid://cdqvbitx3ohbi",
+&"mustard": &"uid://dyy8kochupuji",
+&"pickle": &"uid://8obao1n8tbwt",
+&"pickle_slice": &"uid://rgdlrubmmt6g",
+&"steak_burnt": &"uid://b8wlv8umfojft",
+&"steak_cooked": &"uid://b5ddnp1hgn4r0",
+&"steak_raw": &"uid://oyldj532t43n",
+&"tomato": &"uid://0dymqmq6edu",
+&"tomato_slice": &"uid://ows3bing7gnt"
+})

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bf5nf4k4h46ll"]
 
 [ext_resource type="Script" uid="uid://dkpnnnm6hhntk" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen_movable_item.gd" id="1_8lcjd"]
-[ext_resource type="Texture2D" uid="uid://fx6rvuj3yri" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="2_mn2wl"]
+[ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="2_mn2wl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn2wl"]
 radius = 49.09175

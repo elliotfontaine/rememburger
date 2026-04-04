@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://0dymqmq6edu"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_huijv"]
+[ext_resource type="Texture2D" uid="uid://dk6uofcu4ayy8" path="res://root/assets/image/game/ingredients/ingredient0006.png" id="2_x1lem"]
+
+[resource]
+script = ExtResource("1_huijv")
+name = "Tomato"
+texture = ExtResource("2_x1lem")
+type = 5
+processed = false
+workstation = 1
+work_result_success = "tomato_slice"
+n_produced_success = 2
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"

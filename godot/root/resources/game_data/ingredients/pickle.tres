@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://8obao1n8tbwt"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_myrne"]
+[ext_resource type="Texture2D" uid="uid://c220s2nkclrfm" path="res://root/assets/image/game/ingredients/ingredient0011.png" id="2_dg2s7"]
+
+[resource]
+script = ExtResource("1_myrne")
+name = "Pickle"
+texture = ExtResource("2_dg2s7")
+type = 5
+processed = false
+workstation = 1
+work_result_success = "pickle_slice"
+n_produced_success = 2
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"

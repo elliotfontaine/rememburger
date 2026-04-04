@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://oyldj532t43n"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_dsh5g"]
+[ext_resource type="Texture2D" uid="uid://d1r1rdpgreffw" path="res://root/assets/image/game/ingredients/ingredient0002.png" id="2_oarpm"]
+
+[resource]
+script = ExtResource("1_dsh5g")
+name = "Raw Steak"
+texture = ExtResource("2_oarpm")
+type = 2
+processed = false
+workstation = 2
+work_result_success = "steak_cooked"
+work_result_fail = "steak_burnt"
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://chxq2llds2cyf"]
+
+[ext_resource type="Script" uid="uid://co7e720myb2uo" path="res://root/scenes/scene/game_scene/game_content/meal_stack.gd" id="1_rgu2r"]
+[ext_resource type="Resource" uid="uid://7j2xoal0nybj" path="res://root/resources/game_data/meals/double_cheese.tres" id="2_n0afv"]
+[ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="3_ytnoi"]
+[ext_resource type="Texture2D" uid="uid://71qyich8cspf" path="res://root/assets/image/game/ingredients/ingredient0003.png" id="4_lwn1u"]
+[ext_resource type="Texture2D" uid="uid://tadvuwr8cpd" path="res://root/assets/image/game/ingredients/ingredient0007.png" id="5_1tfno"]
+[ext_resource type="Texture2D" uid="uid://crj7s2pyhc8nv" path="res://root/assets/image/game/ingredients/ingredient0012.png" id="5_n0afv"]
+[ext_resource type="Texture2D" uid="uid://c42tgsw3l7dy6" path="res://root/assets/image/game/ingredients/ingredient0008.png" id="6_1tfno"]
+[ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="7_4ss35"]
+[ext_resource type="Texture2D" uid="uid://0d5brrtomp6s" path="res://root/assets/image/game/ingredients/ingredient0009.png" id="8_uuu0h"]
+
+[node name="MealStack" type="Node2D" unique_id=253224361]
+script = ExtResource("1_rgu2r")
+meal_data = ExtResource("2_n0afv")
+
+[node name="Ingredient0" type="Sprite2D" parent="." unique_id=235762437]
+texture = ExtResource("3_ytnoi")
+
+[node name="Ingredient1" type="Sprite2D" parent="." unique_id=690915120]
+texture = ExtResource("4_lwn1u")
+
+[node name="Ingredient2" type="Sprite2D" parent="." unique_id=651924262]
+position = Vector2(0, -5)
+texture = ExtResource("5_1tfno")
+
+[node name="Ingredient3" type="Sprite2D" parent="." unique_id=609751933]
+position = Vector2(0, -10)
+texture = ExtResource("4_lwn1u")
+
+[node name="Ingredient4" type="Sprite2D" parent="." unique_id=1274403790]
+position = Vector2(0, -15)
+texture = ExtResource("5_1tfno")
+
+[node name="Ingredient5" type="Sprite2D" parent="." unique_id=1227872447]
+position = Vector2(0, -20)
+texture = ExtResource("5_n0afv")
+
+[node name="Ingredient6" type="Sprite2D" parent="." unique_id=165531280]
+position = Vector2(0, -25)
+texture = ExtResource("6_1tfno")
+
+[node name="Ingredient7" type="Sprite2D" parent="." unique_id=1591581267]
+position = Vector2(0, -30)
+texture = ExtResource("8_uuu0h")
+
+[node name="Ingredient8" type="Sprite2D" parent="." unique_id=1994623955]
+position = Vector2(0, -35)
+texture = ExtResource("7_4ss35")
+
+[node name="Ingredient9" type="Sprite2D" parent="." unique_id=1002397273]
+position = Vector2(0, -40)
+
+[node name="Ingredient10" type="Sprite2D" parent="." unique_id=349668101]
+position = Vector2(0, -45)

@@ -19,9 +19,9 @@ enum IngredientType {
 @export var processed: bool = true
 @export_group("Work Recipe")
 @export var workstation: WorkStation = WorkStation.NONE
-@export var work_result_success: IngredientData
+@export_custom(Registry.PROPERTY_HINT_CUSTOM, "uid://cgvbeut67x3ce,true") var work_result_success: String
 @export var n_produced_success: int = 1
-@export var work_result_fail: IngredientData
+@export_custom(Registry.PROPERTY_HINT_CUSTOM, "uid://cgvbeut67x3ce,true") var work_result_fail: String
 @export var n_produced_fail: int = 1
 
 func _to_string() -> String:

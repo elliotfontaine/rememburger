@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://d4lx5e0um04f6"]
 
 [ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_um45j"]
-[ext_resource type="Texture2D" uid="uid://fx6rvuj3yri" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="2_ekabl"]
+[ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="2_ekabl"]
 
 [resource]
 script = ExtResource("1_um45j")
 name = "Bottom Bread"
 texture = ExtResource("2_ekabl")
+type = 0
 metadata/_custom_type_script = "uid://cfrxleyr1eapt"
