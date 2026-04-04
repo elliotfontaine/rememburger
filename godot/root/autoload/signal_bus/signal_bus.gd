@@ -9,4 +9,8 @@ signal language_changed(locale: String)
 signal number_format_changed(number_format: NumberUtils.NumberFormat)
 
 # Game
-signal clicks_per_second_updated(cps: int)
+
+## When pressing the counter buttons
+signal take_order_button_pressed()
+signal reject_button_pressed()
+signal meal_served(meal: MealData)

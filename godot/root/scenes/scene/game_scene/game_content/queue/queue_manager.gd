@@ -1,15 +1,14 @@
 class_name QueueManager
 extends Node
 
-# queue_manager.gd
-# Autoload — à enregistrer dans Project > Project Settings > Autoload
-# Nom suggéré : "QueueManager"
-#
+# TODO: enlever les ids utilisés pour rien dans les signatures
+# des méthodes (mais garder la propriété). Utiliser le client directement
+# à la place
+
 # Responsabilités :
 #   - Spawner les clients à intervalle aléatoire
 #   - Gérer le timer de chaque client (tick des points)
 #   - Gérer les transitions d'état : IN_QUEUE → AT_COUNTER → WAITING → SERVED / LEFT_ANGRY
-#   - Émettre des signaux pour que les Views réagissent (zéro couplage visuel ici)
 
 signal customer_added(customer: CustomerData)
 signal customer_ticked(customer: CustomerData)
@@ -42,8 +41,9 @@ var _active: bool = false
 
 
 func _ready() -> void:
-	# Le manager démarre en pause ; c'est GameState qui appelle start()
+	# Le manager démarre en pause ; c'est GameContent qui appelle start()
 	set_process(false)
+	_connect_signals()
 
 
 func _process(delta: float) -> void:
@@ -58,6 +58,9 @@ func start() -> void:
 	_active = true
 	_schedule_next_spawn()
 	set_process(true)
+	
+	_spawn_customer()
+	call_next_customer()
 
 
 func stop() -> void:
@@ -71,11 +74,6 @@ func get_counter_customer() -> CustomerData:
 		if c.state == CustomerData.State.AT_COUNTER:
 			return c
 	return null
-
-
-## Retourne tous les clients WAITING (commande cachée, en attente de service)
-func get_waiting_customers() -> Array[CustomerData]:
-	return queue.filter(func(c: CustomerData) -> bool: return c.state == CustomerData.State.WAITING)
 
 
 ## Appelle le premier client de la file au comptoir.
@@ -103,8 +101,15 @@ func accept_customer(customer_id: int) -> void:
 	if c == null or c.state != CustomerData.State.AT_COUNTER:
 		return
 
-	c.state = CustomerData.State.WAITING
+	c.state = CustomerData.State.IN_QUEUE
+	c.has_ordered = true
 	customer_state_changed.emit(c)
+	
+	# Renvoi en fin de file
+	queue.erase(c)
+	queue.append(c)
+	
+	call_next_customer()
 
 
 ## Le joueur rejette la commande : malus et renvoi en fin de file.
@@ -125,14 +130,16 @@ func reject_customer(customer_id: int) -> void:
 
 	if c.points <= 0.0:
 		_handle_angry_leave(c)
+	
+	call_next_customer()
 
 
 ## Le joueur sert un burger : on vérifie la commande et on conclut.
 ## Retourne les points gagnés (0 si commande trop différente).
 func serve_customer(customer_id: int, served_meal: MealData) -> int:
 	var c := _find(customer_id)
-	if c == null or c.state != CustomerData.State.WAITING:
-		return 0
+	if c == null or not c.has_ordered or c.state != CustomerData.State.AT_COUNTER:
+		return -1
 
 	var distance := c.order.distance_to(served_meal)
 
@@ -142,6 +149,13 @@ func serve_customer(customer_id: int, served_meal: MealData) -> int:
 
 	customer_served.emit(c, points_earned)
 	queue_changed.emit()
+	LogWrapper.debug(
+		self,
+		"Customer %s left with a meal. %s point earned" % [c, points_earned]
+	)
+	
+	call_next_customer()
+	
 	return points_earned
 
 
@@ -152,11 +166,6 @@ func _tick_spawn_timer(delta: float) -> void:
 
 	_spawn_timer = 0.0
 	_schedule_next_spawn()
-
-	if queue.size() >= max_queue_size:
-		# File pleine : ce spawn est perdu, on attend le prochain
-		return
-
 	_spawn_customer()
 
 
@@ -165,6 +174,10 @@ func _schedule_next_spawn() -> void:
 
 
 func _spawn_customer() -> void:
+	if queue.size() >= max_queue_size:
+		# File pleine : ce spawn est perdu, on attend le prochain
+		return
+	
 	var c := CustomerData.new()
 	c.id = _id_counter
 	c.name = CustomerData.NAMES.pick_random()
@@ -176,6 +189,7 @@ func _spawn_customer() -> void:
 	queue.append(c)
 	customer_added.emit(c)
 	queue_changed.emit()
+	LogWrapper.debug(self, "Customer %s just arrived." % c)
 
 
 func _generate_order() -> MealData:
@@ -211,9 +225,12 @@ func _tick_customers(delta: float) -> void:
 func _handle_angry_leave(c: CustomerData) -> void:
 	if c.state == CustomerData.State.LEFT_ANGRY:
 		return  # déjà traité
-
+	
+	var at_counter := c.state == CustomerData.State.AT_COUNTER
 	c.state = CustomerData.State.LEFT_ANGRY
 	queue.erase(c)
+	if at_counter:
+		call_next_customer()
 
 	customer_left_angry.emit(c)
 	queue_changed.emit()
@@ -225,3 +242,21 @@ func _find(customer_id: int) -> CustomerData:
 		if c.id == customer_id:
 			return c
 	return null
+
+
+func _connect_signals() -> void:
+	SignalBus.take_order_button_pressed.connect(_on_take_order_button_pressed)
+	SignalBus.reject_button_pressed.connect(_on_reject_button_pressed)
+	SignalBus.meal_served.connect(_on_meal_served)
+
+
+func _on_take_order_button_pressed() -> void:
+	accept_customer(get_counter_customer().id)
+
+
+func _on_reject_button_pressed() -> void:
+	reject_customer(get_counter_customer().id)
+
+
+func _on_meal_served(meal: MealData) -> void:
+	serve_customer(get_counter_customer().id, meal) 
