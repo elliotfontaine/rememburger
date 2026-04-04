@@ -3,8 +3,13 @@ extends Resource
 
 enum State { IN_QUEUE, AT_COUNTER, WAITING, SERVED, LEFT_ANGRY }
 const POINTS_PER_SECOND: float = 10.0 # to be fine-tuned
+const NAMES = [
+	"John", "Emilie", "Fabian", "Laura", "Thomas", "Greg", "Marco", "Louise",
+	"Harry", "Mindy", "Rosa", "Richie"
+]
 
 var id: int
+var name: String = "John Doe"
 var state: State = State.IN_QUEUE
 var points: float = 100.0 # decreasing
 var order: MealData
@@ -19,3 +24,7 @@ func tick(delta: float) -> void:
 		return
 	points -= POINTS_PER_SECOND * delta
 	points = maxf(0.0, points)
+
+
+func _to_string() -> String:
+	return "{name}({id})".format(self)
