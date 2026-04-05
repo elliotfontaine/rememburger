@@ -20,6 +20,10 @@ texture = ExtResource("2_qqnqk")
 position = Vector2(14, 26)
 texture = ExtResource("3_7uumd")
 
+[node name="Nose" type="Sprite2D" parent="." unique_id=1682873534]
+position = Vector2(1, 24)
+texture = ExtResource("4_ngi10")
+
 [node name="Hair" type="Node2D" parent="." unique_id=244209467]
 
 [node name="Color" type="Sprite2D" parent="Hair" unique_id=1750000141]
@@ -29,9 +33,5 @@ texture = ExtResource("4_mei4k")
 [node name="Outline" type="Sprite2D" parent="Hair" unique_id=2063415270]
 position = Vector2(-7, -40)
 texture = ExtResource("5_eok68")
-
-[node name="Nose" type="Sprite2D" parent="." unique_id=1682873534]
-position = Vector2(1, 24)
-texture = ExtResource("4_ngi10")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1048909411]

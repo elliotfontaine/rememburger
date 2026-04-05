@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b3u74laisk1q3" path="res://root/assets/image/game/backgrounds/background.png" id="1_sf5dl"]
 [ext_resource type="PackedScene" uid="uid://djb3vsrvt5j3a" path="res://root/scenes/scene/game_scene/game_content/queue/queue_view.tscn" id="2_fha1o"]
 [ext_resource type="Texture2D" uid="uid://l12io2kll5l2" path="res://root/assets/image/game/backgrounds/counter.png" id="3_q3v8v"]
-[ext_resource type="Script" uid="uid://dwnln27j38rxd" path="res://root/scenes/scene/game_scene/game_content/mouse_following_camera_2d.gd" id="4_gr6f7"]
+[ext_resource type="Script" path="res://root/scenes/scene/game_scene/game_content/mouse_following_camera_2d.gd" id="4_gr6f7"]
 [ext_resource type="PackedScene" uid="uid://bkwmgrw0mg3p8" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.tscn" id="6_q3v8v"]
+[ext_resource type="Texture2D" uid="uid://bw6nlph411pit" path="res://root/assets/image/game/backgrounds/speech_bubble.png" id="7_k2e8o"]
+[ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/MealStack.tscn" id="8_iqpcp"]
+[ext_resource type="PackedScene" uid="uid://sxhvflj8q4k5" path="res://root/scenes/scene/game_scene/game_content/MealDesc.tscn" id="8_v103c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf5dl"]
 radius = 70.0
@@ -35,6 +38,7 @@ texture = ExtResource("3_q3v8v")
 
 [node name="RejectButton" type="Button" parent="." unique_id=655152088]
 unique_name_in_owner = true
+visible = false
 offset_left = 559.0
 offset_top = -64.0
 offset_right = 658.0
@@ -44,6 +48,7 @@ text = "Reject"
 
 [node name="TakeOrderButton" type="Button" parent="." unique_id=457387453]
 unique_name_in_owner = true
+visible = false
 offset_left = 711.0
 offset_top = -64.0
 offset_right = 884.0
@@ -58,3 +63,21 @@ position = Vector2(796, -36)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ServingSpot" unique_id=560963190]
 shape = SubResource("CircleShape2D_sf5dl")
 metadata/_edit_lock_ = true
+
+[node name="Bubble" type="Node2D" parent="." unique_id=165283928]
+visible = false
+position = Vector2(-356, -650)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bubble" unique_id=1958941360]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_k2e8o")
+
+[node name="MealDesc" parent="Bubble" unique_id=253224361 instance=ExtResource("8_v103c")]
+position = Vector2(71, 1)
+
+[node name="MealStack" parent="Bubble" unique_id=242877394 instance=ExtResource("8_iqpcp")]
+position = Vector2(-147, 27)
+scale = Vector2(1.5, 1.5)
+
+[connection signal="customer_entered" from="QueueView" to="." method="_on_queue_view_customer_entered"]
+[connection signal="customer_exited" from="QueueView" to="." method="_on_queue_view_customer_exited"]
