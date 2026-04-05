@@ -13,6 +13,7 @@ extends Control
 @onready var debug_info_label: Label = %DebugInfoLabel
 
 var score: int = 0
+var display_score: int = 0
 
 
 func _ready() -> void:
@@ -32,7 +33,10 @@ func _ready() -> void:
 	_update_debug_overlay()
 
 func _process(_delta: float) -> void:
-	$MarginContainer2/Label.text = "%04d" % score
+	$MarginContainer2/Label.text = "%04d" % display_score
+
+	$MarginContainer2/TmpPoints.text = "+ %d" % (score - display_score)
+	$MarginContainer2/TmpPoints.visible = (score != display_score)
 
 
 func _update_debug_overlay() -> void:
@@ -68,3 +72,4 @@ func _on_queue_manager_customer_ticked(_customer: CustomerData) -> void:
 
 func score_points(_customer_data: CustomerData, points_earned: int) -> void:
 	score += points_earned
+	create_tween().tween_property(self, "display_score", score, 1.0).set_delay(0.5)
