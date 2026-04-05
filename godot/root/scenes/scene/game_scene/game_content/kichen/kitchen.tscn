@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nfuolcwpownw" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.gd" id="1_b8wqn"]
 [ext_resource type="Texture2D" uid="uid://l12io2kll5l2" path="res://root/assets/image/game/backgrounds/counter.png" id="2_re3it"]
+[ext_resource type="PackedScene" uid="uid://bsqpvmfvuqpdb" path="res://root/scenes/scene/game_scene/game_content/kichen/chopping_board.tscn" id="3_hy7gk"]
 [ext_resource type="PackedScene" uid="uid://btkkr4eig3viw" path="res://root/scenes/scene/game_scene/game_content/kichen/ingredient_drawer.tscn" id="4_ktovm"]
 [ext_resource type="Texture2D" uid="uid://dk6uofcu4ayy8" path="res://root/assets/image/game/ingredients/ingredient0006.png" id="5_gx662"]
 [ext_resource type="Texture2D" uid="uid://tadvuwr8cpd" path="res://root/assets/image/game/ingredients/ingredient0007.png" id="6_ox3hu"]
@@ -20,32 +21,26 @@ script = ExtResource("1_b8wqn")
 [node name="Counter" type="Sprite2D" parent="." unique_id=974440304]
 texture = ExtResource("2_re3it")
 
-[node name="SurfaceArea2D" type="Area2D" parent="Counter" unique_id=445852507]
+[node name="KitchenSurfaceArea2D" type="Area2D" parent="Counter" unique_id=445852507]
 input_pickable = false
 priority = 1
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Counter/SurfaceArea2D" unique_id=713418726]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Counter/KitchenSurfaceArea2D" unique_id=713418726]
 position = Vector2(-0.001580894, 0)
 scale = Vector2(0.99853265, 1)
 polygon = PackedVector2Array(-887, 291, 890, 292, 936, 707, -938, 710)
 
-[node name="ChoppingBoardArea2D" type="Area2D" parent="Counter" unique_id=967797076]
+[node name="ChoppingBoard" parent="Counter" unique_id=1962223519 instance=ExtResource("3_hy7gk")]
+position = Vector2(-512, 534)
+kitchen_path = NodePath("../..")
+
+[node name="Grill" type="Area2D" parent="Counter" unique_id=266036550]
 input_pickable = false
-priority = 10
+priority = 5
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Counter/ChoppingBoardArea2D" unique_id=772867732]
-position = Vector2(-0.001580894, 0)
-scale = Vector2(0.99853265, 1)
-polygon = PackedVector2Array(-678.99475, 448, -338.4951, 449, -347.50833, 615, -687.0065, 619)
-
-[node name="GrillArea2D2" type="Area2D" parent="Counter" unique_id=266036550]
-input_pickable = false
-priority = 10
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Counter/GrillArea2D2" unique_id=1766919032]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Counter/Grill" unique_id=1766919032]
 position = Vector2(1173, -84)
 scale = Vector2(0.99853265, 1)
 polygon = PackedVector2Array(-678.99475, 448, -338.4951, 449, -309.4541, 724, -657.9655, 725)

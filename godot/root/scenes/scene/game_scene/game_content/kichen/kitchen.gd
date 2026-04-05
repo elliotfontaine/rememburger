@@ -28,40 +28,50 @@ func try_grab(object: Node2D) -> bool:
 		return false
 	else:
 		grabbed_object = object
+		LogWrapper.debug(self, "Kitchen movable ingredient grabbed")
 		return true
 
 
 func try_release(where: Vector2) -> bool:
 	if not grabbed_object:
 		return false
-	else:
-		if grabbed_object is KitchenMovableIngredient:
-			var object_area: Area2D = grabbed_object.grabbing_area_2d
-			for other_area in object_area.get_overlapping_areas():
-				if other_area.get_parent() is MovableMealPlate:
-					var plate: MovableMealPlate = other_area.get_parent()
-					var data: IngredientData = INGREDIENT_REGISTRY.load_entry(grabbed_object.ingredient)
-					if data.processed: # only add processed food to plate
-						plate.add_ingredient_to_plate(grabbed_object.ingredient)
-						LogWrapper.debug(self, "Dropped ingredient on plate")
-						grabbed_object.queue_free()
-						break
-					else:
-						return false
-		if grabbed_object is MovableMealPlate:
-			var object_area: Area2D = grabbed_object.grabbing_area_2d
-			for other_area in object_area.get_overlapping_areas():
-				if other_area.name == &"ServingSpot":
-					if grabbed_object.meal_data and not grabbed_object.meal_data.is_empty():
-						SignalBus.meal_served.emit(grabbed_object.meal_data)
-						LogWrapper.debug(self, "Dropped plate on serving spot")
-						grabbed_object.queue_free()
+	
+	elif grabbed_object is KitchenMovableIngredient:
+		var ingredient_data: IngredientData = grabbed_object.get_ingredient_data()
+		var object_area: Area2D = grabbed_object.grabbing_area_2d
+		for other_area in object_area.get_overlapping_areas():
+			if other_area.get_parent() is MovableMealPlate:
+				var plate: MovableMealPlate = other_area.get_parent()
+				if ingredient_data.processed: # only add processed food to plate
+					plate.add_ingredient_to_plate(grabbed_object.ingredient)
+					LogWrapper.debug(self, "Dropped ingredient %s on plate" % ingredient_data)
+					grabbed_object.queue_free()
 					break
-		grabbed_object = null
-		return true
+				else:
+					return false
+			if other_area is ChoppingBoard:
+				if not other_area.has_ingredient_placed() and ingredient_data.workstation == IngredientData.WorkStation.CHOPPING_BOARD:
+					other_area.placed_ingredient = grabbed_object.ingredient
+					LogWrapper.debug(self, "Dropped %s on chopping board" % ingredient_data)
+					grabbed_object.queue_free()
+					break
+				else:
+					return false
+	elif grabbed_object is MovableMealPlate:
+		var object_area: Area2D = grabbed_object.grabbing_area_2d
+		for other_area in object_area.get_overlapping_areas():
+			if other_area.name == &"ServingSpot":
+				if grabbed_object.meal_data and not grabbed_object.meal_data.is_empty():
+					SignalBus.meal_served.emit(grabbed_object.meal_data)
+					LogWrapper.debug(self, "Dropped plate on serving spot")
+					grabbed_object.queue_free()
+				break
+		
+	grabbed_object = null
+	return true
 
 
-func spawn_ingredient(ingredient: StringName, where: Vector2, should_grab: bool = true) -> void:
+func spawn_ingredient(ingredient: StringName, where: Vector2, should_grab: bool = true) -> KitchenMovableIngredient:
 	var item := KITCHEN_MOVABLE_INGREDIENT.instantiate()
 	item.ingredient = ingredient
 	item.kitchen = self
@@ -69,6 +79,7 @@ func spawn_ingredient(ingredient: StringName, where: Vector2, should_grab: bool 
 	movable_ingredients.add_child(item)
 	if should_grab:
 		try_grab(item)
+	return item
 
 
 func spawn_meal_plate(where: Vector2, should_grab: bool = true) -> void:
