@@ -15,6 +15,14 @@ extends Control
 
 func _ready() -> void:
 	LogWrapper.debug(self, "Scene ready.")
+
+	queue_manager.connect("customer_added", SignalBus.customer_added.emit)
+	queue_manager.connect("customer_ticked", SignalBus.customer_ticked.emit)
+	queue_manager.connect("customer_state_changed", SignalBus.customer_state_changed.emit)
+	queue_manager.connect("customer_left_angry", SignalBus.customer_left_angry.emit)
+	queue_manager.connect("customer_served", SignalBus.customer_served.emit)
+	queue_manager.connect("queue_changed", SignalBus.customer_served.emit)
+
 	queue_manager.start()
 	#queue_view.update_customer_positions()
 	_update_debug_overlay()
@@ -23,9 +31,9 @@ func _ready() -> void:
 func _update_debug_overlay() -> void:
 	if not debug_margin_container.visible:
 		return
-	
+
 	var queue := queue_manager.queue
-	
+
 	var customer_strings: PackedStringArray
 	var info: String = ""
 	for customer: CustomerData in queue:
