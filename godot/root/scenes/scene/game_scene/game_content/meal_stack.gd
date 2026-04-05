@@ -18,6 +18,8 @@ func _clear_textures() -> void:
 
 
 func _setup_textures_from_meal(meal: MealData) -> void:
+	if not meal:
+		return
 	var child_iter := 0
 	for ingr_name: StringName in meal.ingredients:
 		var ingredient: IngredientData = INGREDIENTS.load_entry(ingr_name)

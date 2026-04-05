@@ -1,22 +1,26 @@
 [gd_scene format=3 uid="uid://bf5nf4k4h46ll"]
 
-[ext_resource type="Script" uid="uid://dkpnnnm6hhntk" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen_movable_item.gd" id="1_8lcjd"]
-[ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="2_mn2wl"]
+[ext_resource type="Script" uid="uid://dkpnnnm6hhntk" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen_movable_ingredient.gd" id="1_hbvtc"]
+[ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="2_2r0qy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn2wl"]
 radius = 49.09175
 
-[node name="KitchenMovableItem" type="Node2D" unique_id=1364679981]
-script = ExtResource("1_8lcjd")
+[node name="KitchenMovableIngredient" type="Node2D" unique_id=1364679981]
+z_index = 2
+script = ExtResource("1_hbvtc")
+ingredient = &"bread_bottom"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869891738]
 unique_name_in_owner = true
-texture = ExtResource("2_mn2wl")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_2r0qy")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1843801541]
 
 [node name="GrabbingArea2D" type="Area2D" parent="." unique_id=1238784345]
 unique_name_in_owner = true
+priority = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbingArea2D" unique_id=1541864298]
 shape = SubResource("CircleShape2D_mn2wl")

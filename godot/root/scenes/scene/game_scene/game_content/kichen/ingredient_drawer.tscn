@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://btkkr4eig3viw"]
+
+[ext_resource type="Script" uid="uid://kyvixv4t2ue2" path="res://root/scenes/scene/game_scene/game_content/kichen/ingredient_drawer.gd" id="1_4xfpc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ox3hu"]
+resource_local_to_scene = true
+radius = 60.0
+
+[node name="IngredientDrawer" type="Node2D" unique_id=1663274482]
+script = ExtResource("1_4xfpc")
+ingredient = &"tomato"
+kitchen_path = null
+
+[node name="Area2D" type="Area2D" parent="." unique_id=357041212]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1116922114]
+shape = SubResource("CircleShape2D_ox3hu")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

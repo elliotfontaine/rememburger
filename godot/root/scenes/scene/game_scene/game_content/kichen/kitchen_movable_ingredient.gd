@@ -1,19 +1,25 @@
-class_name KitchenMovableItem
+class_name KitchenMovableIngredient
 extends Node2D
 
-@export_category("Oscillator")
+const INGREDIENT_REGISTRY := preload("uid://cgvbeut67x3ce")
+
+@export_custom(Registry.PROPERTY_HINT_CUSTOM, "uid://cgvbeut67x3ce") var ingredient: StringName:
+	set(value):
+		ingredient = value
+		if is_node_ready() and INGREDIENT_REGISTRY.has_string_id(ingredient):
+			sprite_2d.texture = INGREDIENT_REGISTRY.load_entry(ingredient).texture
+
+@export_group("Oscillator")
 @export var spring: float = 200.0
 @export var damp: float = 8.0
 @export var velocity_multiplier: float = 1.0
 
-var ingredient: IngredientData = preload("uid://d4lx5e0um04f6")
-var is_grabbed: bool = false
+var kitchen: Kitchen
 
 var _displacement: float = 0.0
 var _oscillator_velocity: float = 0.0
 var _last_pos: Vector2
 var _velocity: Vector2
-var _position_offset: Vector2 = Vector2.ZERO
 
 
 @onready var sprite_2d: Sprite2D = %Sprite2D
@@ -21,21 +27,14 @@ var _position_offset: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
-	if ingredient:
-		sprite_2d.texture = ingredient.texture
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if _is_mouse_left_click(event) and is_grabbed:
-		is_grabbed = false
-		get_viewport().set_input_as_handled()
-		LogWrapper.debug(self, "Kitchen movable item released")
+	ingredient = ingredient # update sprite
+	if not kitchen:
+		LogWrapper.warn(self, "kitchen reference not set.")
 
 
 func _physics_process(delta: float) -> void:
-	if not visible or not is_grabbed:
+	if not visible or position == _last_pos:
 		return
-	position = get_global_mouse_position() + _position_offset
 	rotate_velocity(delta)
 
 
@@ -57,10 +56,11 @@ func _is_mouse_left_click(event: InputEvent) -> bool:
 
 
 func _on_grabbing_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if _is_mouse_left_click(event) and not is_grabbed:
-		is_grabbed = true
-		get_viewport().set_input_as_handled()
-		LogWrapper.debug(self, "Kitchen movable item grabbed")
+	if _is_mouse_left_click(event) and kitchen:
+		var grabbed := kitchen.try_grab(self)
+		if grabbed:
+			get_viewport().set_input_as_handled()
+			LogWrapper.debug(self, "Kitchen movable ingredient grabbed")
 		
 
 			

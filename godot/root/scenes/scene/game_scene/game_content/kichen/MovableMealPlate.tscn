@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b0xikwrg7qjyy"]
+
+[ext_resource type="Script" uid="uid://dud5fw1fewwoy" path="res://root/scenes/scene/game_scene/game_content/kichen/movable_meal_plate.gd" id="1_s1y10"]
+[ext_resource type="Texture2D" uid="uid://d22k215eb5aiw" path="res://root/assets/image/game/items/image0000.png" id="2_qx2j7"]
+[ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/MealStack.tscn" id="3_qx2j7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ypdhy"]
+radius = 105.98
+
+[node name="MovableMealPlate" type="Node2D" unique_id=1847300281]
+script = ExtResource("1_s1y10")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=258412632]
+unique_name_in_owner = true
+position = Vector2(-1, 14.000002)
+texture = ExtResource("2_qx2j7")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=2054624586]
+
+[node name="GrabbingArea2D" type="Area2D" parent="." unique_id=354802629]
+unique_name_in_owner = true
+priority = 9
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbingArea2D" unique_id=2019465946]
+shape = SubResource("CircleShape2D_ypdhy")
+
+[node name="MealStack" parent="." unique_id=253224361 instance=ExtResource("3_qx2j7")]
+unique_name_in_owner = true
+z_index = 1
+scale = Vector2(1.5, 1.5)
+meal_data = null
+
+[connection signal="input_event" from="GrabbingArea2D" to="." method="_on_grabbing_area_2d_input_event"]
