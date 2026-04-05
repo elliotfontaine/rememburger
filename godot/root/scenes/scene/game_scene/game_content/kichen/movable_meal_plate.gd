@@ -3,10 +3,9 @@ extends Node2D
 
 @export var meal_data: MealData:
 	set(value):
+		meal_data = value
 		if is_node_ready():
-			meal_stack.meal_data = meal_data
-	get():
-		return meal_stack.meal_data
+			meal_stack.meal_data = value
 
 var kitchen: Kitchen
 
@@ -20,6 +19,14 @@ func _ready() -> void:
 	if not kitchen:
 		LogWrapper.warn(self, "kitchen reference not set.")
 
+
+func add_ingredient_to_plate(ingredient: StringName) -> void:
+	# TODO: aide en empechant de placer autre chose que bottom bread au debut
+	#if ingredient.type == ingredient.IngredientType.BREAD_BOTTOM:
+	if not meal_data:
+		meal_data = MealData.new()
+	meal_data.ingredients.append(ingredient)
+	meal_data = meal_data
 
 func _is_mouse_left_click(event: InputEvent) -> bool:
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
