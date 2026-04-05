@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bsqpvmfvuqpdb"]
+
+[ext_resource type="Script" uid="uid://blmkjhpetskjb" path="res://root/scenes/scene/game_scene/game_content/kichen/chopping_board.gd" id="1_84l04"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84l04"]
+radius = 50.0
+
+[node name="ChoppingBoard" type="Area2D" unique_id=1962223519]
+input_pickable = false
+priority = 5
+script = ExtResource("1_84l04")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1017019598]
+scale = Vector2(0.99853265, 1)
+polygon = PackedVector2Array(-165.15448, -84.701965, 175.34518, -83.701965, 166.33194, 82.298035, -173.1662, 86.298035)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=908945691]
+unique_name_in_owner = true
+scale = Vector2(1.5, 1.5)
+
+[node name="PlacedIngredientAnchor" type="Node2D" parent="." unique_id=320832720]
+
+[node name="CurrentItemArea2D" type="Area2D" parent="." unique_id=534383686]
+priority = 6
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CurrentItemArea2D" unique_id=331067975]
+shape = SubResource("CircleShape2D_84l04")
+
+[connection signal="input_event" from="CurrentItemArea2D" to="." method="_on_current_item_area_2d_input_event"]

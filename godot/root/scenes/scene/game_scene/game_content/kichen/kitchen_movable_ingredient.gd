@@ -38,6 +38,10 @@ func _physics_process(delta: float) -> void:
 	rotate_velocity(delta)
 
 
+func get_ingredient_data() -> IngredientData:
+	return INGREDIENT_REGISTRY.load_entry(ingredient)
+
+
 func rotate_velocity(delta: float) -> void:
 	_velocity = (position - _last_pos) / delta
 	_last_pos = position
@@ -60,7 +64,7 @@ func _on_grabbing_area_2d_input_event(_viewport: Node, event: InputEvent, _shape
 		var grabbed := kitchen.try_grab(self)
 		if grabbed:
 			get_viewport().set_input_as_handled()
-			LogWrapper.debug(self, "Kitchen movable ingredient grabbed")
+			LogWrapper.debug(self, "Free movable ingredient grabbed")
 		
 
 			
