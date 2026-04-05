@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bea1npdsg7ii1"]
+[gd_scene format=3 uid="uid://bea1npdsg7ii1"]
 
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://root/scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="2_bpco6"]
 [ext_resource type="Script" uid="uid://blab0apyqrw8w" path="res://root/scenes/scene/menu_scene/options_menu/options_menu.gd" id="2_jd1v2"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c2owjxrhgllgx" path="res://root/scenes/scene/menu_scene/options_menu/options_container/controls_options/controls_options.tscn" id="7_pspmp"]
 [ext_resource type="PackedScene" uid="uid://s26ypj4otfru" path="res://root/scenes/scene/menu_scene/options_menu/options_container/game_options/game_options.tscn" id="8_t3ua6"]
 
-[node name="OptionsMenu" type="Control"]
+[node name="OptionsMenu" type="Control" unique_id=281320049]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("2_jd1v2")
 
-[node name="RootMarginContainer" type="MarginContainer" parent="."]
+[node name="RootMarginContainer" type="MarginContainer" parent="." unique_id=796584198]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,26 +29,26 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="RootMarginContainer"]
+[node name="Panel" type="Panel" parent="RootMarginContainer" unique_id=225027569]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RootMarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RootMarginContainer" unique_id=134585847]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="TabMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
+[node name="TabMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer" unique_id=1246700793]
 custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 4
 
-[node name="TabHBoxContainer" type="HBoxContainer" parent="RootMarginContainer/VBoxContainer/TabMarginContainer"]
+[node name="TabHBoxContainer" type="HBoxContainer" parent="RootMarginContainer/VBoxContainer/TabMarginContainer" unique_id=583113813]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="AudioMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("4_m78wu")]
+[node name="AudioMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" unique_id=1649652077 instance=ExtResource("4_m78wu")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -61,7 +61,7 @@ text = "   Audio   "
 label = "MENU_LABEL_AUDIO"
 padding_spaces = 3
 
-[node name="VideoMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("4_m78wu")]
+[node name="VideoMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" unique_id=642119315 instance=ExtResource("4_m78wu")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -71,8 +71,9 @@ text = "   Video   "
 label = "MENU_LABEL_VIDEO"
 padding_spaces = 3
 
-[node name="ControlsMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("4_m78wu")]
+[node name="ControlsMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" unique_id=1832612253 instance=ExtResource("4_m78wu")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
@@ -81,8 +82,9 @@ text = "   Controls   "
 label = "MENU_OPTIONS_CONTROLS"
 padding_spaces = 3
 
-[node name="GameMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("4_m78wu")]
+[node name="GameMenuButton" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" unique_id=64938316 instance=ExtResource("4_m78wu")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_right = NodePath("../../../FooterMarginContainer/HBoxContainer/BackMenuButton")
@@ -92,57 +94,57 @@ text = "   Game   "
 label = "CREDITS_GAME"
 padding_spaces = 3
 
-[node name="ControlGrabFocus" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" instance=ExtResource("2_bpco6")]
+[node name="ControlGrabFocus" parent="RootMarginContainer/VBoxContainer/TabMarginContainer/TabHBoxContainer" unique_id=520054537 instance=ExtResource("2_bpco6")]
 remember_last_focus = false
 
-[node name="TabHSeparator" type="HSeparator" parent="RootMarginContainer/VBoxContainer"]
+[node name="TabHSeparator" type="HSeparator" parent="RootMarginContainer/VBoxContainer" unique_id=681447778]
 layout_mode = 2
 
-[node name="OptionsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
+[node name="OptionsMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer" unique_id=1845812699]
 custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="OptionsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer"]
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer" unique_id=2038958558]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="AudioOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("5_kiw17")]
+[node name="AudioOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" unique_id=290596286 instance=ExtResource("5_kiw17")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VideoOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("6_balw6")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="ControlsOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("7_pspmp")]
+[node name="VideoOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" unique_id=1731036740 instance=ExtResource("6_balw6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="GameOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" instance=ExtResource("8_t3ua6")]
+[node name="ControlsOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" unique_id=1666227703 instance=ExtResource("7_pspmp")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="FooterHSeparator" type="HSeparator" parent="RootMarginContainer/VBoxContainer"]
+[node name="GameOptions" parent="RootMarginContainer/VBoxContainer/OptionsMarginContainer/OptionsVBoxContainer" unique_id=1711231396 instance=ExtResource("8_t3ua6")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer"]
+[node name="FooterHSeparator" type="HSeparator" parent="RootMarginContainer/VBoxContainer" unique_id=441306621]
+layout_mode = 2
+
+[node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer" unique_id=1839164140]
 custom_minimum_size = Vector2(666, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer" unique_id=1866955432]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="BackMenuButton" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("4_m78wu")]
+[node name="BackMenuButton" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" unique_id=1247391177 instance=ExtResource("4_m78wu")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../TabMarginContainer/TabHBoxContainer/GameMenuButton")
@@ -151,11 +153,11 @@ theme_override_font_sizes/font_size = 24
 text = "       Back       "
 label = "MENU_LABEL_BACK"
 
-[node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer"]
+[node name="PaddingMarginContainer" type="MarginContainer" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" unique_id=596887725]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ResetMenuButton" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("4_m78wu")]
+[node name="ResetMenuButton" parent="RootMarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" unique_id=1010576086 instance=ExtResource("4_m78wu")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath("../BackMenuButton")
