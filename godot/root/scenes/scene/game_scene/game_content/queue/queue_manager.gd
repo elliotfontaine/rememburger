@@ -17,21 +17,13 @@ signal customer_left_angry(customer: CustomerData)
 signal customer_served(customer: CustomerData, points_earned: int)
 signal queue_changed()
 
-#TODO: use YARD registries instead
-const BREAD_BOTTOM = preload("uid://d4lx5e0um04f6")
-const BREAD_TOP = preload("uid://cpnp1ydnfbh0")
-
+const MEAL_PRESETS: Registry = preload("uid://b6iabg6hpbv1e")
 
 @export var spawn_interval_min: float = 5.0
 @export var spawn_interval_max: float = 9.0
 @export var max_queue_size: int = 5
 @export var points_drain_per_second: float = 8.0
 @export var reject_penalty: int = 5
-
-@export var ingredient_pool: Array[IngredientData] = []
-## Min/max number of ingredients beside burger bread (top and bottom)
-@export var order_ingredients_min: int = 2
-@export var order_ingredients_max: int = 4
 
 var queue: Array[CustomerData] = []
 var _spawn_timer: float = 0.0
@@ -193,19 +185,11 @@ func _spawn_customer() -> void:
 
 
 func _generate_order() -> MealData:
-	var order := MealData.new()
-	var ingredients: Array[IngredientData] = [BREAD_BOTTOM]
-
-	var pool := ingredient_pool.duplicate()
-	pool.shuffle()
-	if not pool.is_empty():
-		var count := randi_range(order_ingredients_min, order_ingredients_max)
-		for i in count:
-			ingredients.append(pool[i])
-
-	ingredients.append(BREAD_TOP)
-	order.ingredients = ingredients
-	return order
+	# Simply pick a meal at random in the registry
+	var meal_pool := MEAL_PRESETS.get_all_string_ids()
+	var meal_name: StringName = meal_pool.pick_random()
+	var meal := MEAL_PRESETS.load_entry(meal_name).duplicate()
+	return meal
 
 
 func _tick_customers(delta: float) -> void:

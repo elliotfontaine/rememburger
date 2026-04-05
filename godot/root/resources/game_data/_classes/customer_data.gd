@@ -4,8 +4,10 @@ extends Resource
 enum State { IN_QUEUE, AT_COUNTER, SERVED, LEFT_ANGRY }
 
 const NAMES = [
+	"Max", "Kim", "Pat", "Lee", "Mel", "Sasha", "Robin", "Casey", "Riley",
 	"John", "Emilie", "Fabian", "Laura", "Thomas", "Greg", "Marco", "Louise",
-	"Harry", "Mindy", "Rosa", "Richie"
+	"Harry", "Mindy", "Rosa", "Richie", "Alex", "Sam", "Charlie", "Lou", "Jo",
+	"Quinn", "Avery", "Jamie", "Sage", "Blake", "Remy"
 ]
 
 var id: int
