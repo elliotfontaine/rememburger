@@ -12,11 +12,14 @@ extends Control
 @onready var queue_customer_list_label: Label = %QueueCustomerListLabel
 @onready var debug_info_label: Label = %DebugInfoLabel
 
-var score: int = 0
 var display_score: int = 0
+var remaining_time: int = 5 * 60
+
+signal game_ended
 
 
 func _ready() -> void:
+	GlobalScore.score = 0
 	LogWrapper.debug(self, "Scene ready.")
 
 	queue_manager.connect("customer_added", SignalBus.customer_added.emit)
@@ -35,8 +38,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	$MarginContainer2/Label.text = "%04d" % display_score
 
-	$MarginContainer2/TmpPoints.text = "+ %d" % (score - display_score)
-	$MarginContainer2/TmpPoints.visible = (score != display_score)
+	$MarginContainer2/TmpPoints.text = "+ %d" % (GlobalScore.score - display_score)
+	$MarginContainer2/TmpPoints.visible = (GlobalScore.score != display_score)
+
+	$MarginContainer/TimerDisplay.text = "%02d : %02d" % [remaining_time / 60, remaining_time % 60]
 
 
 func _update_debug_overlay() -> void:
@@ -71,5 +76,13 @@ func _on_queue_manager_customer_ticked(_customer: CustomerData) -> void:
 	_update_debug_overlay()
 
 func score_points(_customer_data: CustomerData, points_earned: int) -> void:
-	score += points_earned
-	create_tween().tween_property(self, "display_score", score, 1.0).set_delay(0.5)
+	GlobalScore.score += points_earned
+	create_tween().tween_property(self, "display_score", GlobalScore.score, 1.0).set_delay(0.5)
+
+
+func _on_timer_timeout() -> void:
+	remaining_time -= 1
+	print(remaining_time)
+	if remaining_time == 0:
+		print("end ?")
+		game_ended.emit()

@@ -131,3 +131,11 @@ func _connect_signals() -> void:
 	pause_menu.quit_menu_button.confirmed.connect(_action_quit_menu_button)
 
 	options_menu.back_menu_button.confirmed.connect(_action_options_back_menu_button)
+
+	game_content.game_ended.connect(_on_game_content_game_ended)
+
+
+func _on_game_content_game_ended() -> void:
+	game_content.process_mode = Node.PROCESS_MODE_DISABLED
+	game_content.visible = false
+	$GameEnd.visible = true
