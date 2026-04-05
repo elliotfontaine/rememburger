@@ -11,5 +11,5 @@ type = 5
 processed = false
 workstation = 1
 work_result_success = "tomato_slice"
-n_produced_success = 2
+n_produced_success = 3
 metadata/_custom_type_script = "uid://cfrxleyr1eapt"

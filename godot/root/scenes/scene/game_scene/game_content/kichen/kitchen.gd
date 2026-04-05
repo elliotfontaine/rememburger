@@ -20,7 +20,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _is_mouse_left_click(event) and grabbed_object:
 		if try_release(event.position):
 			get_viewport().set_input_as_handled()
-			LogWrapper.debug(self, "Kitchen Item released")
+			LogWrapper.debug(self, "Kitchen Object released")
 
 
 func try_grab(object: Node2D) -> bool:
@@ -28,7 +28,7 @@ func try_grab(object: Node2D) -> bool:
 		return false
 	else:
 		grabbed_object = object
-		LogWrapper.debug(self, "Kitchen movable ingredient grabbed")
+		LogWrapper.debug(self, "Kitchen Object grabbed")
 		return true
 
 
@@ -78,6 +78,28 @@ func try_release(where: Vector2) -> bool:
 					grabbed_object.queue_free()
 				break
 
+	elif grabbed_object is KitchenTool:
+		if grabbed_object.name == &"Knife":
+https://github.com/elliotfontaine/rememburger/pull/24/conflict?name=godot%252Froot%252Fscenes%252Fscene%252Fgame_scene%252Fgame_content%252Fkichen%252Fkitchen.gd&ancestor_oid=d78c7df07d555532cfa56e166b582764d06fe2b9&base_oid=02fe12b544f4586fda15e0aa51f102b134179d51&head_oid=3a1d265b7e9859311fe14d72763debcd6396e5d1			for other_area: Area2D in grabbed_object.get_overlapping_areas():
+				if other_area is ChoppingBoard:
+					if other_area.has_ingredient_placed():
+						var placed_ingr_data: IngredientData = INGREDIENT_REGISTRY.load_entry(other_area.placed_ingredient)
+						var success := placed_ingr_data.work_result_success
+						var success_n_drop := placed_ingr_data.n_produced_success
+						for i in success_n_drop:
+							spawn_ingredient(success, other_area.position + _random_offset(40, 90), false)
+						other_area.placed_ingredient = &""
+						LogWrapper.debug(self, "Cut %s on chopping board" % placed_ingr_data)
+						break
+					else:
+						return false
+				
+				
+		grabbed_object.reset_tool()
+		grabbed_object = null
+	
+		
+		
 	grabbed_object = null
 	return true
 
@@ -102,6 +124,11 @@ func spawn_meal_plate(where: Vector2, should_grab: bool = true) -> void:
 	if should_grab:
 		try_grab(plate)
 
+
+func _random_offset(min_distance: float, max_distance: float) -> Vector2:
+	var angle := randf() * TAU
+	var distance := randf_range(min_distance, max_distance)
+	return Vector2(cos(angle), sin(angle)) * distance
 
 func _is_mouse_left_click(event: InputEvent) -> bool:
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()

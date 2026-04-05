@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1r1rdpgreffw" path="res://root/assets/image/game/ingredients/ingredient0002.png" id="8_bap8o"]
 [ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="9_yg45m"]
 [ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="10_hy7gk"]
+[ext_resource type="PackedScene" uid="uid://c77elrs58vox8" path="res://root/scenes/scene/game_scene/game_content/kichen/knife.tscn" id="12_7c0dn"]
 [ext_resource type="Texture2D" uid="uid://d22k215eb5aiw" path="res://root/assets/image/game/items/image0000.png" id="12_s0tmi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hy7gk"]
@@ -278,5 +279,10 @@ texture = ExtResource("12_s0tmi")
 [node name="Sprite2D4" type="Sprite2D" parent="MealPlateDrawer" unique_id=930605052]
 position = Vector2(0, -10)
 texture = ExtResource("12_s0tmi")
+
+[node name="Knife" parent="." unique_id=1645705732 instance=ExtResource("12_7c0dn")]
+position = Vector2(-302.99997, 536)
+kitchen_path = NodePath("..")
+storage_position = Vector2(-302.99997, 536)
 
 [connection signal="input_event" from="MealPlateDrawer" to="." method="_on_meal_plate_drawer_input_event"]
