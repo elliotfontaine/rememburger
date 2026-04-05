@@ -15,5 +15,10 @@ func distance_to(other: MealData) -> int:
 	# TODO: more complex logic than binary
 	return 0 if equals(other) else 100
 
+
+func is_empty() -> bool:
+	return ingredients.is_empty()
+
+
 func _to_string() -> String:
 	return "MealData(" + str(ingredients) + ")"

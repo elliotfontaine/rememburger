@@ -3,6 +3,7 @@ extends Node2D
 
 const KITCHEN_MOVABLE_INGREDIENT := preload("uid://bf5nf4k4h46ll")
 const KITCHEN_MOVABLE_PLATE := preload("uid://b0xikwrg7qjyy")
+const INGREDIENT_REGISTRY := preload("uid://cgvbeut67x3ce")
 
 var grabbed_object: Node2D
 
@@ -34,6 +35,28 @@ func try_release(where: Vector2) -> bool:
 	if not grabbed_object:
 		return false
 	else:
+		if grabbed_object is KitchenMovableIngredient:
+			var object_area: Area2D = grabbed_object.grabbing_area_2d
+			for other_area in object_area.get_overlapping_areas():
+				if other_area.get_parent() is MovableMealPlate:
+					var plate: MovableMealPlate = other_area.get_parent()
+					var data: IngredientData = INGREDIENT_REGISTRY.load_entry(grabbed_object.ingredient)
+					if data.processed: # only add processed food to plate
+						plate.add_ingredient_to_plate(grabbed_object.ingredient)
+						LogWrapper.debug(self, "Dropped ingredient on plate")
+						grabbed_object.queue_free()
+						break
+					else:
+						return false
+		if grabbed_object is MovableMealPlate:
+			var object_area: Area2D = grabbed_object.grabbing_area_2d
+			for other_area in object_area.get_overlapping_areas():
+				if other_area.name == &"ServingSpot":
+					if grabbed_object.meal_data and not grabbed_object.meal_data.is_empty():
+						SignalBus.meal_served.emit(grabbed_object.meal_data)
+						LogWrapper.debug(self, "Dropped plate on serving spot")
+						grabbed_object.queue_free()
+					break
 		grabbed_object = null
 		return true
 
