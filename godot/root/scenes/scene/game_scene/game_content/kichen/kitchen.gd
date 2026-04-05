@@ -80,7 +80,7 @@ func try_release(where: Vector2) -> bool:
 
 	elif grabbed_object is KitchenTool:
 		if grabbed_object.name == &"Knife":
-https://github.com/elliotfontaine/rememburger/pull/24/conflict?name=godot%252Froot%252Fscenes%252Fscene%252Fgame_scene%252Fgame_content%252Fkichen%252Fkitchen.gd&ancestor_oid=d78c7df07d555532cfa56e166b582764d06fe2b9&base_oid=02fe12b544f4586fda15e0aa51f102b134179d51&head_oid=3a1d265b7e9859311fe14d72763debcd6396e5d1			for other_area: Area2D in grabbed_object.get_overlapping_areas():
+			for other_area: Area2D in grabbed_object.get_overlapping_areas():
 				if other_area is ChoppingBoard:
 					if other_area.has_ingredient_placed():
 						var placed_ingr_data: IngredientData = INGREDIENT_REGISTRY.load_entry(other_area.placed_ingredient)
@@ -93,8 +93,6 @@ https://github.com/elliotfontaine/rememburger/pull/24/conflict?name=godot%252Fro
 						break
 					else:
 						return false
-				
-				
 		grabbed_object.reset_tool()
 		grabbed_object = null
 	

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_ce7f5")
-ingredients = Array[StringName]([&"bread_bottom", &"steak_cooked", &"cheddar", &"steak_cooked", &"cheddar", &"pickle_slice", &"ketchup", &"mustard", &"bread_top"])
+ingredients = Array[StringName]([&"bread_bottom", &"steak_cooked", &"cheddar", &"steak_cooked", &"cheddar", &"pickle_slice", &"bread_top"])
 metadata/_custom_type_script = "uid://cp63ho2tbyfik"
