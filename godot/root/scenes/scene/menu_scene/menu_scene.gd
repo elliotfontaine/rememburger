@@ -41,16 +41,19 @@ func _toggle(menu: Control) -> void:
 	if _current_menu == credits_menu:
 		credits_menu.credits.reset()
 
-	if _current_menu == save_files_menu:
-		var save_0: MenuSaveFile = save_files_menu._menu_save_files[0]
-		save_0.play_save_menu_button.pressed.emit()
+	#if _current_menu == save_files_menu:
+		# var save_0: MenuSaveFile = save_files_menu._menu_save_files[0]
+		# save_0.play_save_menu_button.pressed.emit()
 
+func _start_playing() -> void:
+	process_mode = PROCESS_MODE_DISABLED
+	SceneManagerWrapper.change_scene(SceneManagerEnum.Scene.GAME_SCENE, "fade_play")
 
 func _connect_signals() -> void:
 	options_menu.back_menu_button.confirmed.connect(_toggle.bind(main_menu))
 	credits_menu.back_menu_button.confirmed.connect(_toggle.bind(main_menu))
 	save_files_menu.back_menu_button.confirmed.connect(_toggle.bind(main_menu))
 
-	main_menu.play_menu_button.confirmed.connect(_toggle.bind(save_files_menu))
+	main_menu.play_menu_button.confirmed.connect(_start_playing)
 	main_menu.options_menu_button.confirmed.connect(_toggle.bind(options_menu))
 	main_menu.credits_menu_button.confirmed.connect(_toggle.bind(credits_menu))

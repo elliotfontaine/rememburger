@@ -23,6 +23,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="RootMarginContainer" unique_id=2082158809]
+layout_mode = 2
+color = Color(1, 0.8, 0.5, 1)
+
 [node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer" unique_id=246485005]
 layout_mode = 2
 size_flags_vertical = 8
@@ -84,8 +88,9 @@ theme_override_constants/separation = 32
 [node name="TitleLabel" type="Label" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer" unique_id=671241826]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 64
-text = "Game Template"
+text = "Rememburger"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -101,21 +106,25 @@ theme_override_constants/separation = 16
 [node name="PlayMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=7170428 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
+text = "       Play       "
 label = "MENU_LABEL_PLAY"
 
 [node name="OptionsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=297167535 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
+text = "       Options       "
 label = "MENU_OPTIONS"
 
 [node name="CreditsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=738759575 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
+text = "       Credits       "
 label = "MENU_LABEL_CREDITS"
 
 [node name="QuitMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=882919507 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
+text = "       Quit       "
 label = "MENU_LABEL_QUIT"
 
 [node name="ControlGrabFocus" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=133167924 instance=ExtResource("3_jhg6y")]
@@ -138,5 +147,6 @@ size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="MenuDropdownNode" parent="RootMarginContainer/HeaderMarginContainer/HeaderBoxContainer" unique_id=1477077678 instance=ExtResource("4_0aswu")]
+visible = false
 layout_mode = 2
 list_cfg = 8
