@@ -17,6 +17,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qs7kg")
 
+[node name="Timer" type="Timer" parent="." unique_id=1151807056]
+autostart = true
+
 [node name="QueueManager" type="Node" parent="." unique_id=1427118529]
 unique_name_in_owner = true
 script = ExtResource("2_yqwvd")
@@ -39,16 +42,15 @@ render_target_update_mode = 4
 
 [node name="World" parent="SubViewportContainer/SubViewport" unique_id=20499566 instance=ExtResource("3_5ewdl")]
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1601565863]
+[node name="MarginContainer2" type="VBoxContainer" parent="." unique_id=1480575360]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.92
+anchor_left = 0.863
 anchor_top = 0.02
-anchor_right = 0.92
-anchor_bottom = 0.039
-offset_left = 18.599976
-offset_bottom = 13.559997
-grow_horizontal = 0
+anchor_right = 0.863
+anchor_bottom = 0.033
+offset_right = 124.0
+offset_bottom = 39.479996
 
 [node name="Label" type="Label" parent="MarginContainer2" unique_id=1036349827]
 layout_mode = 2
@@ -62,6 +64,15 @@ theme_override_font_sizes/font_size = 60
 text = "1234"
 horizontal_alignment = 2
 justification_flags = 162
+
+[node name="TmpPoints" type="Label" parent="MarginContainer2" unique_id=532571110]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("5_8gekn")
+theme_override_font_sizes/font_size = 60
+text = "+ 10"
+horizontal_alignment = 2
 
 [node name="PauseMarginContainer" type="MarginContainer" parent="." unique_id=123815767]
 layout_mode = 1
@@ -142,5 +153,31 @@ layout_mode = 2
 text = "More info on queue content
 "
 
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1238527393]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.03
+anchor_right = 0.5
+anchor_bottom = 0.03
+offset_left = -93.0
+offset_right = 93.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="TimerDisplay" type="Label" parent="MarginContainer" unique_id=329331624]
+layout_mode = 2
+theme = ExtResource("4_1tkip")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("5_8gekn")
+theme_override_font_sizes/font_size = 80
+text = "00 : 00"
+horizontal_alignment = 2
+justification_flags = 162
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="customer_ticked" from="QueueManager" to="." method="_on_queue_manager_customer_ticked"]
 [connection signal="queue_changed" from="QueueManager" to="." method="_on_queue_manager_queue_changed"]

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://4arov5jfx1y7"]
+
+[ext_resource type="Script" uid="uid://bqye2k0gfsdg1" path="res://root/scenes/scene/game_scene/game_end/game_end.gd" id="1_7ol2x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbs1e"]
+
+[node name="GameEnd" type="Control" unique_id=411140280]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ol2x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=608204138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.694, 0.32, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1186669241]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1870426435]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 80
+text = "Time’s up !"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1465932831]
+layout_mode = 2
+theme_override_constants/separation = 103
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jbs1e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1776902443]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1841844439]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 60
+text = "Final score: "
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=624440891]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 60
+text = "0000"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=2033408537]
+layout_mode = 2
+theme_override_constants/separation = 103
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jbs1e")
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=2015398505]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Main menu"
+
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

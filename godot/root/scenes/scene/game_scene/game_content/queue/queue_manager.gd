@@ -137,7 +137,7 @@ func serve_customer(customer_id: int, served_meal: MealData) -> int:
 
 	var distance := c.order.distance_to(served_meal)
 
-	var points_earned := maxi(0, int(c.points) - distance)
+	var points_earned := maxi(5, int(c.points) - distance)
 	c.state = CustomerData.State.SERVED
 	queue.erase(c)
 
