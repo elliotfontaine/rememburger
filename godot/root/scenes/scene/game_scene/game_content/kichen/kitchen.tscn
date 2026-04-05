@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://nfuolcwpownw" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.gd" id="1_b8wqn"]
 [ext_resource type="Texture2D" uid="uid://l12io2kll5l2" path="res://root/assets/image/game/backgrounds/counter.png" id="2_re3it"]
-[ext_resource type="PackedScene" uid="uid://bsqpvmfvuqpdb" path="res://root/scenes/scene/game_scene/game_content/kichen/chopping_board.tscn" id="3_hy7gk"]
+[ext_resource type="PackedScene" uid="uid://pgrgkckifos6" path="res://root/scenes/scene/game_scene/game_content/kichen/chopping_board.tscn" id="3_hy7gk"]
 [ext_resource type="PackedScene" uid="uid://btkkr4eig3viw" path="res://root/scenes/scene/game_scene/game_content/kichen/ingredient_drawer.tscn" id="4_ktovm"]
+[ext_resource type="PackedScene" uid="uid://c8ryrlkd756p2" path="res://root/scenes/scene/game_scene/game_content/kichen/grill.tscn" id="4_s0tmi"]
 [ext_resource type="Texture2D" uid="uid://dk6uofcu4ayy8" path="res://root/assets/image/game/ingredients/ingredient0006.png" id="5_gx662"]
 [ext_resource type="Texture2D" uid="uid://tadvuwr8cpd" path="res://root/assets/image/game/ingredients/ingredient0007.png" id="6_ox3hu"]
 [ext_resource type="Texture2D" uid="uid://c220s2nkclrfm" path="res://root/assets/image/game/ingredients/ingredient0011.png" id="7_bap8o"]
@@ -35,12 +36,29 @@ polygon = PackedVector2Array(-887, 291, 890, 292, 936, 707, -938, 710)
 position = Vector2(-512, 534)
 kitchen_path = NodePath("../..")
 
-[node name="Grill" type="Area2D" parent="Counter" unique_id=266036550]
+[node name="Grill" parent="Counter" unique_id=426809160 instance=ExtResource("4_s0tmi")]
+position = Vector2(592, 568)
+kitchen_path = NodePath("../..")
+
+[node name="Grill2" parent="Counter" unique_id=224881895 instance=ExtResource("4_s0tmi")]
+position = Vector2(763, 562)
+kitchen_path = NodePath("../..")
+
+[node name="Grill3" parent="Counter" unique_id=993940971 instance=ExtResource("4_s0tmi")]
+position = Vector2(588, 432)
+kitchen_path = NodePath("../..")
+
+[node name="Grill4" parent="Counter" unique_id=868339515 instance=ExtResource("4_s0tmi")]
+position = Vector2(758, 430)
+kitchen_path = NodePath("../..")
+
+[node name="OldGrill" type="Area2D" parent="Counter" unique_id=266036550]
+visible = false
 input_pickable = false
 priority = 5
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Counter/Grill" unique_id=1766919032]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Counter/OldGrill" unique_id=1766919032]
 position = Vector2(1173, -84)
 scale = Vector2(0.99853265, 1)
 polygon = PackedVector2Array(-678.99475, 448, -338.4951, 449, -309.4541, 724, -657.9655, 725)

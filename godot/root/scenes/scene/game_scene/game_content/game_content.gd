@@ -82,7 +82,5 @@ func score_points(_customer_data: CustomerData, points_earned: int) -> void:
 
 func _on_timer_timeout() -> void:
 	remaining_time -= 1
-	print(remaining_time)
 	if remaining_time == 0:
-		print("end ?")
 		game_ended.emit()

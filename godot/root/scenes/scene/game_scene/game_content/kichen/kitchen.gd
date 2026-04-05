@@ -35,7 +35,7 @@ func try_grab(object: Node2D) -> bool:
 func try_release(where: Vector2) -> bool:
 	if not grabbed_object:
 		return false
-	
+
 	elif grabbed_object is KitchenMovableIngredient:
 		var ingredient_data: IngredientData = grabbed_object.get_ingredient_data()
 		var object_area: Area2D = grabbed_object.grabbing_area_2d
@@ -57,6 +57,17 @@ func try_release(where: Vector2) -> bool:
 					break
 				else:
 					return false
+			if other_area is Grill:
+				if not other_area.has_ingredient_placed() and ingredient_data.workstation == IngredientData.WorkStation.GRILL:
+					other_area.placed_ingredient = grabbed_object.ingredient
+					other_area.step = 0
+					other_area._start_timer()
+					LogWrapper.debug(self, "Dropped %s on grill" % ingredient_data)
+					grabbed_object.queue_free()
+					break
+				else:
+					return false
+
 	elif grabbed_object is MovableMealPlate:
 		var object_area: Area2D = grabbed_object.grabbing_area_2d
 		for other_area in object_area.get_overlapping_areas():
@@ -66,7 +77,7 @@ func try_release(where: Vector2) -> bool:
 					LogWrapper.debug(self, "Dropped plate on serving spot")
 					grabbed_object.queue_free()
 				break
-		
+
 	grabbed_object = null
 	return true
 
