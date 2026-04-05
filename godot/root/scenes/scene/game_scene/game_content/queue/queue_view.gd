@@ -3,6 +3,9 @@ extends Node2D
 
 # Vue de la queue des clients. Les nodes enfants sont des CustomerView.
 
+signal customer_entered(customer_data: CustomerData)
+signal customer_exited(customer_data: CustomerData)
+
 @onready var customerScene: PackedScene = preload("res://root/scenes/scene/game_scene/game_content/queue/customer/customer_view.tscn")
 
 const SPREAD: Vector2 = Vector2(200, -10)
@@ -65,3 +68,17 @@ func update_customer_positions() -> void:
 
 func move_customer(customer: CustomerView, new_position: Vector2) -> void:
 	create_tween().tween_property(customer, "position", new_position, 3.0)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	var customer: CustomerView = area.get_parent() as CustomerView
+	if not customer:
+		return
+	emit_signal("customer_entered", customer.data)
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	var customer: CustomerView = area.get_parent() as CustomerView
+	if not customer:
+		return
+	emit_signal("customer_exited", customer.data)
