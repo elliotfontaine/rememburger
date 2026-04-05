@@ -42,7 +42,7 @@ func leave_angry(customer_data: CustomerData) -> void:
 
 	update_customer_positions()
 
-func leave_happy(customer_data: CustomerData) -> void:
+func leave_happy(customer_data: CustomerData, _points: int) -> void:
 	for customer: CustomerView in $Waiting.get_children():
 		if customer.data.id == customer_data.id:
 			make_leave(customer)
