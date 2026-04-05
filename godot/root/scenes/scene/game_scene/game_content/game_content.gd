@@ -12,6 +12,8 @@ extends Control
 @onready var queue_customer_list_label: Label = %QueueCustomerListLabel
 @onready var debug_info_label: Label = %DebugInfoLabel
 
+var score: int = 0
+
 
 func _ready() -> void:
 	LogWrapper.debug(self, "Scene ready.")
@@ -21,11 +23,16 @@ func _ready() -> void:
 	queue_manager.connect("customer_state_changed", SignalBus.customer_state_changed.emit)
 	queue_manager.connect("customer_left_angry", SignalBus.customer_left_angry.emit)
 	queue_manager.connect("customer_served", SignalBus.customer_served.emit)
-	queue_manager.connect("queue_changed", SignalBus.customer_served.emit)
+	queue_manager.connect("queue_changed", SignalBus.queue_changed.emit)
+
+	queue_manager.connect("customer_served", score_points)
 
 	queue_manager.start()
 	#queue_view.update_customer_positions()
 	_update_debug_overlay()
+
+func _process(_delta: float) -> void:
+	$MarginContainer2/Label.text = "%04d" % score
 
 
 func _update_debug_overlay() -> void:
@@ -58,3 +65,6 @@ func _on_queue_manager_queue_changed() -> void:
 
 func _on_queue_manager_customer_ticked(_customer: CustomerData) -> void:
 	_update_debug_overlay()
+
+func score_points(_customer_data: CustomerData, points_earned: int) -> void:
+	score += points_earned

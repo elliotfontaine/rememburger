@@ -95,6 +95,8 @@ func accept_customer(customer_id: int) -> void:
 
 	c.state = CustomerData.State.IN_QUEUE
 	c.has_ordered = true
+	c.points += 25.0
+	c.points = clampf(c.points, 0, 100)
 	customer_state_changed.emit(c)
 
 	# Renvoi en fin de file
