@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c77elrs58vox8"]
+
+[ext_resource type="Texture2D" uid="uid://b8slcdf55s482" path="res://root/assets/image/game/items/image0004.png" id="1_02usa"]
+[ext_resource type="Script" uid="uid://xupk51quy1fn" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen_tool.gd" id="1_ldbni"]
+
+[node name="Knife" type="Area2D" unique_id=1645705732]
+rotation = 0.87266463
+script = ExtResource("1_ldbni")
+storage_rotation = 0.8726646259971648
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1194890822]
+polygon = PackedVector2Array(-102, -63, 68, 91, 111, 55, -73, -94)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747672307]
+texture = ExtResource("1_02usa")
+metadata/_edit_lock_ = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
