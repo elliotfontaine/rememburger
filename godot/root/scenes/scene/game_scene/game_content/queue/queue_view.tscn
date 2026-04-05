@@ -1,16 +1,11 @@
 [gd_scene format=3 uid="uid://djb3vsrvt5j3a"]
 
 [ext_resource type="Script" uid="uid://w4pqt3x3wgtw" path="res://root/scenes/scene/game_scene/game_content/queue/queue_view.gd" id="1_yl100"]
-[ext_resource type="PackedScene" uid="uid://cokofndbolbnc" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_view.tscn" id="2_tirg5"]
 
 [node name="QueueView" type="Node2D" unique_id=47794637]
 y_sort_enabled = true
 script = ExtResource("1_yl100")
 
-[node name="CustomerView" parent="." unique_id=1253566926 instance=ExtResource("2_tirg5")]
+[node name="Waiting" type="Node2D" parent="." unique_id=1427844864]
 
-[node name="CustomerView2" parent="." unique_id=304096647 instance=ExtResource("2_tirg5")]
-position = Vector2(99, -84)
-
-[node name="CustomerView3" parent="." unique_id=1140530301 instance=ExtResource("2_tirg5")]
-position = Vector2(241, -190)
+[node name="Leaving" type="Node2D" parent="." unique_id=54384731]

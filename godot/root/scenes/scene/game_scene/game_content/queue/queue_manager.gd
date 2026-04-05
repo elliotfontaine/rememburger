@@ -50,7 +50,7 @@ func start() -> void:
 	_active = true
 	_schedule_next_spawn()
 	set_process(true)
-	
+
 	_spawn_customer()
 	call_next_customer()
 
@@ -96,11 +96,11 @@ func accept_customer(customer_id: int) -> void:
 	c.state = CustomerData.State.IN_QUEUE
 	c.has_ordered = true
 	customer_state_changed.emit(c)
-	
+
 	# Renvoi en fin de file
 	queue.erase(c)
 	queue.append(c)
-	
+
 	call_next_customer()
 
 
@@ -122,7 +122,7 @@ func reject_customer(customer_id: int) -> void:
 
 	if c.points <= 0.0:
 		_handle_angry_leave(c)
-	
+
 	call_next_customer()
 
 
@@ -145,9 +145,9 @@ func serve_customer(customer_id: int, served_meal: MealData) -> int:
 		self,
 		"Customer %s left with a meal. %s point earned" % [c, points_earned]
 	)
-	
+
 	call_next_customer()
-	
+
 	return points_earned
 
 
@@ -169,7 +169,7 @@ func _spawn_customer() -> void:
 	if queue.size() >= max_queue_size:
 		# File pleine : ce spawn est perdu, on attend le prochain
 		return
-	
+
 	var c := CustomerData.new()
 	c.id = _id_counter
 	c.name = CustomerData.NAMES.pick_random()
@@ -209,7 +209,7 @@ func _tick_customers(delta: float) -> void:
 func _handle_angry_leave(c: CustomerData) -> void:
 	if c.state == CustomerData.State.LEFT_ANGRY:
 		return  # déjà traité
-	
+
 	var at_counter := c.state == CustomerData.State.AT_COUNTER
 	c.state = CustomerData.State.LEFT_ANGRY
 	queue.erase(c)
@@ -243,4 +243,4 @@ func _on_reject_button_pressed() -> void:
 
 
 func _on_meal_served(meal: MealData) -> void:
-	serve_customer(get_counter_customer().id, meal) 
+	serve_customer(get_counter_customer().id, meal)
