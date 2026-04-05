@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://root/scenes/scene/game_scene/game_content/mouse_following_camera_2d.gd" id="4_gr6f7"]
 [ext_resource type="PackedScene" uid="uid://bkwmgrw0mg3p8" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.tscn" id="6_q3v8v"]
 [ext_resource type="Texture2D" uid="uid://bw6nlph411pit" path="res://root/assets/image/game/backgrounds/speech_bubble.png" id="7_k2e8o"]
+[ext_resource type="Texture2D" uid="uid://bqjamshr2hxd0" path="res://root/assets/image/game/items/image0005.png" id="7_v103c"]
 [ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/MealStack.tscn" id="8_iqpcp"]
 [ext_resource type="PackedScene" uid="uid://sxhvflj8q4k5" path="res://root/scenes/scene/game_scene/game_content/MealDesc.tscn" id="8_v103c"]
 
@@ -39,30 +40,34 @@ texture = ExtResource("3_q3v8v")
 [node name="RejectButton" type="Button" parent="." unique_id=655152088]
 unique_name_in_owner = true
 visible = false
-offset_left = 559.0
+offset_left = 433.0
 offset_top = -64.0
-offset_right = 658.0
+offset_right = 532.0
 offset_bottom = 12.0
 theme_override_font_sizes/font_size = 32
-text = "Reject"
+text = "Wait"
 
 [node name="TakeOrderButton" type="Button" parent="." unique_id=457387453]
 unique_name_in_owner = true
 visible = false
-offset_left = 711.0
+offset_left = 181.0
 offset_top = -64.0
-offset_right = 884.0
+offset_right = 386.0
 offset_bottom = 12.0
 theme_override_font_sizes/font_size = 32
-text = "Take Order"
+text = "Accept Order"
 
 [node name="ServingSpot" type="Area2D" parent="." unique_id=1634379125]
 unique_name_in_owner = true
-position = Vector2(796, -36)
+visible = false
+position = Vector2(272, -36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ServingSpot" unique_id=560963190]
 shape = SubResource("CircleShape2D_sf5dl")
 metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ServingSpot" unique_id=259504582]
+texture = ExtResource("7_v103c")
 
 [node name="Bubble" type="Node2D" parent="." unique_id=165283928]
 visible = false

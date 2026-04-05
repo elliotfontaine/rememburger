@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://w4pqt3x3wgtw" path="res://root/scenes/scene/game_scene/game_content/queue/queue_view.gd" id="1_yl100"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tirg5"]
-size = Vector2(66, 357)
+size = Vector2(66, 426.5)
 
 [node name="QueueView" type="Node2D" unique_id=47794637]
 y_sort_enabled = true
@@ -17,7 +17,7 @@ script = ExtResource("1_yl100")
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=502187825]
-position = Vector2(32, -179)
+position = Vector2(32, -144.25)
 shape = SubResource("RectangleShape2D_tirg5")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -13,6 +13,7 @@ func _on_queue_view_customer_exited(_customer_data: CustomerData) -> void:
 	$Bubble.visible = false
 	$RejectButton.visible = false
 	$TakeOrderButton.visible = false
+	$ServingSpot.visible = false
 
 func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 	$RejectButton.visible = true
@@ -21,5 +22,6 @@ func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 		$ServingSpot.visible = true
 	else:
 		$Bubble/MealDesc.meal_data = customer_data.order
+		$Bubble/MealStack.meal_data = customer_data.order
 		$Bubble.visible = true
 		$TakeOrderButton.visible = true
