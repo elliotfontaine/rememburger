@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://cero5jwsqq8el" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_head.gd" id="1_q8t7r"]
 [ext_resource type="Texture2D" uid="uid://dt0y6u2oq5vjn" path="res://root/assets/image/game/characters/base_character/Head_color.PNG" id="2_qqnqk"]
 [ext_resource type="Texture2D" uid="uid://c3gux68clxtlu" path="res://root/assets/image/game/characters/base_character/Head_outline.PNG" id="3_7uumd"]
+[ext_resource type="Texture2D" uid="uid://dp3t8bqxodw2" path="res://root/assets/image/game/characters/hair/color/image0000.png" id="4_mei4k"]
 [ext_resource type="Texture2D" uid="uid://0b15vjoxd5x3" path="res://root/assets/image/game/characters/faces/face0003.png" id="4_ngi10"]
-[ext_resource type="Texture2D" uid="uid://bh3gboxubgco7" path="res://root/assets/image/game/characters/hair/hair0002.png" id="5_mei4k"]
+[ext_resource type="Texture2D" uid="uid://ble8y657h4ugr" path="res://root/assets/image/game/characters/hair/outline/image0000.png" id="5_eok68"]
 
 [node name="CustomerHead" type="Node2D" unique_id=1340818636]
 script = ExtResource("1_q8t7r")
@@ -19,12 +20,18 @@ texture = ExtResource("2_qqnqk")
 position = Vector2(14, 26)
 texture = ExtResource("3_7uumd")
 
+[node name="Hair" type="Node2D" parent="." unique_id=244209467]
+
+[node name="Color" type="Sprite2D" parent="Hair" unique_id=1750000141]
+position = Vector2(-7, -40)
+texture = ExtResource("4_mei4k")
+
+[node name="Outline" type="Sprite2D" parent="Hair" unique_id=2063415270]
+position = Vector2(-7, -40)
+texture = ExtResource("5_eok68")
+
 [node name="Nose" type="Sprite2D" parent="." unique_id=1682873534]
 position = Vector2(1, 24)
 texture = ExtResource("4_ngi10")
-
-[node name="Hair" type="Sprite2D" parent="." unique_id=2063415270]
-position = Vector2(-7, -40)
-texture = ExtResource("5_mei4k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1048909411]

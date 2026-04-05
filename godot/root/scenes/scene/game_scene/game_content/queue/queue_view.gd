@@ -19,6 +19,7 @@ func _ready() -> void:
 func add_customer(customer_data: CustomerData) -> void:
 	var new_customer: CustomerView  = customerScene.instantiate()
 	new_customer.data = customer_data
+	new_customer.apply_visuals()
 	new_customer.position = Vector2(1200, CUSTOMER_OFFSET.y)
 	$Waiting.add_child(new_customer)
 	update_customer_positions()

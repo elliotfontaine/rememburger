@@ -5,6 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://c3fpwahskxru5" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_head.tscn" id="2_kb6fh"]
 [ext_resource type="Texture2D" uid="uid://b2rceramye23o" path="res://root/assets/image/game/characters/base_character/Body_outline.PNG" id="3_owpu1"]
 
+[sub_resource type="Gradient" id="Gradient_5xlv7"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_owpu1"]
+gradient = SubResource("Gradient_5xlv7")
+width = 120
+height = 15
+
 [node name="CustomerView" type="Node2D" unique_id=1253566926]
 script = ExtResource("1_6qvyg")
 
@@ -20,5 +29,9 @@ texture = ExtResource("3_owpu1")
 
 [node name="CustomerHead" parent="." unique_id=696342410 instance=ExtResource("2_kb6fh")]
 position = Vector2(-1, -295)
+
+[node name="SatisfactionBar" type="Sprite2D" parent="." unique_id=1466160277]
+position = Vector2(0, -438)
+texture = SubResource("GradientTexture2D_owpu1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=37236276]
