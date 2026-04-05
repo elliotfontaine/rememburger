@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://dn2dc53ny82fr"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_dvxi6"]
+[ext_resource type="Texture2D" uid="uid://tadvuwr8cpd" path="res://root/assets/image/game/ingredients/ingredient0007.png" id="2_emgsq"]
+
+[resource]
+script = ExtResource("1_dvxi6")
+name = "Cheddar"
+texture = ExtResource("2_emgsq")
+type = 4
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"

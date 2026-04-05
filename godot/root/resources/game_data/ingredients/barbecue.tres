@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://c8g8p02n3xos0"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_ubnu6"]
+[ext_resource type="Texture2D" uid="uid://cs62lpo5t7dbd" path="res://root/assets/image/game/ingredients/ingredient0010.png" id="2_k3imh"]
+
+[resource]
+script = ExtResource("1_ubnu6")
+name = "BBQ Sauce"
+texture = ExtResource("2_k3imh")
+type = 6
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"

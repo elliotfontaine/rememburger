@@ -1,7 +1,7 @@
 class_name MealData
 extends Resource
 
-@export var ingredients: Array[IngredientData] = []
+@export_custom(Registry.PROPERTY_HINT_CUSTOM, "uid://cgvbeut67x3ce") var ingredients: Array[StringName] = []
 
 
 func equals(other: MealData) -> bool:

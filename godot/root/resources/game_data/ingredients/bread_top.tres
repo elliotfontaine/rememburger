@@ -1,10 +1,15 @@
 [gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://cpnp1ydnfbh0"]
 
 [ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_c1iln"]
-[ext_resource type="Texture2D" uid="uid://fx6rvuj3yri" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="2_tr0eb"]
+[ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="2_tr0eb"]
 
 [resource]
 script = ExtResource("1_c1iln")
-name = "Bread Top"
+name = "Top Bread"
 texture = ExtResource("2_tr0eb")
+type = 1
+processed = null
+workstation = null
+n_produced_success = null
+n_produced_fail = null
 metadata/_custom_type_script = "uid://cfrxleyr1eapt"

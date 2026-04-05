@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://cdqvbitx3ohbi"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_ps2mu"]
+[ext_resource type="Texture2D" uid="uid://c42tgsw3l7dy6" path="res://root/assets/image/game/ingredients/ingredient0008.png" id="2_4djpb"]
+
+[resource]
+script = ExtResource("1_ps2mu")
+name = "Ketchup"
+texture = ExtResource("2_4djpb")
+type = 6
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"

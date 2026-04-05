@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MealData" format=3 uid="uid://caeybqm0yij33"]
+
+[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="1_dqm03"]
+
+[resource]
+script = ExtResource("1_dqm03")
+ingredients = Array[StringName]([&"bread_bottom", &"steak_cooked", &"steak_cooked", &"cheddar", &"tomato_slice", &"pickle_slice", &"ketchup", &"mustard", &"bread_top"])
+metadata/_custom_type_script = "uid://cp63ho2tbyfik"

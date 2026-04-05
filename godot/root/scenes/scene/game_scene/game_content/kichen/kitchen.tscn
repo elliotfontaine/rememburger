@@ -16,8 +16,8 @@ priority = 10
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="SurfaceArea2D" unique_id=713418726]
-position = Vector2(-0.9119727, 0)
-scale = Vector2(0.08804696, 1)
+position = Vector2(-0.001580894, 0)
+scale = Vector2(0.99853265, 1)
 polygon = PackedVector2Array(-887, 291, 890, 292, 936, 707, -938, 710)
 
 [node name="KitchenMovableItem" parent="." unique_id=1364679981 instance=ExtResource("3_re3it")]
