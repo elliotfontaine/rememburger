@@ -19,10 +19,10 @@ signal queue_changed()
 
 const MEAL_PRESETS: Registry = preload("uid://b6iabg6hpbv1e")
 
-@export var spawn_interval_min: float = 5.0
-@export var spawn_interval_max: float = 9.0
+@export var spawn_interval_min: float = 20.0
+@export var spawn_interval_max: float = 40.0
 @export var max_queue_size: int = 5
-@export var points_drain_per_second: float = 8.0
+@export var points_drain_per_second: float = 1.0
 @export var reject_penalty: int = 5
 
 var queue: Array[CustomerData] = []

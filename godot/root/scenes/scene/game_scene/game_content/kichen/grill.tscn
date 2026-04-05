@@ -1,19 +1,22 @@
-[gd_scene format=3 uid="uid://pgrgkckifos6"]
+[gd_scene format=3 uid="uid://c8ryrlkd756p2"]
 
-[ext_resource type="Script" path="res://root/scenes/scene/game_scene/game_content/kichen/chopping_board.gd" id="1_84l04"]
+[ext_resource type="Script" uid="uid://drddopmi7k4no" path="res://root/scenes/scene/game_scene/game_content/kichen/grill.gd" id="1_17pt8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84l04"]
 radius = 50.0
 
-[node name="ChoppingBoard" type="Area2D" unique_id=1962223519]
+[node name="Grill" type="Area2D" unique_id=1962223519]
 input_pickable = false
 priority = 5
-script = ExtResource("1_84l04")
+script = ExtResource("1_17pt8")
 metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1434557414]
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1017019598]
 scale = Vector2(0.99853265, 1)
-polygon = PackedVector2Array(-165.15448, -84.701965, 175.34518, -83.701965, 166.33194, 82.298035, -173.1662, 86.298035)
+polygon = PackedVector2Array(-86.12637, -60, 84.123436, -59, 82.1205, 72, -89.13078, 72)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=908945691]
 unique_name_in_owner = true
@@ -27,4 +30,5 @@ priority = 6
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CurrentItemArea2D" unique_id=331067975]
 shape = SubResource("CircleShape2D_84l04")
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="input_event" from="CurrentItemArea2D" to="." method="_on_current_item_area_2d_input_event"]

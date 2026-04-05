@@ -35,7 +35,7 @@ func try_grab(object: Node2D) -> bool:
 func try_release(where: Vector2) -> bool:
 	if not grabbed_object:
 		return false
-	
+
 	elif grabbed_object is KitchenMovableIngredient:
 		var ingredient_data: IngredientData = grabbed_object.get_ingredient_data()
 		var object_area: Area2D = grabbed_object.grabbing_area_2d
@@ -57,6 +57,17 @@ func try_release(where: Vector2) -> bool:
 					break
 				else:
 					return false
+			if other_area is Grill:
+				if not other_area.has_ingredient_placed() and ingredient_data.workstation == IngredientData.WorkStation.GRILL:
+					other_area.placed_ingredient = grabbed_object.ingredient
+					other_area.step = 0
+					other_area._start_timer()
+					LogWrapper.debug(self, "Dropped %s on grill" % ingredient_data)
+					grabbed_object.queue_free()
+					break
+				else:
+					return false
+
 	elif grabbed_object is MovableMealPlate:
 		var object_area: Area2D = grabbed_object.grabbing_area_2d
 		for other_area in object_area.get_overlapping_areas():
@@ -66,9 +77,10 @@ func try_release(where: Vector2) -> bool:
 					LogWrapper.debug(self, "Dropped plate on serving spot")
 					grabbed_object.queue_free()
 				break
+
 	elif grabbed_object is KitchenTool:
 		if grabbed_object.name == &"Knife":
-			for other_area: Area2D in grabbed_object.get_overlapping_areas():
+https://github.com/elliotfontaine/rememburger/pull/24/conflict?name=godot%252Froot%252Fscenes%252Fscene%252Fgame_scene%252Fgame_content%252Fkichen%252Fkitchen.gd&ancestor_oid=d78c7df07d555532cfa56e166b582764d06fe2b9&base_oid=02fe12b544f4586fda15e0aa51f102b134179d51&head_oid=3a1d265b7e9859311fe14d72763debcd6396e5d1			for other_area: Area2D in grabbed_object.get_overlapping_areas():
 				if other_area is ChoppingBoard:
 					if other_area.has_ingredient_placed():
 						var placed_ingr_data: IngredientData = INGREDIENT_REGISTRY.load_entry(other_area.placed_ingredient)

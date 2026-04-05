@@ -23,7 +23,6 @@ autostart = true
 [node name="QueueManager" type="Node" parent="." unique_id=1427118529]
 unique_name_in_owner = true
 script = ExtResource("2_yqwvd")
-points_drain_per_second = 2.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1612915438]
 layout_mode = 1
