@@ -24,14 +24,14 @@ Le problème ? Plusieurs clients se croisent, et quand l'un d'eux revient récla
 
 ### Règles
 
-- Chaque client arrive avec **100 points** qui diminuent chaque seconde
-- **Accepter** un client : il part attendre, et remonte de **25 points** vous devez mémoriser sa commande
-- **Rejeter** un client : il repart en queue, il perd **5 points**
+- Chaque client arrive avec **100 points** qui diminuent chaque seconde.
+- **Accepter** un client : il part attendre, et remonte de **25 points** vous devez mémoriser sa commande.
+- **Rejeter** un client : il repart en queue, il perd **5 points**.
 - Si un client tombe à **0 point** : il quitte le restaurant, très fâché !
-- Servir un client correctement : vous gagnez ses **points restants**
-- Mauvais service : vous gagnez **10 points**, car l'important c'est de participer.
+- Servir un client correctement : vous gagnez ses **points restants**.
+- Mauvais service : vous gagnez quand même **5 points**, car l'important c'est de participer.
 
-La partie se termine après un certain temps ou un nombre de clients servis.
+La partie se termine après 5 minutes. Servez un maximum de clients !
 
 ### Ingrédients
 
@@ -42,11 +42,12 @@ Attention : un ingrédient laissé trop longtemps sur le grill finit par **crame
 
 ## Contrôles
 
-Clique gauche pour sélectionner un ingrédient, et le placer un peu partout.
-Assembler un burger dans une assiette
+Clic gauche pour sélectionner un ingrédient ou une assiette, et le placer un peu partout.
+Clic gauche sur le couteau, puis sur la planche à découper pour trancher le légume qui s'y trouve.
+Assembler un burger en glissant les ingrédients dans une assiette.
 
 Boutons clients:
 
 - "Wait": renvoie à l’arrière de la file
 - "Accept Order": prend en compte la commande
-- déposer l’assiette dans la zone pointillée pour servir
+- Déposer l’assiette dans la zone pointillée pour servir
