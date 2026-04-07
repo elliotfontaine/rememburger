@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://b88kuy67g4l8f"]
 
 [ext_resource type="Script" uid="uid://bfr1jpneg2tf3" path="res://root/scenes/scene/menu_scene/main_menu/main_menu.gd" id="1_j1c5u"]
+[ext_resource type="Shader" uid="uid://deeo3bc3gchtf" path="res://root/shaders/uv_stitching_background.gdshader" id="2_6ewq2"]
+[ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="3_6ewq2"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://root/scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_jhg6y"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="3_u405l"]
 [ext_resource type="PackedScene" uid="uid://cqg5p86vdf7ea" path="res://root/scenes/node/menu/menu_configuration/menu_dropdown_node/menu_dropdown_node.tscn" id="4_0aswu"]
+[ext_resource type="Texture2D" uid="uid://71qyich8cspf" path="res://root/assets/image/game/ingredients/ingredient0003.png" id="4_upp4l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ax7q"]
+shader = ExtResource("2_6ewq2")
+shader_parameter/angle = 6.0
+shader_parameter/texture_1 = ExtResource("3_6ewq2")
+shader_parameter/texture_2 = ExtResource("4_upp4l")
+shader_parameter/line_distance = 0.001
+shader_parameter/texture_distance = 0.1
+shader_parameter/texture_width = 0.15
+shader_parameter/scroll_speed = 0.2
+shader_parameter/solid_color = Color(0.9570616, 0.8443403, 0.8108153, 1)
 
 [node name="MainMenu" type="Control" unique_id=375281795]
 layout_mode = 3
@@ -24,6 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="RootMarginContainer" unique_id=2082158809]
+material = SubResource("ShaderMaterial_2ax7q")
 layout_mode = 2
 color = Color(1, 0.8, 0.5, 1)
 
