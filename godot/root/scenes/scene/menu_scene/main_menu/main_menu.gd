@@ -23,19 +23,12 @@ func _ready() -> void:
 		quit_menu_button.visible = false
 
 	LogWrapper.debug(self, "Scene ready.")
-	
-	_reposition_title()
 
 
 func _refresh_labels() -> void:
 	#title_label.text = TranslationServerWrapper.translate(Configuration.GAME_TITLE)
 	author_label.text = Configuration.GAME_AUTHOR
 	version_label.text = VERSION_PREFIX + ProjectSettings.get_setting("application/config/version")
-
-
-func _reposition_title() -> void:
-	title_label.position = title_label_placeholder.position
-	
 
 
 func _connect_signals() -> void:

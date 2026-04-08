@@ -184,16 +184,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -294.5
-offset_top = -58.0
-offset_right = 294.5
-offset_bottom = 58.0
+offset_left = -314.5
+offset_top = -80.0
+offset_right = 314.5
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 focus_mode = 0
 theme_override_colors/default_color = Color(0.35686275, 0.05490196, 0.047058824, 1)
 theme_override_colors/font_outline_color = Color(0.35686275, 0.05490196, 0.047058824, 1)
+theme_override_colors/font_shadow_color = Color(0.24025035, 0.025621764, 0.021432502, 1)
+theme_override_constants/shadow_outline_size = 30
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 32
 theme_override_fonts/normal_font = ExtResource("5_fpykg")
 theme_override_font_sizes/normal_font_size = 96
@@ -206,6 +210,7 @@ vertical_alignment = 1
 
 [node name="SeparationMarginContainer" type="MarginContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer" unique_id=157384677]
 layout_mode = 2
+theme_override_constants/margin_top = 30
 
 [node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer" unique_id=1743424131]
 layout_mode = 2
