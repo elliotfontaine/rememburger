@@ -11,6 +11,10 @@ extends Control
 @onready var queue_size_value_label: Label = %QueueSizeValueLabel
 @onready var queue_customer_list_label: Label = %QueueCustomerListLabel
 @onready var debug_info_label: Label = %DebugInfoLabel
+@onready var points_label: Label = %PointsLabel
+@onready var tmp_points_label: Label = %TmpPointsLabel
+@onready var timer_label: Label = %TimerLabel
+
 
 var display_score: int = 0
 var remaining_time: int = 5 * 60
@@ -36,12 +40,12 @@ func _ready() -> void:
 	_update_debug_overlay()
 
 func _process(_delta: float) -> void:
-	$MarginContainer2/Label.text = "%04d" % display_score
+	points_label.text = "%04d" % display_score
 
-	$MarginContainer2/TmpPoints.text = "+ %d" % (GlobalScore.score - display_score)
-	$MarginContainer2/TmpPoints.visible = (GlobalScore.score != display_score)
+	tmp_points_label.text = "+ %d" % (GlobalScore.score - display_score)
+	tmp_points_label.visible = (GlobalScore.score != display_score)
 
-	$MarginContainer/TimerDisplay.text = "%02d : %02d" % [remaining_time / 60, remaining_time % 60]
+	timer_label.text = "%02d : %02d" % [remaining_time / 60, remaining_time % 60]
 
 
 func _update_debug_overlay() -> void:

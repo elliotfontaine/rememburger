@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://c5e23i8a611eb" path="res://root/scenes/scene/game_scene/game_content/game_content.gd" id="1_qs7kg"]
 [ext_resource type="Script" uid="uid://drupy358b4i8e" path="res://root/scenes/scene/game_scene/game_content/queue/queue_manager.gd" id="2_yqwvd"]
 [ext_resource type="PackedScene" uid="uid://kbjd1qfc42hv" path="res://root/scenes/scene/game_scene/game_content/world.tscn" id="3_5ewdl"]
-[ext_resource type="Theme" uid="uid://downo5rrvt4lo" path="res://root/resources/global/theme/tres/theme.tres" id="4_1tkip"]
-[ext_resource type="FontFile" uid="uid://bfikge1mf7vn1" path="res://root/assets/font/Mogra/Mogra-Regular.ttf" id="5_8gekn"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="5_kng2e"]
 
 [node name="GameContent" type="Control" unique_id=8418740]
@@ -43,39 +41,7 @@ render_target_update_mode = 4
 
 [node name="World" parent="SubViewportContainer/SubViewport" unique_id=20499566 instance=ExtResource("3_5ewdl")]
 
-[node name="MarginContainer2" type="VBoxContainer" parent="." unique_id=1480575360]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.863
-anchor_top = 0.02
-anchor_right = 0.863
-anchor_bottom = 0.033
-offset_right = 124.0
-offset_bottom = 39.479996
-
-[node name="Label" type="Label" parent="MarginContainer2" unique_id=1036349827]
-layout_mode = 2
-theme = ExtResource("4_1tkip")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 3
-theme_override_constants/outline_size = 11
-theme_override_fonts/font = ExtResource("5_8gekn")
-theme_override_font_sizes/font_size = 60
-text = "1234"
-horizontal_alignment = 2
-justification_flags = 162
-
-[node name="TmpPoints" type="Label" parent="MarginContainer2" unique_id=532571110]
-visible = false
-layout_mode = 2
-theme_override_constants/outline_size = 11
-theme_override_fonts/font = ExtResource("5_8gekn")
-theme_override_font_sizes/font_size = 60
-text = "+ 10"
-horizontal_alignment = 2
-
-[node name="PauseMarginContainer" type="MarginContainer" parent="." unique_id=123815767]
+[node name="TopRightMarginContainer" type="MarginContainer" parent="." unique_id=123815767]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -88,9 +54,39 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="PauseMenuButton" parent="PauseMarginContainer" unique_id=1804641574 instance=ExtResource("5_kng2e")]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopRightMarginContainer" unique_id=164071438]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopRightMarginContainer/HBoxContainer" unique_id=1106257329]
+layout_mode = 2
+
+[node name="PointsLabel" type="Label" parent="TopRightMarginContainer/HBoxContainer/VBoxContainer" unique_id=1036349827]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 60
+text = "1234"
+horizontal_alignment = 2
+justification_flags = 162
+
+[node name="TmpPointsLabel" type="Label" parent="TopRightMarginContainer/HBoxContainer/VBoxContainer" unique_id=532571110]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 60
+text = "+ 10"
+horizontal_alignment = 2
+
+[node name="PauseMenuButton" parent="TopRightMarginContainer/HBoxContainer" unique_id=1804641574 instance=ExtResource("5_kng2e")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = " Pause "
 label = "MENU_LABEL_PAUSE"
@@ -98,7 +94,6 @@ padding_spaces = 1
 
 [node name="DebugMarginContainer" type="MarginContainer" parent="." unique_id=1909228670]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_right = 132.0
 offset_bottom = 66.0
@@ -166,14 +161,13 @@ offset_right = 93.0
 offset_bottom = 60.0
 grow_horizontal = 2
 
-[node name="TimerDisplay" type="Label" parent="MarginContainer" unique_id=329331624]
+[node name="TimerLabel" type="Label" parent="MarginContainer" unique_id=329331624]
+unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("4_1tkip")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 11
-theme_override_fonts/font = ExtResource("5_8gekn")
 theme_override_font_sizes/font_size = 80
 text = "00 : 00"
 horizontal_alignment = 2

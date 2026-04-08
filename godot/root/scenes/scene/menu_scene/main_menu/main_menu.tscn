@@ -212,37 +212,51 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_constants/margin_top = 30
 
-[node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer" unique_id=1743424131]
+[node name="PanelContainer" type="PanelContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer" unique_id=325728506]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer" unique_id=622553217]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer" unique_id=173019259]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer" unique_id=1743424131]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 16
 
-[node name="PlayMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=7170428 instance=ExtResource("3_u405l")]
+[node name="PlayMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=7170428 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "       Play       "
 label = "MENU_LABEL_PLAY"
 
-[node name="OptionsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=297167535 instance=ExtResource("3_u405l")]
+[node name="OptionsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=297167535 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "       Options       "
 label = "MENU_OPTIONS"
 
-[node name="CreditsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=738759575 instance=ExtResource("3_u405l")]
+[node name="CreditsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=738759575 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "       Credits       "
 label = "MENU_LABEL_CREDITS"
 
-[node name="QuitMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=882919507 instance=ExtResource("3_u405l")]
+[node name="QuitMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=882919507 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "       Quit       "
 label = "MENU_LABEL_QUIT"
 
-[node name="ControlGrabFocus" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=133167924 instance=ExtResource("3_jhg6y")]
+[node name="ControlGrabFocus" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=133167924 instance=ExtResource("3_jhg6y")]
 
 [node name="HeaderMarginContainer" type="MarginContainer" parent="RootMarginContainer" unique_id=1476505233]
 layout_mode = 2

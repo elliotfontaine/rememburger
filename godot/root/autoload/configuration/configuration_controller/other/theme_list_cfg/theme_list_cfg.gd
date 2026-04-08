@@ -6,7 +6,7 @@ extends ListConfigurationController
 
 # alternative to the inconsistent custom theme: Project > Project Settings > GUI > Theme > Custom
 # - https://github.com/godotengine/godot/issues/96023
-const CUSTOM_THEME = preload(PathConsts.RES + "resources/global/theme/tres/theme.tres")
+const CUSTOM_THEME = preload(PathConsts.RES + "resources/global/theme/tres/kenneyUI.tres")
 
 
 func is_disabled() -> bool:

@@ -1,17 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo52utxeld0r0"]
+[gd_scene format=3 uid="uid://bo52utxeld0r0"]
 
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="1_krneb"]
 [ext_resource type="Script" uid="uid://3urf76et05ff" path="res://root/scenes/scene/game_scene/pause_menu/pause_menu.gd" id="1_nxviq"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://root/scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="2_4br2w"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e53e6"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=1623067217]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -21,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nxviq")
 
-[node name="MainMenuMarginContainer" type="MarginContainer" parent="."]
+[node name="MainMenuMarginContainer" type="MarginContainer" parent="." unique_id=285311264]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,30 +30,29 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="SolidPanelMarginContainer" type="MarginContainer" parent="MainMenuMarginContainer"]
+[node name="SolidPanelMarginContainer" type="MarginContainer" parent="MainMenuMarginContainer" unique_id=1935319144]
 layout_mode = 2
 theme_override_constants/margin_left = -40
 theme_override_constants/margin_top = -40
 theme_override_constants/margin_right = -40
 theme_override_constants/margin_bottom = -40
 
-[node name="SolidPanel" type="Panel" parent="MainMenuMarginContainer/SolidPanelMarginContainer"]
+[node name="SolidPanel" type="Panel" parent="MainMenuMarginContainer/SolidPanelMarginContainer" unique_id=619656083]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_e53e6")
 
-[node name="MainMenuVBoxContainer" type="VBoxContainer" parent="MainMenuMarginContainer"]
+[node name="MainMenuVBoxContainer" type="VBoxContainer" parent="MainMenuMarginContainer" unique_id=1228637296]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="MainMenuLabelsVBoxContainer" type="VBoxContainer" parent="MainMenuMarginContainer/MainMenuVBoxContainer"]
+[node name="MainMenuLabelsVBoxContainer" type="VBoxContainer" parent="MainMenuMarginContainer/MainMenuVBoxContainer" unique_id=617855963]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 32
 
-[node name="TitleLabel" type="Label" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer"]
+[node name="TitleLabel" type="Label" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer" unique_id=1624907183]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -68,16 +60,16 @@ text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SeparationMarginContainer" type="MarginContainer" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer"]
+[node name="SeparationMarginContainer" type="MarginContainer" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer" unique_id=2143449508]
 layout_mode = 2
 
-[node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="MainMenuMarginContainer/MainMenuVBoxContainer"]
+[node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="MainMenuMarginContainer/MainMenuVBoxContainer" unique_id=464267869]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 16
 
-[node name="ContinueMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("1_krneb")]
+[node name="ContinueMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=71199312 instance=ExtResource("1_krneb")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath(".")
@@ -87,7 +79,7 @@ text = "    Continue    "
 label = "MENU_LABEL_CONTINUE"
 padding_spaces = 4
 
-[node name="OptionsMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("1_krneb")]
+[node name="OptionsMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=1935259042 instance=ExtResource("1_krneb")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../ContinueMenuButton")
@@ -97,7 +89,7 @@ text = "    Options    "
 label = "MENU_OPTIONS"
 padding_spaces = 4
 
-[node name="LeaveMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("1_krneb")]
+[node name="LeaveMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=356793150 instance=ExtResource("1_krneb")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../OptionsMenuButton")
@@ -107,7 +99,7 @@ text = "    Leave    "
 label = "MENU_LABEL_LEAVE"
 padding_spaces = 4
 
-[node name="QuitMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("1_krneb")]
+[node name="QuitMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=1195522957 instance=ExtResource("1_krneb")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../LeaveMenuButton")
@@ -117,4 +109,4 @@ text = "    Quit    "
 label = "MENU_LABEL_QUIT"
 padding_spaces = 4
 
-[node name="ControlGrabFocus" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" instance=ExtResource("2_4br2w")]
+[node name="ControlGrabFocus" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=363631775 instance=ExtResource("2_4br2w")]
