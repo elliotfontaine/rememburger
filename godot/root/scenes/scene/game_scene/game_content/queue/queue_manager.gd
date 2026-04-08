@@ -186,7 +186,7 @@ func _spawn_customer() -> void:
 	else:
 		c.hair_color = CustomerData.HAIR_COLORS.pick_random()
 	c.order = _generate_order()
-	c.state = CustomerData.State.IN_QUEUE
+	c.state = CustomerData.State.AT_COUNTER if queue.is_empty() else CustomerData.State.IN_QUEUE
 	c.points = 100.0
 	_id_counter += 1
 
