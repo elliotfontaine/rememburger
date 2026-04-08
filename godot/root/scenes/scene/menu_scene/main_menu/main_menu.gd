@@ -4,7 +4,8 @@ extends Control
 
 const VERSION_PREFIX: String = "v"
 
-@onready var title_label: Label = %TitleLabel
+@onready var title_label: RichTextLabel = %TitleLabel
+@onready var title_label_placeholder: Label = %TitleLabelPlaceholder
 @onready var author_label: Label = %AuthorLabel
 @onready var version_label: Label = %VersionLabel
 
@@ -22,12 +23,19 @@ func _ready() -> void:
 		quit_menu_button.visible = false
 
 	LogWrapper.debug(self, "Scene ready.")
+	
+	_reposition_title()
 
 
 func _refresh_labels() -> void:
-	title_label.text = TranslationServerWrapper.translate(Configuration.GAME_TITLE)
+	#title_label.text = TranslationServerWrapper.translate(Configuration.GAME_TITLE)
 	author_label.text = Configuration.GAME_AUTHOR
 	version_label.text = VERSION_PREFIX + ProjectSettings.get_setting("application/config/version")
+
+
+func _reposition_title() -> void:
+	title_label.position = title_label_placeholder.position
+	
 
 
 func _connect_signals() -> void:
