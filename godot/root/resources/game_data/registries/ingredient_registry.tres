@@ -43,3 +43,51 @@ _string_ids_to_uids = Dictionary[StringName, StringName]({
 &"tomato": &"uid://0dymqmq6edu",
 &"tomato_slice": &"uid://ows3bing7gnt"
 })
+_property_index = Dictionary[StringName, Dictionary]({
+&"processed": {
+false: {
+&"pickle": true,
+&"steak_burnt": true,
+&"steak_raw": true,
+&"tomato": true
+},
+true: {
+&"barbecue": true,
+&"bread_bottom": true,
+&"bread_top": true,
+&"cheddar": true,
+&"ketchup": true,
+&"mustard": true,
+&"pickle_slice": true,
+&"steak_cooked": true,
+&"tomato_slice": true
+}
+},
+&"type": {
+0: {
+&"bread_bottom": true
+},
+1: {
+&"bread_top": true
+},
+2: {
+&"steak_burnt": true,
+&"steak_cooked": true,
+&"steak_raw": true
+},
+4: {
+&"cheddar": true
+},
+5: {
+&"pickle": true,
+&"pickle_slice": true,
+&"tomato": true,
+&"tomato_slice": true
+},
+6: {
+&"barbecue": true,
+&"ketchup": true,
+&"mustard": true
+}
+}
+})

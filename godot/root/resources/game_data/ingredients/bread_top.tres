@@ -8,7 +8,6 @@ script = ExtResource("1_c1iln")
 name = "Top Bread"
 texture = ExtResource("2_tr0eb")
 type = 1
-processed = null
 workstation = null
 n_produced_success = null
 n_produced_fail = null

@@ -42,8 +42,7 @@ func try_release(where: Vector2) -> bool:
 		for other_area in object_area.get_overlapping_areas():
 			if other_area.get_parent() is MovableMealPlate:
 				var plate: MovableMealPlate = other_area.get_parent()
-				if ingredient_data.processed: # only add processed food to plate
-					plate.add_ingredient_to_plate(grabbed_object.ingredient)
+				if plate.add_ingredient_to_plate(grabbed_object.ingredient):
 					LogWrapper.debug(self, "Dropped ingredient %s on plate" % ingredient_data)
 					grabbed_object.queue_free()
 					break
