@@ -25,11 +25,11 @@ func _ready() -> void:
 
 func _start_timer() -> void:
 	if step == 0:
-		print("cooking raw steak")
+		LogWrapper.debug(self, "Cooking raw steak")
 		$Timer.wait_time = 10
 		$Timer.start()
 	if step == 1:
-		print("(over) cooking cooked steak")
+		LogWrapper.debug(self, "Overcooking cooked steak (!)")
 		$Timer.wait_time = 20
 		$Timer.start()
 
@@ -47,7 +47,7 @@ func _on_current_item_area_2d_input_event(_viewport: Node, event: InputEvent, _s
 			$Timer.stop()
 			placed_ingredient = &""
 			get_viewport().set_input_as_handled()
-			LogWrapper.debug(self, "Movable ingredient grabbed from chopping board")
+			LogWrapper.debug(self, "Movable ingredient grabbed from grill")
 		else:
 			new_ingredient_object.queue_free()
 

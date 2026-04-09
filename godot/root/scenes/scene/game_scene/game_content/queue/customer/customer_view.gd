@@ -3,6 +3,9 @@ extends Node2D
 
 var data: CustomerData
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
+
 func apply_visuals() -> void:
 	$Body/Color.modulate = data.shirt_color
 	$CustomerHead/Head/Color.modulate = data.skin_color
@@ -10,6 +13,7 @@ func apply_visuals() -> void:
 	$CustomerHead/Hair/Color.texture = data.hair_color_texture
 	$CustomerHead/Hair/Color.modulate = data.hair_color
 	$CustomerHead/Hair/Outline.texture = data.hair_outline
+
 
 func _process(_delta: float) -> void:
 	$SatisfactionBar.scale.x = data.points / 100.0

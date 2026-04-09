@@ -94,6 +94,7 @@ padding_spaces = 1
 
 [node name="DebugMarginContainer" type="MarginContainer" parent="." unique_id=1909228670]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_right = 132.0
 offset_bottom = 66.0

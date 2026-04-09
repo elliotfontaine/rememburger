@@ -6,7 +6,7 @@ extends Node2D
 signal customer_entered(customer_data: CustomerData)
 signal customer_exited(customer_data: CustomerData)
 
-const CUSTOMER_VIEW_SCENE: PackedScene = preload("res://root/scenes/scene/game_scene/game_content/queue/customer/customer_view.tscn")
+const CUSTOMER_VIEW_SCENE: PackedScene = preload("uid://cokofndbolbnc")
 const SPREAD: Vector2 = Vector2(200, -10)
 const CUSTOMER_OFFSET := Vector2(100.0, -20.0)
 const START_POSITION := Vector2(1200, CUSTOMER_OFFSET.y)
@@ -60,8 +60,9 @@ func leave_happy(customer_data: CustomerData, _points: int) -> void:
 func make_leave(customer: CustomerView) -> void:
 	waiting_group.remove_child(customer)
 	leaving_group.add_child(customer)
-	create_tween().tween_property(customer, "position", START_POSITION, 2.0)
-	create_tween().tween_callback(customer.queue_free).set_delay(2.1)
+	move_customer(customer, START_POSITION)
+	create_tween().tween_property(customer, "modulate", Color.TRANSPARENT, 1.0).set_delay(1.4)
+	create_tween().tween_callback(customer.queue_free).set_delay(3.1)
 
 
 func get_customer_target_position(index: int) -> Vector2:
@@ -70,17 +71,29 @@ func get_customer_target_position(index: int) -> Vector2:
 
 func update_customer_positions() -> void:
 	for customer: CustomerView in waiting_group.get_children():
-		move_customer(customer, get_customer_target_position(customer.get_index()))
+		var target_pos := get_customer_target_position(customer.get_index())
+		if target_pos != customer.position:
+			move_customer(customer, target_pos)
 
 
 func move_customer(customer: CustomerView, new_position: Vector2) -> void:
-	create_tween().tween_property(customer, "position", new_position, 3.0)
+	var move_tween := create_tween()
+	var distance := new_position.distance_to(customer.position)
+	move_tween.tween_property(customer, "position", new_position, randf_range(2.3, 3.0))
+	move_tween.finished.connect(_on_move_tween_finished.bind(customer))
+
+	customer.animation_player.play(
+		&"walking",
+		-1,
+		max(1.0, randf_range(0.6, 1.0) * (distance / SPREAD.length())),
+	)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var customer: CustomerView = area.get_parent() as CustomerView
 	if not customer:
 		return
+	
 	customer_entered.emit(customer.data)
 
 
@@ -88,4 +101,14 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	var customer: CustomerView = area.get_parent() as CustomerView
 	if not customer:
 		return
+	
 	customer_exited.emit(customer.data)
+
+
+func _on_move_tween_finished(customer: Variant) -> void:
+	# Variant because it might have been freed.
+	if not customer or customer in leaving_group.get_children():
+		return
+		
+	if not customer.animation_player.current_animation == &"breathing":
+		customer.animation_player.play(&"breathing", -1, randf_range(0.8, 1.2))
