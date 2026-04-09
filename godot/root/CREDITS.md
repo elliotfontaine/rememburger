@@ -5,11 +5,15 @@
 
 ### Development:
 
-#### Takin Godot Template
-Created by: [TinyTakinTeller](https://github.com/TinyTakinTeller/TakinGodotTemplate/graphs/contributors)\
-Source: [github: TakinGodotTemplate](https://github.com/TinyTakinTeller/TakinGodotTemplate/)\
-License: [MIT License](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/LICENSE)
+#### Elliot Fontaine (The_Lunarian)
+Programming
+Game Design
+Animations
 
+#### ZStorm
+Game Design
+Assets (characters, backgrounds, objects)
+Programming
 
 ## Assets:
 
@@ -21,20 +25,12 @@ Created by: [StumpyStrust](https://opengameart.org/users/stumpystrust)\
 Source: [opengameart: Menu Doodle 2](https://opengameart.org/content/menu-doodle-2)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-#### SFX: Kenney UI
+#### SFX: Kenney UI Audio
 Created by: [Kenney Vleugels](https://kenney.nl)\
 Source: [kenney.nl: UI Audio](https://kenney.nl/assets/ui-audio)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### Art:
-	
-#### Kenney's Animal Pack
-Created by: [Kenney Vleugels](https://kenney.nl)\
-Source: [kenney.nl: Animal Pack](https://kenney.nl/assets/animal-pack)\
-License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
-
-[comment]: # ()
-[comment]: # (`image/game/animal/png/*`)
 
 #### Godot Logo (Boot Splash)
 Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
@@ -46,7 +42,12 @@ License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/mas
 [comment]: # (`boot_splash_2560_1440.png`)
 [comment]: # (`icon_1024_1024.png`)
 
-#### UI Icons: Plus, Minus
+#### UI Elements (Panels, Buttons, etc)
+Created by: [Kenney Vleugels](https://kenney.nl)\
+Source: [kenney.nl: UI Pack](https://kenney.nl/assets/ui-pack)\
+License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+#### Plus/Minus Icons
 Created by: [Marek Belski](https://github.com/Maaack)  
 Source: [github: Godot Menus Template](https://github.com/Maaack/Godot-Menus-Template/tree/main/addons/maaacks_menus_template/base/assets/remapping_input_icons)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
@@ -55,24 +56,17 @@ License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0
 [comment]: # (`addition_symbol.png`)
 [comment]: # (`subtraction_symbol.png`)
 
-#### Save File Icon
-Created by: [Danny Allen](https://openclipart.org/artist/dannya)  
-Source: [openclipart.org: File save icon](https://publicdomainvectors.org/en/free-clipart/File-save-icon/88085.html)\
-License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
-
-[comment]: # ()
-[comment]: # (`save_file_icon.png`)
-[comment]: # (`save_file_icon.svg`)
-
 ### Font:
 
-#### Noto Sans
-Created by: [Noto Project Authors](https://github.com/notofonts/)\
-Source: [github: Noto Fonts](https://fonts.google.com/noto/specimen/Noto+Sans)\
-License: [Open Font License](https://openfontlicense.org)
+#### DynaPuff (Game Title)
+Created by: [The DynaPuff Project Authors](https://github.com/googlefonts/dynapuff/graphs/contributors)
+Source[github: Alan Sans](https://github.com/googlefonts/dynapuff)
+License: [Open Font License](https://openfontlicense.org/)
 
-[comment]: # ()
-[comment]: # (`noto_sans/woff/*.woff`)
+#### Alan Sans (Buttons, Labels, etc)
+Created by: [The Alan Sans Project Authors](https://github.com/alan-eu/Alan-Sans/graphs/contributors)
+Source[github: Alan Sans](https://github.com/alan-eu/Alan-Sans)
+License: [Open Font License](https://openfontlicense.org/)
 
 ### Localization:
 
@@ -85,10 +79,14 @@ License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0
 [comment]: # ()
 [comment]: # (`localization.csv`)
 
-
 ## Dependencies:
 
 ### Snippets:
+
+#### Takin Godot Template
+Created by: [TinyTakinTeller](https://github.com/TinyTakinTeller/TakinGodotTemplate/graphs/contributors)\
+Source: [github: TakinGodotTemplate](https://github.com/TinyTakinTeller/TakinGodotTemplate/)\
+License: [MIT License](https://github.com/TinyTakinTeller/TakinGodotTemplate/blob/master/LICENSE)
 
 #### Maaack's Godot Game Template
 Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
@@ -103,15 +101,6 @@ License: [MIT License](https://github.com/Maaack/Godot-Game-Template/blob/main/L
 [comment]: # (`config_storage_app_log.gd`)
 [comment]: # (`config_storage.gd`)
 
-#### 3D First Person Controller
-Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
-Created by: [rbarongr](https://github.com/rbarongr)\
-Source: [github: Basic First Person Controller](https://github.com/rbarongr/GodotFirstPersonController)\
-License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
-
-[comment]: # ()
-[comment]: # (`/artifacts/example_3d_fps_controller/...`)
-
 ### Plugins:
 
 #### Script IDE
@@ -120,11 +109,11 @@ Source: [github: Script-IDE](https://github.com/Maran23/script-ide)\
 License: [MIT License](https://github.com/Maran23/script-ide/blob/master/LICENSE)\
 Version: 1.4.6
 
-#### Resource Tables
-Created by: [don-tnowe and contributors](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/graphs/contributors)\
-Source: [github: Edit Resources as Table](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/tree/Godot-4)\
-License: [MIT License](https://github.com/don-tnowe/godot-resources-as-sheets-plugin/blob/Godot-4/LICENSE.md)\
-Version: 2.7
+#### YARD - Yet Another Resource Registry
+Created by: [Elliot Fontaine & contributors](https://github.com/elliotfontaine/yard-godot/graphs/contributors)\
+Source: [github: YARD](https://github.com/elliotfontaine/yard-godot)\
+License: [MIT License](https://github.com/elliotfontaine/yard-godot/blob/main/LICENSE)\
+Version: 1.1.0+ (commit f1b8aabdca1d31df84295f7abbd9661444f05c1a)
 
 #### Format on Save
 Created by: [ryan-haskell](https://github.com/ryan-haskell/gdformat-on-save/graphs/contributors)\
@@ -163,12 +152,12 @@ Created by: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine
 Source: [godotengine.org](https://godotengine.org/)\
 License: [MIT License](https://github.com/godotengine/godot/blob/master/LICENSE.txt)
 
-#### GDScript Toolkit
-Created by: [Scony and contributors](https://github.com/Scony/godot-gdscript-toolkit/graphs/contributors)\
-Source: [github: GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit)\
-License: [MIT License](https://github.com/Scony/godot-gdscript-toolkit/blob/master/LICENSE)
-
 #### Git
 Created by: [Linus Torvalds](https://github.com/torvalds)\
 Source: [git-scm.com](https://git-scm.com/downloads)\
 License: [GNU General Public License version 2](https://opensource.org/licenses/GPL-2.0)
+
+#### Krita
+Created by: [KDE Community](https://krita.org/en/about/krita-foundation/)\
+Source: [krita.org](https://krita.org/)\
+License: [GNU General Public License version 3](https://opensource.org/licenses/GPL-3.0)

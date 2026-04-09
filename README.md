@@ -7,11 +7,9 @@ Un jeu de fast-food où la mémoire est votre seul allié.
 - Zstorm
 - The Lunarian
 
-## Crédits des assets
+## Crédits
 
-- https://fonts.google.com/specimen/Mogra/license?categoryFilters=Feeling:%2FExpressive%2FCute&preview.script=Latn
-- https://fonts.google.com/specimen/Alan+Sans/license?categoryFilters=Feeling:%2FExpressive%2FCute&preview.script=Latn
-- https://fonts.google.com/specimen/DynaPuff/license?categoryFilters=Feeling:%2FExpressive%2FCute&preview.script=Latn
+Voir [CREDITS.md](godot/root/CREDITS.md)
 
 ## Description du jeu
 
