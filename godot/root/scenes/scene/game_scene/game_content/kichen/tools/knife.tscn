@@ -8,12 +8,16 @@ rotation = 0.87266463
 script = ExtResource("1_ldbni")
 storage_rotation = 0.8726646259971648
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1194890822]
-polygon = PackedVector2Array(-102, -63, 68, 91, 111, 55, -73, -94)
-metadata/_edit_lock_ = true
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=796059101]
+polygon = PackedVector2Array(-71.7789, -90.25403, 44.140316, 9.624573, 16.650211, 36.16311, -97.34065, -66.01362)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747672307]
 texture = ExtResource("1_02usa")
 metadata/_edit_lock_ = true
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="GrabberArea2D" type="Area2D" parent="." unique_id=1100971907]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrabberArea2D" unique_id=1194890822]
+polygon = PackedVector2Array(-102, -63, 68, 91, 111, 55, -73, -94)
+metadata/_edit_lock_ = true
