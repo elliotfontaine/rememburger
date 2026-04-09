@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cftwu3uyk3eiu"]
+
+[ext_resource type="Script" uid="uid://xupk51quy1fn" path="res://root/scenes/scene/game_scene/game_content/kichen/tools/kitchen_tool.gd" id="1_h5evv"]
+[ext_resource type="Texture2D" uid="uid://d0agra6fjtrhf" path="res://root/assets/image/game/items/image0001.png" id="2_h5evv"]
+
+[node name="SauceSqueezeBottle" type="Area2D" unique_id=1645705732]
+script = ExtResource("1_h5evv")
+usage_rotation = -2.9670597283903604
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1194890822]
+position = Vector2(-4.46, 115.809)
+polygon = PackedVector2Array(-48.243572, -62.415424, -40.243572, 84.58457, 43.756428, 86.58457, 44.756428, -61.415424, 2.756428, -101.41543)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747672307]
+position = Vector2(-10, 100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_h5evv")
+metadata/_edit_lock_ = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

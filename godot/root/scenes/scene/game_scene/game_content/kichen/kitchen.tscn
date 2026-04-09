@@ -2,20 +2,23 @@
 
 [ext_resource type="Script" uid="uid://nfuolcwpownw" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.gd" id="1_b8wqn"]
 [ext_resource type="Texture2D" uid="uid://l12io2kll5l2" path="res://root/assets/image/game/backgrounds/counter.png" id="2_re3it"]
-[ext_resource type="PackedScene" uid="uid://pgrgkckifos6" path="res://root/scenes/scene/game_scene/game_content/kichen/chopping_board.tscn" id="3_hy7gk"]
+[ext_resource type="PackedScene" uid="uid://pgrgkckifos6" path="res://root/scenes/scene/game_scene/game_content/kichen/workstations/chopping_board.tscn" id="3_hy7gk"]
 [ext_resource type="PackedScene" uid="uid://btkkr4eig3viw" path="res://root/scenes/scene/game_scene/game_content/kichen/ingredient_drawer.tscn" id="4_ktovm"]
-[ext_resource type="PackedScene" uid="uid://c8ryrlkd756p2" path="res://root/scenes/scene/game_scene/game_content/kichen/grill.tscn" id="4_s0tmi"]
+[ext_resource type="PackedScene" uid="uid://c8ryrlkd756p2" path="res://root/scenes/scene/game_scene/game_content/kichen/workstations/grill.tscn" id="4_s0tmi"]
 [ext_resource type="Texture2D" uid="uid://dk6uofcu4ayy8" path="res://root/assets/image/game/ingredients/ingredient0006.png" id="5_gx662"]
 [ext_resource type="Texture2D" uid="uid://tadvuwr8cpd" path="res://root/assets/image/game/ingredients/ingredient0007.png" id="6_ox3hu"]
 [ext_resource type="Texture2D" uid="uid://c220s2nkclrfm" path="res://root/assets/image/game/ingredients/ingredient0011.png" id="7_bap8o"]
 [ext_resource type="Texture2D" uid="uid://d1r1rdpgreffw" path="res://root/assets/image/game/ingredients/ingredient0002.png" id="8_bap8o"]
 [ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="9_yg45m"]
 [ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="10_hy7gk"]
-[ext_resource type="PackedScene" uid="uid://c77elrs58vox8" path="res://root/scenes/scene/game_scene/game_content/kichen/knife.tscn" id="12_7c0dn"]
+[ext_resource type="PackedScene" uid="uid://c77elrs58vox8" path="res://root/scenes/scene/game_scene/game_content/kichen/tools/knife.tscn" id="12_7c0dn"]
 [ext_resource type="Texture2D" uid="uid://d22k215eb5aiw" path="res://root/assets/image/game/items/image0000.png" id="12_s0tmi"]
+[ext_resource type="PackedScene" uid="uid://cftwu3uyk3eiu" path="res://root/scenes/scene/game_scene/game_content/kichen/tools/sauce_squeeze_bottle.tscn" id="14_g8wjh"]
+[ext_resource type="Texture2D" uid="uid://cvugv1c5yi7g8" path="res://root/assets/image/game/items/image0003.png" id="15_ijfk8"]
+[ext_resource type="Texture2D" uid="uid://dsk3exk1ptpmu" path="res://root/assets/image/game/items/image0002.png" id="16_ryerb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hy7gk"]
-radius = 88.21
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8wjh"]
+size = Vector2(170, 140)
 
 [node name="Kitchen" type="Node2D" unique_id=52084164]
 script = ExtResource("1_b8wqn")
@@ -68,68 +71,39 @@ polygon = PackedVector2Array(-678.99475, 448, -338.4951, 449, -309.4541, 724, -6
 metadata/_edit_lock_ = true
 
 [node name="TomatoDrawer" parent="IngredientDrawers" unique_id=1663274482 instance=ExtResource("4_ktovm")]
-position = Vector2(-743, 283)
+position = Vector2(-774, 278)
 kitchen_path = NodePath("../..")
-shape_radius = 77.415
+shape_size = Vector2(200, 120)
 
 [node name="Sprites" type="Node2D" parent="IngredientDrawers/TomatoDrawer" unique_id=142196523]
 
 [node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/TomatoDrawer/Sprites" unique_id=373682986]
 modulate = Color(0.8661112, 0.86611134, 0.86611134, 1)
-position = Vector2(-22, 3)
+position = Vector2(-6.5117188, -2.0019226)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_gx662")
 
 [node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/TomatoDrawer/Sprites" unique_id=2025684009]
-position = Vector2(29, 7)
+position = Vector2(44.48828, 1.9980779)
 rotation = 0.3688887
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_gx662")
 
 [node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/TomatoDrawer/Sprites" unique_id=1874874872]
 modulate = Color(0.9355364, 0.9355364, 0.93553627, 1)
-position = Vector2(-68, 11.999998)
+position = Vector2(-52.51172, 6.9980764)
 rotation = -0.40510616
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_gx662")
-
-[node name="CheddarDrawer" parent="IngredientDrawers" unique_id=827884358 instance=ExtResource("4_ktovm")]
-position = Vector2(-387, 294)
-kitchen_path = NodePath("../..")
-ingredient = &"cheddar"
-shape_radius = 87.864
-
-[node name="Sprites" type="Node2D" parent="IngredientDrawers/CheddarDrawer" unique_id=1862269794]
-
-[node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/CheddarDrawer/Sprites" unique_id=938333274]
-modulate = Color(0.8346143, 0.8346143, 0.8346143, 1)
-position = Vector2(-7.209593, 11.999996)
-rotation = -0.05190897
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_ox3hu")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/CheddarDrawer/Sprites" unique_id=753734915]
-modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
-position = Vector2(-6.2095947, 1)
-rotation = -0.020590212
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_ox3hu")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/CheddarDrawer/Sprites" unique_id=1170345563]
-position = Vector2(-7.2095947, -10)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_ox3hu")
-metadata/_edit_lock_ = true
 
 [node name="PickleDrawer" parent="IngredientDrawers" unique_id=1534013324 instance=ExtResource("4_ktovm")]
 position = Vector2(-561, 283)
 kitchen_path = NodePath("../..")
 ingredient = &"pickle"
-shape_radius = 66.96600000000001
+shape_size = Vector2(200, 110)
 
 [node name="Sprites" type="Node2D" parent="IngredientDrawers/PickleDrawer" unique_id=975271669]
+position = Vector2(-13, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/PickleDrawer/Sprites" unique_id=1293269435]
 modulate = Color(0.70796674, 0.7079665, 0.7079661, 1)
@@ -158,47 +132,44 @@ rotation = 0.9021916
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_bap8o")
 
-[node name="RawSteakDrawer" parent="IngredientDrawers" unique_id=1201241617 instance=ExtResource("4_ktovm")]
-position = Vector2(299, 289)
+[node name="CheddarDrawer" parent="IngredientDrawers" unique_id=827884358 instance=ExtResource("4_ktovm")]
+position = Vector2(-387, 288)
 kitchen_path = NodePath("../..")
-ingredient = &"steak_raw"
-shape_radius = 66.96600000000001
+ingredient = &"cheddar"
+shape_size = Vector2(120, 120)
 
-[node name="Sprites" type="Node2D" parent="IngredientDrawers/RawSteakDrawer" unique_id=1361991586]
+[node name="Sprites" type="Node2D" parent="IngredientDrawers/CheddarDrawer" unique_id=1862269794]
 
-[node name="Sprite2D4" type="Sprite2D" parent="IngredientDrawers/RawSteakDrawer/Sprites" unique_id=1144579843]
+[node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/CheddarDrawer/Sprites" unique_id=938333274]
 modulate = Color(0.8346143, 0.8346143, 0.8346143, 1)
-position = Vector2(-1.0000005, 13.000001)
-rotation = -0.051908966
-scale = Vector2(1.5000001, 1.5000001)
-texture = ExtResource("8_bap8o")
-
-[node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/RawSteakDrawer/Sprites" unique_id=1336830287]
-modulate = Color(0.8346143, 0.8346143, 0.8346143, 1)
-position = Vector2(-2.2095933, 0.99999714)
+position = Vector2(-7.209593, 11.999996)
 rotation = -0.05190897
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("8_bap8o")
+texture = ExtResource("6_ox3hu")
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/RawSteakDrawer/Sprites" unique_id=914048485]
+[node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/CheddarDrawer/Sprites" unique_id=753734915]
 modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
-position = Vector2(-1.2095947, -10)
+position = Vector2(-6.2095947, 1)
 rotation = -0.020590212
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("8_bap8o")
+texture = ExtResource("6_ox3hu")
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/RawSteakDrawer/Sprites" unique_id=1198363]
-position = Vector2(-2.2095947, -21)
+[node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/CheddarDrawer/Sprites" unique_id=1170345563]
+position = Vector2(-7.2095947, -10)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("8_bap8o")
+texture = ExtResource("6_ox3hu")
+metadata/_edit_lock_ = true
 
 [node name="TopBreadDrawer" parent="IngredientDrawers" unique_id=1014118132 instance=ExtResource("4_ktovm")]
-position = Vector2(-186, 288)
+position = Vector2(-186, 305)
 kitchen_path = NodePath("../..")
 ingredient = &"bread_top"
-shape_radius = 80.89800000000001
+shape_size = Vector2(220, 120)
 
 [node name="Sprites" type="Node2D" parent="IngredientDrawers/TopBreadDrawer" unique_id=94964557]
+position = Vector2(0, -7)
 
 [node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/TopBreadDrawer/Sprites" unique_id=1760878057]
 modulate = Color(0.70796674, 0.7079665, 0.7079661, 1)
@@ -228,10 +199,10 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_yg45m")
 
 [node name="BottomBreadDrawer" parent="IngredientDrawers" unique_id=877476322 instance=ExtResource("4_ktovm")]
-position = Vector2(-8, 289)
+position = Vector2(13, 294)
 kitchen_path = NodePath("../..")
 ingredient = &"bread_bottom"
-shape_radius = 66.96600000000001
+shape_size = Vector2(130, 130)
 
 [node name="Sprites" type="Node2D" parent="IngredientDrawers/BottomBreadDrawer" unique_id=49429404]
 
@@ -254,16 +225,49 @@ position = Vector2(-4.2095947, -14)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_hy7gk")
 
+[node name="RawSteakDrawer" parent="IngredientDrawers" unique_id=1201241617 instance=ExtResource("4_ktovm")]
+position = Vector2(385, 310)
+kitchen_path = NodePath("../..")
+ingredient = &"steak_raw"
+shape_size = Vector2(130, 120)
+
+[node name="Sprites" type="Node2D" parent="IngredientDrawers/RawSteakDrawer" unique_id=1361991586]
+
+[node name="Sprite2D4" type="Sprite2D" parent="IngredientDrawers/RawSteakDrawer/Sprites" unique_id=1144579843]
+modulate = Color(0.8346143, 0.8346143, 0.8346143, 1)
+position = Vector2(-1.0000005, 13.000001)
+rotation = -0.051908966
+scale = Vector2(1.5000001, 1.5000001)
+texture = ExtResource("8_bap8o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/RawSteakDrawer/Sprites" unique_id=1336830287]
+modulate = Color(0.8346143, 0.8346143, 0.8346143, 1)
+position = Vector2(-2.2095933, 0.99999714)
+rotation = -0.05190897
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_bap8o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/RawSteakDrawer/Sprites" unique_id=914048485]
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
+position = Vector2(-1.2095947, -10)
+rotation = -0.020590212
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_bap8o")
+
+[node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/RawSteakDrawer/Sprites" unique_id=1198363]
+position = Vector2(-2.2095947, -21)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_bap8o")
+
 [node name="MovableIngredients" type="Node2D" parent="." unique_id=1534217803]
 unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="MealPlateDrawer" type="Area2D" parent="." unique_id=783802896]
-position = Vector2(-818, 614)
-metadata/_edit_lock_ = true
+position = Vector2(195, 325)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MealPlateDrawer" unique_id=199282523]
-shape = SubResource("CircleShape2D_hy7gk")
+shape = SubResource("RectangleShape2D_g8wjh")
 
 [node name="Sprite2D" type="Sprite2D" parent="MealPlateDrawer" unique_id=40773426]
 position = Vector2(0, 20)
@@ -283,6 +287,32 @@ texture = ExtResource("12_s0tmi")
 [node name="Knife" parent="." unique_id=1645705732 instance=ExtResource("12_7c0dn")]
 position = Vector2(-302.99997, 536)
 kitchen_path = NodePath("..")
-storage_position = Vector2(-302.99997, 536)
+
+[node name="Sauces" type="Node2D" parent="." unique_id=771434438]
+y_sort_enabled = true
+
+[node name="MustardSauceSqueezeBottle3" parent="Sauces" unique_id=2096982543 instance=ExtResource("14_g8wjh")]
+position = Vector2(-771, 438)
+kitchen_path = NodePath("../..")
+sauce_ingredient = &"mustard"
+
+[node name="Sprite2D" parent="Sauces/MustardSauceSqueezeBottle3" index="1" unique_id=1747672307]
+texture = ExtResource("16_ryerb")
+
+[node name="KetchupSauceSqueezeBottle2" parent="Sauces" unique_id=1082333329 instance=ExtResource("14_g8wjh")]
+position = Vector2(-870, 440)
+kitchen_path = NodePath("../..")
+sauce_ingredient = &"ketchup"
+
+[node name="BarbecueSauceSqueezeBottle" parent="Sauces" unique_id=1548783406 instance=ExtResource("14_g8wjh")]
+position = Vector2(-820, 363)
+kitchen_path = NodePath("../..")
+sauce_ingredient = &"barbecue"
+
+[node name="Sprite2D" parent="Sauces/BarbecueSauceSqueezeBottle" index="1" unique_id=1747672307]
+texture = ExtResource("15_ijfk8")
 
 [connection signal="input_event" from="MealPlateDrawer" to="." method="_on_meal_plate_drawer_input_event"]
+
+[editable path="Sauces/MustardSauceSqueezeBottle3"]
+[editable path="Sauces/BarbecueSauceSqueezeBottle"]

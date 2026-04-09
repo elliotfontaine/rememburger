@@ -1,24 +1,27 @@
 class_name KitchenTool
 extends Area2D
 
+const RESET_TWEEN_DURATION := 0.3
+
 @export_node_path("Kitchen") var kitchen_path: NodePath
-@export var storage_position: Vector2
-@export_range(0, 360, 0.1, "radians_as_degrees") var storage_rotation: float
-@export_range(0, 360, 0.1, "radians_as_degrees") var usage_rotation: float
+@export_range(-360, 360, 0.1, "radians_as_degrees") var storage_rotation: float
+@export_range(-360, 360, 0.1, "radians_as_degrees") var usage_rotation: float
+@export_group("Sauce")
+@export_custom(Registry.PROPERTY_HINT_CUSTOM, "uid://cgvbeut67x3ce") var sauce_ingredient: StringName
+
 
 
 var kitchen: Kitchen
+var storage_position: Vector2
 
 func _ready() -> void:
-	if storage_position:
-		position = storage_position
+	storage_position = position
 	kitchen = get_node(kitchen_path)
 
 
 func reset_tool() -> void:
-	position = storage_position
-	rotation = storage_rotation
-
+	create_tween().tween_property(self, "position", storage_position, RESET_TWEEN_DURATION).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	create_tween().tween_property(self, "rotation", storage_rotation, RESET_TWEEN_DURATION)
 
 func _is_mouse_left_click(event: InputEvent) -> bool:
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()

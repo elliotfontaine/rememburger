@@ -5,14 +5,18 @@ const INGREDIENT_REGISTRY := preload("uid://cgvbeut67x3ce")
 
 @export_node_path("Kitchen") var kitchen_path: NodePath
 @export_custom(Registry.PROPERTY_HINT_CUSTOM, "uid://cgvbeut67x3ce") var ingredient: StringName
-@export_range(0.01, 1024.0) var shape_radius: float = 60.0:
+@export var shape_size: Vector2 = Vector2(100.0, 100.0):
 	set(value):
-		shape_radius = value
+		shape_size = value
 		if collision_shape_2d and collision_shape_2d.shape:
-			collision_shape_2d.shape.radius = value
+			collision_shape_2d.shape.size = value
 
 @onready var area_2d: Area2D = %Area2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+
+
+func _ready() -> void:
+	shape_size = shape_size
 
 
 func _is_mouse_left_click(event: InputEvent) -> bool:

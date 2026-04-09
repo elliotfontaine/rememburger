@@ -6,6 +6,7 @@ const KITCHEN_MOVABLE_PLATE := preload("uid://b0xikwrg7qjyy")
 const INGREDIENT_REGISTRY := preload("uid://cgvbeut67x3ce")
 
 var grabbed_object: Node2D
+var grabbed_previous_z_index: int
 
 @onready var movable_ingredients: Node2D = %MovableIngredients
 
@@ -28,6 +29,8 @@ func try_grab(object: Node2D) -> bool:
 		return false
 	else:
 		grabbed_object = object
+		grabbed_previous_z_index = object.z_index
+		object.z_index = 100
 		LogWrapper.debug(self, "Kitchen Object grabbed")
 		return true
 
@@ -92,11 +95,20 @@ func try_release(where: Vector2) -> bool:
 						break
 					else:
 						return false
+		elif grabbed_object.sauce_ingredient != &"":
+			for other_area: Area2D in grabbed_object.get_overlapping_areas():
+				if other_area.get_parent() is MovableMealPlate:
+					var plate: MovableMealPlate = other_area.get_parent()
+					if plate.add_ingredient_to_plate(grabbed_object.sauce_ingredient):
+						LogWrapper.debug(self, "Added sauce %s on plate" % grabbed_object.sauce_ingredient)
+						break
+					else:
+						return false
+					
 		grabbed_object.reset_tool()
-		grabbed_object = null
 	
 		
-		
+	grabbed_object.z_index = grabbed_previous_z_index
 	grabbed_object = null
 	return true
 
