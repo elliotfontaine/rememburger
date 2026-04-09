@@ -58,29 +58,15 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TopRightMarginContainer/HBoxContainer" unique_id=1106257329]
-layout_mode = 2
-
-[node name="PointsLabel" type="Label" parent="TopRightMarginContainer/HBoxContainer/VBoxContainer" unique_id=1036349827]
+[node name="TimerLabel" type="Label" parent="TopRightMarginContainer/HBoxContainer" unique_id=329331624]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 3
-theme_override_constants/outline_size = 11
-theme_override_font_sizes/font_size = 60
-text = "1234"
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "00:00"
 horizontal_alignment = 2
 justification_flags = 162
-
-[node name="TmpPointsLabel" type="Label" parent="TopRightMarginContainer/HBoxContainer/VBoxContainer" unique_id=532571110]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_override_constants/outline_size = 11
-theme_override_font_sizes/font_size = 60
-text = "+ 10"
-horizontal_alignment = 2
 
 [node name="PauseMenuButton" parent="TopRightMarginContainer/HBoxContainer" unique_id=1804641574 instance=ExtResource("5_kng2e")]
 unique_name_in_owner = true
@@ -152,27 +138,39 @@ text = "More info on queue content
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1238527393]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.03
 anchor_right = 0.5
-anchor_bottom = 0.03
-offset_left = -93.0
-offset_right = 93.0
-offset_bottom = 60.0
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 116.0
 grow_horizontal = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="TimerLabel" type="Label" parent="MarginContainer" unique_id=329331624]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1106257329]
+layout_mode = 2
+
+[node name="PointsLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1036349827]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 3
-theme_override_constants/outline_size = 11
-theme_override_font_sizes/font_size = 80
-text = "00 : 00"
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "1234"
 horizontal_alignment = 2
 justification_flags = 162
+
+[node name="TmpPointsLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=532571110]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3529412, 0.972549, 0.4509804, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "+ 10"
+horizontal_alignment = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="customer_ticked" from="QueueManager" to="." method="_on_queue_manager_customer_ticked"]
