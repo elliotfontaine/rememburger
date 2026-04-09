@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_ua1kh")
-name = "Pickle"
+name = "Pickle Slice"
 texture = ExtResource("2_ua1kh")
 type = 5
 workstation = 1

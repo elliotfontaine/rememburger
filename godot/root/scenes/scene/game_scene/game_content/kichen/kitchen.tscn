@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://tadvuwr8cpd" path="res://root/assets/image/game/ingredients/ingredient0007.png" id="6_ox3hu"]
 [ext_resource type="Texture2D" uid="uid://c220s2nkclrfm" path="res://root/assets/image/game/ingredients/ingredient0011.png" id="7_bap8o"]
 [ext_resource type="Texture2D" uid="uid://d1r1rdpgreffw" path="res://root/assets/image/game/ingredients/ingredient0002.png" id="8_bap8o"]
+[ext_resource type="Texture2D" uid="uid://10xa8oy66fp2" path="res://root/assets/image/game/ingredients/ingredient0013.png" id="8_ryerb"]
 [ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="9_yg45m"]
 [ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="10_hy7gk"]
 [ext_resource type="PackedScene" uid="uid://c77elrs58vox8" path="res://root/scenes/scene/game_scene/game_content/kichen/tools/knife.tscn" id="12_7c0dn"]
@@ -73,9 +74,10 @@ metadata/_edit_lock_ = true
 [node name="TomatoDrawer" parent="IngredientDrawers" unique_id=1663274482 instance=ExtResource("4_ktovm")]
 position = Vector2(-774, 278)
 kitchen_path = NodePath("../..")
-shape_size = Vector2(200, 120)
+shape_size = Vector2(200, 160)
 
 [node name="Sprites" type="Node2D" parent="IngredientDrawers/TomatoDrawer" unique_id=142196523]
+position = Vector2(-6, -14)
 
 [node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/TomatoDrawer/Sprites" unique_id=373682986]
 modulate = Color(0.8661112, 0.86611134, 0.86611134, 1)
@@ -84,31 +86,38 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_gx662")
 
 [node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/TomatoDrawer/Sprites" unique_id=2025684009]
-position = Vector2(44.48828, 1.9980779)
+position = Vector2(42, 24)
 rotation = 0.3688887
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_gx662")
 
 [node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/TomatoDrawer/Sprites" unique_id=1874874872]
 modulate = Color(0.9355364, 0.9355364, 0.93553627, 1)
-position = Vector2(-52.51172, 6.9980764)
+position = Vector2(-40, 38.999996)
 rotation = -0.40510616
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_gx662")
 
 [node name="PickleDrawer" parent="IngredientDrawers" unique_id=1534013324 instance=ExtResource("4_ktovm")]
-position = Vector2(-561, 283)
+position = Vector2(-568, 297)
 kitchen_path = NodePath("../..")
 ingredient = &"pickle"
 shape_size = Vector2(200, 110)
 
 [node name="Sprites" type="Node2D" parent="IngredientDrawers/PickleDrawer" unique_id=975271669]
-position = Vector2(-13, 5)
+position = Vector2(-4, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/PickleDrawer/Sprites" unique_id=1293269435]
 modulate = Color(0.70796674, 0.7079665, 0.7079661, 1)
 position = Vector2(-17, -1)
 scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_bap8o")
+
+[node name="Sprite2D4" type="Sprite2D" parent="IngredientDrawers/PickleDrawer/Sprites" unique_id=153009158]
+modulate = Color(0.9355364, 0.9355364, 0.93553627, 1)
+position = Vector2(45, -7)
+rotation = 1.1516383
+scale = Vector2(1.4999999, 1.4999999)
 texture = ExtResource("7_bap8o")
 
 [node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/PickleDrawer/Sprites" unique_id=2084430253]
@@ -125,15 +134,36 @@ rotation = -0.40510616
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_bap8o")
 
-[node name="Sprite2D4" type="Sprite2D" parent="IngredientDrawers/PickleDrawer/Sprites" unique_id=153009158]
-modulate = Color(0.9355364, 0.9355364, 0.93553627, 1)
-position = Vector2(57.99999, -3.8146973e-06)
-rotation = 0.9021916
+[node name="LettuceDrawer" parent="IngredientDrawers" unique_id=1526163561 instance=ExtResource("4_ktovm")]
+position = Vector2(-361, 295)
+kitchen_path = NodePath("../..")
+ingredient = &"lettuce"
+shape_size = Vector2(200, 120)
+
+[node name="Sprites" type="Node2D" parent="IngredientDrawers/LettuceDrawer" unique_id=815831546]
+position = Vector2(11, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/LettuceDrawer/Sprites" unique_id=1202846963]
+modulate = Color(0.7863472, 0.78634673, 0.7863467, 1)
+position = Vector2(-3, 24)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_bap8o")
+texture = ExtResource("8_ryerb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/LettuceDrawer/Sprites" unique_id=1758018117]
+modulate = Color(0.9268064, 0.9268064, 0.92680633, 1)
+position = Vector2(17, 15)
+rotation = 0.3688887
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_ryerb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/LettuceDrawer/Sprites" unique_id=1385448329]
+position = Vector2(-52.51172, 6.9980764)
+rotation = -0.40510616
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_ryerb")
 
 [node name="CheddarDrawer" parent="IngredientDrawers" unique_id=827884358 instance=ExtResource("4_ktovm")]
-position = Vector2(-387, 288)
+position = Vector2(-201, 304)
 kitchen_path = NodePath("../..")
 ingredient = &"cheddar"
 shape_size = Vector2(120, 120)
@@ -162,44 +192,36 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_ox3hu")
 metadata/_edit_lock_ = true
 
-[node name="TopBreadDrawer" parent="IngredientDrawers" unique_id=1014118132 instance=ExtResource("4_ktovm")]
-position = Vector2(-186, 305)
+[node name="TopBreadDrawer" parent="IngredientDrawers" unique_id=1734871071 instance=ExtResource("4_ktovm")]
+position = Vector2(-72, 309)
 kitchen_path = NodePath("../..")
 ingredient = &"bread_top"
-shape_size = Vector2(220, 120)
+shape_size = Vector2(130, 130)
 
-[node name="Sprites" type="Node2D" parent="IngredientDrawers/TopBreadDrawer" unique_id=94964557]
-position = Vector2(0, -7)
+[node name="Sprites" type="Node2D" parent="IngredientDrawers/TopBreadDrawer" unique_id=482839113]
+position = Vector2(3, 6)
 
-[node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/TopBreadDrawer/Sprites" unique_id=1760878057]
-modulate = Color(0.70796674, 0.7079665, 0.7079661, 1)
-position = Vector2(-15, 11)
+[node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/TopBreadDrawer/Sprites" unique_id=143628390]
+modulate = Color(0.8346143, 0.8346143, 0.8346143, 1)
+position = Vector2(-4.209593, 7.999996)
+rotation = -0.05190897
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_yg45m")
 
-[node name="Sprite2D2" type="Sprite2D" parent="IngredientDrawers/TopBreadDrawer/Sprites" unique_id=239176364]
-modulate = Color(0.82321197, 0.823212, 0.82321167, 1)
-position = Vector2(17, 8)
-rotation = 0.3688887
+[node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/TopBreadDrawer/Sprites" unique_id=803880274]
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
+position = Vector2(-3.21, -8)
+rotation = -0.020590212
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_yg45m")
 
-[node name="Sprite2D3" type="Sprite2D" parent="IngredientDrawers/TopBreadDrawer/Sprites" unique_id=13635561]
-modulate = Color(0.9355364, 0.9355364, 0.93553627, 1)
-position = Vector2(-51, 2.999999)
-rotation = -0.40510616
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("9_yg45m")
-
-[node name="Sprite2D4" type="Sprite2D" parent="IngredientDrawers/TopBreadDrawer/Sprites" unique_id=2134992791]
-modulate = Color(0.9355364, 0.9355364, 0.93553627, 1)
-position = Vector2(52.99999, 2.9999967)
-rotation = 0.9021916
+[node name="Sprite2D" type="Sprite2D" parent="IngredientDrawers/TopBreadDrawer/Sprites" unique_id=170020845]
+position = Vector2(-4.21, -24)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_yg45m")
 
 [node name="BottomBreadDrawer" parent="IngredientDrawers" unique_id=877476322 instance=ExtResource("4_ktovm")]
-position = Vector2(13, 294)
+position = Vector2(65, 300)
 kitchen_path = NodePath("../..")
 ingredient = &"bread_bottom"
 shape_size = Vector2(130, 130)
@@ -226,7 +248,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_hy7gk")
 
 [node name="RawSteakDrawer" parent="IngredientDrawers" unique_id=1201241617 instance=ExtResource("4_ktovm")]
-position = Vector2(385, 310)
+position = Vector2(437, 316)
 kitchen_path = NodePath("../..")
 ingredient = &"steak_raw"
 shape_size = Vector2(130, 120)
@@ -264,7 +286,7 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="MealPlateDrawer" type="Area2D" parent="." unique_id=783802896]
-position = Vector2(195, 325)
+position = Vector2(249, 326)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MealPlateDrawer" unique_id=199282523]
 shape = SubResource("RectangleShape2D_g8wjh")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://6apnhqk5pvo3"]
+
+[ext_resource type="Script" uid="uid://cfrxleyr1eapt" path="res://root/resources/game_data/_classes/ingredient_data.gd" id="1_uahvc"]
+[ext_resource type="Texture2D" uid="uid://10xa8oy66fp2" path="res://root/assets/image/game/ingredients/ingredient0013.png" id="2_f563u"]
+
+[resource]
+script = ExtResource("1_uahvc")
+name = "Lettuce"
+texture = ExtResource("2_f563u")
+type = 5
+metadata/_custom_type_script = "uid://cfrxleyr1eapt"
