@@ -12,7 +12,7 @@ grow_vertical = 2
 script = ExtResource("4")
 scroll_offset = 100.0
 stretch_minimum_size = false
-x_minimum_size = 400.0
+x_minimum_size = 1000.0
 align = "left"
 center_padding = true
 keywords = {
@@ -71,6 +71,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[left]asd[/left]
 [left]asd[/left]"

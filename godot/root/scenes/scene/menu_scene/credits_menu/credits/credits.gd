@@ -12,10 +12,10 @@ signal end_reached
 @export_file("*.md") var attribution_file_path: String = PathConsts.RES + "CREDITS.md"
 
 @export_group("Formatting")
-@export var h1_font_size: int = 64
-@export var h2_font_size: int = 48
-@export var h3_font_size: int = 32
-@export var h4_font_size: int = 24
+@export var h1_font_size: int = 64 *2
+@export var h2_font_size: int = 48 *2
+@export var h3_font_size: int = 32 *2
+@export var h4_font_size: int = 24 *2
 
 @export_group("Scroll")
 ## Default automatic scroll speed.
