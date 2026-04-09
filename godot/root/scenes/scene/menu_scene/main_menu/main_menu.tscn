@@ -2,12 +2,47 @@
 
 [ext_resource type="Script" uid="uid://bfr1jpneg2tf3" path="res://root/scenes/scene/menu_scene/main_menu/main_menu.gd" id="1_j1c5u"]
 [ext_resource type="Shader" uid="uid://deeo3bc3gchtf" path="res://root/shaders/uv_stitching_background.gdshader" id="2_6ewq2"]
+[ext_resource type="Texture2D" uid="uid://tadvuwr8cpd" path="res://root/assets/image/game/ingredients/ingredient0007.png" id="3_2ax7q"]
 [ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="3_6ewq2"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://root/scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="3_jhg6y"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="3_u405l"]
 [ext_resource type="PackedScene" uid="uid://cqg5p86vdf7ea" path="res://root/scenes/node/menu/menu_configuration/menu_dropdown_node/menu_dropdown_node.tscn" id="4_0aswu"]
+[ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="4_qmluq"]
 [ext_resource type="Texture2D" uid="uid://71qyich8cspf" path="res://root/assets/image/game/ingredients/ingredient0003.png" id="4_upp4l"]
 [ext_resource type="FontFile" uid="uid://d0fb5vns7w6vc" path="res://root/assets/font/DynaPuff/static/DynaPuff_Condensed-SemiBold.ttf" id="5_fpykg"]
+[ext_resource type="Shader" uid="uid://dwp6yc5wkqpf1" path="res://root/shaders/fast_blur.gdshader" id="7_qmluq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qmluq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmluq"]
+shader = ExtResource("2_6ewq2")
+shader_parameter/angle = 6.0
+shader_parameter/texture_1 = ExtResource("4_upp4l")
+shader_parameter/texture_2 = ExtResource("3_6ewq2")
+shader_parameter/line_distance = 0.001
+shader_parameter/texture_distance = 0.025
+shader_parameter/texture_width = 0.05
+shader_parameter/scroll_speed = 0.1
+shader_parameter/solid_color = Color(0.9843137, 0.94509804, 0.93333334, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbbmd"]
+shader = ExtResource("7_qmluq")
+shader_parameter/offset = 3.0000001425
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ru6m"]
+shader = ExtResource("2_6ewq2")
+shader_parameter/angle = 6.0
+shader_parameter/texture_1 = ExtResource("3_2ax7q")
+shader_parameter/texture_2 = ExtResource("4_qmluq")
+shader_parameter/line_distance = 0.001
+shader_parameter/texture_distance = 0.04
+shader_parameter/texture_width = 0.1
+shader_parameter/scroll_speed = 0.2
+shader_parameter/solid_color = Color(0.9843137, 0.94509804, 0.93333334, 0.23529412)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5dn14"]
+shader = ExtResource("7_qmluq")
+shader_parameter/offset = 2.000000095
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ax7q"]
 shader = ExtResource("2_6ewq2")
@@ -15,10 +50,10 @@ shader_parameter/angle = 6.0
 shader_parameter/texture_1 = ExtResource("3_6ewq2")
 shader_parameter/texture_2 = ExtResource("4_upp4l")
 shader_parameter/line_distance = 0.001
-shader_parameter/texture_distance = 0.1
+shader_parameter/texture_distance = 0.05
 shader_parameter/texture_width = 0.15
-shader_parameter/scroll_speed = 0.2
-shader_parameter/solid_color = Color(0.9570616, 0.8443403, 0.8108153, 1)
+shader_parameter/scroll_speed = 0.3
+shader_parameter/solid_color = Color(0.9843137, 0.94509804, 0.93333334, 0.23529412)
 
 [sub_resource type="Animation" id="Animation_upp4l"]
 length = 0.001
@@ -101,10 +136,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="RootMarginContainer" unique_id=2082158809]
-material = SubResource("ShaderMaterial_2ax7q")
+[node name="AnimatedBackground" type="PanelContainer" parent="RootMarginContainer" unique_id=282761114]
 layout_mode = 2
-color = Color(1, 0.8, 0.5, 1)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qmluq")
+
+[node name="BackIngredients" type="ColorRect" parent="RootMarginContainer/AnimatedBackground" unique_id=65347008]
+material = SubResource("ShaderMaterial_qmluq")
+layout_mode = 2
+
+[node name="Blur" type="ColorRect" parent="RootMarginContainer/AnimatedBackground" unique_id=1778618213]
+material = SubResource("ShaderMaterial_lbbmd")
+layout_mode = 2
+
+[node name="MiddleIngredients" type="ColorRect" parent="RootMarginContainer/AnimatedBackground" unique_id=831035424]
+material = SubResource("ShaderMaterial_2ru6m")
+layout_mode = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="RootMarginContainer/AnimatedBackground/MiddleIngredients" unique_id=223087654]
+visible = false
+copy_mode = 2
+
+[node name="Blur" type="ColorRect" parent="RootMarginContainer/AnimatedBackground/MiddleIngredients" unique_id=1015794087]
+visible = false
+material = SubResource("ShaderMaterial_5dn14")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FrontIngredients" type="ColorRect" parent="RootMarginContainer/AnimatedBackground/MiddleIngredients" unique_id=2082158809]
+material = SubResource("ShaderMaterial_2ax7q")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FooterMarginContainer" type="MarginContainer" parent="RootMarginContainer" unique_id=246485005]
 layout_mode = 2
