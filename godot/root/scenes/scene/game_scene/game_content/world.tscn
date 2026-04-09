@@ -70,6 +70,7 @@ metadata/_edit_lock_ = true
 texture = ExtResource("7_v103c")
 
 [node name="Bubble" type="Node2D" parent="." unique_id=165283928]
+unique_name_in_owner = true
 visible = false
 position = Vector2(-356, -650)
 
@@ -78,11 +79,15 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_k2e8o")
 
 [node name="MealDesc" parent="Bubble" unique_id=253224361 instance=ExtResource("8_v103c")]
+unique_name_in_owner = true
 position = Vector2(71, 1)
 
 [node name="MealStack" parent="Bubble" unique_id=242877394 instance=ExtResource("8_iqpcp")]
+unique_name_in_owner = true
 position = Vector2(-147, 27)
 scale = Vector2(1.5, 1.5)
 
 [connection signal="customer_entered" from="QueueView" to="." method="_on_queue_view_customer_entered"]
 [connection signal="customer_exited" from="QueueView" to="." method="_on_queue_view_customer_exited"]
+[connection signal="pressed" from="RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="pressed" from="TakeOrderButton" to="." method="_on_take_order_button_pressed"]

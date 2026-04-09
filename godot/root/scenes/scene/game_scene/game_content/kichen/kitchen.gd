@@ -70,7 +70,7 @@ func try_release(where: Vector2) -> bool:
 	elif grabbed_object is MovableMealPlate:
 		var object_area: Area2D = grabbed_object.grabbing_area_2d
 		for other_area in object_area.get_overlapping_areas():
-			if other_area.name == &"ServingSpot":
+			if other_area.name == &"ServingSpot" and other_area.is_visible_in_tree():
 				if grabbed_object.meal_data and not grabbed_object.meal_data.is_empty():
 					SignalBus.meal_served.emit(grabbed_object.meal_data)
 					LogWrapper.debug(self, "Dropped plate on serving spot")
@@ -86,7 +86,7 @@ func try_release(where: Vector2) -> bool:
 						var success := placed_ingr_data.work_result_success
 						var success_n_drop := placed_ingr_data.n_produced_success
 						for i in success_n_drop:
-							spawn_ingredient(success, other_area.position + _random_offset(40, 90), false)
+							spawn_ingredient(success, other_area.position + _random_position_offset(40, 90), false)
 						other_area.placed_ingredient = &""
 						LogWrapper.debug(self, "Cut %s on chopping board" % placed_ingr_data)
 						break
@@ -122,10 +122,11 @@ func spawn_meal_plate(where: Vector2, should_grab: bool = true) -> void:
 		try_grab(plate)
 
 
-func _random_offset(min_distance: float, max_distance: float) -> Vector2:
+func _random_position_offset(min_distance: float, max_distance: float) -> Vector2:
 	var angle := randf() * TAU
 	var distance := randf_range(min_distance, max_distance)
 	return Vector2(cos(angle), sin(angle)) * distance
+
 
 func _is_mouse_left_click(event: InputEvent) -> bool:
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
