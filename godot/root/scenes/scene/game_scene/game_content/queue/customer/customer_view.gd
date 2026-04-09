@@ -4,6 +4,8 @@ extends Node2D
 var data: CustomerData
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var satisfaction_bar: ProgressBar = %SatisfactionBar
+@onready var satisfaction_label: Label = %SatisfactionLabel
 
 
 func apply_visuals() -> void:
@@ -16,11 +18,12 @@ func apply_visuals() -> void:
 
 
 func _process(_delta: float) -> void:
-	$SatisfactionBar.scale.x = data.points / 100.0
-
+	satisfaction_bar.value = data.points
+	satisfaction_label.text = str(int(data.points))
+	
 	if data.points >= 50:
-		$SatisfactionBar.modulate = Color.GREEN
+		satisfaction_bar.self_modulate = Color.GREEN
 	elif data.points >= 20:
-		$SatisfactionBar.modulate = Color.ORANGE
+		satisfaction_bar.self_modulate = Color.ORANGE
 	else:
-		$SatisfactionBar.modulate = Color.RED
+		satisfaction_bar.self_modulate = Color.RED

@@ -147,6 +147,27 @@ expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 region_rect = Rect2(321, 440, 49, 49)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqbpr"]
+bg_color = Color(0.26779038, 0.26779026, 0.2677903, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1gel"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxTexture" id="28"]
 content_margin_left = 12.0
 content_margin_top = 10.0
@@ -271,6 +292,8 @@ PopupMenu/styles/labeled_separator_right = null
 PopupMenu/styles/panel = SubResource("27")
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
+ProgressBar/styles/background = SubResource("StyleBoxFlat_nqbpr")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_p1gel")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
 RichTextLabel/constants/outline_size = 8

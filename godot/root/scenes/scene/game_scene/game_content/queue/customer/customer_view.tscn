@@ -5,15 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://c3fpwahskxru5" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_head.tscn" id="2_kb6fh"]
 [ext_resource type="Texture2D" uid="uid://b2rceramye23o" path="res://root/assets/image/game/characters/base_character/Body_outline.PNG" id="3_owpu1"]
 
-[sub_resource type="Gradient" id="Gradient_5xlv7"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_owpu1"]
-gradient = SubResource("Gradient_5xlv7")
-width = 120
-height = 15
-
 [sub_resource type="Animation" id="Animation_5xlv7"]
 length = 0.001
 tracks/0/type = "value"
@@ -151,9 +142,40 @@ texture = ExtResource("3_owpu1")
 [node name="CustomerHead" parent="." unique_id=696342410 instance=ExtResource("2_kb6fh")]
 position = Vector2(-1, -295)
 
-[node name="SatisfactionBar" type="Sprite2D" parent="." unique_id=1466160277]
-position = Vector2(0, -438)
-texture = SubResource("GradientTexture2D_owpu1")
+[node name="SatisfactionBar" type="ProgressBar" parent="." unique_id=580198434]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -438.0
+offset_right = 75.0
+offset_bottom = -401.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 30.0
+show_percentage = false
+
+[node name="SatisfactionLabel" type="Label" parent="SatisfactionBar" unique_id=1334092933]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.375
+offset_right = 20.0
+offset_bottom = 20.375
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=37236276]
 unique_name_in_owner = true
