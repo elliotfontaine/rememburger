@@ -14,7 +14,10 @@ var grabbed_previous_z_index: int
 func _physics_process(delta: float) -> void:
 	if not grabbed_object:
 		return
+	
 	grabbed_object.position = get_global_mouse_position()
+	if grabbed_object is KitchenMovableIngredient:
+		grabbed_object.rotate_velocity(delta)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -53,19 +56,31 @@ func try_release(where: Vector2) -> bool:
 					return false
 			if other_area is ChoppingBoard:
 				if not other_area.has_ingredient_placed() and ingredient_data.workstation == IngredientData.WorkStation.CHOPPING_BOARD:
-					other_area.placed_ingredient = grabbed_object.ingredient
-					LogWrapper.debug(self, "Dropped %s on chopping board" % ingredient_data)
-					grabbed_object.queue_free()
+					# Ref used in the tweener callback below, since `grabbed_object` will be set to null
+					var ref_to_grabbed := grabbed_object
+					create_tween().tween_property(grabbed_object, "rotation", 0, 0.2)
+					var pos_tweener := create_tween().tween_property(grabbed_object, "position", other_area.position, 0.2)
+					pos_tweener.set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+					pos_tweener.finished.connect(func() -> void:
+						other_area.placed_ingredient = ref_to_grabbed.ingredient
+						LogWrapper.debug(self, "Dropped %s on chopping board" % ingredient_data)
+						ref_to_grabbed.queue_free())
 					break
 				else:
 					return false
 			if other_area is Grill:
 				if not other_area.has_ingredient_placed() and ingredient_data.workstation == IngredientData.WorkStation.GRILL:
-					other_area.placed_ingredient = grabbed_object.ingredient
-					other_area.step = 0
-					other_area._start_timer()
-					LogWrapper.debug(self, "Dropped %s on grill" % ingredient_data)
-					grabbed_object.queue_free()
+					# Ref used in the tweener callback below, since `grabbed_object` will be set to null
+					var ref_to_grabbed := grabbed_object
+					create_tween().tween_property(grabbed_object, "rotation", 0, 0.2)
+					var pos_tweener := create_tween().tween_property(grabbed_object, "position", other_area.position, 0.2)
+					pos_tweener.set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+					pos_tweener.finished.connect(func() -> void:
+						other_area.placed_ingredient = ref_to_grabbed.ingredient
+						other_area.step = 0
+						other_area._start_timer()
+						LogWrapper.debug(self, "Dropped %s on grill" % ingredient_data)
+						ref_to_grabbed.queue_free())
 					break
 				else:
 					return false
@@ -77,7 +92,12 @@ func try_release(where: Vector2) -> bool:
 				if grabbed_object.meal_data and not grabbed_object.meal_data.is_empty():
 					SignalBus.meal_served.emit(grabbed_object.meal_data)
 					LogWrapper.debug(self, "Dropped plate on serving spot")
-					grabbed_object.queue_free()
+					var ref_to_grabbed := grabbed_object
+					var pos_tweener := create_tween().tween_property(grabbed_object, "position", Vector2(0, -100), 0.6)
+					pos_tweener.as_relative().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+					pos_tweener.finished.connect(func() -> void: ref_to_grabbed.queue_free())
+					create_tween().tween_property(grabbed_object.plate_sprite_2d, "self_modulate", Color.TRANSPARENT, 0.3)
+					create_tween().tween_property(grabbed_object.meal_stack, "self_modulate", Color.TRANSPARENT, 0.6)
 				break
 
 	elif grabbed_object is KitchenTool:
@@ -89,7 +109,9 @@ func try_release(where: Vector2) -> bool:
 						var success := placed_ingr_data.work_result_success
 						var success_n_drop := placed_ingr_data.n_produced_success
 						for i in success_n_drop:
-							spawn_ingredient(success, other_area.position + _random_position_offset(40, 90), false)
+							var new_ingr := spawn_ingredient(success, other_area.position, false)
+							var tweener := create_tween().tween_property(new_ingr, "position", _random_position_offset(60, 90), 0.3)
+							tweener.as_relative().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 						other_area.placed_ingredient = &""
 						LogWrapper.debug(self, "Cut %s on chopping board" % placed_ingr_data)
 						break

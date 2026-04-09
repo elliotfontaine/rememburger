@@ -11,9 +11,9 @@ const INGREDIENT_REGISTRY := preload("uid://cgvbeut67x3ce")
 
 var kitchen: Kitchen
 
-@onready var sprite_2d: Sprite2D = %Sprite2D
+@onready var plate_sprite_2d: Sprite2D = %PlateSprite2D
 @onready var grabbing_area_2d: Area2D = %GrabbingArea2D
-@onready var meal_stack: Node2D = %MealStack
+@onready var meal_stack: CanvasGroup = %MealStack
 
 
 func _ready() -> void:

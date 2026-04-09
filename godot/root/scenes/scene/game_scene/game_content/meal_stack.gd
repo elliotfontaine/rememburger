@@ -1,5 +1,5 @@
 @tool
-extends Node2D
+extends CanvasGroup
 
 const INGREDIENTS: Registry = preload("uid://cgvbeut67x3ce")
 

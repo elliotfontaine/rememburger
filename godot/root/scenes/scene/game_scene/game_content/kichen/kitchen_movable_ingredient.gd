@@ -32,17 +32,14 @@ func _ready() -> void:
 		LogWrapper.warn(self, "kitchen reference not set.")
 
 
-func _physics_process(delta: float) -> void:
-	if not visible or position == _last_pos:
-		return
-	rotate_velocity(delta)
-
-
 func get_ingredient_data() -> IngredientData:
 	return INGREDIENT_REGISTRY.load_entry(ingredient)
 
 
 func rotate_velocity(delta: float) -> void:
+	if not visible or position == _last_pos:
+		return
+	
 	_velocity = (position - _last_pos) / delta
 	_last_pos = position
 	_oscillator_velocity += _velocity.normalized().x * velocity_multiplier

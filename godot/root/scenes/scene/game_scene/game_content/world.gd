@@ -5,8 +5,8 @@ extends Node2D
 @onready var take_order_button: Button = %TakeOrderButton
 @onready var serving_spot: Area2D = %ServingSpot
 @onready var bubble: Node2D = %Bubble
-@onready var meal_desc: Node2D = %MealDesc
-@onready var meal_stack: Node2D = %MealStack
+@onready var meal_desc: CanvasGroup = %MealDesc
+@onready var meal_stack: CanvasGroup = %MealStack
 
 
 func _hide_counter_buttons() -> void:

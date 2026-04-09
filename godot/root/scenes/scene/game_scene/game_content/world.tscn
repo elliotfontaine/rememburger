@@ -10,9 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bqjamshr2hxd0" path="res://root/assets/image/game/items/image0005.png" id="7_v103c"]
 [ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/MealStack.tscn" id="8_iqpcp"]
 [ext_resource type="PackedScene" uid="uid://sxhvflj8q4k5" path="res://root/scenes/scene/game_scene/game_content/MealDesc.tscn" id="8_v103c"]
+[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="10_birb1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf5dl"]
 radius = 70.0
+
+[sub_resource type="Resource" id="Resource_mpuab"]
+script = ExtResource("10_birb1")
 
 [node name="World" type="Node2D" unique_id=20499566]
 script = ExtResource("1_fha1o")
@@ -81,6 +85,7 @@ texture = ExtResource("7_k2e8o")
 [node name="MealDesc" parent="Bubble" unique_id=253224361 instance=ExtResource("8_v103c")]
 unique_name_in_owner = true
 position = Vector2(71, 1)
+meal_data = SubResource("Resource_mpuab")
 
 [node name="MealStack" parent="Bubble" unique_id=242877394 instance=ExtResource("8_iqpcp")]
 unique_name_in_owner = true

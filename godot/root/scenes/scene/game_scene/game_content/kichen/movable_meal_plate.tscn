@@ -7,15 +7,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ypdhy"]
 radius = 70.0
 
-[node name="MovableMealPlate" type="Node2D" unique_id=1847300281]
+[node name="MovableMealPlate" type="Node2D" unique_id=380425334]
 script = ExtResource("1_s1y10")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=258412632]
+[node name="PlateSprite2D" type="Sprite2D" parent="." unique_id=258412632]
 unique_name_in_owner = true
 position = Vector2(-1, 14.000002)
 texture = ExtResource("2_qx2j7")
-
-[node name="Shadow" type="Sprite2D" parent="." unique_id=2054624586]
 
 [node name="GrabbingArea2D" type="Area2D" parent="." unique_id=354802629]
 unique_name_in_owner = true

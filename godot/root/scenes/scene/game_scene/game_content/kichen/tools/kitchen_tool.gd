@@ -31,6 +31,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if _is_mouse_left_click(event) and kitchen:
 		var grabbed := kitchen.try_grab(self)
 		if grabbed:
-			rotation = usage_rotation
+			create_tween().tween_property(self, "rotation", usage_rotation, RESET_TWEEN_DURATION).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 			get_viewport().set_input_as_handled()
 			LogWrapper.debug(self, "Kitchen tool grabbed")

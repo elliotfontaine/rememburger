@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="7_4ss35"]
 [ext_resource type="Texture2D" uid="uid://0d5brrtomp6s" path="res://root/assets/image/game/ingredients/ingredient0009.png" id="8_uuu0h"]
 
-[node name="MealStack" type="Node2D" unique_id=253224361]
+[node name="MealStack" type="CanvasGroup" unique_id=1332256903]
 script = ExtResource("1_rgu2r")
 meal_data = ExtResource("2_n0afv")
 
