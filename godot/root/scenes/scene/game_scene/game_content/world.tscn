@@ -84,13 +84,47 @@ texture = ExtResource("7_k2e8o")
 
 [node name="MealDesc" parent="Bubble" unique_id=253224361 instance=ExtResource("8_v103c")]
 unique_name_in_owner = true
-position = Vector2(71, 1)
+position = Vector2(-22, 34)
+scale = Vector2(0.9, 0.9)
 meal_data = SubResource("Resource_mpuab")
 
 [node name="MealStack" parent="Bubble" unique_id=242877394 instance=ExtResource("8_iqpcp")]
 unique_name_in_owner = true
-position = Vector2(-147, 27)
+position = Vector2(-153, 14)
 scale = Vector2(1.5, 1.5)
+
+[node name="MealPriceLabel" type="Label" parent="Bubble/MealStack" unique_id=1648146591]
+unique_name_in_owner = true
+offset_left = -97.333336
+offset_top = -84.66668
+offset_right = 102.666664
+offset_bottom = -21.66668
+theme_override_colors/font_color = Color(0, 0.57254905, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+text = "35 $"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MealNameLabel" type="Label" parent="Bubble" unique_id=1890328594]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = 88.0
+offset_right = 247.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 40
+text = "BBQ Double Cheddar"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="customer_entered" from="QueueView" to="." method="_on_queue_view_customer_entered"]
 [connection signal="customer_exited" from="QueueView" to="." method="_on_queue_view_customer_exited"]

@@ -14,7 +14,8 @@ const INGREDIENTS: Registry = preload("uid://cgvbeut67x3ce")
 
 func _clear_textures() -> void:
 	for child in get_children():
-		child.texture = null
+		if child is Sprite2D:
+			child.texture = null
 
 
 func _setup_textures_from_meal(meal: MealData) -> void:

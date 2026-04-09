@@ -7,6 +7,8 @@ extends Node2D
 @onready var bubble: Node2D = %Bubble
 @onready var meal_desc: CanvasGroup = %MealDesc
 @onready var meal_stack: CanvasGroup = %MealStack
+@onready var meal_price_label: Label = %MealPriceLabel
+@onready var meal_name_label: Label = %MealNameLabel
 
 
 func _hide_counter_buttons() -> void:
@@ -31,6 +33,9 @@ func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 	else:
 		meal_desc.meal_data = customer_data.order.meal
 		meal_stack.meal_data = customer_data.order.meal
+		meal_price_label.text = str(customer_data.order.base_price) + " $"
+		meal_name_label.text = customer_data.order.name
+		
 		bubble.visible = true
 		take_order_button.visible = true
 

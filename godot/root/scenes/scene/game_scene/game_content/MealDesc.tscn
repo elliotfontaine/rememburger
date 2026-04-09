@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://71qyich8cspf" path="res://root/assets/image/game/ingredients/ingredient0003.png" id="4_pv5v6"]
 [ext_resource type="Texture2D" uid="uid://tadvuwr8cpd" path="res://root/assets/image/game/ingredients/ingredient0007.png" id="5_fayxm"]
 [ext_resource type="Texture2D" uid="uid://crj7s2pyhc8nv" path="res://root/assets/image/game/ingredients/ingredient0012.png" id="6_n8rrr"]
-[ext_resource type="Texture2D" uid="uid://c42tgsw3l7dy6" path="res://root/assets/image/game/ingredients/ingredient0008.png" id="7_1l5tk"]
 [ext_resource type="Texture2D" uid="uid://0d5brrtomp6s" path="res://root/assets/image/game/ingredients/ingredient0009.png" id="8_80gf5"]
 [ext_resource type="Texture2D" uid="uid://dik12o8xtdp2d" path="res://root/assets/image/game/ingredients/ingredient0001.png" id="9_o0qvp"]
 
@@ -18,43 +17,32 @@ script = ExtResource("1_krwux")
 meal_data = SubResource("Resource_5tu3b")
 
 [node name="Ingredient0" type="Sprite2D" parent="." unique_id=235762437]
-position = Vector2(-42, 84)
 texture = ExtResource("3_sr1hy")
 
 [node name="Ingredient1" type="Sprite2D" parent="." unique_id=690915120]
-position = Vector2(52, 92)
+position = Vector2(90, 0)
 texture = ExtResource("4_pv5v6")
 
 [node name="Ingredient2" type="Sprite2D" parent="." unique_id=651924262]
-position = Vector2(142, 89)
+position = Vector2(180, 0)
 texture = ExtResource("5_fayxm")
 
 [node name="Ingredient3" type="Sprite2D" parent="." unique_id=609751933]
-position = Vector2(-42, 16)
+position = Vector2(270, 0)
 texture = ExtResource("4_pv5v6")
 
 [node name="Ingredient4" type="Sprite2D" parent="." unique_id=1274403790]
-position = Vector2(52, 14)
+position = Vector2(0, -80)
 texture = ExtResource("5_fayxm")
 
 [node name="Ingredient5" type="Sprite2D" parent="." unique_id=1227872447]
-position = Vector2(141, 12)
+position = Vector2(90, -80)
 texture = ExtResource("6_n8rrr")
 
 [node name="Ingredient6" type="Sprite2D" parent="." unique_id=165531280]
-position = Vector2(-41, -65)
-texture = ExtResource("7_1l5tk")
-
-[node name="Ingredient7" type="Sprite2D" parent="." unique_id=1591581267]
-position = Vector2(57, -62)
+position = Vector2(180, -80)
 texture = ExtResource("8_80gf5")
 
-[node name="Ingredient8" type="Sprite2D" parent="." unique_id=1994623955]
-position = Vector2(149, -63)
+[node name="Ingredient7" type="Sprite2D" parent="." unique_id=1591581267]
+position = Vector2(270, -80)
 texture = ExtResource("9_o0qvp")
-
-[node name="Ingredient9" type="Sprite2D" parent="." unique_id=1002397273]
-position = Vector2(-45, -151)
-
-[node name="Ingredient10" type="Sprite2D" parent="." unique_id=349668101]
-position = Vector2(57, -152)
