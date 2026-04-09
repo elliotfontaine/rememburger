@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MenuEntry" format=3 uid="uid://djbmea3jgs5f2"]
+
+[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="1_3foef"]
+[ext_resource type="Script" uid="uid://ebcotn7nwwdb" path="res://root/resources/game_data/_classes/menu_entry.gd" id="2_aemb3"]
+
+[sub_resource type="Resource" id="Resource_sbdjx"]
+script = ExtResource("1_3foef")
+ingredients = Array[StringName]([&"bread_bottom", &"mustard", &"steak_cooked", &"pickle_slice", &"pickle_slice", &"bread_top"])
+metadata/_custom_type_script = "uid://cp63ho2tbyfik"
+
+[resource]
+script = ExtResource("2_aemb3")
+name = "Pickle Burger"
+meal = SubResource("Resource_sbdjx")
+base_price = 55
+difficulty = 1
+metadata/_custom_type_script = "uid://ebcotn7nwwdb"

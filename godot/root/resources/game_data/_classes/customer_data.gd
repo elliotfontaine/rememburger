@@ -42,7 +42,7 @@ var name: String = "John Doe"
 var state: State = State.IN_QUEUE
 var has_ordered: bool = false
 var points: float = 100.0 # decreasing
-var order: MealData
+var order: MenuEntry
 
 var shirt_color: Color
 var skin_color: Color

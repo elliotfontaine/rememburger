@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://b7eqya2l1ru20"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_h748a"]
+
+[resource]
+script = ExtResource("1_h748a")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([".tres", ".res"]),
+&"class_restrictions": Array[StringName]([&"MenuEntry"]),
+&"recursive_scan": false,
+&"scan_directories": Array[String](["res://root/resources/game_data/menu_entries"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://b6fdo6t6pd6vd": &"classic_deluxe",
+&"uid://bn5iafsjv24s2": &"double_cheese",
+&"uid://bwnrpu4rfxort": &"the_big_stack",
+&"uid://cvqupictuoplf": &"the_simple",
+&"uid://djbmea3jgs5f2": &"pickle_burger",
+&"uid://ds5fi6eluvvh3": &"classic_cheeseburger",
+&"uid://dssqell6og8x6": &"bbq_burger",
+&"uid://fl6w0mmlgj1c": &"bbq_double_cheddar",
+&"uid://l4n7ivkpl3w8": &"veggie",
+&"uid://ux1o302fq2ca": &"mustard_smash"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"bbq_burger": &"uid://dssqell6og8x6",
+&"bbq_double_cheddar": &"uid://fl6w0mmlgj1c",
+&"classic_cheeseburger": &"uid://ds5fi6eluvvh3",
+&"classic_deluxe": &"uid://b6fdo6t6pd6vd",
+&"double_cheese": &"uid://bn5iafsjv24s2",
+&"mustard_smash": &"uid://ux1o302fq2ca",
+&"pickle_burger": &"uid://djbmea3jgs5f2",
+&"the_big_stack": &"uid://bwnrpu4rfxort",
+&"the_simple": &"uid://cvqupictuoplf",
+&"veggie": &"uid://l4n7ivkpl3w8"
+})
+_property_index = Dictionary[StringName, Dictionary]({
+&"base_price": {
+35: {
+&"the_simple": true
+},
+50: {
+&"classic_cheeseburger": true
+},
+55: {
+&"pickle_burger": true,
+&"veggie": true
+},
+60: {
+&"bbq_burger": true
+},
+65: {
+&"mustard_smash": true
+},
+70: {
+&"classic_deluxe": true
+},
+80: {
+&"double_cheese": true
+},
+90: {
+&"the_big_stack": true
+},
+100: {
+&"bbq_double_cheddar": true
+}
+},
+&"difficulty": {
+0: {
+&"classic_cheeseburger": true,
+&"the_simple": true,
+&"veggie": true
+},
+1: {
+&"bbq_burger": true,
+&"classic_deluxe": true,
+&"mustard_smash": true,
+&"pickle_burger": true
+},
+2: {
+&"bbq_double_cheddar": true,
+&"double_cheese": true,
+&"the_big_stack": true
+}
+},
+&"meal.ingredients": {
+Array[StringName]([&"bread_bottom", &"mustard", &"steak_cooked", &"pickle_slice", &"pickle_slice", &"bread_top"]): {
+&"pickle_burger": true
+},
+Array[StringName]([&"bread_bottom", &"mustard", &"steak_cooked", &"steak_cooked", &"pickle_slice", &"bread_top"]): {
+&"mustard_smash": true
+},
+Array[StringName]([&"bread_bottom", &"ketchup", &"cheddar", &"lettuce", &"tomato_slice", &"bread_top"]): {
+&"veggie": true
+},
+Array[StringName]([&"bread_bottom", &"ketchup", &"steak_cooked", &"cheddar", &"bread_top"]): {
+&"classic_cheeseburger": true
+},
+Array[StringName]([&"bread_bottom", &"ketchup", &"steak_cooked", &"cheddar", &"steak_cooked", &"cheddar", &"bread_top"]): {
+&"double_cheese": true
+},
+Array[StringName]([&"bread_bottom", &"ketchup", &"steak_cooked", &"cheddar", &"lettuce", &"tomato_slice", &"pickle_slice", &"bread_top"]): {
+&"the_big_stack": true
+},
+Array[StringName]([&"bread_bottom", &"ketchup", &"steak_cooked", &"cheddar", &"lettuce", &"tomato_slice", &"bread_top"]): {
+&"classic_deluxe": true
+},
+Array[StringName]([&"bread_bottom", &"ketchup", &"steak_cooked", &"bread_top"]): {
+&"the_simple": true
+},
+Array[StringName]([&"bread_bottom", &"barbecue", &"steak_cooked", &"cheddar", &"bread_top"]): {
+&"bbq_burger": true
+},
+Array[StringName]([&"bread_bottom", &"barbecue", &"steak_cooked", &"cheddar", &"steak_cooked", &"cheddar", &"lettuce", &"bread_top"]): {
+&"bbq_double_cheddar": true
+}
+}
+})

@@ -29,8 +29,8 @@ func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 	if customer_data.has_ordered:
 		serving_spot.visible = true
 	else:
-		meal_desc.meal_data = customer_data.order
-		meal_stack.meal_data = customer_data.order
+		meal_desc.meal_data = customer_data.order.meal
+		meal_stack.meal_data = customer_data.order.meal
 		bubble.visible = true
 		take_order_button.visible = true
 

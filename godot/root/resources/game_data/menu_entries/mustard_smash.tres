@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MenuEntry" format=3 uid="uid://ux1o302fq2ca"]
+
+[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="1_0bdkn"]
+[ext_resource type="Script" uid="uid://ebcotn7nwwdb" path="res://root/resources/game_data/_classes/menu_entry.gd" id="2_ocmh0"]
+
+[sub_resource type="Resource" id="Resource_sbdjx"]
+script = ExtResource("1_0bdkn")
+ingredients = Array[StringName]([&"bread_bottom", &"mustard", &"steak_cooked", &"steak_cooked", &"pickle_slice", &"bread_top"])
+metadata/_custom_type_script = "uid://cp63ho2tbyfik"
+
+[resource]
+script = ExtResource("2_ocmh0")
+name = "Mustard Smash"
+meal = SubResource("Resource_sbdjx")
+base_price = 65
+difficulty = 1
+metadata/_custom_type_script = "uid://ebcotn7nwwdb"

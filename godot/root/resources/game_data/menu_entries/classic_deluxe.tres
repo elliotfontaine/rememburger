@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MenuEntry" format=3 uid="uid://b6fdo6t6pd6vd"]
+
+[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="1_wt7f7"]
+[ext_resource type="Script" uid="uid://ebcotn7nwwdb" path="res://root/resources/game_data/_classes/menu_entry.gd" id="2_54rfx"]
+
+[sub_resource type="Resource" id="Resource_sbdjx"]
+script = ExtResource("1_wt7f7")
+ingredients = Array[StringName]([&"bread_bottom", &"ketchup", &"steak_cooked", &"cheddar", &"lettuce", &"tomato_slice", &"bread_top"])
+metadata/_custom_type_script = "uid://cp63ho2tbyfik"
+
+[resource]
+script = ExtResource("2_54rfx")
+name = "Classic Deluxe"
+meal = SubResource("Resource_sbdjx")
+base_price = 70
+difficulty = 1
+metadata/_custom_type_script = "uid://ebcotn7nwwdb"

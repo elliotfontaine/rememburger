@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MenuEntry" format=3 uid="uid://fl6w0mmlgj1c"]
+
+[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="1_wfl2t"]
+[ext_resource type="Script" uid="uid://ebcotn7nwwdb" path="res://root/resources/game_data/_classes/menu_entry.gd" id="2_2cvs0"]
+
+[sub_resource type="Resource" id="Resource_sbdjx"]
+script = ExtResource("1_wfl2t")
+ingredients = Array[StringName]([&"bread_bottom", &"barbecue", &"steak_cooked", &"cheddar", &"steak_cooked", &"cheddar", &"lettuce", &"bread_top"])
+metadata/_custom_type_script = "uid://cp63ho2tbyfik"
+
+[resource]
+script = ExtResource("2_2cvs0")
+name = "BBQ Double Cheddar"
+meal = SubResource("Resource_sbdjx")
+base_price = 100
+difficulty = 2
+metadata/_custom_type_script = "uid://ebcotn7nwwdb"

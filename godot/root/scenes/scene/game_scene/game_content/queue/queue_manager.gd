@@ -17,7 +17,8 @@ signal customer_left_angry(customer: CustomerData)
 signal customer_served(customer: CustomerData, points_earned: int)
 signal queue_changed()
 
-const MEAL_PRESETS: Registry = preload("uid://b6iabg6hpbv1e")
+const MENU_ENTRY_REGISTRY: Registry = preload("uid://b7eqya2l1ru20")
+
 
 @export var spawn_interval_min: float = 20.0
 @export var spawn_interval_max: float = 40.0
@@ -135,7 +136,7 @@ func serve_customer(customer_id: int, served_meal: MealData) -> int:
 	if c == null or not c.has_ordered or c.state != CustomerData.State.AT_COUNTER:
 		return -1
 
-	var distance := c.order.distance_to(served_meal)
+	var distance := c.order.meal.distance_to(served_meal)
 
 	var points_earned := maxi(5, int(c.points) - distance)
 	c.state = CustomerData.State.SERVED
@@ -196,12 +197,11 @@ func _spawn_customer() -> void:
 	LogWrapper.debug(self, "Customer %s just arrived." % c)
 
 
-func _generate_order() -> MealData:
+func _generate_order() -> MenuEntry:
 	# Simply pick a meal at random in the registry
-	var meal_pool := MEAL_PRESETS.get_all_string_ids()
-	var meal_name: StringName = meal_pool.pick_random()
-	var meal := MEAL_PRESETS.load_entry(meal_name).duplicate()
-	return meal
+	var entry_name: StringName = MENU_ENTRY_REGISTRY.get_all_string_ids().pick_random()
+	var entry: MenuEntry = MENU_ENTRY_REGISTRY.load_entry(entry_name).duplicate()
+	return entry
 
 
 func _tick_customers(delta: float) -> void:
