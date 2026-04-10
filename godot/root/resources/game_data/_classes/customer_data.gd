@@ -3,7 +3,7 @@ extends Resource
 
 enum State { IN_QUEUE, AT_COUNTER, SERVED, LEFT_ANGRY }
 
-const START_TIP := 50.0
+const START_TIP := 30.0
 
 const NAMES = [
 	"Max", "Kim", "Pat", "Lee", "Mel", "Sasha", "Robin", "Casey", "Riley",

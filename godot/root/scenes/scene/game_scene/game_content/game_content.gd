@@ -44,9 +44,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	points_label.text = str(display_score)
+	points_label.text = "%s $"% display_score
 
-	tmp_points_label.text = "+ %d" % (GlobalScore.score - display_score)
+	tmp_points_label.text = "+ %d $" % (GlobalScore.score - display_score)
 	tmp_points_label.visible = (GlobalScore.score != display_score)
 
 	timer_label.text = "%02d:%02d" % [remaining_time / 60, remaining_time % 60]
