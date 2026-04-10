@@ -193,7 +193,7 @@ func _spawn_customer() -> void:
 	c.hair_outline = CustomerData.HAIR_OUTLINES[hair_id]
 	c.hair_color_texture = CustomerData.HAIR_COLORS_TEXTURES[hair_id]
 	if hair_id == 5:
-		c.hair_color = [Color.RED, Color.BLUE].pick_random()
+		c.hair_color = CustomerData.CAP_COLORS.pick_random()
 	else:
 		c.hair_color = CustomerData.HAIR_COLORS.pick_random()
 	c.order = _generate_order()

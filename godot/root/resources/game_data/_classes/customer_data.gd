@@ -12,13 +12,18 @@ const NAMES = [
 	"Quinn", "Avery", "Jamie", "Sage", "Blake", "Remy"
 ]
 const SHIRT_COLORS = [
-	Color(0.0, 0.333, 0.628, 1.0),
-	Color(0.184, 0.176, 0.176, 1.0),
-	Color(0.638, 1.0, 0.721, 1.0),
-	Color(0.752, 0.203, 0.273, 1.0),
-	Color(0.842, 0.786, 0.748, 1.0),
-	Color(0.776, 0.724, 0.341, 1.0),
-	Color(0.539, 0.117, 0.425, 1.0),
+	
+	Color("343b48ff"),
+	Color("a3ffb8ff"),
+	Color("d7c8bfff"),
+	Color("891e6cff"),
+	Color("#6dce5e"),
+	Color("c92a4e"),
+	Color("005ca5"),
+	Color("f8d778"),
+	Color("c4d2a4"),
+	Color("c6a5d8"),
+	Color("4c3e4d"),
 ]
 const SKIN_COLORS = [
 	Color("f7e2eeff"),
@@ -38,6 +43,13 @@ const HAIR_COLORS = [
 	Color("C6812A"),
 	Color("7639DC"),
 	Color("1FB9CF"),
+]
+const CAP_COLORS = [
+	Color("00ac43ff"),
+	Color("07578fff"),
+	Color("c53929ff"),
+	Color("6a74ffff"),
+	Color("dadbcdff"),
 ]
 const FACE_TEXTURES = [
 	preload("res://root/assets/image/game/characters/faces/face0000.png"),
