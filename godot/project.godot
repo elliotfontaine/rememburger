@@ -64,6 +64,7 @@ Configuration="*res://root/autoload/configuration/configuration.tscn"
 AssetReference="*res://root/autoload/reference/asset_reference/asset_reference.tscn"
 ResourceReference="*res://root/autoload/reference/resource_reference/resource_reference.tscn"
 GlobalScore="*uid://7apdt74lskam"
+Talo="*uid://bpmdn8oc34pg7"
 
 [debug]
 
@@ -81,7 +82,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/format_on_save/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/logger/plugin.cfg", "res://addons/resonate/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/yard/plugin.cfg")
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/format_on_save/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/logger/plugin.cfg", "res://addons/resonate/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/talo/plugin.cfg", "res://addons/yard/plugin.cfg")
 
 [file_customization]
 
