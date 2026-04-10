@@ -3,6 +3,8 @@ extends Resource
 
 enum State { IN_QUEUE, AT_COUNTER, SERVED, LEFT_ANGRY }
 
+const START_TIP := 50.0
+
 const NAMES = [
 	"Max", "Kim", "Pat", "Lee", "Mel", "Sasha", "Robin", "Casey", "Riley",
 	"John", "Emilie", "Fabian", "Laura", "Thomas", "Greg", "Marco", "Louise",
@@ -41,7 +43,7 @@ var id: int
 var name: String = "John Doe"
 var state: State = State.IN_QUEUE
 var has_ordered: bool = false
-var points: float = 100.0 # decreasing
+var points: float = START_TIP # decreasing
 var order: MenuEntry
 
 var shirt_color: Color

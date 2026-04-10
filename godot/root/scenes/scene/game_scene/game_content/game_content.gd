@@ -26,18 +26,22 @@ func _ready() -> void:
 	GlobalScore.score = 0
 	LogWrapper.debug(self, "Scene ready.")
 
-	queue_manager.connect("customer_added", SignalBus.customer_added.emit)
-	queue_manager.connect("customer_ticked", SignalBus.customer_ticked.emit)
-	queue_manager.connect("customer_state_changed", SignalBus.customer_state_changed.emit)
-	queue_manager.connect("customer_left_angry", SignalBus.customer_left_angry.emit)
-	queue_manager.connect("customer_served", SignalBus.customer_served.emit)
-	queue_manager.connect("queue_changed", SignalBus.queue_changed.emit)
+	queue_manager.customer_added.connect(SignalBus.customer_added.emit)
+	queue_manager.customer_ticked.connect(SignalBus.customer_ticked.emit)
+	queue_manager.customer_state_changed.connect(SignalBus.customer_state_changed.emit)
+	queue_manager.customer_left_angry.connect(SignalBus.customer_left_angry.emit)
+	queue_manager.customer_served.connect(SignalBus.customer_served.emit)
+	queue_manager.queue_changed.connect(SignalBus.queue_changed.emit)
 
-	queue_manager.connect("customer_served", score_points)
+	queue_manager.customer_served.connect(score_points)
 
 	queue_manager.start()
 	#queue_view.update_customer_positions()
 	_update_debug_overlay()
+	
+	if OS.is_debug_build():
+		_test_mealdata_distance()
+
 
 func _process(_delta: float) -> void:
 	points_label.text = str(display_score)
@@ -79,6 +83,7 @@ func _on_queue_manager_queue_changed() -> void:
 func _on_queue_manager_customer_ticked(_customer: CustomerData) -> void:
 	_update_debug_overlay()
 
+
 func score_points(_customer_data: CustomerData, points_earned: int) -> void:
 	GlobalScore.score += points_earned
 	create_tween().tween_property(self, "display_score", GlobalScore.score, 1.0).set_delay(0.5)
@@ -88,3 +93,35 @@ func _on_timer_timeout() -> void:
 	remaining_time -= 1
 	if remaining_time == 0:
 		game_ended.emit()
+
+
+func _test_mealdata_distance() -> void:
+	#const COST_MISSING := 40 # deletion
+	#const COST_EXTRA := 15 # insertion
+	#const COST_WRONG := 30 # substitution
+	#const COST_SWAP := 10 # transposition
+
+	var diff_ok := MealData.new(
+		&"bread_bottom", &"bread_top").distance_to(MealData.new(
+		&"bread_bottom", &"bread_top"))
+	var diff_missing := MealData.new(
+		&"bread_bottom", &"bread_top").distance_to(MealData.new(
+		&"bread_bottom"))
+	var diff_wrong := MealData.new(
+		&"bread_bottom", &"steak_cooked", &"bread_top").distance_to(MealData.new(
+		&"bread_bottom", &"lettuce", &"bread_top"))
+	var diff_swap := MealData.new(
+		&"bread_bottom", &"steak_cooked", &"lettuce", &"bread_top").distance_to(MealData.new(
+		&"bread_bottom", &"lettuce", &"steak_cooked", &"bread_top"))
+	var diff_swap_and_missing := MealData.new(
+		&"bread_bottom", &"steak_cooked", &"lettuce", &"cheddar", &"bread_top").distance_to(MealData.new(
+		&"bread_bottom", &"lettuce", &"steak_cooked", &"bread_top"))
+	var diff_wrong_and_swap := MealData.new(
+		&"bread_bottom", &"ketchup", &"steak_cooked", &"lettuce", &"cheddar", &"bread_top").distance_to(MealData.new(
+		&"bread_bottom", &"mustard", &"lettuce", &"steak_cooked", &"cheddar", &"bread_top"))
+	LogWrapper.debug(self, "(O) OK         should be 0:  %s" % diff_ok)
+	LogWrapper.debug(self, "(M) MISSING   should be 40: %s" % diff_missing)
+	LogWrapper.debug(self, "(W) WRONG     should be 30: %s" % diff_wrong)
+	LogWrapper.debug(self, "(S) SWAP      should be 10: %s" % diff_swap)
+	LogWrapper.debug(self, "(S) + (M)     should be 50: %s" % diff_swap_and_missing)
+	LogWrapper.debug(self, "(W) + (S)     should be 40: %s" % diff_wrong_and_swap)

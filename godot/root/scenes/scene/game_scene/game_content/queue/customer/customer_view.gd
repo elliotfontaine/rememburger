@@ -18,12 +18,12 @@ func apply_visuals() -> void:
 
 
 func _process(_delta: float) -> void:
-	satisfaction_bar.value = data.points
-	satisfaction_label.text = str(int(data.points))
+	satisfaction_bar.value = satisfaction_bar.max_value * (data.points / CustomerData.START_TIP)
+	satisfaction_label.text = "%d $" % data.points
 	
-	if data.points >= 50:
+	if data.points >= 0.5 * CustomerData.START_TIP:
 		satisfaction_bar.self_modulate = Color("5af873ff")
-	elif data.points >= 20:
+	elif data.points >= 0.25 * CustomerData.START_TIP:
 		satisfaction_bar.self_modulate = Color("f8cd79ff")
 	else:
 		satisfaction_bar.self_modulate = Color("ff5c4dff")

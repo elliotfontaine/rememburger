@@ -23,8 +23,9 @@ const MENU_ENTRY_REGISTRY: Registry = preload("uid://b7eqya2l1ru20")
 @export var spawn_interval_min: float = 20.0
 @export var spawn_interval_max: float = 40.0
 @export var max_queue_size: int = 5
-@export var points_drain_per_second: float = 1.0
-@export var reject_penalty: int = 5
+@export var points_drain_per_second: float = 0.5
+@export_range(0, 100, 1, "prefer_slider", "suffix:%") var reject_penalty: int = 5
+@export_range(0, 100, 1, "prefer_slider", "suffix:%") var accept_bonus: int = 25
 
 var queue: Array[CustomerData] = []
 var _spawn_timer: float = 0.0
@@ -96,8 +97,8 @@ func accept_customer(customer_id: int) -> void:
 
 	c.state = CustomerData.State.IN_QUEUE
 	c.has_ordered = true
-	c.points += 25.0
-	c.points = clampf(c.points, 0, 100)
+	c.points += (accept_bonus / 100.0) * CustomerData.START_TIP
+	c.points = clampf(c.points, 0, CustomerData.START_TIP)
 	customer_state_changed.emit(c)
 
 	# Renvoi en fin de file
@@ -113,8 +114,9 @@ func reject_customer(customer_id: int) -> void:
 	if c == null or c.state != CustomerData.State.AT_COUNTER:
 		return
 
-	c.points  = maxf(c.points - reject_penalty, 0.0)
-	c.state   = CustomerData.State.IN_QUEUE
+	c.points -= (reject_penalty / 100.0) * CustomerData.START_TIP
+	c.points = clampf(c.points, 0, CustomerData.START_TIP)
+	c.state = CustomerData.State.IN_QUEUE
 
 	# Renvoi en fin de file
 	queue.erase(c)
@@ -137,8 +139,16 @@ func serve_customer(customer_id: int, served_meal: MealData) -> int:
 		return -1
 
 	var distance := c.order.meal.distance_to(served_meal)
+	
+	var points_earned: int
+	
+	if distance > 60 or served_meal.ingredients.size() <= 2:
+		points_earned = 0
+	elif distance > 30:
+		points_earned = ceili(c.order.base_price * (1 - (distance / 100.0)))
+	else:
+		points_earned = ceili(c.order.base_price + (1 - (distance / 100.0)) + c.points)
 
-	var points_earned := maxi(5, int(c.points) - distance)
 	c.state = CustomerData.State.SERVED
 	queue.erase(c)
 
@@ -188,7 +198,6 @@ func _spawn_customer() -> void:
 		c.hair_color = CustomerData.HAIR_COLORS.pick_random()
 	c.order = _generate_order()
 	c.state = CustomerData.State.AT_COUNTER if queue.is_empty() else CustomerData.State.IN_QUEUE
-	c.points = 100.0
 	_id_counter += 1
 
 	queue.append(c)
