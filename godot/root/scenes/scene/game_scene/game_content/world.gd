@@ -39,7 +39,7 @@ func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 		
 		meal_desc.meal_data = customer_data.order.meal
 		meal_stack.meal_data = customer_data.order.meal
-		meal_price_label.text = str(customer_data.order.base_price) + " $"
+		meal_price_label.text = "%s €" % customer_data.order.base_price
 		meal_name_label.text = customer_data.order.name
 		
 		bubble.scale = Vector2.ZERO
