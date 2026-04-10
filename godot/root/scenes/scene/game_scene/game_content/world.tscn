@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/MealStack.tscn" id="8_iqpcp"]
 [ext_resource type="PackedScene" uid="uid://sxhvflj8q4k5" path="res://root/scenes/scene/game_scene/game_content/MealDesc.tscn" id="8_v103c"]
 [ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="10_birb1"]
+[ext_resource type="FontFile" uid="uid://dgyk82hf884mn" path="res://root/assets/font/Alan_Sans/static/AlanSans-Regular.ttf" id="12_mpuab"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf5dl"]
 radius = 70.0
@@ -75,22 +76,22 @@ texture = ExtResource("7_v103c")
 
 [node name="Bubble" type="Node2D" parent="." unique_id=165283928]
 unique_name_in_owner = true
-visible = false
-position = Vector2(-356, -650)
+position = Vector2(-12, -352)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bubble" unique_id=1958941360]
+position = Vector2(-291, -308)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_k2e8o")
 
 [node name="MealDesc" parent="Bubble" unique_id=253224361 instance=ExtResource("8_v103c")]
 unique_name_in_owner = true
-position = Vector2(-22, 34)
+position = Vector2(-313, -274)
 scale = Vector2(0.9, 0.9)
 meal_data = SubResource("Resource_mpuab")
 
 [node name="MealStack" parent="Bubble" unique_id=242877394 instance=ExtResource("8_iqpcp")]
 unique_name_in_owner = true
-position = Vector2(-153, 14)
+position = Vector2(-444, -294)
 scale = Vector2(1.5, 1.5)
 
 [node name="MealPriceLabel" type="Label" parent="Bubble/MealStack" unique_id=1648146591]
@@ -99,8 +100,8 @@ offset_left = -97.333336
 offset_top = -84.66668
 offset_right = 102.666664
 offset_bottom = -21.66668
-theme_override_colors/font_color = Color(0, 0.57254905, 0, 1)
-theme_override_constants/outline_size = 16
+theme_override_colors/font_color = Color(0.3529412, 0.972549, 0.4509804, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 32
 text = "35 $"
 horizontal_alignment = 1
@@ -113,14 +114,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -193.0
-offset_top = 88.0
-offset_right = 247.0
-offset_bottom = 141.0
+offset_left = -484.0
+offset_top = -220.0
+offset_right = -44.0
+offset_bottom = -167.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_constants/outline_size = 16
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("12_mpuab")
 theme_override_font_sizes/font_size = 40
 text = "BBQ Double Cheddar"
 horizontal_alignment = 1

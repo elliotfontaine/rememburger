@@ -58,8 +58,7 @@ func leave_happy(customer_data: CustomerData, _points: int) -> void:
 
 
 func make_leave(customer: CustomerView) -> void:
-	waiting_group.remove_child(customer)
-	leaving_group.add_child(customer)
+	customer.reparent(leaving_group)
 	move_customer(customer, START_POSITION)
 	create_tween().tween_property(customer, "modulate", Color.TRANSPARENT, 1.0).set_delay(1.4)
 	create_tween().tween_callback(customer.queue_free).set_delay(3.1)

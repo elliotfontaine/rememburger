@@ -11,11 +11,15 @@ extends Node2D
 @onready var meal_name_label: Label = %MealNameLabel
 
 
+func _ready() -> void:
+	bubble.hide()
+
 func _hide_counter_buttons() -> void:
-	bubble.visible = false
-	reject_button.visible = false
-	take_order_button.visible = false
-	serving_spot.visible = false
+	for node in [reject_button, take_order_button, serving_spot]:
+		node.hide()
+	
+	var tweener := create_tween().tween_property(bubble, "scale", Vector2.ZERO, 0.3)
+	tweener.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 
 
 func _on_queue_view_customer_exited(_customer_data: CustomerData) -> void:
@@ -26,18 +30,23 @@ func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 	if not customer_data.state == CustomerData.State.AT_COUNTER:
 		return
 	
-	reject_button.visible = true
+	reject_button.show()
 
 	if customer_data.has_ordered:
-		serving_spot.visible = true
+		serving_spot.show()
 	else:
+		take_order_button.show()
+		
 		meal_desc.meal_data = customer_data.order.meal
 		meal_stack.meal_data = customer_data.order.meal
 		meal_price_label.text = str(customer_data.order.base_price) + " $"
 		meal_name_label.text = customer_data.order.name
 		
-		bubble.visible = true
-		take_order_button.visible = true
+		bubble.scale = Vector2.ZERO
+		var tweener := create_tween().tween_property(bubble, "scale", Vector2.ONE, 0.4)
+		tweener.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+		bubble.show()
+		
 
 
 func _on_reject_button_pressed() -> void:
