@@ -7,6 +7,7 @@
 script = ExtResource("1_huijv")
 name = "Tomato"
 texture = ExtResource("2_x1lem")
+thickness = 10.0
 type = 5
 processed = false
 workstation = 1

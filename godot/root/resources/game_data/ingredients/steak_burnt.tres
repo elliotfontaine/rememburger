@@ -7,6 +7,7 @@
 script = ExtResource("1_engi1")
 name = "Burnt Steak"
 texture = ExtResource("2_10mna")
+thickness = 7.0
 type = 2
 processed = false
 metadata/_custom_type_script = "uid://cfrxleyr1eapt"

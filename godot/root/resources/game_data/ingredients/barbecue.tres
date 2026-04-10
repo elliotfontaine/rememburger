@@ -7,5 +7,6 @@
 script = ExtResource("1_ubnu6")
 name = "BBQ Sauce"
 texture = ExtResource("2_k3imh")
+thickness = 1.0
 type = 6
 metadata/_custom_type_script = "uid://cfrxleyr1eapt"

@@ -14,6 +14,7 @@ enum IngredientType {
 
 @export var name: String = ""
 @export var texture: CompressedTexture2D
+@export_range(0.0, 10.0, 0.1, "or_greater", "or_less") var thickness: float = 5.0
 @export var type: IngredientType = IngredientType.TOPPING
 # true means it can be used in a burger, and workstation should be NONE.
 @export var processed: bool = true

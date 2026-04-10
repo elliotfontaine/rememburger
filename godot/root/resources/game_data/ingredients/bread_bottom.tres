@@ -7,5 +7,6 @@
 script = ExtResource("1_um45j")
 name = "Bottom Bread"
 texture = ExtResource("2_ekabl")
+thickness = 0.0
 type = 0
 metadata/_custom_type_script = "uid://cfrxleyr1eapt"
