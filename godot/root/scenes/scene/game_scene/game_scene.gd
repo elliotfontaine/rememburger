@@ -12,9 +12,10 @@ extends Node
 @export var scene: SceneManagerEnum.Scene = SceneManagerEnum.Scene.MENU_SCENE
 @export var scene_manager_options_id: String = "fade_play"
 
-@onready var game_content: Node = $GameContent
+@onready var game_content: Node = %GameContent
 @onready var pause_menu: PauseMenu = %PauseMenu
 @onready var options_menu: OptionsMenu = %OptionsMenu
+@onready var game_end: Control = %GameEnd
 
 @onready var ui_builder: UiBuilder = %UiBuilder
 
@@ -137,5 +138,5 @@ func _connect_signals() -> void:
 
 func _on_game_content_game_ended() -> void:
 	game_content.process_mode = Node.PROCESS_MODE_DISABLED
-	game_content.visible = false
-	$GameEnd.visible = true
+	#game_content.visible = false
+	game_end.visible = true

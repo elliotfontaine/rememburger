@@ -103,7 +103,16 @@ texture_margin_top = 13.3469
 texture_margin_right = 13.3469
 texture_margin_bottom = 11.2935
 region_rect = Rect2(1, 310, 100, 100)
-modulate_color = Color(0.88235295, 0.654902, 0.30980393, 1)
+modulate_color = Color(1, 0.69411767, 0.32156864, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqbpr"]
+texture = ExtResource("1")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(1, 310, 100, 100)
+modulate_color = Color(1, 0.69411767, 0.32156864, 1)
 
 [sub_resource type="AtlasTexture" id="22"]
 atlas = ExtResource("1")
@@ -191,6 +200,14 @@ texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 region_rect = Rect2(1051, 317, 4, 100)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p1gel"]
+texture = ExtResource("1")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(1, 310, 100, 100)
+
 [resource]
 default_font = ExtResource("3_p1gel")
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -275,6 +292,7 @@ OptionButton/styles/hover = null
 OptionButton/styles/normal = null
 OptionButton/styles/pressed = null
 Panel/styles/panel = SubResource("21")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_nqbpr")
 PopupMenu/colors/font_color = Color(0, 0, 0, 1)
 PopupMenu/colors/font_color_accel = Color(0.701961, 0.701961, 0.701961, 0.8)
 PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
@@ -343,3 +361,5 @@ VSlider/icons/tick = null
 VSlider/styles/grabber_area = SubResource("30")
 VSlider/styles/grabber_area_highlight = SubResource("30")
 VSlider/styles/slider = SubResource("30")
+WhitePanel/base_type = &"PanelContainer"
+WhitePanel/styles/panel = SubResource("StyleBoxTexture_p1gel")

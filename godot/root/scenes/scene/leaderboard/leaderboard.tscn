@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bcguj32hbtugs"]
+
+[ext_resource type="Script" uid="uid://2i7qi8h85xom" path="res://root/scenes/scene/leaderboard/scripts/leaderboard.gd" id="1_chl5l"]
+
+[node name="Leaderboard" type="MarginContainer" unique_id=706464978]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -336.0
+offset_right = 540.0
+offset_bottom = 336.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+script = ExtResource("1_chl5l")
+leaderboard_internal_name = "player-high-scores"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=25159751]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="LeaderboardName" type="Label" parent="VBoxContainer" unique_id=869659408]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "{leaderboard} entries"
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="VBoxContainer" unique_id=638995712]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1643490253]
+custom_minimum_size = Vector2(2.08165e-12, 300)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Entries" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1750082725]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Username" type="TextEdit" parent="VBoxContainer" unique_id=176938907]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Username"
+
+[node name="Submit" type="Button" parent="VBoxContainer" unique_id=600253215]
+visible = false
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Add entry"
+
+[node name="Filter" type="Button" parent="VBoxContainer" unique_id=859629030]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Blue team scores"
+
+[connection signal="pressed" from="VBoxContainer/Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Filter" to="." method="_on_filter_pressed"]

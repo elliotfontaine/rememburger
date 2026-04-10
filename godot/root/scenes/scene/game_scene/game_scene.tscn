@@ -12,6 +12,7 @@ process_mode = 3
 script = ExtResource("1_cc2ll")
 
 [node name="GameContent" parent="." unique_id=1938081867 instance=ExtResource("3_33wd1")]
+unique_name_in_owner = true
 
 [node name="PauseMenu" parent="." unique_id=547540028 instance=ExtResource("4_bipq8")]
 unique_name_in_owner = true
@@ -30,4 +31,5 @@ z_as_relative = false
 unique_name_in_owner = true
 
 [node name="GameEnd" parent="." unique_id=411140280 instance=ExtResource("6_keakv")]
+unique_name_in_owner = true
 visible = false
