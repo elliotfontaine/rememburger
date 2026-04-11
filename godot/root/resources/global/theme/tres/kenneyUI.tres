@@ -70,6 +70,9 @@ region = Rect2(250, 544, 36, 36)
 atlas = ExtResource("1")
 region = Rect2(250, 644, 36, 36)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nqbpr"]
+thickness = 2
+
 [sub_resource type="AtlasTexture" id="16"]
 atlas = ExtResource("1")
 region = Rect2(872, 444, 28, 42)
@@ -210,6 +213,11 @@ region_rect = Rect2(1, 310, 100, 100)
 
 [resource]
 default_font = ExtResource("3_p1gel")
+default_font_size = 32
+BlackLabel/base_type = &"Label"
+BlackLabel/colors/font_color = Color(0, 0, 0, 1)
+BlackLabel/constants/outline_size = 0
+BoxContainer/constants/separation = 8
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.9, 0.9, 0.9, 0.2)
 Button/colors/font_focus_color = Color(0.11858126, 0.11858139, 0.11858175, 1)
@@ -255,6 +263,7 @@ CheckButton/styles/hover = null
 CheckButton/styles/hover_pressed = null
 CheckButton/styles/normal = null
 CheckButton/styles/pressed = null
+HSeparator/styles/separator = SubResource("StyleBoxLine_nqbpr")
 HSlider/icons/grabber = SubResource("16")
 HSlider/icons/grabber_disabled = null
 HSlider/icons/grabber_highlight = SubResource("16")
@@ -264,15 +273,18 @@ HSlider/styles/grabber_area_highlight = SubResource("17")
 HSlider/styles/slider = SubResource("17")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
-Label/constants/outline_size = 8
+Label/constants/outline_size = 16
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
 LineEdit/colors/clear_button_color = Color(0.88, 0.88, 0.88, 1)
 LineEdit/colors/clear_button_color_pressed = Color(1, 1, 1, 1)
 LineEdit/colors/cursor_color = Color(0.34902, 0.34902, 0.34902, 1)
 LineEdit/colors/font_color = Color(0, 0, 0, 1)
 LineEdit/colors/font_color_uneditable = Color(0.88, 0.88, 0.88, 0.5)
+LineEdit/colors/font_placeholder_color = Color(0.34901962, 0.34901962, 0.34901962, 0.5568628)
 LineEdit/colors/font_selected_color = Color(0.894118, 0.894118, 0.894118, 1)
 LineEdit/colors/font_uneditable_color = Color(0.33412305, 0.33412218, 0.33412242, 0.5019608)
 LineEdit/colors/selection_color = Color(0.34902, 0.34902, 0.34902, 1)
+LineEdit/constants/caret_width = 2
 LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = ExtResource("2_nqbpr")
 LineEdit/icons/clear = null
@@ -314,7 +326,7 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_nqbpr")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_p1gel")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
-RichTextLabel/constants/outline_size = 8
+RichTextLabel/constants/outline_size = 16
 TextEdit/colors/background_color = Color(0, 0, 0, 0)
 TextEdit/colors/bookmark_color = Color(0.08, 0.49, 0.98, 1)
 TextEdit/colors/brace_mismatch_color = Color(1, 0.2, 0.2, 1)

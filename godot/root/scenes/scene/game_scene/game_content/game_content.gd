@@ -2,6 +2,8 @@ class_name GameContent
 extends Control
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
+@export var game_duration := 5 * 60
+
 @onready var pause_menu_button: MenuButtonClass = %PauseMenuButton
 #@onready var queue_view: QueueView = %QueueView
 @onready var queue_manager: QueueManager = %QueueManager
@@ -17,14 +19,14 @@ extends Control
 
 
 var display_score: int = 0
-var remaining_time: int = 5 * 60
+var remaining_time: int
 
 signal game_ended
 
 
 func _ready() -> void:
 	GlobalScore.score = 0
-	LogWrapper.debug(self, "Scene ready.")
+	remaining_time = game_duration
 
 	queue_manager.customer_added.connect(SignalBus.customer_added.emit)
 	queue_manager.customer_ticked.connect(SignalBus.customer_ticked.emit)
@@ -36,8 +38,9 @@ func _ready() -> void:
 	queue_manager.customer_served.connect(score_points)
 
 	queue_manager.start()
-	#queue_view.update_customer_positions()
 	_update_debug_overlay()
+	
+	LogWrapper.debug(self, "Scene ready.")
 	
 	if OS.is_debug_build():
 		_test_mealdata_distance()

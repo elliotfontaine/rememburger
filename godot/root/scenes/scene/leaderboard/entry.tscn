@@ -1,11 +1,39 @@
 [gd_scene format=3 uid="uid://ux6qqklo3p0r"]
 
-[ext_resource type="Theme" uid="uid://ce2uyi827vc5x" path="res://addons/talo/samples/authentication/assets/theme.tres" id="1_mbkpc"]
 [ext_resource type="Script" uid="uid://dipgh66h8xvsa" path="res://root/scenes/scene/leaderboard/scripts/leaderboard_entry.gd" id="2_n2u0w"]
 
-[node name="Entry" type="Label" unique_id=370825735]
-custom_minimum_size = Vector2(2.08165e-12, 32)
-theme = ExtResource("1_mbkpc")
-theme_override_font_sizes/font_size = 20
-text = "{pos}. {username} scored: {score} points"
+[node name="Entry" type="PanelContainer" unique_id=440865873]
+offset_right = 400.0
+offset_bottom = 66.640396
+theme_type_variation = &"WhitePanel"
 script = ExtResource("2_n2u0w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1203969072]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Rank" type="Label" parent="HBoxContainer" unique_id=319692519]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_type_variation = &"BlackLabel"
+theme_override_colors/font_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+text = "4"
+horizontal_alignment = 2
+
+[node name="Username" type="Label" parent="HBoxContainer" unique_id=1371643685]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlackLabel"
+text = "John Doe"
+
+[node name="Score" type="Label" parent="HBoxContainer" unique_id=1756583409]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"BlackLabel"
+text = "348"
+
+[node name="Archived" type="Label" parent="HBoxContainer" unique_id=937657137]
+unique_name_in_owner = true
+layout_mode = 2

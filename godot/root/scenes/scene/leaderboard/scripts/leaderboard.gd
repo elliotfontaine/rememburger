@@ -1,48 +1,32 @@
 extends Control
 
-var entry_scene := preload("res://addons/talo/samples/leaderboards/entry.tscn")
+const ENTRY_SCENE = preload("uid://ux6qqklo3p0r")
 
 @export var leaderboard_internal_name: String = ""
 @export var include_archived: bool
 
-@onready var leaderboard_name: Label = %LeaderboardName
 @onready var entries_container: VBoxContainer = %Entries
+@onready var scroll_container: ScrollContainer = %ScrollContainer
 @onready var info_label: Label = %InfoLabel
-@onready var username: TextEdit = %Username
-@onready var filter_button: Button = %Filter
+@onready var current_player_entry: PanelContainer = %CurrentPlayerEntry
 
 var _entries_error: bool
-var _filter: String = "All"
-var _filter_idx: int
 
-func _ready() -> void:
-	leaderboard_name.text = leaderboard_name.text.replace("{leaderboard}", leaderboard_internal_name)
+
+func update() -> void:
+	info_label.text = "Loading..."
+	info_label.show()
+	scroll_container.hide()
+	current_player_entry.hide()
+	_entries_error = false
+	
 	await _load_entries()
-	_set_entry_count()
-
-func _set_entry_count() -> void:
-	if entries_container.get_child_count() == 0:
-		info_label.text = "No entries yet!" if not _entries_error else "Failed loading leaderboard %s. Does it exist?" % leaderboard_internal_name
+	if not _entries_error:
+		info_label.hide()
+		scroll_container.show()
 	else:
-		info_label.text = "%s entries" % entries_container.get_child_count()
-		if _filter != "All":
-			info_label.text += " (%s team)" % _filter
+		info_label.text = "Could not access leaderboard."
 
-func _create_entry(entry: TaloLeaderboardEntry) -> void:
-	var entry_instance := entry_scene.instantiate()
-	entry_instance.set_data(entry)
-	entries_container.add_child(entry_instance)
-
-func _build_entries() -> void:
-	for child in entries_container.get_children():
-		child.queue_free()
-
-	var entries := Talo.leaderboards.get_cached_entries(leaderboard_internal_name)
-	if _filter != "All":
-		entries = entries.filter(func (entry: TaloLeaderboardEntry) -> bool: return entry.get_prop("team", "") == _filter)
-
-	for entry in entries:
-		_create_entry(entry)
 
 func _load_entries() -> void:
 	var page := 0
@@ -59,7 +43,6 @@ func _load_entries() -> void:
 			_entries_error = true
 			return
 
-		var entries := res.entries
 		var is_last_page := res.is_last_page
 
 		if is_last_page:
@@ -69,25 +52,21 @@ func _load_entries() -> void:
 
 	_build_entries()
 
-func _on_submit_pressed() -> void:
-	await Talo.players.identify("username", username.text)
-	var score := RandomNumberGenerator.new().randi_range(0, 100)
-	var team := "Blue" if RandomNumberGenerator.new().randi_range(0, 1) == 0 else "Red"
 
-	var res := await Talo.leaderboards.add_entry(leaderboard_internal_name, score, {team = team})
-	assert(is_instance_valid(res))
-	info_label.text = "You scored %s points for the %s team!%s" % [score, team, " Your highscore was updated!" if res.updated else ""]
+func _create_entry(entry: TaloLeaderboardEntry) -> void:
+	var entry_instance := ENTRY_SCENE.instantiate()
+	entry_instance.set_data(entry)
+	entries_container.add_child(entry_instance)
 
-	_build_entries()
 
-func _get_next_filter(idx: int) -> String:
-	return ["All", "Blue", "Red"][idx % 3]
+func _build_entries() -> void:
+	for child in entries_container.get_children():
+		child.queue_free()
 
-func _on_filter_pressed() -> void:
-	_filter_idx += 1
-	_filter = _get_next_filter(_filter_idx)
+	var entries := Talo.leaderboards.get_cached_entries(leaderboard_internal_name)
 
-	info_label.text = "Filtering on %s" % filter_button.text.to_lower()
-	filter_button.text = "%s team scores" % _get_next_filter(_filter_idx + 1)
-
-	_build_entries()
+	for entry in entries:
+		_create_entry(entry)
+		if Talo.current_alias and entry.player_alias.identifier == Talo.current_alias.identifier:
+			current_player_entry.set_data(entry)
+			current_player_entry.show()
