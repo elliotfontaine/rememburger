@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bqye2k0gfsdg1" path="res://root/scenes/scene/game_scene/game_end/game_end.gd" id="1_7ol2x"]
 [ext_resource type="FontFile" uid="uid://b6n7na4opcux3" path="res://root/assets/font/DynaPuff/static/DynaPuff-Medium.ttf" id="2_q1io8"]
 [ext_resource type="PackedScene" uid="uid://bcguj32hbtugs" path="res://root/scenes/scene/leaderboard/leaderboard.tscn" id="3_hgtgj"]
+[ext_resource type="Texture2D" uid="uid://dboalxyu1i212" path="res://root/assets/image/ui/kenney-game-icons/rewind.png" id="3_mp3m4"]
+[ext_resource type="Texture2D" uid="uid://dho02ppympcls" path="res://root/assets/image/ui/kenney-game-icons/home.png" id="4_m6h8e"]
+[ext_resource type="Script" uid="uid://ux5x10ua2kd" path="res://root/scenes/node/menu/menu_button/menu_button.gd" id="5_m6h8e"]
 
 [node name="GameEnd" type="Control" unique_id=411140280]
 layout_mode = 3
@@ -88,11 +91,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0.5254902, 0.4, 0.32156864, 1)
-theme_override_constants/shadow_offset_x = 6
-theme_override_constants/shadow_offset_y = 6
-theme_override_constants/outline_size = 36
-theme_override_constants/shadow_outline_size = 36
-theme_override_font_sizes/font_size = 96
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/outline_size = 54
+theme_override_constants/shadow_outline_size = 54
+theme_override_font_sizes/font_size = 144
 text = "4321"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -108,12 +111,13 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -160.61719
-offset_top = 16.5
+offset_top = 24.5
 offset_right = 96.0
-offset_bottom = 79.5
+offset_bottom = 87.5
 grow_horizontal = 0
 grow_vertical = 2
 rotation = -0.06653441
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_vertical = 2
 theme_override_colors/default_color = Color(0.22431558, 1, 0.48726535, 1)
 bbcode_enabled = true
@@ -122,37 +126,47 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf" unique_id=2070023438]
+[node name="FirstTimeSave" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf" unique_id=2070023438]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
 size_flags_stretch_ratio = 10.0
 theme_type_variation = &"WhitePanel"
 
-[node name="FirstTimeSave" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/PanelContainer" unique_id=1640242972]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave" unique_id=1640242972]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/PanelContainer/FirstTimeSave" unique_id=73858565]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer" unique_id=73858565]
 layout_mode = 2
 theme_type_variation = &"BlackLabel"
 text = "Enter your name"
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/PanelContainer/FirstTimeSave" unique_id=1384560638]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer" unique_id=1384560638]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/PanelContainer/FirstTimeSave" unique_id=1274505897]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer" unique_id=1274505897]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="UsernameLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/PanelContainer/FirstTimeSave/HBoxContainer" unique_id=556761519]
+[node name="UsernameLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer/HBoxContainer" unique_id=556761519]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "John Doe"
 
-[node name="SubmitUsernameButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/PanelContainer/FirstTimeSave/HBoxContainer" unique_id=753726939]
+[node name="SubmitUsernameButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer/HBoxContainer" unique_id=753726939]
 layout_mode = 2
 text = "Save ➜"
+
+[node name="CouldNotSave" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer" unique_id=711003861]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlackLabel"
+theme_override_colors/font_color = Color(1, 0.20392157, 0.22352941, 1)
+theme_override_font_sizes/font_size = 24
+text = "Could not save score"
+horizontal_alignment = 2
 
 [node name="Buttons" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf" unique_id=1919560831]
 layout_mode = 2
@@ -160,18 +174,23 @@ size_flags_vertical = 10
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="RetryButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons" unique_id=1641336929]
-custom_minimum_size = Vector2(200, 0)
+[node name="PlayAgainButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons" unique_id=1994488083]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Retry"
+text = "  Play again  "
+icon = ExtResource("3_mp3m4")
+script = ExtResource("5_m6h8e")
+label = "MENU_LABEL_PLAY_AGAIN"
+padding_spaces = 2
+metadata/_custom_type_script = "uid://ux5x10ua2kd"
 
-[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons" unique_id=2015398505]
-custom_minimum_size = Vector2(200, 0)
+[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons" unique_id=1608466822]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
-text = "Menu"
+text = "  Main Menu  "
+icon = ExtResource("4_m6h8e")
+script = ExtResource("5_m6h8e")
+label = "MENU_LABEL_MAINMENU"
+padding_spaces = 2
+metadata/_custom_type_script = "uid://ux5x10ua2kd"
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=744650334]
 layout_mode = 2
@@ -193,6 +212,6 @@ custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/PanelContainer/FirstTimeSave/HBoxContainer/SubmitUsernameButton" to="." method="_on_submit_username_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer/HBoxContainer/SubmitUsernameButton" to="." method="_on_submit_username_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

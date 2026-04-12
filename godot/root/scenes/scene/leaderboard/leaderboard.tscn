@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2i7qi8h85xom" path="res://root/scenes/scene/leaderboard/scripts/leaderboard.gd" id="1_chl5l"]
 [ext_resource type="PackedScene" uid="uid://ux6qqklo3p0r" path="res://root/scenes/scene/leaderboard/entry.tscn" id="2_ab77e"]
+[ext_resource type="Texture2D" uid="uid://qtbc6hrivsr3" path="res://root/assets/image/ui/kenney-game-icons/return.png" id="2_aiuqg"]
 
 [node name="Leaderboard" type="VBoxContainer" unique_id=1961509179]
 anchors_preset = 8
@@ -25,8 +26,26 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"WhitePanel"
 
+[node name="Control" type="Control" parent="PanelContainer" unique_id=2142123233]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="RefreshButton" type="Button" parent="PanelContainer/Control" unique_id=1412041013]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.999954
+offset_top = -60.0
+offset_right = 29.324173
+offset_bottom = 14.250999
+grow_horizontal = 0
+icon = ExtResource("2_aiuqg")
+
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=606906914]
 layout_mode = 2
+theme_override_constants/margin_top = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=25159751]
 layout_mode = 2
@@ -63,3 +82,5 @@ layout_mode = 2
 [node name="CurrentPlayerEntry" parent="MarginContainer" unique_id=440865873 instance=ExtResource("2_ab77e")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/Control/RefreshButton" to="." method="_on_refresh_button_pressed"]

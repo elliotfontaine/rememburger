@@ -70,3 +70,7 @@ func _build_entries() -> void:
 		if Talo.current_alias and entry.player_alias.identifier == Talo.current_alias.identifier:
 			current_player_entry.set_data(entry)
 			current_player_entry.show()
+
+
+func _on_refresh_button_pressed() -> void:
+	update()
