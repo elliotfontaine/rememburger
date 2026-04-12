@@ -47,6 +47,11 @@ Created by: [Kenney Vleugels](https://kenney.nl)\
 Source: [kenney.nl: UI Pack](https://kenney.nl/assets/ui-pack)\
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
+#### UI Icons
+Created by: [Kenney Vleugels](https://kenney.nl)\
+Source: [kenney.nl: Game Icons](https://kenney.nl/assets/game-icons)\
+License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
+
 #### Plus/Minus Icons
 Created by: [Marek Belski](https://github.com/Maaack)  
 Source: [github: Godot Menus Template](https://github.com/Maaack/Godot-Menus-Template/tree/main/addons/maaacks_menus_template/base/assets/remapping_input_icons)\
