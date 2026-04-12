@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://71qyich8cspf" path="res://root/assets/image/game/ingredients/ingredient0003.png" id="4_upp4l"]
 [ext_resource type="FontFile" uid="uid://d0fb5vns7w6vc" path="res://root/assets/font/DynaPuff/static/DynaPuff_Condensed-SemiBold.ttf" id="5_fpykg"]
 [ext_resource type="Shader" uid="uid://dwp6yc5wkqpf1" path="res://root/shaders/fast_blur.gdshader" id="7_qmluq"]
+[ext_resource type="Texture2D" uid="uid://dgwmy264yc5r1" path="res://root/assets/image/ui/kenney-game-icons/forward.png" id="10_0xopf"]
+[ext_resource type="Texture2D" uid="uid://d27n11swrfmoj" path="res://root/assets/image/ui/kenney-game-icons/menuList.png" id="11_2p1fc"]
+[ext_resource type="Texture2D" uid="uid://br63spchycq3j" path="res://root/assets/image/ui/kenney-game-icons/multiplayer.png" id="12_m8qrb"]
+[ext_resource type="Texture2D" uid="uid://bsi7odb81knvi" path="res://root/assets/image/ui/kenney-game-icons/door.png" id="13_0blb6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qmluq"]
 
@@ -306,25 +310,30 @@ size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
 theme_override_constants/outline_size = 24
 theme_override_font_sizes/font_size = 48
-text = " Play "
+text = "      Play      "
+icon = ExtResource("10_0xopf")
 label = "MENU_LABEL_PLAY"
+padding_spaces = 6
 
 [node name="OptionsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=297167535 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Options"
+text = "       Options       "
+icon = ExtResource("11_2p1fc")
 label = "MENU_OPTIONS"
 
 [node name="CreditsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=738759575 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Credits"
+text = "       Credits       "
+icon = ExtResource("12_m8qrb")
 label = "MENU_LABEL_CREDITS"
 
 [node name="QuitMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=882919507 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Quit"
+text = "       Quit       "
+icon = ExtResource("13_0blb6")
 label = "MENU_LABEL_QUIT"
 
 [node name="ControlGrabFocus" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=133167924 instance=ExtResource("3_jhg6y")]

@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="1_krneb"]
 [ext_resource type="Script" uid="uid://3urf76et05ff" path="res://root/scenes/scene/game_scene/pause_menu/pause_menu.gd" id="1_nxviq"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://root/scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="2_4br2w"]
+[ext_resource type="Texture2D" uid="uid://bsi7odb81knvi" path="res://root/assets/image/ui/kenney-game-icons/door.png" id="3_ptysx"]
+[ext_resource type="Texture2D" uid="uid://dgwmy264yc5r1" path="res://root/assets/image/ui/kenney-game-icons/forward.png" id="3_t84qj"]
+[ext_resource type="Texture2D" uid="uid://d27n11swrfmoj" path="res://root/assets/image/ui/kenney-game-icons/menuList.png" id="4_q6qci"]
+[ext_resource type="Texture2D" uid="uid://dho02ppympcls" path="res://root/assets/image/ui/kenney-game-icons/home.png" id="5_vy1es"]
 
 [node name="PauseMenu" type="Control" unique_id=1623067217]
 process_mode = 2
@@ -55,7 +59,8 @@ theme_override_constants/separation = 32
 [node name="TitleLabel" type="Label" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuLabelsVBoxContainer" unique_id=1624907183]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -74,18 +79,19 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath("../OptionsMenuButton")
-theme_override_font_sizes/font_size = 24
-text = "    Continue    "
+theme_override_font_sizes/font_size = 48
+text = "Resume"
+icon = ExtResource("3_t84qj")
 label = "MENU_LABEL_CONTINUE"
-padding_spaces = 4
+padding_spaces = 0
 
 [node name="OptionsMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=1935259042 instance=ExtResource("1_krneb")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../ContinueMenuButton")
 focus_neighbor_bottom = NodePath("../LeaveMenuButton")
-theme_override_font_sizes/font_size = 24
 text = "    Options    "
+icon = ExtResource("4_q6qci")
 label = "MENU_OPTIONS"
 padding_spaces = 4
 
@@ -94,9 +100,9 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../OptionsMenuButton")
 focus_neighbor_bottom = NodePath("../QuitMenuButton")
-theme_override_font_sizes/font_size = 24
-text = "    Leave    "
-label = "MENU_LABEL_LEAVE"
+text = "    Main Menu    "
+icon = ExtResource("5_vy1es")
+label = "MENU_LABEL_MAINMENU"
 padding_spaces = 4
 
 [node name="QuitMenuButton" parent="MainMenuMarginContainer/MainMenuVBoxContainer/MainMenuButtonsVBoxContainer" unique_id=1195522957 instance=ExtResource("1_krneb")]
@@ -104,8 +110,8 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../LeaveMenuButton")
 focus_neighbor_bottom = NodePath(".")
-theme_override_font_sizes/font_size = 24
 text = "    Quit    "
+icon = ExtResource("3_ptysx")
 label = "MENU_LABEL_QUIT"
 padding_spaces = 4
 
