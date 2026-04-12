@@ -138,5 +138,4 @@ func _connect_signals() -> void:
 
 func _on_game_content_game_ended() -> void:
 	game_content.process_mode = Node.PROCESS_MODE_DISABLED
-	#game_content.visible = false
-	game_end.visible = true
+	game_end.popup()

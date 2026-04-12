@@ -16,16 +16,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ol2x")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=608204138]
+[node name="TintColorRect" type="ColorRect" parent="." unique_id=608204138]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13725491, 0.07450981, 0.007843138, 0.6784314)
+color = Color(0, 0, 0, 0.7490196)
 
 [node name="TimesUpLabel" type="Label" parent="." unique_id=1870426435]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,6 +40,8 @@ offset_right = 255.5
 offset_bottom = -299.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(0, 300)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_q1io8")
 theme_override_font_sizes/font_size = 100
@@ -45,6 +49,7 @@ text = "Time’s up !"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1757618657]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,6 +62,7 @@ offset_right = 510.8335
 offset_bottom = 353.8202
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=858771762]
 layout_mode = 2
@@ -96,7 +102,7 @@ theme_override_constants/shadow_offset_y = 9
 theme_override_constants/outline_size = 54
 theme_override_constants/shadow_outline_size = 54
 theme_override_font_sizes/font_size = 144
-text = "4321"
+text = "4321 €"
 horizontal_alignment = 1
 vertical_alignment = 2
 

@@ -34,6 +34,10 @@ size_flags_horizontal = 10
 theme_type_variation = &"BlackLabel"
 text = "348"
 
+[node name="Currency" type="Label" parent="HBoxContainer" unique_id=634040280]
+layout_mode = 2
+text = "€"
+
 [node name="Archived" type="Label" parent="HBoxContainer" unique_id=937657137]
 unique_name_in_owner = true
 layout_mode = 2

@@ -1,5 +1,10 @@
 extends Control
 
+const TINT_COLOR := Color("000000bf")
+
+@onready var panel_container: PanelContainer = %PanelContainer
+@onready var tint_color_rect: ColorRect = %TintColorRect
+@onready var times_up_label: Label = %TimesUpLabel
 @onready var score_label: Label = %ScoreLabel
 @onready var leaderboard: Control = %Leaderboard
 @onready var username_line_edit: LineEdit = %UsernameLineEdit
@@ -8,15 +13,38 @@ extends Control
 @onready var new_best: RichTextLabel = %NewBest
 
 
-func _ready() -> void:
+func popup() -> void:
 	first_time_save.hide()
 	could_not_save.hide()
 	new_best.hide()
-	visibility_changed.connect(_on_visibility_changed)
+	panel_container.scale = Vector2.ZERO
+	times_up_label.scale = Vector2.ZERO
+	tint_color_rect.self_modulate = Color.TRANSPARENT
+	show()
+	
+	var scale_tween := create_tween().set_parallel(true).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	scale_tween.tween_property(panel_container, "scale", Vector2.ONE, 1)
+	scale_tween.tween_property(times_up_label, "scale", Vector2.ONE, 2).set_delay(0.2)
+	
+	var color_tweener := create_tween().tween_property(tint_color_rect, "self_modulate", TINT_COLOR, 1)
+	color_tweener.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
+	var set_score_text := func(value: int) -> void: score_label.text = "%d €" % value
+	var score_tweener := create_tween().tween_method(set_score_text, 0, GlobalScore.score, 2.5)
+	score_tweener.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
-func _process(_delta: float) -> void:
-	score_label.text = "%d" % GlobalScore.score
+	var identifier := _retrieve_talo_identifier()
+	if identifier:
+		await Talo.players.identify("username", identifier)
+		if GlobalScore.score > int(Talo.current_player.get_prop("high_score", "0")):
+			new_best.scale = Vector2.ZERO
+			create_tween().tween_property(new_best, "scale", Vector2.ONE, 1).set_trans(Tween.TRANS_BACK)
+			new_best.show()
+		_submit_score()
+	else:
+		first_time_save.show()
+		
+	leaderboard.update()
 
 
 func _submit_score() -> LeaderboardsAPI.AddEntryResult:
@@ -35,22 +63,6 @@ func _retrieve_talo_identifier() -> String:
 	if alias != null:
 		return alias.identifier
 	return ""
-
-
-func _on_visibility_changed() -> void:
-	if visible:
-		var identifier := _retrieve_talo_identifier()
-		if identifier:
-			await Talo.players.identify("username", identifier)
-			if GlobalScore.score > int(Talo.current_player.get_prop("high_score", "0")):
-				new_best.scale = Vector2.ZERO
-				create_tween().tween_property(new_best, "scale", Vector2.ONE, 1).set_trans(Tween.TRANS_BACK)
-				new_best.show()
-			_submit_score()
-		else:
-			first_time_save.show()
-			
-		leaderboard.update()
 
 
 func _on_submit_username_button_pressed() -> void:
