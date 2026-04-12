@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2i7qi8h85xom" path="res://root/scenes/scene/leaderboard/scripts/leaderboard.gd" id="1_chl5l"]
 [ext_resource type="PackedScene" uid="uid://ux6qqklo3p0r" path="res://root/scenes/scene/leaderboard/entry.tscn" id="2_ab77e"]
-[ext_resource type="Texture2D" uid="uid://qtbc6hrivsr3" path="res://root/assets/image/ui/kenney-game-icons/return.png" id="2_aiuqg"]
+[ext_resource type="Texture2D" uid="uid://qtbc6hrivsr3" path="res://root/assets/image/ui/kenney-game-icons/black/return.png" id="2_aiuqg"]
 
 [node name="Leaderboard" type="VBoxContainer" unique_id=1961509179]
 anchors_preset = 8

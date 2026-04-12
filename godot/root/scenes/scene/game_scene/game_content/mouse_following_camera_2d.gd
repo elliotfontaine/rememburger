@@ -24,8 +24,10 @@ func _input(event: InputEvent) -> void:
 		var vertical_ratio := mouse_pos.y / VIEWPORT_SIZE.y
 		if vertical_ratio < COUNTER_VERTICAL_RATIO_TRIGGER:
 			base_target = COUNTER_VIEW_POSITION
+			SignalBus.camera_target_changed.emit(Vector2.UP)
 		elif vertical_ratio > WORKSTATION_VERTICAL_RATIO_TRIGGER:
 			base_target = WORKSTATION_VIEW_POSITION
+			SignalBus.camera_target_changed.emit(Vector2.DOWN)
 
 		var mouse_offset: Vector2 = mouse_pos - VIEWPORT_SIZE * 0.5
 		if mouse_offset.length() < CAMERA_DEAD_ZONE:

@@ -16,6 +16,8 @@ extends Control
 @onready var points_label: Label = %PointsLabel
 @onready var tmp_points_label: Label = %TmpPointsLabel
 @onready var timer_label: Label = %TimerLabel
+@onready var up_arrow_anchor: Control = %UpArrowAnchor
+@onready var down_arrow_anchor: Control = %DownArrowAnchor
 
 
 var display_score: int = 0
@@ -27,6 +29,8 @@ signal game_ended
 func _ready() -> void:
 	GlobalScore.score = 0
 	remaining_time = game_duration
+	up_arrow_anchor.hide()
+	down_arrow_anchor.show()
 
 	queue_manager.customer_added.connect(SignalBus.customer_added.emit)
 	queue_manager.customer_ticked.connect(SignalBus.customer_ticked.emit)
@@ -34,6 +38,7 @@ func _ready() -> void:
 	queue_manager.customer_left_angry.connect(SignalBus.customer_left_angry.emit)
 	queue_manager.customer_served.connect(SignalBus.customer_served.emit)
 	queue_manager.queue_changed.connect(SignalBus.queue_changed.emit)
+	SignalBus.camera_target_changed.connect(_on_camera_target_changed)
 
 	queue_manager.customer_served.connect(score_points)
 
@@ -97,6 +102,18 @@ func _on_timer_timeout() -> void:
 	if remaining_time == 0:
 		game_ended.emit()
 
+
+func _on_camera_target_changed(direction: Vector2) -> void:
+	match direction:
+		Vector2.UP:
+			up_arrow_anchor.hide()
+			down_arrow_anchor.show()
+		Vector2.DOWN:
+			down_arrow_anchor.hide()
+			up_arrow_anchor.show()
+		_:
+			pass
+	
 
 func _test_mealdata_distance() -> void:
 	#const COST_MISSING := 40 # deletion

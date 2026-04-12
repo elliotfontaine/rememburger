@@ -3,8 +3,75 @@
 [ext_resource type="Script" uid="uid://c5e23i8a611eb" path="res://root/scenes/scene/game_scene/game_content/game_content.gd" id="1_qs7kg"]
 [ext_resource type="Script" uid="uid://drupy358b4i8e" path="res://root/scenes/scene/game_scene/game_content/queue/queue_manager.gd" id="2_yqwvd"]
 [ext_resource type="PackedScene" uid="uid://kbjd1qfc42hv" path="res://root/scenes/scene/game_scene/game_content/world.tscn" id="3_5ewdl"]
-[ext_resource type="Texture2D" uid="uid://bw4h8cbadohno" path="res://root/assets/image/ui/kenney-game-icons/pause.png" id="5_1tkip"]
+[ext_resource type="Texture2D" uid="uid://bw4h8cbadohno" path="res://root/assets/image/ui/kenney-game-icons/black/pause.png" id="5_1tkip"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="5_kng2e"]
+[ext_resource type="Texture2D" uid="uid://bbskm8xya6vem" path="res://root/assets/image/ui/kenney-game-icons/x2/up_black.png" id="6_604xq"]
+[ext_resource type="Texture2D" uid="uid://cv4u52ok6w7hf" path="res://root/assets/image/ui/kenney-game-icons/x2/up_white.png" id="7_r6ffe"]
+[ext_resource type="Texture2D" uid="uid://hj8lx76xw0l" path="res://root/assets/image/ui/kenney-game-icons/x2/down_black.png" id="8_4wmnx"]
+[ext_resource type="Texture2D" uid="uid://bq35c3riep50b" path="res://root/assets/image/ui/kenney-game-icons/x2/down_white.png" id="9_iwep5"]
+
+[sub_resource type="Animation" id="Animation_s6p04"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpArrowAnchor/UpArrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-30, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DownArrowAnchor/DownArrow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-30, -60)]
+}
+
+[sub_resource type="Animation" id="Animation_yqwvd"]
+resource_name = "arrows_idle"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpArrowAnchor/UpArrow:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-30, 0), Vector2(-30, -20), Vector2(-30, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DownArrowAnchor/DownArrow:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-30, -60), Vector2(-30, -40), Vector2(-30, -60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_604xq"]
+_data = {
+&"RESET": SubResource("Animation_s6p04"),
+&"arrows_idle": SubResource("Animation_yqwvd")
+}
 
 [node name="GameContent" type="Control" unique_id=8418740]
 process_mode = 1
@@ -45,12 +112,8 @@ render_target_update_mode = 4
 
 [node name="TopRightMarginContainer" type="MarginContainer" parent="." unique_id=123815767]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -135.0
-offset_bottom = 91.0
-grow_horizontal = 0
+offset_right = 462.0
+offset_bottom = 119.0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
@@ -59,6 +122,17 @@ theme_override_constants/margin_bottom = 16
 [node name="HBoxContainer" type="HBoxContainer" parent="TopRightMarginContainer" unique_id=164071438]
 layout_mode = 2
 theme_override_constants/separation = 16
+
+[node name="PauseMenuButton" parent="TopRightMarginContainer/HBoxContainer" unique_id=1804641574 instance=ExtResource("5_kng2e")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = " Pause "
+icon = ExtResource("5_1tkip")
+label = "MENU_LABEL_PAUSE"
+padding_spaces = 1
 
 [node name="TimerLabel" type="Label" parent="TopRightMarginContainer/HBoxContainer" unique_id=329331624]
 unique_name_in_owner = true
@@ -73,18 +147,6 @@ theme_override_font_sizes/font_size = 64
 text = "00:00"
 horizontal_alignment = 2
 justification_flags = 162
-
-[node name="PauseMenuButton" parent="TopRightMarginContainer/HBoxContainer" unique_id=1804641574 instance=ExtResource("5_kng2e")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 48
-text = " Pause "
-icon = ExtResource("5_1tkip")
-icon_alignment = 2
-label = "MENU_LABEL_PAUSE"
-padding_spaces = 1
 
 [node name="DebugMarginContainer" type="MarginContainer" parent="." unique_id=1909228670]
 unique_name_in_owner = true
@@ -146,13 +208,12 @@ text = "More info on queue content
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1238527393]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -90.0
-offset_right = 90.0
-offset_bottom = 116.0
-grow_horizontal = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_bottom = 208.0
+grow_horizontal = 0
 mouse_filter = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
@@ -189,6 +250,102 @@ theme_override_constants/shadow_outline_size = 24
 theme_override_font_sizes/font_size = 64
 text = "+ 10"
 horizontal_alignment = 2
+
+[node name="UpArrowAnchor" type="Control" parent="." unique_id=852412964]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="UpArrow" type="TextureRect" parent="UpArrowAnchor" unique_id=1143303533]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+scale = Vector2(2, 1)
+pivot_offset_ratio = Vector2(0.5, 1)
+mouse_filter = 2
+texture = ExtResource("6_604xq")
+
+[node name="Outline" type="TextureRect" parent="UpArrowAnchor/UpArrow" unique_id=1525884361]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("7_r6ffe")
+
+[node name="DownArrowAnchor" type="Control" parent="." unique_id=886368211]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="DownArrow" type="TextureRect" parent="DownArrowAnchor" unique_id=974712617]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 1)
+pivot_offset_ratio = Vector2(0.5, 1)
+mouse_filter = 2
+texture = ExtResource("8_4wmnx")
+
+[node name="Outline" type="TextureRect" parent="DownArrowAnchor/DownArrow" unique_id=2056180090]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("9_iwep5")
+
+[node name="ArrowsAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1236829673]
+libraries/ = SubResource("AnimationLibrary_604xq")
+autoplay = &"arrows_idle"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="customer_ticked" from="QueueManager" to="." method="_on_queue_manager_customer_ticked"]

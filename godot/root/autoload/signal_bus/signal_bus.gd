@@ -15,6 +15,10 @@ signal take_order_button_pressed()
 signal reject_button_pressed()
 signal meal_served(meal: MealData)
 
+## Camera signal when it changed its subject
+## [param target] is either Vector2.UP or Vector2.DOWN
+signal camera_target_changed(target: Vector2)
+
 signal customer_added(customer: CustomerData)
 signal customer_ticked(customer: CustomerData)
 signal customer_state_changed(customer: CustomerData)

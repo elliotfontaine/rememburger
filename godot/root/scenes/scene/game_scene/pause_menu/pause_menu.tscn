@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="1_krneb"]
 [ext_resource type="Script" uid="uid://3urf76et05ff" path="res://root/scenes/scene/game_scene/pause_menu/pause_menu.gd" id="1_nxviq"]
 [ext_resource type="PackedScene" uid="uid://bv7d4vxqjocks" path="res://root/scenes/component/control/control_grab_focus/control_grab_focus.tscn" id="2_4br2w"]
-[ext_resource type="Texture2D" uid="uid://bsi7odb81knvi" path="res://root/assets/image/ui/kenney-game-icons/door.png" id="3_ptysx"]
-[ext_resource type="Texture2D" uid="uid://dgwmy264yc5r1" path="res://root/assets/image/ui/kenney-game-icons/forward.png" id="3_t84qj"]
-[ext_resource type="Texture2D" uid="uid://d27n11swrfmoj" path="res://root/assets/image/ui/kenney-game-icons/menuList.png" id="4_q6qci"]
-[ext_resource type="Texture2D" uid="uid://dho02ppympcls" path="res://root/assets/image/ui/kenney-game-icons/home.png" id="5_vy1es"]
+[ext_resource type="Texture2D" uid="uid://bsi7odb81knvi" path="res://root/assets/image/ui/kenney-game-icons/black/door.png" id="3_ptysx"]
+[ext_resource type="Texture2D" uid="uid://dgwmy264yc5r1" path="res://root/assets/image/ui/kenney-game-icons/black/forward.png" id="3_t84qj"]
+[ext_resource type="Texture2D" uid="uid://d27n11swrfmoj" path="res://root/assets/image/ui/kenney-game-icons/black/menuList.png" id="4_q6qci"]
+[ext_resource type="Texture2D" uid="uid://dho02ppympcls" path="res://root/assets/image/ui/kenney-game-icons/black/home.png" id="5_vy1es"]
 
 [node name="PauseMenu" type="Control" unique_id=1623067217]
 process_mode = 2
