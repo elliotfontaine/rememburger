@@ -191,6 +191,11 @@ texture_margin_bottom = 14.7561
 axis_stretch_vertical = 1
 region_rect = Rect2(1, 310, 100, 100)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_p1gel"]
+color = Color(0.59036696, 0.38092908, 0.10331405, 1)
+thickness = 3
+vertical = true
+
 [sub_resource type="AtlasTexture" id="29"]
 atlas = ExtResource("1")
 region = Rect2(1007, 450, 39, 31)
@@ -366,6 +371,7 @@ TextEdit/styles/completion = null
 TextEdit/styles/focus = null
 TextEdit/styles/normal = SubResource("28")
 TextEdit/styles/read_only = null
+VSeparator/styles/separator = SubResource("StyleBoxLine_p1gel")
 VSlider/icons/grabber = SubResource("29")
 VSlider/icons/grabber_disabled = SubResource("29")
 VSlider/icons/grabber_highlight = SubResource("29")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kwuj02cd8apk"
-path="res://.godot/imported/background.png-e7fce4cbfa0df12d6ff03214e7bcaef1.ctex"
+uid="uid://cygbffpb4je5y"
+path="res://.godot/imported/circles.png-ab22997f6e23c251c5c6404bd3d2e1a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://root/assets/image/game/backgrounds/background.png"
-dest_files=["res://.godot/imported/background.png-e7fce4cbfa0df12d6ff03214e7bcaef1.ctex"]
+source_file="res://addons/scene_manager/shader_patterns/circles.png"
+dest_files=["res://.godot/imported/circles.png-ab22997f6e23c251c5c6404bd3d2e1a9.ctex"]
 
 [params]
 

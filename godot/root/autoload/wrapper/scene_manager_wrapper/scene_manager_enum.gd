@@ -24,7 +24,9 @@ enum ShaderPattern {
 	SCRIBBLES,
 	SPLASHED_DIRT,
 	SQUARES,
-	VERTICAL
+	VERTICAL,
+	CIRCLES,
+	BURGERS,
 }
 
 

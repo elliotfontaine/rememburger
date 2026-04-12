@@ -293,6 +293,7 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="MainMenuButtonsVBoxContainer" type="VBoxContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer" unique_id=1743424131]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -301,25 +302,29 @@ theme_override_constants/separation = 16
 [node name="PlayMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=7170428 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "       Play       "
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.93333334, 0.93333334, 0.93333334, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 48
+text = " Play "
 label = "MENU_LABEL_PLAY"
 
 [node name="OptionsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=297167535 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "       Options       "
+text = "Options"
 label = "MENU_OPTIONS"
 
 [node name="CreditsMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=738759575 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "       Credits       "
+text = "Credits"
 label = "MENU_LABEL_CREDITS"
 
 [node name="QuitMenuButton" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=882919507 instance=ExtResource("3_u405l")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "       Quit       "
+text = "Quit"
 label = "MENU_LABEL_QUIT"
 
 [node name="ControlGrabFocus" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer/MarginContainer/MainMenuButtonsVBoxContainer" unique_id=133167924 instance=ExtResource("3_jhg6y")]
