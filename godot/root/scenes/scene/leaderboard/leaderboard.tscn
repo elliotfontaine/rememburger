@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://2i7qi8h85xom" path="res://root/scenes/scene/leaderboard/scripts/leaderboard.gd" id="1_chl5l"]
 [ext_resource type="PackedScene" uid="uid://ux6qqklo3p0r" path="res://root/scenes/scene/leaderboard/entry.tscn" id="2_ab77e"]
 [ext_resource type="Texture2D" uid="uid://qtbc6hrivsr3" path="res://root/assets/image/ui/kenney-game-icons/black/return.png" id="2_aiuqg"]
+[ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://root/scenes/component/audio/button_audio/button_audio.tscn" id="3_ra6wt"]
 
 [node name="Leaderboard" type="VBoxContainer" unique_id=1961509179]
 anchors_preset = 8
@@ -42,6 +43,8 @@ offset_right = 29.324173
 offset_bottom = 14.250999
 grow_horizontal = 0
 icon = ExtResource("2_aiuqg")
+
+[node name="ButtonAudio" parent="PanelContainer/Control/RefreshButton" unique_id=1638075578 instance=ExtResource("3_ra6wt")]
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=606906914]
 layout_mode = 2

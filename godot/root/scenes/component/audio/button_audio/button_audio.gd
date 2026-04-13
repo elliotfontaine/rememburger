@@ -18,8 +18,8 @@ enum Interaction { NULL, FOCUS, DOWN, UP }
 
 @export_category("Sounds")
 @export var focus: AudioEnum.Sfx = AudioEnum.Sfx.SELECT
-@export var down: AudioEnum.Sfx = AudioEnum.Sfx.SELECT
-@export var up: AudioEnum.Sfx = AudioEnum.Sfx.CLICK
+@export var down: AudioEnum.Sfx = AudioEnum.Sfx.CLICK
+@export var up: AudioEnum.Sfx = AudioEnum.Sfx.NULL
 
 @export_category("Interaction Options")
 ## Consider focus is grabbed by a script instead by an interaction.

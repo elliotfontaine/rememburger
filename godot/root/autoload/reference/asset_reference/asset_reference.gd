@@ -13,6 +13,7 @@ const CLICK_4: AudioStream = preload(PathConsts.SFX + "kenny_ui/ogg/click4.ogg")
 const CLICK_5: AudioStream = preload(PathConsts.SFX + "kenny_ui/ogg/click5.ogg")
 const MOUSECLICK_1: AudioStream = preload(PathConsts.SFX + "kenny_ui/ogg/mouseclick1.ogg")
 const MOUSERELEASE_1: AudioStream = preload(PathConsts.SFX + "kenny_ui/ogg/mouserelease1.ogg")
+const ROLLOVER_2: AudioStream = preload(PathConsts.SFX + "kenny_ui/ogg/rollover2.ogg")
 
 const DING_2 = preload(PathConsts.SFX + "filmcow/ding 2.wav")
 const DING_3 = preload(PathConsts.SFX + "filmcow/ding 3.wav")

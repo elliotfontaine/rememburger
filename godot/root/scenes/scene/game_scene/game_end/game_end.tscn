@@ -4,8 +4,9 @@
 [ext_resource type="FontFile" uid="uid://b6n7na4opcux3" path="res://root/assets/font/DynaPuff/static/DynaPuff-Medium.ttf" id="2_q1io8"]
 [ext_resource type="PackedScene" uid="uid://bcguj32hbtugs" path="res://root/scenes/scene/leaderboard/leaderboard.tscn" id="3_hgtgj"]
 [ext_resource type="Texture2D" uid="uid://dboalxyu1i212" path="res://root/assets/image/ui/kenney-game-icons/black/rewind.png" id="3_mp3m4"]
+[ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://root/scenes/component/audio/button_audio/button_audio.tscn" id="3_new3g"]
 [ext_resource type="Texture2D" uid="uid://dho02ppympcls" path="res://root/assets/image/ui/kenney-game-icons/black/home.png" id="4_m6h8e"]
-[ext_resource type="Script" uid="uid://ux5x10ua2kd" path="res://root/scenes/node/menu/menu_button/menu_button.gd" id="5_m6h8e"]
+[ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="6_new3g"]
 
 [node name="GameEnd" type="Control" unique_id=411140280]
 layout_mode = 3
@@ -35,9 +36,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -255.5
-offset_top = -420.5
+offset_top = -436.5
 offset_right = 255.5
-offset_bottom = -299.5
+offset_bottom = -315.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 300)
@@ -166,6 +167,8 @@ placeholder_text = "John Doe"
 layout_mode = 2
 text = "Save ➜"
 
+[node name="ButtonAudio" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer/HBoxContainer/SubmitUsernameButton" unique_id=1638075578 instance=ExtResource("3_new3g")]
+
 [node name="CouldNotSave" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/FirstTimeSave/VBoxContainer" unique_id=711003861]
 unique_name_in_owner = true
 layout_mode = 2
@@ -181,23 +184,19 @@ size_flags_vertical = 10
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="PlayAgainButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons" unique_id=1994488083]
+[node name="PlayAgainButton" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons" unique_id=1298599633 instance=ExtResource("6_new3g")]
 layout_mode = 2
 text = "  Play again  "
 icon = ExtResource("3_mp3m4")
-script = ExtResource("5_m6h8e")
 label = "MENU_LABEL_PLAY_AGAIN"
 padding_spaces = 2
-metadata/_custom_type_script = "uid://ux5x10ua2kd"
 
-[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons" unique_id=1608466822]
+[node name="MainMenuButton" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/Buttons" unique_id=250741794 instance=ExtResource("6_new3g")]
 layout_mode = 2
 text = "  Main Menu  "
 icon = ExtResource("4_m6h8e")
-script = ExtResource("5_m6h8e")
 label = "MENU_LABEL_MAINMENU"
 padding_spaces = 2
-metadata/_custom_type_script = "uid://ux5x10ua2kd"
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=744650334]
 layout_mode = 2

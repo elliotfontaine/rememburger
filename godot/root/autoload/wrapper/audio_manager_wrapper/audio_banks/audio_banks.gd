@@ -30,7 +30,7 @@ func _init_resonate_audio_banks() -> void:
 	music_bank.tracks = music_tracks
 
 	var sound_tracks: Array[SoundEventResource] = []
-	sound_tracks.append(_init_sound(AssetReference.CLICK_4, AudioEnum.Sfx.CLICK))
+	sound_tracks.append(_init_sound(AssetReference.ROLLOVER_2, AudioEnum.Sfx.CLICK))
 	sound_tracks.append(_init_sound(AssetReference.CLICK_5, AudioEnum.Sfx.SELECT))
 	sound_tracks.append(_init_sound(AssetReference.MOUSECLICK_1, AudioEnum.Sfx.SELECT_2))
 	sound_tracks.append(_init_sound(AssetReference.MOUSERELEASE_1, AudioEnum.Sfx.CLICK_2))

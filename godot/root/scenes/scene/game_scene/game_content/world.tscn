@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kwuj02cd8apk" path="res://root/assets/image/game/backgrounds/background.png" id="1_sf5dl"]
 [ext_resource type="PackedScene" uid="uid://djb3vsrvt5j3a" path="res://root/scenes/scene/game_scene/game_content/queue/queue_view.tscn" id="2_fha1o"]
 [ext_resource type="Script" uid="uid://dwnln27j38rxd" path="res://root/scenes/scene/game_scene/game_content/mouse_following_camera_2d.gd" id="4_gr6f7"]
+[ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://root/scenes/component/audio/button_audio/button_audio.tscn" id="6_birb1"]
 [ext_resource type="PackedScene" uid="uid://bkwmgrw0mg3p8" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.tscn" id="6_q3v8v"]
 [ext_resource type="Texture2D" uid="uid://bw6nlph411pit" path="res://root/assets/image/game/backgrounds/speech_bubble.png" id="7_k2e8o"]
 [ext_resource type="Texture2D" uid="uid://bqjamshr2hxd0" path="res://root/assets/image/game/items/image0005.png" id="7_v103c"]
@@ -46,6 +47,8 @@ offset_right = -474.0
 theme_override_font_sizes/font_size = 32
 text = "Wait"
 
+[node name="ButtonAudio" parent="RejectButton" unique_id=1638075578 instance=ExtResource("6_birb1")]
+
 [node name="TakeOrderButton" type="Button" parent="." unique_id=457387453]
 unique_name_in_owner = true
 offset_left = -845.0
@@ -53,6 +56,8 @@ offset_top = -76.0
 offset_right = -623.6759
 theme_override_font_sizes/font_size = 32
 text = "Accept Order"
+
+[node name="ButtonAudio" parent="TakeOrderButton" unique_id=493032340 instance=ExtResource("6_birb1")]
 
 [node name="ServingSpot" type="Area2D" parent="." unique_id=1634379125]
 unique_name_in_owner = true
