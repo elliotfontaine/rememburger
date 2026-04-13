@@ -11,6 +11,8 @@ const SPREAD: Vector2 = Vector2(200, -10)
 const CUSTOMER_OFFSET := Vector2(100.0, -20.0)
 const START_POSITION := Vector2(1200, CUSTOMER_OFFSET.y)
 
+var _first_client: bool = true
+
 @onready var waiting_group: Node2D = %WaitingGroup
 @onready var leaving_group: Node2D = %LeavingGroup
 
@@ -28,7 +30,10 @@ func add_customer(customer_data: CustomerData) -> void:
 	new_customer.apply_visuals()
 	new_customer.position = Vector2(1200, CUSTOMER_OFFSET.y)
 	waiting_group.add_child(new_customer)
-	AudioManagerWrapper.play_sfx(AudioEnum.Sfx.CLIENT_ENTER)
+	if _first_client:
+		_first_client = false
+	else:
+		AudioManagerWrapper.play_sfx(AudioEnum.Sfx.CLIENT_ENTER)
 	update_customer_positions()
 
 
