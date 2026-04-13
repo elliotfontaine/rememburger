@@ -65,7 +65,7 @@ func leave_happy(customer_data: CustomerData, _points: int) -> void:
 
 func make_leave(customer: CustomerView) -> void:
 	customer.reparent(leaving_group)
-	move_customer(customer, START_POSITION)
+	customer.move(START_POSITION)
 	create_tween().tween_property(customer, "modulate", Color.TRANSPARENT, 1.0).set_delay(1.4)
 	create_tween().tween_callback(customer.queue_free).set_delay(3.1)
 
@@ -76,22 +76,10 @@ func get_customer_target_position(index: int) -> Vector2:
 
 func update_customer_positions() -> void:
 	for customer: CustomerView in waiting_group.get_children():
-		var target_pos := get_customer_target_position(customer.get_index())
-		if target_pos != customer.position:
-			move_customer(customer, target_pos)
-
-
-func move_customer(customer: CustomerView, new_position: Vector2) -> void:
-	var move_tween := create_tween()
-	var distance := new_position.distance_to(customer.position)
-	move_tween.tween_property(customer, "position", new_position, randf_range(2.3, 3.0))
-	move_tween.finished.connect(_on_move_tween_finished.bind(customer))
-
-	customer.animation_player.play(
-		&"walking",
-		-1,
-		max(1.0, randf_range(0.6, 1.0) * (distance / SPREAD.length())),
-	)
+		var child_index := customer.get_index()
+		var target_pos := get_customer_target_position(child_index)
+		var delay := child_index * 0.3 * float(child_index != waiting_group.get_child_count() -1)
+		customer.move(target_pos, delay)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -108,12 +96,3 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		return
 	
 	customer_exited.emit(customer.data)
-
-
-func _on_move_tween_finished(customer: Variant) -> void:
-	# Variant because it might have been freed.
-	if not customer or customer in leaving_group.get_children():
-		return
-		
-	if not customer.animation_player.current_animation == &"breathing":
-		customer.animation_player.play(&"breathing", -1, randf_range(0.8, 1.2))
