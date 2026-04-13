@@ -13,6 +13,9 @@ extends Node2D
 
 func _ready() -> void:
 	bubble.hide()
+	serving_spot.hide()
+	reject_button.hide()
+	take_order_button.hide()
 
 func _hide_counter_buttons() -> void:
 	for node in [reject_button, take_order_button, serving_spot]:

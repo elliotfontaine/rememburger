@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ca5kxy50hhij5" path="res://root/scenes/scene/game_scene/game_content/world.gd" id="1_fha1o"]
 [ext_resource type="Texture2D" uid="uid://kwuj02cd8apk" path="res://root/assets/image/game/backgrounds/background.png" id="1_sf5dl"]
 [ext_resource type="PackedScene" uid="uid://djb3vsrvt5j3a" path="res://root/scenes/scene/game_scene/game_content/queue/queue_view.tscn" id="2_fha1o"]
-[ext_resource type="Texture2D" uid="uid://l12io2kll5l2" path="res://root/assets/image/game/backgrounds/counter.png" id="3_q3v8v"]
 [ext_resource type="Script" uid="uid://dwnln27j38rxd" path="res://root/scenes/scene/game_scene/game_content/mouse_following_camera_2d.gd" id="4_gr6f7"]
 [ext_resource type="PackedScene" uid="uid://bkwmgrw0mg3p8" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.tscn" id="6_q3v8v"]
 [ext_resource type="Texture2D" uid="uid://bw6nlph411pit" path="res://root/assets/image/game/backgrounds/speech_bubble.png" id="7_k2e8o"]
@@ -26,6 +25,8 @@ texture = ExtResource("1_sf5dl")
 
 [node name="QueueView" parent="." unique_id=47794637 instance=ExtResource("2_fha1o")]
 unique_name_in_owner = true
+position = Vector2(-314, 64)
+scale = Vector2(1.2, 1.2)
 
 [node name="MouseFollowingCamera2D" type="Camera2D" parent="." unique_id=2119427164]
 position = Vector2(0, -500)
@@ -35,36 +36,27 @@ limit_right = 1000
 limit_bottom = 1080
 script = ExtResource("4_gr6f7")
 
-[node name="Counter(In Kitchen Now)" type="Sprite2D" parent="." unique_id=2074028399]
-visible = false
-texture = ExtResource("3_q3v8v")
-
 [node name="Kitchen" parent="." unique_id=52084164 instance=ExtResource("6_q3v8v")]
 
 [node name="RejectButton" type="Button" parent="." unique_id=655152088]
 unique_name_in_owner = true
-visible = false
-offset_left = 433.0
-offset_top = -64.0
-offset_right = 532.0
-offset_bottom = 12.0
+offset_left = -573.0
+offset_top = -76.0
+offset_right = -474.0
 theme_override_font_sizes/font_size = 32
 text = "Wait"
 
 [node name="TakeOrderButton" type="Button" parent="." unique_id=457387453]
 unique_name_in_owner = true
-visible = false
-offset_left = 181.0
-offset_top = -64.0
-offset_right = 386.0
-offset_bottom = 12.0
+offset_left = -845.0
+offset_top = -76.0
+offset_right = -623.6759
 theme_override_font_sizes/font_size = 32
 text = "Accept Order"
 
 [node name="ServingSpot" type="Area2D" parent="." unique_id=1634379125]
 unique_name_in_owner = true
-visible = false
-position = Vector2(272, -36)
+position = Vector2(-755, -37)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ServingSpot" unique_id=560963190]
 shape = SubResource("CircleShape2D_sf5dl")
@@ -75,7 +67,7 @@ texture = ExtResource("7_v103c")
 
 [node name="Bubble" type="Node2D" parent="." unique_id=165283928]
 unique_name_in_owner = true
-position = Vector2(-12, -352)
+position = Vector2(-326, -258)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bubble" unique_id=1958941360]
 position = Vector2(-291, -308)
