@@ -63,6 +63,7 @@ offset_bottom = 353.8202
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_type_variation = &"BurgerPanelContainer"
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=858771762]
 layout_mode = 2

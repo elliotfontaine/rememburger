@@ -23,8 +23,8 @@ func popup() -> void:
 	show()
 	
 	var scale_tween := create_tween().set_parallel(true).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	scale_tween.tween_property(panel_container, "scale", Vector2.ONE, 1)
-	scale_tween.tween_property(times_up_label, "scale", Vector2.ONE, 2).set_delay(0.2)
+	scale_tween.tween_property(panel_container, "scale", Vector2.ONE, 0.5)
+	scale_tween.tween_property(times_up_label, "scale", Vector2.ONE, 0.5).set_delay(0.2)
 	
 	var color_tweener := create_tween().tween_property(tint_color_rect, "self_modulate", TINT_COLOR, 1)
 	color_tweener.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

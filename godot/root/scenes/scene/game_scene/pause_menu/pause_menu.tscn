@@ -41,8 +41,9 @@ theme_override_constants/margin_top = -40
 theme_override_constants/margin_right = -40
 theme_override_constants/margin_bottom = -40
 
-[node name="SolidPanel" type="Panel" parent="MainMenuMarginContainer/SolidPanelMarginContainer" unique_id=619656083]
+[node name="SolidPanel" type="PanelContainer" parent="MainMenuMarginContainer/SolidPanelMarginContainer" unique_id=1294976859]
 layout_mode = 2
+theme_type_variation = &"BurgerPanelContainer"
 
 [node name="MainMenuVBoxContainer" type="VBoxContainer" parent="MainMenuMarginContainer" unique_id=1228637296]
 layout_mode = 2

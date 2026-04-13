@@ -275,7 +275,7 @@ theme_override_constants/outline_size = 32
 theme_override_fonts/normal_font = ExtResource("5_fpykg")
 theme_override_font_sizes/normal_font_size = 96
 bbcode_enabled = true
-text = "[outline_color=#e1a74f]Remem[/outline_color][color=#e1a74f]Burger[/color]"
+text = "[outline_color=e8b173]Remem[/outline_color][color=e8b173]Burger[/color]"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -288,6 +288,7 @@ theme_override_constants/margin_top = 30
 [node name="PanelContainer" type="PanelContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer" unique_id=325728506]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_type_variation = &"BurgerPanelContainer"
 
 [node name="MarginContainer" type="MarginContainer" parent="RootMarginContainer/AspectRatioContainer/CenterContainer/MainMenuMarginContainer/MainMenuVBoxContainer/PanelContainer" unique_id=173019259]
 layout_mode = 2
