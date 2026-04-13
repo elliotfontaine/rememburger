@@ -91,6 +91,9 @@ func try_release(where: Vector2) -> bool:
 					break
 				else:
 					return false
+		
+		# release ingredient "anywhere", no further check
+		create_tween().tween_property(grabbed_object, "rotation", 0, 0.2)
 
 	elif grabbed_object is MovableMealPlate:
 		var object_area: Area2D = grabbed_object.grabbing_area_2d
