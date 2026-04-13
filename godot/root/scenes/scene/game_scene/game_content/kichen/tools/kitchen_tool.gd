@@ -6,6 +6,7 @@ const RESET_TWEEN_DURATION := 0.3
 @export_node_path("Kitchen") var kitchen_path: NodePath
 @export_range(-360, 360, 0.1, "radians_as_degrees") var storage_rotation: float
 @export_range(-360, 360, 0.1, "radians_as_degrees") var usage_rotation: float
+@export var grab_sfx: AudioEnum.Sfx
 @export_group("Sauce")
 @export_custom(Registry.PROPERTY_HINT_CUSTOM, "uid://cgvbeut67x3ce") var sauce_ingredient: StringName
 
@@ -36,4 +37,6 @@ func _on_grabber_area_2d_input_event(viewport: Node, event: InputEvent, shape_id
 		if grabbed:
 			create_tween().tween_property(self, "rotation", usage_rotation, RESET_TWEEN_DURATION).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 			get_viewport().set_input_as_handled()
+			if grab_sfx != AudioEnum.Sfx.NULL:
+				AudioManagerWrapper.play_sfx(grab_sfx)
 			LogWrapper.debug(self, "Kitchen tool grabbed")

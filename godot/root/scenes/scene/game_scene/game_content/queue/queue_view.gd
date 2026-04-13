@@ -28,6 +28,7 @@ func add_customer(customer_data: CustomerData) -> void:
 	new_customer.apply_visuals()
 	new_customer.position = Vector2(1200, CUSTOMER_OFFSET.y)
 	waiting_group.add_child(new_customer)
+	AudioManagerWrapper.play_sfx(AudioEnum.Sfx.CLIENT_ENTER)
 	update_customer_positions()
 
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8ryrlkd756p2"]
 
 [ext_resource type="Script" uid="uid://drddopmi7k4no" path="res://root/scenes/scene/game_scene/game_content/kichen/workstations/grill.gd" id="1_17pt8"]
+[ext_resource type="AudioStream" uid="uid://dlqyjle1mejqj" path="res://root/assets/audio/sfx/filmcow/sizzling-frying-pan-loop.wav" id="2_2ustf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84l04"]
 radius = 50.0
@@ -12,6 +13,7 @@ script = ExtResource("1_17pt8")
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1434557414]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1017019598]
@@ -29,6 +31,12 @@ priority = 6
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CurrentItemArea2D" unique_id=331067975]
 shape = SubResource("CircleShape2D_84l04")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1093318573]
+unique_name_in_owner = true
+stream = ExtResource("2_2ustf")
+attenuation = 1.7411003
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="input_event" from="CurrentItemArea2D" to="." method="_on_current_item_area_2d_input_event"]

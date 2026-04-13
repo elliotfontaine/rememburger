@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://iiao123t2n4q"
+path="res://.godot/imported/door knock 1.wav-c781e157331465626f01c8f49dd1346a.sample"
+
+[deps]
+
+source_file="res://root/assets/audio/sfx/filmcow/door knock 1.wav"
+dest_files=["res://.godot/imported/door knock 1.wav-c781e157331465626f01c8f49dd1346a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

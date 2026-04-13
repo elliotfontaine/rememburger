@@ -5,6 +5,13 @@ const KITCHEN_MOVABLE_INGREDIENT := preload("uid://bf5nf4k4h46ll")
 const KITCHEN_MOVABLE_PLATE := preload("uid://b0xikwrg7qjyy")
 const INGREDIENT_REGISTRY := preload("uid://cgvbeut67x3ce")
 
+const CUTTING_BOARD_SFX := [
+	AudioEnum.Sfx.CUTTING_BOARD_1,
+	AudioEnum.Sfx.CUTTING_BOARD_2,
+	AudioEnum.Sfx.CUTTING_BOARD_2,
+	AudioEnum.Sfx.CUTTING_BOARD_4,
+]
+
 var grabbed_object: Node2D
 var grabbed_previous_z_index: int
 
@@ -113,6 +120,8 @@ func try_release(where: Vector2) -> bool:
 							var tweener := create_tween().tween_property(new_ingr, "position", _random_position_offset(60, 90), 0.3)
 							tweener.as_relative().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 						other_area.placed_ingredient = &""
+						
+						AudioManagerWrapper.play_sfx(CUTTING_BOARD_SFX.pick_random())
 						LogWrapper.debug(self, "Cut %s on chopping board" % placed_ingr_data)
 						break
 					else:
@@ -122,6 +131,7 @@ func try_release(where: Vector2) -> bool:
 				if other_area.get_parent() is MovableMealPlate:
 					var plate: MovableMealPlate = other_area.get_parent()
 					if plate.add_ingredient_to_plate(grabbed_object.sauce_ingredient):
+						AudioManagerWrapper.play_sfx(AudioEnum.Sfx.SAUCE)
 						LogWrapper.debug(self, "Added sauce %s on plate" % grabbed_object.sauce_ingredient)
 						break
 					else:
@@ -152,6 +162,7 @@ func spawn_meal_plate(where: Vector2, should_grab: bool = true) -> void:
 	plate.kitchen = self
 	plate.position = where
 	add_child(plate)
+	AudioManagerWrapper.play_sfx(AudioEnum.Sfx.PLATE_1)
 	if should_grab:
 		try_grab(plate)
 

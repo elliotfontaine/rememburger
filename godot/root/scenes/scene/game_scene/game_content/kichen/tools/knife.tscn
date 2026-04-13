@@ -7,6 +7,7 @@
 rotation = 0.87266463
 script = ExtResource("1_ldbni")
 storage_rotation = 0.8726646259971648
+grab_sfx = 12
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=796059101]
 polygon = PackedVector2Array(-71.7789, -90.25403, 44.140316, 9.624573, 16.650211, 36.16311, -97.34065, -66.01362)

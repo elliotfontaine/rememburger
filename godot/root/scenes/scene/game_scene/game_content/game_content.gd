@@ -100,6 +100,7 @@ func score_points(_customer_data: CustomerData, points_earned: int) -> void:
 func _on_timer_timeout() -> void:
 	remaining_time -= 1
 	if remaining_time == 0:
+		AudioManagerWrapper.play_sfx(AudioEnum.Sfx.GAME_OVER)
 		game_ended.emit()
 
 

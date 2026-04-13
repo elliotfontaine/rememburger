@@ -34,6 +34,15 @@ func _init_resonate_audio_banks() -> void:
 	sound_tracks.append(_init_sound(AssetReference.CLICK_5, AudioEnum.Sfx.SELECT))
 	sound_tracks.append(_init_sound(AssetReference.MOUSECLICK_1, AudioEnum.Sfx.SELECT_2))
 	sound_tracks.append(_init_sound(AssetReference.MOUSERELEASE_1, AudioEnum.Sfx.CLICK_2))
+	sound_tracks.append(_init_sound(AssetReference.DING_2, AudioEnum.Sfx.GAME_OVER))
+	sound_tracks.append(_init_sound(AssetReference.DING_3, AudioEnum.Sfx.CLIENT_ENTER))
+	sound_tracks.append(_init_sound(AssetReference.DOOR_KNOCK_1, AudioEnum.Sfx.CUTTING_BOARD_1))
+	sound_tracks.append(_init_sound(AssetReference.DOOR_KNOCK_2, AudioEnum.Sfx.CUTTING_BOARD_2))
+	sound_tracks.append(_init_sound(AssetReference.DOOR_KNOCK_3, AudioEnum.Sfx.CUTTING_BOARD_3))
+	sound_tracks.append(_init_sound(AssetReference.DOOR_KNOCK_OFFICE, AudioEnum.Sfx.CUTTING_BOARD_4))
+	sound_tracks.append(_init_sound(AssetReference.SPLAT_1, AudioEnum.Sfx.SAUCE))
+	sound_tracks.append(_init_sound(AssetReference.KNIFE_7, AudioEnum.Sfx.KNIFE))
+	sound_tracks.append(_init_sound(AssetReference.PLATE_TAKE_OFF_SHELF_1, AudioEnum.Sfx.PLATE_1))
 	sound_bank.events = sound_tracks
 
 
