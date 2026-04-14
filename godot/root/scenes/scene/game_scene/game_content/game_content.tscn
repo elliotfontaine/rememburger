@@ -239,7 +239,7 @@ theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 24
 theme_override_constants/shadow_outline_size = 24
 theme_override_font_sizes/font_size = 64
-text = "4321"
+text = "4321 €"
 horizontal_alignment = 2
 justification_flags = 162
 
@@ -265,17 +265,22 @@ theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 24
 theme_override_constants/shadow_outline_size = 24
 theme_override_font_sizes/font_size = 64
-text = "+ 10"
+text = "+ 100 €"
 horizontal_alignment = 2
 
 [node name="TempTipPointsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1025373485]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 24
 alignment = 2
 
-[node name="TempTipCustomerHead" parent="MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=1340818636 instance=ExtResource("7_4wmnx")]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=997160107]
+custom_minimum_size = Vector2(84, 84)
+layout_mode = 2
+
+[node name="TempTipCustomerHead" parent="MarginContainer/VBoxContainer/TempTipPointsContainer/Control" unique_id=1340818636 instance=ExtResource("7_4wmnx")]
 unique_name_in_owner = true
-position = Vector2(48, 40)
+position = Vector2(42, 42)
 scale = Vector2(0.6, 0.6)
 
 [node name="TempTipPointsLabel" type="Label" parent="MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=271777387]
@@ -288,7 +293,7 @@ theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 24
 theme_override_constants/shadow_outline_size = 24
 theme_override_font_sizes/font_size = 64
-text = "+ 10"
+text = "+ 100 €"
 horizontal_alignment = 2
 
 [node name="UpArrowAnchor" type="Control" parent="." unique_id=852412964]

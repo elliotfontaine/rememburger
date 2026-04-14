@@ -2,8 +2,8 @@ class_name CustomerView
 extends Node2D
 
 const MAX_WALK_DURATION := 3.0
-const BONUS_COLOR := Color("5af873ff")
-const MALUS_COLOR := Color("ff9384ff")
+const BONUS_COLOR := MainColorPalette.COLOR_SUCCESS
+const MALUS_COLOR := MainColorPalette.COLOR_FAILURE
 
 var data: CustomerData
 var move_tween: Tween
@@ -28,11 +28,11 @@ func _process(_delta: float) -> void:
 	satisfaction_label.text = "%d €" % ceili(data.points)
 	
 	if data.points >= 0.5 * QueueManager.START_TIP:
-		satisfaction_bar.self_modulate = Color("5af873ff")
+		satisfaction_bar.self_modulate = MainColorPalette.COLOR_SUCCESS
 	elif data.points >= 0.25 * QueueManager.START_TIP:
-		satisfaction_bar.self_modulate = Color("f8cd79ff")
+		satisfaction_bar.self_modulate = MainColorPalette.COLOR_WARNING
 	else:
-		satisfaction_bar.self_modulate = Color("ff5c4dff")
+		satisfaction_bar.self_modulate = MainColorPalette.COLOR_FAILURE
 
 
 func apply_visuals() -> void:

@@ -63,9 +63,15 @@ func score_points(customer_data: CustomerData, meal_points: int, tip_points: int
 	if meal_points > 0:
 		temp_meal_points_label.text = "+ %d €" % meal_points
 		temp_meal_points_container.show()
+		temp_meal_points_label.custom_minimum_size.x = temp_meal_points_label.size.x
 		temp_tip_points_label.text = "+ %d €" % tip_points
 		temp_tip_points_container.show()
+		temp_tip_points_label.custom_minimum_size.x = temp_meal_points_label.size.x # uses meal for alignment
 		temp_tip_customer_head.setup_visuals(customer_data)
+		var meal_text_color := MainColorPalette.COLOR_SUCCESS if meal_points == customer_data.order.base_price else MainColorPalette.COLOR_WARNING
+		var tip_text_color := MainColorPalette.COLOR_SUCCESS if tip_points else MainColorPalette.COLOR_FAILURE
+		temp_meal_points_label.add_theme_color_override("font_color", meal_text_color)
+		temp_tip_points_label.add_theme_color_override("font_color", tip_text_color)
 	
 	if _score_tween:
 		_score_tween.kill()

@@ -65,6 +65,7 @@ AssetReference="*res://root/autoload/reference/asset_reference/asset_reference.t
 ResourceReference="*res://root/autoload/reference/resource_reference/resource_reference.tscn"
 GlobalScore="*uid://7apdt74lskam"
 Talo="*uid://bpmdn8oc34pg7"
+MainColorPalette="*uid://d135arqtyy8cb"
 
 [debug]
 
