@@ -45,7 +45,7 @@ func try_grab(object: Node2D) -> bool:
 		return true
 
 
-func try_release(where: Vector2) -> bool:
+func try_release(_where: Vector2) -> bool:
 	if not grabbed_object:
 		return false
 

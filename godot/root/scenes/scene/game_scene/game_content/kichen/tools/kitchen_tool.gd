@@ -31,7 +31,7 @@ func _is_mouse_left_click(event: InputEvent) -> bool:
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
 
 
-func _on_grabber_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_grabber_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if _is_mouse_left_click(event) and kitchen:
 		var grabbed := kitchen.try_grab(self)
 		if grabbed:

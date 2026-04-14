@@ -18,7 +18,7 @@ func _ready() -> void:
 	take_order_button.hide()
 
 func _hide_counter_buttons() -> void:
-	for node in [reject_button, take_order_button, serving_spot]:
+	for node: Node in [reject_button, take_order_button, serving_spot]:
 		node.hide()
 	
 	var tweener := create_tween().tween_property(bubble, "scale", Vector2.ZERO, 0.3)
