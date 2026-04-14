@@ -191,19 +191,7 @@ func _spawn_customer() -> void:
 		# File pleine : ce spawn est perdu, on attend le prochain
 		return
 
-	var c := CustomerData.new()
-	c.id = _id_counter
-	c.name = CustomerData.NAMES.pick_random()
-	c.shirt_color = CustomerData.SHIRT_COLORS.pick_random()
-	c.skin_color = CustomerData.SKIN_COLORS.pick_random()
-	c.face = CustomerData.FACE_TEXTURES.pick_random()
-	var hair_id: int = randi() % 6
-	c.hair_outline = CustomerData.HAIR_OUTLINES[hair_id]
-	c.hair_color_texture = CustomerData.HAIR_COLORS_TEXTURES[hair_id]
-	if hair_id == 5:
-		c.hair_color = CustomerData.CAP_COLORS.pick_random()
-	else:
-		c.hair_color = CustomerData.HAIR_COLORS.pick_random()
+	var c := CustomerData.new(_id_counter)
 	c.order = _generate_order()
 	c.points = START_TIP
 	c.state = CustomerData.State.AT_COUNTER if queue.is_empty() else CustomerData.State.IN_QUEUE

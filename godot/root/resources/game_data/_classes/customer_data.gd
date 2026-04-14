@@ -88,9 +88,28 @@ var hair_color_texture: Texture2D
 var hair_color: Color
 
 
-func is_alive() -> bool:
-	return points > 0.0 and state != State.LEFT_ANGRY
+func _init(p_id: int, p_optional_name: String = "") -> void:
+	id = p_id
+	name = p_optional_name if p_optional_name else NAMES.pick_random()
+	_generate_random_look()
 
 
 func _to_string() -> String:
 	return "{name}({id})".format(self)
+
+
+func is_alive() -> bool:
+	return points > 0.0 and state != State.LEFT_ANGRY
+
+
+func _generate_random_look() -> void:
+	shirt_color = SHIRT_COLORS.pick_random()
+	skin_color = SKIN_COLORS.pick_random()
+	face = FACE_TEXTURES.pick_random()
+	var hair_id: int = randi() % 6
+	hair_outline = HAIR_OUTLINES[hair_id]
+	hair_color_texture = HAIR_COLORS_TEXTURES[hair_id]
+	if hair_id == 5:
+		hair_color = CAP_COLORS.pick_random()
+	else:
+		hair_color = HAIR_COLORS.pick_random()
