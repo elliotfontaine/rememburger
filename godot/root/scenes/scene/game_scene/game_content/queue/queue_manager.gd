@@ -129,7 +129,7 @@ func reject_customer(customer_id: int) -> void:
 	queue.append(c)
 
 	SignalBus.customer_state_changed.emit(c)
-	SignalBus.queue_changed.emit()
+	SignalBus.queue_changed.emit(queue)
 
 	if c.points <= 0.0:
 		_handle_angry_leave(c)
@@ -159,7 +159,7 @@ func serve_customer(customer_id: int, served_meal: MealData) -> void:
 	queue.erase(c)
 
 	SignalBus.customer_served.emit(c, meal_points_earned, tip_points_earned)
-	SignalBus.queue_changed.emit()
+	SignalBus.queue_changed.emit(queue)
 	LogWrapper.debug(
 		self,
 		"Customer %s left with a meal. (%s+%s) point earned" % [c, meal_points_earned, tip_points_earned]
@@ -209,7 +209,7 @@ func _spawn_customer() -> void:
 
 	queue.append(c)
 	SignalBus.customer_added.emit(c)
-	SignalBus.queue_changed.emit()
+	SignalBus.queue_changed.emit(queue)
 	LogWrapper.debug(self, "Customer %s just arrived." % c)
 
 
@@ -239,7 +239,7 @@ func _handle_angry_leave(c: CustomerData) -> void:
 		call_next_customer()
 
 	SignalBus.customer_left_angry.emit(c)
-	SignalBus.queue_changed.emit()
+	SignalBus.queue_changed.emit(queue)
 	LogWrapper.debug(self, "Customer %s left angry." % c)
 
 

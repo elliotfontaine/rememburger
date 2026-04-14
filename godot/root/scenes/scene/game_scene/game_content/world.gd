@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var queue_view: QueueView = %QueueView
-@onready var reject_button: Button = %RejectButton
+@onready var send_back_button: Button = %SendBackButton
 @onready var take_order_button: Button = %TakeOrderButton
 @onready var serving_spot: Area2D = %ServingSpot
 @onready var bubble: Node2D = %Bubble
@@ -14,11 +14,13 @@ extends Node2D
 func _ready() -> void:
 	bubble.hide()
 	serving_spot.hide()
-	reject_button.hide()
+	send_back_button.hide()
 	take_order_button.hide()
+	SignalBus.queue_changed.connect(_on_queue_changed)
+
 
 func _hide_counter_buttons() -> void:
-	for node: Node in [reject_button, take_order_button, serving_spot]:
+	for node: Node in [send_back_button, take_order_button, serving_spot]:
 		node.hide()
 	
 	var tweener := create_tween().tween_property(bubble, "scale", Vector2.ZERO, 0.3)
@@ -33,7 +35,7 @@ func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 	if not customer_data.state == CustomerData.State.AT_COUNTER:
 		return
 	
-	reject_button.show()
+	send_back_button.show()
 
 	if customer_data.has_ordered:
 		serving_spot.show()
@@ -49,10 +51,12 @@ func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 		var tweener := create_tween().tween_property(bubble, "scale", Vector2.ONE, 0.4)
 		tweener.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 		bubble.show()
-		
+
+func _on_queue_changed(queue: Array[CustomerData]) -> void:
+	send_back_button.disabled = queue.size() <= 1
 
 
-func _on_reject_button_pressed() -> void:
+func _on_send_back_button_pressed() -> void:
 	_hide_counter_buttons()
 	SignalBus.reject_button_pressed.emit()
 

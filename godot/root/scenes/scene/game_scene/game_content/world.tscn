@@ -40,18 +40,19 @@ script = ExtResource("4_gr6f7")
 
 [node name="Kitchen" parent="." unique_id=52084164 instance=ExtResource("6_q3v8v")]
 
-[node name="RejectButton" type="Button" parent="." unique_id=655152088]
+[node name="SendBackButton" type="Button" parent="." unique_id=655152088]
 unique_name_in_owner = true
 offset_left = -165.0
 offset_top = -76.0
 offset_right = 144.32413
 offset_bottom = 11.250999
 theme_override_font_sizes/font_size = 48
+disabled = true
 text = "Send Back"
 icon = ExtResource("6_mpuab")
 icon_alignment = 2
 
-[node name="ButtonAudio" parent="RejectButton" unique_id=1638075578 instance=ExtResource("6_birb1")]
+[node name="ButtonAudio" parent="SendBackButton" unique_id=1638075578 instance=ExtResource("6_birb1")]
 
 [node name="TakeOrderButton" type="Button" parent="." unique_id=457387453]
 unique_name_in_owner = true
@@ -131,5 +132,5 @@ vertical_alignment = 1
 
 [connection signal="customer_entered" from="QueueView" to="." method="_on_queue_view_customer_entered"]
 [connection signal="customer_exited" from="QueueView" to="." method="_on_queue_view_customer_exited"]
-[connection signal="pressed" from="RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="pressed" from="SendBackButton" to="." method="_on_send_back_button_pressed"]
 [connection signal="pressed" from="TakeOrderButton" to="." method="_on_take_order_button_pressed"]

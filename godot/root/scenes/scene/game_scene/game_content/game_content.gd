@@ -110,7 +110,7 @@ func _update_debug_overlay() -> void:
 	debug_info_label.text = info
 
 
-func _on_queue_manager_queue_changed() -> void:
+func _on_queue_manager_queue_changed(_queue: Array[CustomerData]) -> void:
 	_update_debug_overlay()
 
 
