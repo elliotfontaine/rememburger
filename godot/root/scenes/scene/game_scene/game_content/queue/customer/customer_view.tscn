@@ -132,7 +132,8 @@ script = ExtResource("1_6qvyg")
 [node name="Body" type="Node2D" parent="." unique_id=1284160410]
 position = Vector2(-1, -112)
 
-[node name="Color" type="Sprite2D" parent="Body" unique_id=1594958590]
+[node name="ShirtColor" type="Sprite2D" parent="Body" unique_id=1594958590]
+unique_name_in_owner = true
 texture = ExtResource("2_5xlv7")
 
 [node name="Outline" type="Sprite2D" parent="Body" unique_id=1342528121]
@@ -140,6 +141,7 @@ position = Vector2(-12, 36)
 texture = ExtResource("3_owpu1")
 
 [node name="CustomerHead" parent="." unique_id=696342410 instance=ExtResource("2_kb6fh")]
+unique_name_in_owner = true
 position = Vector2(-1, -295)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=132853419]

@@ -12,10 +12,10 @@ var target_position: Vector2
 
 var _label_start_pos: Vector2
 
-@onready var character_animation_player: AnimationPlayer = %CharacterAnimationPlayer
 @onready var satisfaction_bar: ProgressBar = %SatisfactionBar
 @onready var satisfaction_label: Label = %SatisfactionLabel
 @onready var bonus_malus_label: Label = %BonusMalusLabel
+@onready var character_animation_player: AnimationPlayer = %CharacterAnimationPlayer
 
 
 func _ready() -> void:
@@ -36,12 +36,8 @@ func _process(_delta: float) -> void:
 
 
 func apply_visuals() -> void:
-	$Body/Color.modulate = data.shirt_color
-	$CustomerHead/Head/Color.modulate = data.skin_color
-	$CustomerHead/Nose.texture = data.face
-	$CustomerHead/Hair/Color.texture = data.hair_color_texture
-	$CustomerHead/Hair/Color.modulate = data.hair_color
-	$CustomerHead/Hair/Outline.texture = data.hair_outline
+	%ShirtColor.modulate = data.shirt_color
+	%CustomerHead.setup_visuals(data)
 
 
 func move(to: Vector2, delay: float = 0.0) -> void:

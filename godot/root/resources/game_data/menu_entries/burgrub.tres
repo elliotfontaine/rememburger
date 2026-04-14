@@ -12,6 +12,6 @@ metadata/_custom_type_script = "uid://cp63ho2tbyfik"
 script = ExtResource("1_k7cvj")
 name = "BurgruB"
 meal = SubResource("Resource_fcdlu")
-base_price = 110
+base_price = 100
 difficulty = 2
 metadata/_custom_type_script = "uid://ebcotn7nwwdb"

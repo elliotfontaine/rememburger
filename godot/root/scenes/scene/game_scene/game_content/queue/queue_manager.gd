@@ -139,35 +139,33 @@ func reject_customer(customer_id: int) -> void:
 
 ## Le joueur sert un burger : on vérifie la commande et on conclut.
 ## Retourne les points gagnés (0 si commande trop différente).
-func serve_customer(customer_id: int, served_meal: MealData) -> int:
+func serve_customer(customer_id: int, served_meal: MealData) -> void:
 	var c := _find(customer_id)
 	if c == null or not c.has_ordered or c.state != CustomerData.State.AT_COUNTER:
-		return -1
+		return
 
 	var distance := c.order.meal.distance_to(served_meal)
 	
-	var points_earned: int
+	var meal_points_earned: int = 0
+	var tip_points_earned: int = 0
 	
-	if distance > 60 or served_meal.ingredients.size() <= 2:
-		points_earned = 0
-	elif distance > 30:
-		points_earned = ceili(c.order.base_price * (1 - (distance / 100.0)))
-	else:
-		points_earned = ceili(c.order.base_price + (1 - (distance / 100.0)) + c.points)
+	if distance <= 60 and served_meal.ingredients.size() > 2:
+		meal_points_earned = ceili(c.order.base_price * (1 - (distance / 100.0)))
+	
+	if distance <= 30:
+		tip_points_earned = ceili(c.points)
 
 	c.state = CustomerData.State.SERVED
 	queue.erase(c)
 
-	SignalBus.customer_served.emit(c, points_earned)
+	SignalBus.customer_served.emit(c, meal_points_earned, tip_points_earned)
 	SignalBus.queue_changed.emit()
 	LogWrapper.debug(
 		self,
-		"Customer %s left with a meal. %s point earned" % [c, points_earned]
+		"Customer %s left with a meal. (%s+%s) point earned" % [c, meal_points_earned, tip_points_earned]
 	)
-
 	call_next_customer()
 
-	return points_earned
 
 
 func percent_to_tip(percent: float) -> float:

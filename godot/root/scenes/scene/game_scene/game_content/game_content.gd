@@ -2,33 +2,39 @@ class_name GameContent
 extends Control
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
+signal game_ended
+
+const CUSTOMER_HEAD_SCENE = preload("uid://c3fpwahskxru5")
+
 @export var game_duration := 5 * 60
 
-@onready var pause_menu_button: MenuButtonClass = %PauseMenuButton
-#@onready var queue_view: QueueView = %QueueView
-@onready var queue_manager: QueueManager = %QueueManager
+var display_score: int = 0
+var remaining_time: int
+var _score_tween: Tween
 
-# Debug
+@onready var pause_menu_button: MenuButtonClass = %PauseMenuButton
+@onready var queue_manager: QueueManager = %QueueManager
 @onready var debug_margin_container: MarginContainer = %DebugMarginContainer
+@onready var debug_info_label: Label = %DebugInfoLabel
 @onready var queue_size_value_label: Label = %QueueSizeValueLabel
 @onready var queue_customer_list_label: Label = %QueueCustomerListLabel
-@onready var debug_info_label: Label = %DebugInfoLabel
-@onready var points_label: Label = %PointsLabel
-@onready var tmp_points_label: Label = %TmpPointsLabel
+@onready var score_label: Label = %ScoreLabel
+@onready var temp_meal_points_container: HBoxContainer = %TempMealPointsContainer
+@onready var temp_meal_points_label: Label = %TempMealPointsLabel
+@onready var temp_tip_points_container: HBoxContainer = %TempTipPointsContainer
+@onready var temp_tip_customer_head: Node2D = %TempTipCustomerHead
+@onready var temp_tip_points_label: Label = %TempTipPointsLabel
 @onready var timer_label: Label = %TimerLabel
 @onready var up_arrow_anchor: Control = %UpArrowAnchor
 @onready var down_arrow_anchor: Control = %DownArrowAnchor
 
 
-var display_score: int = 0
-var remaining_time: int
-
-signal game_ended
-
-
 func _ready() -> void:
 	GlobalScore.score = 0
 	remaining_time = game_duration
+	score_label.text = "%d" % GlobalScore.score
+	temp_meal_points_container.hide()
+	temp_tip_points_container.hide()
 	up_arrow_anchor.hide()
 	down_arrow_anchor.show()
 
@@ -47,19 +53,33 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	points_label.text = "%s €" % display_score
-
-	tmp_points_label.text = "+ %d €" % (GlobalScore.score - display_score)
-	tmp_points_label.visible = (GlobalScore.score != display_score)
-
 	timer_label.text = "%02d:%02d" % [remaining_time / 60, remaining_time % 60]
 
 
-func score_points(_customer_data: CustomerData, points_earned: int) -> void:
-	GlobalScore.score += points_earned
-	create_tween().tween_property(self, "display_score", GlobalScore.score, 1.0).set_delay(0.5)
-
-
+func score_points(customer_data: CustomerData, meal_points: int, tip_points: int) -> void:
+	var current_score: int = GlobalScore.score
+	GlobalScore.score += meal_points + tip_points
+		
+	if meal_points > 0:
+		temp_meal_points_label.text = "+ %d €" % meal_points
+		temp_meal_points_container.show()
+		temp_tip_points_label.text = "+ %d €" % tip_points
+		temp_tip_points_container.show()
+		temp_tip_customer_head.setup_visuals(customer_data)
+	
+	if _score_tween:
+		_score_tween.kill()
+	_score_tween = create_tween().set_parallel()
+	@warning_ignore_start("untyped_declaration")
+	_score_tween.tween_method(func(v): score_label.set_text("%d €" % v), current_score, GlobalScore.score, 1.0).set_delay(1.5)
+	_score_tween.tween_method(func(v): temp_meal_points_label.set_text("+ %d €" % v), meal_points, 0, 1.0).set_delay(1.5)
+	_score_tween.tween_method(func(v): temp_tip_points_label.set_text("+ %d €" % v), tip_points, 0, 1.0).set_delay(1.5)
+	@warning_ignore_restore("untyped_declaration")
+	_score_tween.set_parallel(false)
+	_score_tween.tween_callback(temp_meal_points_container.set_visible.bind(false))
+	_score_tween.tween_callback(temp_tip_points_container.set_visible.bind(false))
+	
+	
 func _update_debug_overlay() -> void:
 	if not debug_margin_container.visible:
 		return

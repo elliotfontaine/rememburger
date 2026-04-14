@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bw4h8cbadohno" path="res://root/assets/image/ui/kenney-game-icons/black/pause.png" id="5_1tkip"]
 [ext_resource type="PackedScene" uid="uid://k5xt8llrybgm" path="res://root/scenes/node/menu/menu_button/menu_button.tscn" id="5_kng2e"]
 [ext_resource type="Texture2D" uid="uid://bbskm8xya6vem" path="res://root/assets/image/ui/kenney-game-icons/x2/up_black.png" id="6_604xq"]
+[ext_resource type="Texture2D" uid="uid://cxr2jncuv3reu" path="res://root/assets/image/ui/burger_mini.png" id="6_r6ffe"]
+[ext_resource type="PackedScene" uid="uid://c3fpwahskxru5" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_head.tscn" id="7_4wmnx"]
 [ext_resource type="Texture2D" uid="uid://cv4u52ok6w7hf" path="res://root/assets/image/ui/kenney-game-icons/x2/up_white.png" id="7_r6ffe"]
 [ext_resource type="Texture2D" uid="uid://hj8lx76xw0l" path="res://root/assets/image/ui/kenney-game-icons/x2/down_black.png" id="8_4wmnx"]
 [ext_resource type="Texture2D" uid="uid://bq35c3riep50b" path="res://root/assets/image/ui/kenney-game-icons/x2/down_white.png" id="9_iwep5"]
@@ -227,7 +229,7 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 mouse_filter = 2
 
-[node name="PointsLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1036349827]
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1036349827]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.41568628, 0.43529412, 0.43529412, 0.4)
@@ -241,7 +243,42 @@ text = "4321"
 horizontal_alignment = 2
 justification_flags = 162
 
-[node name="TmpPointsLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=532571110]
+[node name="TempMealPointsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1519567616]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TempMealPointsContainer" unique_id=336835454]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("6_r6ffe")
+expand_mode = 2
+
+[node name="TempMealPointsLabel" type="Label" parent="MarginContainer/VBoxContainer/TempMealPointsContainer" unique_id=532571110]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3529412, 0.972549, 0.4509804, 1)
+theme_override_colors/font_shadow_color = Color(0.41568628, 0.43529412, 0.43529412, 0.4)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 24
+theme_override_constants/shadow_outline_size = 24
+theme_override_font_sizes/font_size = 64
+text = "+ 10"
+horizontal_alignment = 2
+
+[node name="TempTipPointsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1025373485]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="TempTipCustomerHead" parent="MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=1340818636 instance=ExtResource("7_4wmnx")]
+unique_name_in_owner = true
+position = Vector2(48, 40)
+scale = Vector2(0.6, 0.6)
+
+[node name="TempTipPointsLabel" type="Label" parent="MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=271777387]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3529412, 0.972549, 0.4509804, 1)

@@ -54,7 +54,7 @@ func leave_angry(customer_data: CustomerData) -> void:
 	update_customer_positions()
 
 
-func leave_happy(customer_data: CustomerData, _points: int) -> void:
+func leave_happy(customer_data: CustomerData, _meal_p: int, _tip_p: int) -> void:
 	for customer: CustomerView in waiting_group.get_children():
 		if customer.data.id == customer_data.id:
 			make_leave(customer)
