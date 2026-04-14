@@ -1,5 +1,5 @@
 class_name GameContent
-extends Control
+extends Node2D
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 signal game_ended

@@ -11,25 +11,28 @@
 process_mode = 3
 script = ExtResource("1_cc2ll")
 
+[node name="UiBuilder" parent="." unique_id=1240177524 instance=ExtResource("5_4r42l")]
+unique_name_in_owner = true
+
 [node name="GameContent" parent="." unique_id=1938081867 instance=ExtResource("3_33wd1")]
 unique_name_in_owner = true
 
-[node name="PauseMenu" parent="." unique_id=547540028 instance=ExtResource("4_bipq8")]
+[node name="Popups" type="CanvasLayer" parent="." unique_id=478293332]
+layer = 2
+
+[node name="PauseMenu" parent="Popups" unique_id=547540028 instance=ExtResource("4_bipq8")]
 unique_name_in_owner = true
 visible = false
 z_index = 1000
 z_as_relative = false
 
-[node name="OptionsMenu" parent="." unique_id=320730029 instance=ExtResource("5_4rg8g")]
+[node name="OptionsMenu" parent="Popups" unique_id=320730029 instance=ExtResource("5_4rg8g")]
 unique_name_in_owner = true
 process_mode = 2
 visible = false
 z_index = 1001
 z_as_relative = false
 
-[node name="UiBuilder" parent="." unique_id=1240177524 instance=ExtResource("5_4r42l")]
-unique_name_in_owner = true
-
-[node name="GameEnd" parent="." unique_id=411140280 instance=ExtResource("6_keakv")]
+[node name="GameEnd" parent="Popups" unique_id=411140280 instance=ExtResource("6_keakv")]
 unique_name_in_owner = true
 visible = false

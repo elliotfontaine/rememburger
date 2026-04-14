@@ -17,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UpArrowAnchor/UpArrow:position")
+tracks/0/path = NodePath("HUD/UpArrowAnchor/UpArrow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DownArrowAnchor/DownArrow:position")
+tracks/1/path = NodePath("HUD/DownArrowAnchor/DownArrow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -47,7 +47,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UpArrowAnchor/UpArrow:position")
+tracks/0/path = NodePath("HUD/UpArrowAnchor/UpArrow:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,7 +59,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DownArrowAnchor/DownArrow:position")
+tracks/1/path = NodePath("HUD/DownArrowAnchor/DownArrow:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -75,14 +75,8 @@ _data = {
 &"arrows_idle": SubResource("Animation_yqwvd")
 }
 
-[node name="GameContent" type="Control" unique_id=8418740]
+[node name="GameContent" type="Node2D" unique_id=1411628475]
 process_mode = 1
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_qs7kg")
 
 [node name="QueueManager" type="Node" parent="." unique_id=1427118529]
@@ -98,26 +92,11 @@ accept_bonus = 50.0
 [node name="Timer" type="Timer" parent="." unique_id=1151807056]
 autostart = true
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1612915438]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
+[node name="World" parent="." unique_id=20499566 instance=ExtResource("3_5ewdl")]
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1163630064]
-handle_input_locally = false
-audio_listener_enable_2d = true
-physics_object_picking = true
-size = Vector2i(1920, 1080)
-render_target_update_mode = 4
+[node name="HUD" type="CanvasLayer" parent="." unique_id=344795880]
 
-[node name="World" parent="SubViewportContainer/SubViewport" unique_id=20499566 instance=ExtResource("3_5ewdl")]
-
-[node name="TopRightMarginContainer" type="MarginContainer" parent="." unique_id=123815767]
-layout_mode = 1
+[node name="TopRightMarginContainer" type="MarginContainer" parent="HUD" unique_id=123815767]
 offset_right = 462.0
 offset_bottom = 119.0
 theme_override_constants/margin_left = 16
@@ -125,11 +104,11 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopRightMarginContainer" unique_id=164071438]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer" unique_id=164071438]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="PauseMenuButton" parent="TopRightMarginContainer/HBoxContainer" unique_id=1804641574 instance=ExtResource("5_kng2e")]
+[node name="PauseMenuButton" parent="HUD/TopRightMarginContainer/HBoxContainer" unique_id=1804641574 instance=ExtResource("5_kng2e")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
@@ -139,7 +118,7 @@ text = ""
 icon = ExtResource("5_1tkip")
 padding_spaces = 0
 
-[node name="TimerLabel" type="Label" parent="TopRightMarginContainer/HBoxContainer" unique_id=329331624]
+[node name="TimerLabel" type="Label" parent="HUD/TopRightMarginContainer/HBoxContainer" unique_id=329331624]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.41568628, 0.43529412, 0.43529412, 0.4)
@@ -153,71 +132,69 @@ text = "00:00"
 horizontal_alignment = 2
 justification_flags = 162
 
-[node name="DebugMarginContainer" type="MarginContainer" parent="." unique_id=1909228670]
+[node name="DebugMarginContainer" type="MarginContainer" parent="HUD" unique_id=1909228670]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-offset_right = 132.0
-offset_bottom = 66.0
+offset_right = 476.6671
+offset_bottom = 251.6404
 mouse_filter = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="DebugMarginContainer" unique_id=800376824]
+[node name="PanelContainer" type="PanelContainer" parent="HUD/DebugMarginContainer" unique_id=800376824]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="DebugMarginContainer/PanelContainer" unique_id=1118540517]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/DebugMarginContainer/PanelContainer" unique_id=1118540517]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DebugMarginContainer/PanelContainer/MarginContainer" unique_id=1614715721]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/DebugMarginContainer/PanelContainer/MarginContainer" unique_id=1614715721]
 layout_mode = 2
 
-[node name="QueueSize" type="HBoxContainer" parent="DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1788278571]
+[node name="QueueSize" type="HBoxContainer" parent="HUD/DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1788278571]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Title" type="Label" parent="DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer/QueueSize" unique_id=760814464]
+[node name="Title" type="Label" parent="HUD/DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer/QueueSize" unique_id=760814464]
 layout_mode = 2
 text = "Queue Size:"
 
-[node name="QueueSizeValueLabel" type="Label" parent="DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer/QueueSize" unique_id=2021630158]
+[node name="QueueSizeValueLabel" type="Label" parent="HUD/DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer/QueueSize" unique_id=2021630158]
 unique_name_in_owner = true
 layout_mode = 2
 text = "11"
 
-[node name="QueueCustomerList" type="HBoxContainer" parent="DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=579950159]
+[node name="QueueCustomerList" type="HBoxContainer" parent="HUD/DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=579950159]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Title" type="Label" parent="DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer/QueueCustomerList" unique_id=63483055]
+[node name="Title" type="Label" parent="HUD/DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer/QueueCustomerList" unique_id=63483055]
 layout_mode = 2
 text = "Customers:"
 
-[node name="QueueCustomerListLabel" type="Label" parent="DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer/QueueCustomerList" unique_id=1844704245]
+[node name="QueueCustomerListLabel" type="Label" parent="HUD/DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer/QueueCustomerList" unique_id=1844704245]
 unique_name_in_owner = true
 layout_mode = 2
 text = "11"
 
-[node name="DebugInfoLabel" type="Label" parent="DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=130462269]
+[node name="DebugInfoLabel" type="Label" parent="HUD/DebugMarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=130462269]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "More info on queue content
 "
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1238527393]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1238527393]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -180.0
-offset_bottom = 208.0
+offset_left = -365.0
+offset_bottom = 300.0
 grow_horizontal = 0
 mouse_filter = 2
 theme_override_constants/margin_left = 16
@@ -225,11 +202,11 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1106257329]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1106257329]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1036349827]
+[node name="ScoreLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer" unique_id=1036349827]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.41568628, 0.43529412, 0.43529412, 0.4)
@@ -243,19 +220,19 @@ text = "4321 €"
 horizontal_alignment = 2
 justification_flags = 162
 
-[node name="TempMealPointsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1519567616]
+[node name="TempMealPointsContainer" type="HBoxContainer" parent="HUD/MarginContainer/VBoxContainer" unique_id=1519567616]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TempMealPointsContainer" unique_id=336835454]
+[node name="TextureRect" type="TextureRect" parent="HUD/MarginContainer/VBoxContainer/TempMealPointsContainer" unique_id=336835454]
 z_index = 1
 layout_mode = 2
 texture = ExtResource("6_r6ffe")
 expand_mode = 2
 
-[node name="TempMealPointsLabel" type="Label" parent="MarginContainer/VBoxContainer/TempMealPointsContainer" unique_id=532571110]
+[node name="TempMealPointsLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer/TempMealPointsContainer" unique_id=532571110]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3529412, 0.972549, 0.4509804, 1)
@@ -268,22 +245,22 @@ theme_override_font_sizes/font_size = 64
 text = "+ 100 €"
 horizontal_alignment = 2
 
-[node name="TempTipPointsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1025373485]
+[node name="TempTipPointsContainer" type="HBoxContainer" parent="HUD/MarginContainer/VBoxContainer" unique_id=1025373485]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 2
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=997160107]
+[node name="Control" type="Control" parent="HUD/MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=997160107]
 custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
 
-[node name="TempTipCustomerHead" parent="MarginContainer/VBoxContainer/TempTipPointsContainer/Control" unique_id=1340818636 instance=ExtResource("7_4wmnx")]
+[node name="TempTipCustomerHead" parent="HUD/MarginContainer/VBoxContainer/TempTipPointsContainer/Control" unique_id=1340818636 instance=ExtResource("7_4wmnx")]
 unique_name_in_owner = true
 position = Vector2(42, 42)
 scale = Vector2(0.6, 0.6)
 
-[node name="TempTipPointsLabel" type="Label" parent="MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=271777387]
+[node name="TempTipPointsLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer/TempTipPointsContainer" unique_id=271777387]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3529412, 0.972549, 0.4509804, 1)
@@ -296,9 +273,9 @@ theme_override_font_sizes/font_size = 64
 text = "+ 100 €"
 horizontal_alignment = 2
 
-[node name="UpArrowAnchor" type="Control" parent="." unique_id=852412964]
+[node name="UpArrowAnchor" type="Control" parent="HUD" unique_id=852412964]
 unique_name_in_owner = true
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -308,7 +285,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 mouse_filter = 2
 
-[node name="UpArrow" type="TextureRect" parent="UpArrowAnchor" unique_id=1143303533]
+[node name="UpArrow" type="TextureRect" parent="HUD/UpArrowAnchor" unique_id=1143303533]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -322,7 +299,7 @@ pivot_offset_ratio = Vector2(0.5, 1)
 mouse_filter = 2
 texture = ExtResource("6_604xq")
 
-[node name="Outline" type="TextureRect" parent="UpArrowAnchor/UpArrow" unique_id=1525884361]
+[node name="Outline" type="TextureRect" parent="HUD/UpArrowAnchor/UpArrow" unique_id=1525884361]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -339,9 +316,9 @@ scale = Vector2(0.7, 0.7)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("7_r6ffe")
 
-[node name="DownArrowAnchor" type="Control" parent="." unique_id=886368211]
+[node name="DownArrowAnchor" type="Control" parent="HUD" unique_id=886368211]
 unique_name_in_owner = true
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -354,7 +331,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="DownArrow" type="TextureRect" parent="DownArrowAnchor" unique_id=974712617]
+[node name="DownArrow" type="TextureRect" parent="HUD/DownArrowAnchor" unique_id=974712617]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -371,7 +348,7 @@ pivot_offset_ratio = Vector2(0.5, 1)
 mouse_filter = 2
 texture = ExtResource("8_4wmnx")
 
-[node name="Outline" type="TextureRect" parent="DownArrowAnchor/DownArrow" unique_id=2056180090]
+[node name="Outline" type="TextureRect" parent="HUD/DownArrowAnchor/DownArrow" unique_id=2056180090]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

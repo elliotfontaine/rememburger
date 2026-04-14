@@ -12,7 +12,7 @@ extends Node
 @export var scene: SceneManagerEnum.Scene = SceneManagerEnum.Scene.MENU_SCENE
 @export var scene_manager_options_id: String = "fade_play"
 
-@onready var game_content: Node = %GameContent
+@onready var game_content: Node2D = %GameContent
 @onready var pause_menu: PauseMenu = %PauseMenu
 @onready var options_menu: OptionsMenu = %OptionsMenu
 @onready var game_end: Control = %GameEnd
