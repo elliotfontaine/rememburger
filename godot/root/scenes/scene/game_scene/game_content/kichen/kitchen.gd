@@ -46,9 +46,16 @@ func try_grab(object: Node2D) -> bool:
 
 
 func try_release(_where: Vector2) -> bool:
+	# TODO: At some point, the whole grab/release should be handled in a less monolitic way,
+	# And should use collision layers + CollisionObject2D.input_pickable !
+	
+	# This is really smelly.
+	# Needed for preveting grills from stepping on each others toes.
+	var grill_iter := 0
+	
 	if not grabbed_object:
 		return false
-
+	
 	elif grabbed_object is KitchenMovableIngredient:
 		var ingredient_data: IngredientData = grabbed_object.get_ingredient_data()
 		var object_area: Area2D = grabbed_object.grabbing_area_2d
@@ -65,7 +72,6 @@ func try_release(_where: Vector2) -> bool:
 				if not other_area.has_ingredient_placed() and ingredient_data.workstation == IngredientData.WorkStation.CHOPPING_BOARD:
 					# Ref used in the tweener callback below, since `grabbed_object` will be set to null
 					var ref_to_grabbed := grabbed_object
-					create_tween().tween_property(grabbed_object, "rotation", 0, 0.2)
 					var pos_tweener := create_tween().tween_property(grabbed_object, "position", other_area.position, 0.2)
 					pos_tweener.set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 					pos_tweener.finished.connect(func() -> void:
@@ -76,10 +82,10 @@ func try_release(_where: Vector2) -> bool:
 				else:
 					return false
 			if other_area is Grill:
+				grill_iter += 1
 				if not other_area.has_ingredient_placed() and ingredient_data.workstation == IngredientData.WorkStation.GRILL:
 					# Ref used in the tweener callback below, since `grabbed_object` will be set to null
 					var ref_to_grabbed := grabbed_object
-					create_tween().tween_property(grabbed_object, "rotation", 0, 0.2)
 					var pos_tweener := create_tween().tween_property(grabbed_object, "position", other_area.position, 0.2)
 					pos_tweener.set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 					pos_tweener.finished.connect(func() -> void:
@@ -87,8 +93,6 @@ func try_release(_where: Vector2) -> bool:
 						LogWrapper.debug(self, "Dropped %s on grill" % ingredient_data)
 						ref_to_grabbed.queue_free())
 					break
-				else:
-					return false
 		
 		# release ingredient "anywhere", no further check
 		create_tween().tween_property(grabbed_object, "rotation", 0, 0.2)
@@ -140,7 +144,9 @@ func try_release(_where: Vector2) -> bool:
 					
 		grabbed_object.reset_tool()
 	
-		
+	if grill_iter > 0:
+		return false
+	
 	grabbed_object.z_index = grabbed_previous_z_index
 	grabbed_object = null
 	return true

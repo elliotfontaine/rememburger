@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dlqyjle1mejqj" path="res://root/assets/audio/sfx/filmcow/sizzling-frying-pan-loop.wav" id="2_2ustf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ustf"]
-size = Vector2(156, 118)
+size = Vector2(170, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84l04"]
 radius = 50.0
