@@ -11,14 +11,17 @@ extends Node
 #   - Gérer les transitions d'état : IN_QUEUE → AT_COUNTER → WAITING → SERVED / LEFT_ANGRY
 
 const MENU_ENTRY_REGISTRY: Registry = preload("uid://b7eqya2l1ru20")
+const START_TIP := 30.0
 
-
+@export_group("Queue Settings")
 @export var spawn_interval_min: float = 20.0
 @export var spawn_interval_max: float = 40.0
 @export var max_queue_size: int = 5
-@export var points_drain_per_second: float = 0.5
-@export_range(0, 100, 1, "prefer_slider", "suffix:%") var reject_penalty: int = 5
-@export_range(0, 100, 1, "prefer_slider", "suffix:%") var accept_bonus: int = 25
+@export_group("Customer Settings")
+@export_range(0, 100, 0.1, "prefer_slider", "suffix:%/s") var tip_decay_waiting: float = 4.0
+@export_range(0, 100, 0.1, "prefer_slider", "suffix:%/s") var tip_decay_ordered: float = 2.0
+@export_range(0, 100, 0.1, "prefer_slider", "suffix:%") var reject_penalty: float = 5.0
+@export_range(0, 100, 0.1, "prefer_slider", "suffix:%") var accept_bonus: float = 25.0
 
 var queue: Array[CustomerData] = []
 var _spawn_timer: float = 0.0
@@ -90,10 +93,10 @@ func accept_customer(customer_id: int) -> void:
 
 	c.state = CustomerData.State.IN_QUEUE
 	c.has_ordered = true
-	var bonus := (accept_bonus / 100.0) * CustomerData.START_TIP
+	var bonus := percent_to_tip(accept_bonus)
 	SignalBus.customer_bonus_malus_applied.emit(c, bonus)
 	c.points += bonus
-	c.points = clampf(c.points, 0, CustomerData.START_TIP)
+	c.points = clampf(c.points, 0, START_TIP)
 	SignalBus.customer_state_changed.emit(c)
 
 	# Renvoi en fin de file
@@ -109,10 +112,10 @@ func reject_customer(customer_id: int) -> void:
 	if c == null or c.state != CustomerData.State.AT_COUNTER:
 		return
 	
-	var malus := (reject_penalty / 100.0) * CustomerData.START_TIP
+	var malus := percent_to_tip(reject_penalty)
 	SignalBus.customer_bonus_malus_applied.emit(c, -malus)
 	c.points -= malus
-	c.points = clampf(c.points, 0, CustomerData.START_TIP)
+	c.points = clampf(c.points, 0, START_TIP)
 	c.state = CustomerData.State.IN_QUEUE
 
 	# Renvoi en fin de file
@@ -161,6 +164,14 @@ func serve_customer(customer_id: int, served_meal: MealData) -> int:
 	return points_earned
 
 
+func percent_to_tip(percent: float) -> float:
+	if percent <= 0.0:
+		return 0
+	if percent >= 100.0:
+		return START_TIP
+	return (percent / 100.0) * START_TIP
+
+
 func _tick_spawn_timer(delta: float) -> void:
 	_spawn_timer += delta
 	if _spawn_timer < _next_spawn_in:
@@ -194,6 +205,7 @@ func _spawn_customer() -> void:
 	else:
 		c.hair_color = CustomerData.HAIR_COLORS.pick_random()
 	c.order = _generate_order()
+	c.points = START_TIP
 	c.state = CustomerData.State.AT_COUNTER if queue.is_empty() else CustomerData.State.IN_QUEUE
 	_id_counter += 1
 
@@ -215,8 +227,9 @@ func _tick_customers(delta: float) -> void:
 	for c in queue:
 		if c.state in [CustomerData.State.SERVED, CustomerData.State.LEFT_ANGRY]:
 			continue
-
-		c.points -= points_drain_per_second * delta
+		
+		var drain := tip_decay_ordered if c.has_ordered else tip_decay_waiting
+		c.points -= percent_to_tip(drain) * delta
 		c.points  = maxf(c.points, 0.0)
 		SignalBus.customer_ticked.emit(c)
 

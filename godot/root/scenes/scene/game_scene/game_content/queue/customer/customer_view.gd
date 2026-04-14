@@ -24,12 +24,12 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	satisfaction_bar.value = satisfaction_bar.max_value * (data.points / CustomerData.START_TIP)
+	satisfaction_bar.value = satisfaction_bar.max_value * (data.points / QueueManager.START_TIP)
 	satisfaction_label.text = "%d €" % ceili(data.points)
 	
-	if data.points >= 0.5 * CustomerData.START_TIP:
+	if data.points >= 0.5 * QueueManager.START_TIP:
 		satisfaction_bar.self_modulate = Color("5af873ff")
-	elif data.points >= 0.25 * CustomerData.START_TIP:
+	elif data.points >= 0.25 * QueueManager.START_TIP:
 		satisfaction_bar.self_modulate = Color("f8cd79ff")
 	else:
 		satisfaction_bar.self_modulate = Color("ff5c4dff")
