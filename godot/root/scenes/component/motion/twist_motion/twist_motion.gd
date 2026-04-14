@@ -17,6 +17,9 @@ func _ready() -> void:
 
 
 func _motion_transform(target: Node) -> void:
+	if target is Button and target.disabled:
+		return
+	
 	target.scale = _original_target_values[target]["scale"] * motion_factor
 
 	# normalized_factor goes from 0 to 1 regardless of min and max motion factor
