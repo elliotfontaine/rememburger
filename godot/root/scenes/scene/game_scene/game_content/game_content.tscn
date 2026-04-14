@@ -88,6 +88,8 @@ unique_name_in_owner = true
 script = ExtResource("2_yqwvd")
 spawn_interval_min = 15.0
 spawn_interval_max = 20.0
+tip_decay_waiting = 3.0
+tip_decay_ordered = 1.5
 reject_penalty = 6.6
 accept_bonus = 50.0
 
