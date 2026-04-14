@@ -84,8 +84,6 @@ func try_release(_where: Vector2) -> bool:
 					pos_tweener.set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 					pos_tweener.finished.connect(func() -> void:
 						other_area.placed_ingredient = ref_to_grabbed.ingredient
-						other_area.step = 0
-						other_area._start_timer()
 						LogWrapper.debug(self, "Dropped %s on grill" % ingredient_data)
 						ref_to_grabbed.queue_free())
 					break

@@ -12,5 +12,4 @@ type = 2
 processed = false
 workstation = 2
 work_result_success = "steak_cooked"
-work_result_fail = "steak_burnt"
 metadata/_custom_type_script = "uid://cfrxleyr1eapt"

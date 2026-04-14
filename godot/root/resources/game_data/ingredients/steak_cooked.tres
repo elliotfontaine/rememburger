@@ -9,4 +9,5 @@ name = "Cooked Steak"
 texture = ExtResource("2_f7lfx")
 thickness = 7.0
 type = 2
+work_result_fail = &"steak_burnt"
 metadata/_custom_type_script = "uid://cfrxleyr1eapt"

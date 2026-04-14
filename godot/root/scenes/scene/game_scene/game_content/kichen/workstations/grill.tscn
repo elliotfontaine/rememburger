@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://drddopmi7k4no" path="res://root/scenes/scene/game_scene/game_content/kichen/workstations/grill.gd" id="1_17pt8"]
 [ext_resource type="AudioStream" uid="uid://dlqyjle1mejqj" path="res://root/assets/audio/sfx/filmcow/sizzling-frying-pan-loop.wav" id="2_2ustf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ustf"]
+size = Vector2(156, 118)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_84l04"]
 radius = 50.0
 
@@ -16,9 +19,9 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1017019598]
-scale = Vector2(0.99853265, 1)
-polygon = PackedVector2Array(-86.12637, -60, 84.123436, -59, 82.1205, 72, -89.13078, 72)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=132267239]
+shape = SubResource("RectangleShape2D_2ustf")
+debug_color = Color(0.85784817, 0.32025263, 0.4631418, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=908945691]
 unique_name_in_owner = true
