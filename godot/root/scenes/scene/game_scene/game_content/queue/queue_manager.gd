@@ -9,9 +9,15 @@ extends Node
 #   - Spawner les clients à intervalle aléatoire
 #   - Gérer le timer de chaque client (tick des points)
 #   - Gérer les transitions d'état : IN_QUEUE → AT_COUNTER → WAITING → SERVED / LEFT_ANGRY
-
-const MENU_ENTRY_REGISTRY: Registry = preload("uid://b7eqya2l1ru20")
 const START_TIP := 30.0
+
+@warning_ignore("untyped_declaration")
+var ORDER_DIFFICULTY_WEIGHTS: Dictionary[Callable, Dictionary] = {
+	func(id): return id == 0: 				{ MenuEntry.Difficulty.EASY: 100 },
+	func(id): return id in [1, 2]: 			{ MenuEntry.Difficulty.EASY: 50, MenuEntry.Difficulty.NORMAL: 40, MenuEntry.Difficulty.HARD: 10 },
+	func(id): return id in range(3, 7): 	{ MenuEntry.Difficulty.EASY: 40, MenuEntry.Difficulty.NORMAL: 40, MenuEntry.Difficulty.HARD: 20 },
+	func(id): return id >= 7: 				{ MenuEntry.Difficulty.EASY: 20, MenuEntry.Difficulty.NORMAL: 40, MenuEntry.Difficulty.HARD: 40 },
+}
 
 @export_group("Queue Settings")
 @export var spawn_interval_min: float = 20.0
@@ -190,9 +196,15 @@ func _spawn_customer() -> void:
 	if queue.size() >= max_queue_size:
 		# File pleine : ce spawn est perdu, on attend le prochain
 		return
-
+	
+	var order_difficulty: MenuEntry.Difficulty
+	for predicate: Callable in ORDER_DIFFICULTY_WEIGHTS.keys():
+		if predicate.call(_id_counter):
+			order_difficulty = weighted_pick(ORDER_DIFFICULTY_WEIGHTS.get(predicate))
+			break
+	
 	var c := CustomerData.new(_id_counter)
-	c.order = _generate_order()
+	c.generate_order(order_difficulty)
 	c.points = START_TIP
 	c.state = CustomerData.State.AT_COUNTER if queue.is_empty() else CustomerData.State.IN_QUEUE
 	_id_counter += 1
@@ -201,13 +213,6 @@ func _spawn_customer() -> void:
 	SignalBus.customer_added.emit(c)
 	SignalBus.queue_changed.emit()
 	LogWrapper.debug(self, "Customer %s just arrived." % c)
-
-
-func _generate_order() -> MenuEntry:
-	# Simply pick a meal at random in the registry
-	var entry_name: StringName = MENU_ENTRY_REGISTRY.get_all_string_ids().pick_random()
-	var entry: MenuEntry = MENU_ENTRY_REGISTRY.load_entry(entry_name).duplicate()
-	return entry
 
 
 func _tick_customers(delta: float) -> void:
@@ -245,6 +250,19 @@ func _find(customer_id: int) -> CustomerData:
 		if c.id == customer_id:
 			return c
 	return null
+
+
+static func weighted_pick(weights: Dictionary) -> Variant:
+	var total := 0
+	for w: int in weights.values():
+		total += w
+	var roll := randi() % total
+	var cumul := 0
+	for key: Variant in weights:
+		cumul += weights[key]
+		if roll < cumul:
+			return key
+	return weights.keys().back()
 
 
 func _connect_signals() -> void:

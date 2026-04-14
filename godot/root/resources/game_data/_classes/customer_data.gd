@@ -3,6 +3,8 @@ extends Resource
 
 enum State { IN_QUEUE, AT_COUNTER, SERVED, LEFT_ANGRY }
 
+const MENU_ENTRY_REGISTRY: Registry = preload("uid://b7eqya2l1ru20")
+
 const NAMES = [
 	"Max", "Kim", "Pat", "Lee", "Mel", "Sasha", "Robin", "Casey", "Riley",
 	"John", "Emilie", "Fabian", "Laura", "Thomas", "Greg", "Marco", "Louise",
@@ -100,6 +102,11 @@ func _to_string() -> String:
 
 func is_alive() -> bool:
 	return points > 0.0 and state != State.LEFT_ANGRY
+
+
+func generate_order(difficulty: MenuEntry.Difficulty = MenuEntry.Difficulty.NORMAL) -> void:
+	var entry_name: StringName = MENU_ENTRY_REGISTRY.filter(&"difficulty", difficulty).pick_random()
+	order = MENU_ENTRY_REGISTRY.load_entry(entry_name)
 
 
 func _generate_random_look() -> void:
