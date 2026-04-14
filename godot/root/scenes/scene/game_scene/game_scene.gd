@@ -75,7 +75,7 @@ func _load_game_content_scene() -> void:
 
 func _action_game_pause_menu_button() -> void:
 	game_content.visible = true
-	pause_menu.visible = true
+	pause_menu.popup()
 	options_menu.visible = false
 	get_tree().paused = true
 	_after_pause()

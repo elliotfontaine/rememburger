@@ -18,7 +18,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nxviq")
 
+[node name="TintColorRect" type="ColorRect" parent="." unique_id=495153408]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="MainMenuMarginContainer" type="MarginContainer" parent="." unique_id=285311264]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,6 +42,7 @@ offset_right = 73.5
 offset_bottom = 154.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
