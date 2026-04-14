@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c3fpwahskxru5" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_head.tscn" id="2_kb6fh"]
 [ext_resource type="Texture2D" uid="uid://b2rceramye23o" path="res://root/assets/image/game/characters/base_character/Body_outline.PNG" id="3_owpu1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xlv7"]
+size = Vector2(139, 237)
+
 [sub_resource type="Animation" id="Animation_5xlv7"]
 length = 0.001
 tracks/0/type = "value"
@@ -123,9 +126,6 @@ _data = {
 &"walking": SubResource("Animation_oulu0")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xlv7"]
-size = Vector2(139, 237)
-
 [node name="CustomerView" type="Node2D" unique_id=1253566926]
 script = ExtResource("1_6qvyg")
 
@@ -141,6 +141,13 @@ texture = ExtResource("3_owpu1")
 
 [node name="CustomerHead" parent="." unique_id=696342410 instance=ExtResource("2_kb6fh")]
 position = Vector2(-1, -295)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=132853419]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2016447200]
+position = Vector2(-0.5, -108.5)
+shape = SubResource("RectangleShape2D_5xlv7")
 
 [node name="SatisfactionBar" type="ProgressBar" parent="." unique_id=580198434]
 unique_name_in_owner = true
@@ -178,15 +185,28 @@ text = "55 €"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=37236276]
+[node name="BonusMalusLabel" type="Label" parent="SatisfactionBar/SatisfactionLabel" unique_id=1092246162]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -48.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 24
+text = "+ 5 €"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CharacterAnimationPlayer" type="AnimationPlayer" parent="." unique_id=37236276]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_oulu0")
 autoplay = &"breathing"
 playback_default_blend_time = 0.5
-
-[node name="Area2D" type="Area2D" parent="." unique_id=132853419]
-input_pickable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2016447200]
-position = Vector2(-0.5, -108.5)
-shape = SubResource("RectangleShape2D_5xlv7")

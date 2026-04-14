@@ -10,13 +10,6 @@ extends Node
 #   - Gérer le timer de chaque client (tick des points)
 #   - Gérer les transitions d'état : IN_QUEUE → AT_COUNTER → WAITING → SERVED / LEFT_ANGRY
 
-signal customer_added(customer: CustomerData)
-signal customer_ticked(customer: CustomerData)
-signal customer_state_changed(customer: CustomerData)
-signal customer_left_angry(customer: CustomerData)
-signal customer_served(customer: CustomerData, points_earned: int)
-signal queue_changed()
-
 const MENU_ENTRY_REGISTRY: Registry = preload("uid://b7eqya2l1ru20")
 
 
@@ -84,7 +77,7 @@ func call_next_customer() -> CustomerData:
 
 	var c := queue[0]
 	c.state = CustomerData.State.AT_COUNTER
-	customer_state_changed.emit(c)
+	SignalBus.customer_state_changed.emit(c)
 	return c
 
 
@@ -97,9 +90,11 @@ func accept_customer(customer_id: int) -> void:
 
 	c.state = CustomerData.State.IN_QUEUE
 	c.has_ordered = true
-	c.points += (accept_bonus / 100.0) * CustomerData.START_TIP
+	var bonus := (accept_bonus / 100.0) * CustomerData.START_TIP
+	SignalBus.customer_bonus_malus_applied.emit(c, bonus)
+	c.points += bonus
 	c.points = clampf(c.points, 0, CustomerData.START_TIP)
-	customer_state_changed.emit(c)
+	SignalBus.customer_state_changed.emit(c)
 
 	# Renvoi en fin de file
 	queue.erase(c)
@@ -113,8 +108,10 @@ func reject_customer(customer_id: int) -> void:
 	var c := _find(customer_id)
 	if c == null or c.state != CustomerData.State.AT_COUNTER:
 		return
-
-	c.points -= (reject_penalty / 100.0) * CustomerData.START_TIP
+	
+	var malus := (reject_penalty / 100.0) * CustomerData.START_TIP
+	SignalBus.customer_bonus_malus_applied.emit(c, -malus)
+	c.points -= malus
 	c.points = clampf(c.points, 0, CustomerData.START_TIP)
 	c.state = CustomerData.State.IN_QUEUE
 
@@ -122,8 +119,8 @@ func reject_customer(customer_id: int) -> void:
 	queue.erase(c)
 	queue.append(c)
 
-	customer_state_changed.emit(c)
-	queue_changed.emit()
+	SignalBus.customer_state_changed.emit(c)
+	SignalBus.queue_changed.emit()
 
 	if c.points <= 0.0:
 		_handle_angry_leave(c)
@@ -152,8 +149,8 @@ func serve_customer(customer_id: int, served_meal: MealData) -> int:
 	c.state = CustomerData.State.SERVED
 	queue.erase(c)
 
-	customer_served.emit(c, points_earned)
-	queue_changed.emit()
+	SignalBus.customer_served.emit(c, points_earned)
+	SignalBus.queue_changed.emit()
 	LogWrapper.debug(
 		self,
 		"Customer %s left with a meal. %s point earned" % [c, points_earned]
@@ -201,8 +198,8 @@ func _spawn_customer() -> void:
 	_id_counter += 1
 
 	queue.append(c)
-	customer_added.emit(c)
-	queue_changed.emit()
+	SignalBus.customer_added.emit(c)
+	SignalBus.queue_changed.emit()
 	LogWrapper.debug(self, "Customer %s just arrived." % c)
 
 
@@ -221,7 +218,7 @@ func _tick_customers(delta: float) -> void:
 
 		c.points -= points_drain_per_second * delta
 		c.points  = maxf(c.points, 0.0)
-		customer_ticked.emit(c)
+		SignalBus.customer_ticked.emit(c)
 
 		if c.points <= 0.0:
 			_handle_angry_leave(c)
@@ -237,8 +234,8 @@ func _handle_angry_leave(c: CustomerData) -> void:
 	if at_counter:
 		call_next_customer()
 
-	customer_left_angry.emit(c)
-	queue_changed.emit()
+	SignalBus.customer_left_angry.emit(c)
+	SignalBus.queue_changed.emit()
 	LogWrapper.debug(self, "Customer %s left angry." % c)
 
 

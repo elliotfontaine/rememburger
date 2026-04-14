@@ -32,15 +32,10 @@ func _ready() -> void:
 	up_arrow_anchor.hide()
 	down_arrow_anchor.show()
 
-	queue_manager.customer_added.connect(SignalBus.customer_added.emit)
-	queue_manager.customer_ticked.connect(SignalBus.customer_ticked.emit)
-	queue_manager.customer_state_changed.connect(SignalBus.customer_state_changed.emit)
-	queue_manager.customer_left_angry.connect(SignalBus.customer_left_angry.emit)
-	queue_manager.customer_served.connect(SignalBus.customer_served.emit)
-	queue_manager.queue_changed.connect(SignalBus.queue_changed.emit)
 	SignalBus.camera_target_changed.connect(_on_camera_target_changed)
-
-	queue_manager.customer_served.connect(score_points)
+	SignalBus.customer_served.connect(score_points)
+	SignalBus.customer_ticked.connect(_on_queue_manager_customer_ticked)
+	SignalBus.queue_changed.connect(_on_queue_manager_queue_changed)
 
 	queue_manager.start()
 	_update_debug_overlay()
@@ -58,6 +53,11 @@ func _process(_delta: float) -> void:
 	tmp_points_label.visible = (GlobalScore.score != display_score)
 
 	timer_label.text = "%02d:%02d" % [remaining_time / 60, remaining_time % 60]
+
+
+func score_points(_customer_data: CustomerData, points_earned: int) -> void:
+	GlobalScore.score += points_earned
+	create_tween().tween_property(self, "display_score", GlobalScore.score, 1.0).set_delay(0.5)
 
 
 func _update_debug_overlay() -> void:
@@ -90,11 +90,6 @@ func _on_queue_manager_queue_changed() -> void:
 
 func _on_queue_manager_customer_ticked(_customer: CustomerData) -> void:
 	_update_debug_overlay()
-
-
-func score_points(_customer_data: CustomerData, points_earned: int) -> void:
-	GlobalScore.score += points_earned
-	create_tween().tween_property(self, "display_score", GlobalScore.score, 1.0).set_delay(0.5)
 
 
 func _on_timer_timeout() -> void:

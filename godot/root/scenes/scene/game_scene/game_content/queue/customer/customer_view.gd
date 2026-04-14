@@ -2,14 +2,25 @@ class_name CustomerView
 extends Node2D
 
 const MAX_WALK_DURATION := 3.0
+const BONUS_COLOR := Color("5af873ff")
+const MALUS_COLOR := Color("ff9384ff")
 
 var data: CustomerData
 var move_tween: Tween
+var bonus_malus_tween: Tween
 var target_position: Vector2
 
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
+var _label_start_pos: Vector2
+
+@onready var character_animation_player: AnimationPlayer = %CharacterAnimationPlayer
 @onready var satisfaction_bar: ProgressBar = %SatisfactionBar
 @onready var satisfaction_label: Label = %SatisfactionLabel
+@onready var bonus_malus_label: Label = %BonusMalusLabel
+
+
+func _ready() -> void:
+	SignalBus.customer_bonus_malus_applied.connect(_on_customer_bonus_malus_applied)
+	_label_start_pos = bonus_malus_label.position
 
 
 func _process(_delta: float) -> void:
@@ -45,7 +56,7 @@ func move(to: Vector2, delay: float = 0.0) -> void:
 	move_tween = create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	
 	move_tween.tween_property(self, "position", target_position, walk_duration).set_delay(delay)
-	move_tween.tween_callback(animation_player.play.bind(
+	move_tween.tween_callback(character_animation_player.play.bind(
 		&"walking",
 		-1,
 		max(
@@ -57,5 +68,24 @@ func move(to: Vector2, delay: float = 0.0) -> void:
 
 
 func _on_move_tween_finished() -> void:
-	if not animation_player.current_animation == &"breathing":
-		animation_player.play(&"breathing", -1, randf_range(0.8, 1.2))
+	if not character_animation_player.current_animation == &"breathing":
+		character_animation_player.play(&"breathing", -1, randf_range(0.8, 1.2))
+
+
+func _on_customer_bonus_malus_applied(customer: CustomerData, bonus_malus: float) -> void:
+	if not customer == data:
+		return
+	
+	if bonus_malus_tween:
+		bonus_malus_tween.kill()
+	
+	var is_bonus := bonus_malus >= 0.0
+	bonus_malus_label.text = "%s %d €" % ["+" if is_bonus else "-", absf(roundf(bonus_malus))]
+	bonus_malus_label.add_theme_color_override(&"font_color", BONUS_COLOR if is_bonus else MALUS_COLOR)
+	bonus_malus_label.position = _label_start_pos
+	bonus_malus_label.self_modulate = Color.WHITE
+	bonus_malus_label.show()
+
+	bonus_malus_tween = create_tween().set_parallel()
+	bonus_malus_tween.tween_property(bonus_malus_label, "position", Vector2.UP * 30, 1.5).as_relative()
+	bonus_malus_tween.tween_property(bonus_malus_label, "self_modulate", Color.TRANSPARENT, 0.7).set_delay(0.8)

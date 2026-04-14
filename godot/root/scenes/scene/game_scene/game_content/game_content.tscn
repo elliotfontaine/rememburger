@@ -92,6 +92,8 @@ script = ExtResource("2_yqwvd")
 spawn_interval_min = 15.0
 spawn_interval_max = 25.0
 points_drain_per_second = 0.3
+reject_penalty = 10
+accept_bonus = 33
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1612915438]
 layout_mode = 1
@@ -349,5 +351,3 @@ libraries/ = SubResource("AnimationLibrary_604xq")
 autoplay = &"arrows_idle"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="customer_ticked" from="QueueManager" to="." method="_on_queue_manager_customer_ticked"]
-[connection signal="queue_changed" from="QueueManager" to="." method="_on_queue_manager_queue_changed"]
