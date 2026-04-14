@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MenuEntry" format=3 uid="uid://bmst3btdcyytg"]
+
+[ext_resource type="Script" uid="uid://ebcotn7nwwdb" path="res://root/resources/game_data/_classes/menu_entry.gd" id="1_k7cvj"]
+[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="1_lfw2t"]
+
+[sub_resource type="Resource" id="Resource_fcdlu"]
+script = ExtResource("1_lfw2t")
+ingredients = Array[StringName]([&"bread_bottom", &"tomato_slice", &"cheddar", &"steak_cooked", &"steak_cooked", &"cheddar", &"tomato_slice", &"bread_top"])
+metadata/_custom_type_script = "uid://cp63ho2tbyfik"
+
+[resource]
+script = ExtResource("1_k7cvj")
+name = "BurgruB"
+meal = SubResource("Resource_fcdlu")
+base_price = 110
+difficulty = 2
+metadata/_custom_type_script = "uid://ebcotn7nwwdb"

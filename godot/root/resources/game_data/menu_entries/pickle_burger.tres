@@ -12,6 +12,6 @@ metadata/_custom_type_script = "uid://cp63ho2tbyfik"
 script = ExtResource("2_aemb3")
 name = "Pickle Burger"
 meal = SubResource("Resource_sbdjx")
-base_price = 55
+base_price = 60
 difficulty = 1
 metadata/_custom_type_script = "uid://ebcotn7nwwdb"

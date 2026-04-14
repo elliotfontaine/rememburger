@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="MenuEntry" format=3 uid="uid://cvqupictuoplf"]
 
-[ext_resource type="Script" uid="uid://ebcotn7nwwdb" path="res://root/resources/game_data/_classes/menu_entry.gd" id="1_1c6bh"]
-[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="1_urycp"]
+[ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="1_viq11"]
+[ext_resource type="Script" uid="uid://ebcotn7nwwdb" path="res://root/resources/game_data/_classes/menu_entry.gd" id="2_oemnc"]
 
 [sub_resource type="Resource" id="Resource_gb8tt"]
-script = ExtResource("1_urycp")
+script = ExtResource("1_viq11")
 ingredients = Array[StringName]([&"bread_bottom", &"ketchup", &"steak_cooked", &"bread_top"])
 metadata/_custom_type_script = "uid://cp63ho2tbyfik"
 
 [resource]
-script = ExtResource("1_1c6bh")
-name = "The Simple"
+script = ExtResource("2_oemnc")
+name = "Plain Burger"
 meal = SubResource("Resource_gb8tt")
-base_price = 35
+base_price = 40
 metadata/_custom_type_script = "uid://ebcotn7nwwdb"

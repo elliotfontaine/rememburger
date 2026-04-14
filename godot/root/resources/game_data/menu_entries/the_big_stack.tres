@@ -12,6 +12,6 @@ metadata/_custom_type_script = "uid://cp63ho2tbyfik"
 script = ExtResource("2_un733")
 name = "The Big Stack"
 meal = SubResource("Resource_sbdjx")
-base_price = 90
+base_price = 110
 difficulty = 2
 metadata/_custom_type_script = "uid://ebcotn7nwwdb"

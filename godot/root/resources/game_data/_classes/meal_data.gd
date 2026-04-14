@@ -1,5 +1,8 @@
+@tool
 class_name MealData
 extends Resource
+
+# @tool is required for the `_to_string` override to be accessed by YARD.
 
 const COST_MISSING := 40 # deletion
 const COST_EXTRA := 15 # insertion
@@ -69,4 +72,7 @@ func is_empty() -> bool:
 
 
 func _to_string() -> String:
-	return "MealData(" + str(ingredients) + ")"
+	var names_array: PackedStringArray
+	for ingredient: StringName in ingredients:
+		names_array.append(ingredient)
+	return "MealData(" + ", ".join(names_array) + ")"

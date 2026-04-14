@@ -12,6 +12,6 @@ metadata/_custom_type_script = "uid://cp63ho2tbyfik"
 script = ExtResource("2_54rfx")
 name = "Classic Deluxe"
 meal = SubResource("Resource_sbdjx")
-base_price = 70
+base_price = 80
 difficulty = 1
 metadata/_custom_type_script = "uid://ebcotn7nwwdb"

@@ -5,12 +5,13 @@
 
 [sub_resource type="Resource" id="Resource_sbdjx"]
 script = ExtResource("1_nn5f0")
-ingredients = Array[StringName]([&"bread_bottom", &"ketchup", &"cheddar", &"lettuce", &"tomato_slice", &"bread_top"])
+ingredients = Array[StringName]([&"bread_bottom", &"ketchup", &"cheddar", &"cheddar", &"lettuce", &"tomato_slice", &"bread_top"])
 metadata/_custom_type_script = "uid://cp63ho2tbyfik"
 
 [resource]
 script = ExtResource("2_17q5u")
 name = "Veggie"
 meal = SubResource("Resource_sbdjx")
-base_price = 55
+base_price = 50
+difficulty = 1
 metadata/_custom_type_script = "uid://ebcotn7nwwdb"

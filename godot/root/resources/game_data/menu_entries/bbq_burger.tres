@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_sbdjx"]
 script = ExtResource("1_j785l")
-ingredients = Array[StringName]([&"bread_bottom", &"barbecue", &"steak_cooked", &"cheddar", &"bread_top"])
+ingredients = Array[StringName]([&"bread_bottom", &"barbecue", &"steak_cooked", &"tomato_slice", &"lettuce", &"bread_top"])
 metadata/_custom_type_script = "uid://cp63ho2tbyfik"
 
 [resource]
