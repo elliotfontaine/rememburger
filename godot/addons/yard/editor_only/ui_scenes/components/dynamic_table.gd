@@ -885,6 +885,11 @@ func _draw_cell_resource(rect: Rect2, row: int, col: int) -> void:
 
 	var res: Resource = cell_value
 	var label := "<" + res.resource_path.get_file() + ">"
+	if res.has_method(&"_to_string"):
+		var script: Script = res.get_script()
+		if script and script.is_tool():
+			label = str(res) #+ " " + label
+	
 	var x_margin_val: int = H_ALIGNMENT_MARGINS.get(HORIZONTAL_ALIGNMENT_LEFT)
 	var thumb_width := 0.0
 	var texture := res if res is Texture2D else _get_or_queue_thumbnail(
