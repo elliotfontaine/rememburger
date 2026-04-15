@@ -2,10 +2,10 @@
 
 [ext_resource type="FontFile" uid="uid://b0500rwv6r8ai" path="res://root/assets/font/DynaPuff/static/DynaPuff-Bold.ttf" id="2_5urn5"]
 [ext_resource type="FontFile" uid="uid://b6n7na4opcux3" path="res://root/assets/font/DynaPuff/static/DynaPuff-Medium.ttf" id="2_rhkgh"]
-[ext_resource type="FontFile" uid="uid://dwbujrtx4j7av" path="res://root/assets/font/Alan_Sans/static/AlanSans-Medium.ttf" id="3_ikq0i"]
 [ext_resource type="Script" uid="uid://ccy37uo1g0a1c" path="res://root/scenes/scene/menu_scene/credits_menu/credits/credits.gd" id="4"]
-[ext_resource type="FontFile" uid="uid://bebx73slpb2l5" path="res://root/assets/font/DynaPuff/static/DynaPuff-Regular.ttf" id="4_yqtai"]
-[ext_resource type="FontFile" uid="uid://dgyk82hf884mn" path="res://root/assets/font/Alan_Sans/static/AlanSans-Regular.ttf" id="5_5urn5"]
+[ext_resource type="FontFile" uid="uid://kxcgrnwdehtk" path="res://root/assets/font/sour_gummy/static/SourGummy-Italic.ttf" id="4_rhkgh"]
+[ext_resource type="FontFile" uid="uid://vovyvvn5wsjb" path="res://root/assets/font/sour_gummy/static/SourGummy-Light.ttf" id="5_5urn5"]
+[ext_resource type="FontFile" uid="uid://ck8i64wvxdalg" path="res://root/assets/font/sour_gummy/static/SourGummy-LightItalic.ttf" id="6_5urn5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_517xi"]
 content_margin_left = 5.0
@@ -18,11 +18,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4")
-current_speed = 100.0
 h1_font = ExtResource("2_5urn5")
 h2_font = ExtResource("2_rhkgh")
-h3_font = ExtResource("4_yqtai")
-h4_font = ExtResource("3_ikq0i")
+h3_font = ExtResource("4_rhkgh")
+h4_font = ExtResource("5_5urn5")
+current_speed = 100.0
 scroll_offset = 100.0
 stretch_minimum_size = false
 x_minimum_size = 1000.0
@@ -84,7 +84,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-theme_override_fonts/normal_font = ExtResource("5_5urn5")
+theme_override_fonts/normal_font = ExtResource("6_5urn5")
 theme_override_font_sizes/normal_font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_517xi")
 bbcode_enabled = true

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4arov5jfx1y7"]
 
 [ext_resource type="Script" uid="uid://bqye2k0gfsdg1" path="res://root/scenes/scene/game_scene/game_end/game_end.gd" id="1_7ol2x"]
-[ext_resource type="FontFile" uid="uid://b6n7na4opcux3" path="res://root/assets/font/DynaPuff/static/DynaPuff-Medium.ttf" id="2_q1io8"]
+[ext_resource type="FontFile" uid="uid://b6n7na4opcux3" path="res://root/assets/font/DynaPuff/static/DynaPuff-Medium.ttf" id="2_new3g"]
 [ext_resource type="PackedScene" uid="uid://bcguj32hbtugs" path="res://root/scenes/scene/leaderboard/leaderboard.tscn" id="3_hgtgj"]
 [ext_resource type="Texture2D" uid="uid://dboalxyu1i212" path="res://root/assets/image/ui/kenney-game-icons/black/rewind.png" id="3_mp3m4"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://root/scenes/component/audio/button_audio/button_audio.tscn" id="3_new3g"]
@@ -44,7 +44,7 @@ grow_vertical = 2
 pivot_offset = Vector2(0, 300)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_q1io8")
+theme_override_fonts/font = ExtResource("2_new3g")
 theme_override_font_sizes/font_size = 100
 text = "Time’s up !"
 horizontal_alignment = 1

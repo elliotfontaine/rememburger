@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://d00ws7wljnit4" path="res://root/assets/image/ui/UIpack_vector.svg" id="1"]
 [ext_resource type="Texture2D" uid="uid://m8pvfgahjkib" path="res://root/assets/image/ui/panel_burger_9patch.png" id="1_p1gel"]
-[ext_resource type="FontFile" uid="uid://dgyk82hf884mn" path="res://root/assets/font/Alan_Sans/static/AlanSans-Regular.ttf" id="2_nqbpr"]
-[ext_resource type="FontFile" uid="uid://b6n7na4opcux3" path="res://root/assets/font/DynaPuff/static/DynaPuff-Medium.ttf" id="4_p1gel"]
+[ext_resource type="FontFile" uid="uid://vovyvvn5wsjb" path="res://root/assets/font/sour_gummy/static/SourGummy-Light.ttf" id="3_p1gel"]
+[ext_resource type="FontFile" uid="uid://co2jfmiah2iw0" path="res://root/assets/font/sour_gummy/static/SourGummy-Bold.ttf" id="4_p1gel"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3vagx"]
 texture = ExtResource("1_p1gel")
@@ -302,7 +302,7 @@ LineEdit/colors/font_uneditable_color = Color(0.33412305, 0.33412218, 0.33412242
 LineEdit/colors/selection_color = Color(0.34902, 0.34902, 0.34902, 1)
 LineEdit/constants/caret_width = 2
 LineEdit/constants/minimum_spaces = 12
-LineEdit/fonts/font = ExtResource("2_nqbpr")
+LineEdit/fonts/font = ExtResource("3_p1gel")
 LineEdit/icons/clear = null
 LineEdit/styles/focus = SubResource("18")
 LineEdit/styles/normal = SubResource("19")
@@ -372,8 +372,8 @@ TextEdit/colors/word_highlighted_color = Color(0.8, 0.9, 0.9, 0.15)
 TextEdit/constants/completion_lines = 7
 TextEdit/constants/completion_max_width = 50
 TextEdit/constants/completion_scroll_width = 3
-TextEdit/constants/line_spacing = 4
-TextEdit/fonts/font = ExtResource("2_nqbpr")
+TextEdit/constants/line_spacing = 0
+TextEdit/fonts/font = ExtResource("3_p1gel")
 TextEdit/icons/fold = null
 TextEdit/icons/folded = null
 TextEdit/icons/space = null

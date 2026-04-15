@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bfikge1mf7vn1"
-path="res://.godot/imported/Mogra-Regular.ttf-e67eb615a489af7952854e0cd95c03f2.fontdata"
+uid="uid://d1ryupl2742mt"
+path="res://.godot/imported/SourGummy_SemiExpanded-Medium.ttf-b59e2aae7e04b3825c8d4fa1a85ebb1c.fontdata"
 
 [deps]
 
-source_file="res://root/assets/font/Mogra/Mogra-Regular.ttf"
-dest_files=["res://.godot/imported/Mogra-Regular.ttf-e67eb615a489af7952854e0cd95c03f2.fontdata"]
+source_file="res://root/assets/font/sour_gummy/static/SourGummy_SemiExpanded-Medium.ttf"
+dest_files=["res://.godot/imported/SourGummy_SemiExpanded-Medium.ttf-b59e2aae7e04b3825c8d4fa1a85ebb1c.fontdata"]
 
 [params]
 
