@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://kbjd1qfc42hv"]
 
 [ext_resource type="Script" uid="uid://ca5kxy50hhij5" path="res://root/scenes/scene/game_scene/game_content/world.gd" id="1_fha1o"]
-[ext_resource type="Texture2D" uid="uid://kwuj02cd8apk" path="res://root/assets/image/game/backgrounds/background.png" id="1_sf5dl"]
 [ext_resource type="PackedScene" uid="uid://djb3vsrvt5j3a" path="res://root/scenes/scene/game_scene/game_content/queue/queue_view.tscn" id="2_fha1o"]
+[ext_resource type="Texture2D" uid="uid://dlng7wmy5v2x5" path="res://root/assets/image/game/backgrounds/background_2.png" id="2_mpuab"]
 [ext_resource type="Script" uid="uid://dwnln27j38rxd" path="res://root/scenes/scene/game_scene/game_content/mouse_following_camera_2d.gd" id="4_gr6f7"]
 [ext_resource type="PackedScene" uid="uid://b4b36g3uhwemg" path="res://root/scenes/component/audio/button_audio/button_audio.tscn" id="6_birb1"]
 [ext_resource type="Texture2D" uid="uid://bvnyjb0cwu3vd" path="res://root/assets/image/ui/kenney-game-icons/black/arrowRight.png" id="6_mpuab"]
@@ -13,22 +13,83 @@
 [ext_resource type="PackedScene" uid="uid://sxhvflj8q4k5" path="res://root/scenes/scene/game_scene/game_content/MealDesc.tscn" id="8_v103c"]
 [ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="10_birb1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sf5dl"]
-radius = 70.0
-
 [sub_resource type="Resource" id="Resource_mpuab"]
 script = ExtResource("10_birb1")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sf5dl"]
+radius = 70.0
 
 [node name="World" type="Node2D" unique_id=20499566]
 script = ExtResource("1_fha1o")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=301049078]
-texture = ExtResource("1_sf5dl")
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1999777407]
+scroll_scale = Vector2(0.9, 0.9)
 
-[node name="QueueView" parent="." unique_id=47794637 instance=ExtResource("2_fha1o")]
+[node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=301049078]
+position = Vector2(0, 50)
+texture = ExtResource("2_mpuab")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1269833815]
+scroll_scale = Vector2(0.95, 0.95)
+
+[node name="QueueView" parent="Parallax2D2" unique_id=47794637 instance=ExtResource("2_fha1o")]
 unique_name_in_owner = true
-position = Vector2(-314, 64)
-scale = Vector2(1.2, 1.2)
+position = Vector2(-321, 152)
+scale = Vector2(1.4, 1.4)
+
+[node name="Bubble" type="Node2D" parent="Parallax2D2" unique_id=165283928]
+unique_name_in_owner = true
+position = Vector2(-336, -326)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2/Bubble" unique_id=1958941360]
+position = Vector2(-291, -308)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_k2e8o")
+
+[node name="MealDesc" parent="Parallax2D2/Bubble" unique_id=253224361 instance=ExtResource("8_v103c")]
+unique_name_in_owner = true
+position = Vector2(-313, -274)
+scale = Vector2(0.9, 0.9)
+meal_data = SubResource("Resource_mpuab")
+
+[node name="MealStack" parent="Parallax2D2/Bubble" unique_id=242877394 instance=ExtResource("8_iqpcp")]
+unique_name_in_owner = true
+position = Vector2(-444, -294)
+scale = Vector2(1.5, 1.5)
+
+[node name="MealNameLabel" type="Label" parent="Parallax2D2/Bubble" unique_id=1890328594]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -484.0
+offset_top = -220.0
+offset_right = -44.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 40
+text = "BBQ Double Cheddar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MealPriceLabel" type="Label" parent="Parallax2D2/Bubble" unique_id=1648146591]
+unique_name_in_owner = true
+offset_left = -538.0
+offset_top = -408.0
+offset_right = -338.0
+offset_bottom = -345.0
+theme_override_colors/font_color = Color(0.3529412, 0.972549, 0.4509804, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 48
+text = "35 €"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MouseFollowingCamera2D" type="Camera2D" parent="." unique_id=2119427164]
 position = Vector2(0, -500)
@@ -76,61 +137,7 @@ metadata/_edit_lock_ = true
 [node name="Sprite2D" type="Sprite2D" parent="ServingSpot" unique_id=259504582]
 texture = ExtResource("7_v103c")
 
-[node name="Bubble" type="Node2D" parent="." unique_id=165283928]
-unique_name_in_owner = true
-position = Vector2(-326, -258)
-
-[node name="Sprite2D" type="Sprite2D" parent="Bubble" unique_id=1958941360]
-position = Vector2(-291, -308)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_k2e8o")
-
-[node name="MealDesc" parent="Bubble" unique_id=253224361 instance=ExtResource("8_v103c")]
-unique_name_in_owner = true
-position = Vector2(-313, -274)
-scale = Vector2(0.9, 0.9)
-meal_data = SubResource("Resource_mpuab")
-
-[node name="MealStack" parent="Bubble" unique_id=242877394 instance=ExtResource("8_iqpcp")]
-unique_name_in_owner = true
-position = Vector2(-444, -294)
-scale = Vector2(1.5, 1.5)
-
-[node name="MealNameLabel" type="Label" parent="Bubble" unique_id=1890328594]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -484.0
-offset_top = -220.0
-offset_right = -44.0
-offset_bottom = -167.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 40
-text = "BBQ Double Cheddar"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MealPriceLabel" type="Label" parent="Bubble" unique_id=1648146591]
-unique_name_in_owner = true
-offset_left = -538.0
-offset_top = -408.0
-offset_right = -338.0
-offset_bottom = -345.0
-theme_override_colors/font_color = Color(0.3529412, 0.972549, 0.4509804, 1)
-theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 48
-text = "35 €"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="customer_entered" from="QueueView" to="." method="_on_queue_view_customer_entered"]
-[connection signal="customer_exited" from="QueueView" to="." method="_on_queue_view_customer_exited"]
+[connection signal="customer_entered" from="Parallax2D2/QueueView" to="." method="_on_queue_view_customer_entered"]
+[connection signal="customer_exited" from="Parallax2D2/QueueView" to="." method="_on_queue_view_customer_exited"]
 [connection signal="pressed" from="SendBackButton" to="." method="_on_send_back_button_pressed"]
 [connection signal="pressed" from="TakeOrderButton" to="." method="_on_take_order_button_pressed"]
