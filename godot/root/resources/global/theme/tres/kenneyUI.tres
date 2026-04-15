@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d00ws7wljnit4" path="res://root/assets/image/ui/UIpack_vector.svg" id="1"]
 [ext_resource type="Texture2D" uid="uid://m8pvfgahjkib" path="res://root/assets/image/ui/panel_burger_9patch.png" id="1_p1gel"]
 [ext_resource type="FontFile" uid="uid://dgyk82hf884mn" path="res://root/assets/font/Alan_Sans/static/AlanSans-Regular.ttf" id="2_nqbpr"]
-[ext_resource type="FontFile" uid="uid://f1hf51l61b2p" path="res://root/assets/font/Alan_Sans/static/AlanSans-Bold.ttf" id="3_p1gel"]
+[ext_resource type="FontFile" uid="uid://b6n7na4opcux3" path="res://root/assets/font/DynaPuff/static/DynaPuff-Medium.ttf" id="4_p1gel"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3vagx"]
 texture = ExtResource("1_p1gel")
@@ -226,7 +226,7 @@ texture_margin_bottom = 11.2935
 region_rect = Rect2(1, 310, 100, 100)
 
 [resource]
-default_font = ExtResource("3_p1gel")
+default_font = ExtResource("4_p1gel")
 default_font_size = 32
 BlackLabel/base_type = &"Label"
 BlackLabel/colors/font_color = Color(0, 0, 0, 1)

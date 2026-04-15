@@ -16,6 +16,10 @@ signal end_reached
 @export var h2_font_size: int = 48 *2
 @export var h3_font_size: int = 32 *2
 @export var h4_font_size: int = 24 *2
+@export var h1_font: FontFile
+@export var h2_font: FontFile
+@export var h3_font: FontFile
+@export var h4_font: FontFile
 
 @export_group("Scroll")
 ## Default automatic scroll speed.
@@ -177,11 +181,17 @@ func _regex_replace_urls(credits: String) -> String:
 func _regex_replace_titles(credits: String) -> String:
 	var iter: int = 0
 	var heading_font_sizes: Array[int] = [h1_font_size, h2_font_size, h3_font_size, h4_font_size]
-	for heading_font_size in heading_font_sizes:
+	var heading_fonts: Array[FontFile] = [h1_font, h2_font, h3_font, h4_font]
+	for heading in heading_font_sizes.size():
 		iter += 1
 		var regex: RegEx = RegEx.new()
 		var match_string: String = "([^#]|^)#{%d}\\s([^\\n]*)" % iter
-		var replace_string: String = "$1[font_size=%d]$2[/font_size]" % [heading_font_size]
+		#var replace_string: String = "$1[font_size=%d]$2[/font_size]" % heading_font_size]
+		var replace_string: String
+		if heading_fonts[heading]:
+			replace_string = '$1[font name=%s size=%d]$2[/font]' % [heading_fonts[heading].resource_path,heading_font_sizes[heading]]
+		else:
+			replace_string = "$1[font_size=%d]$2[/font_size]" % heading_font_sizes[heading]
 		regex.compile(match_string)
 		credits = regex.sub(credits, replace_string, true)
 	return credits
