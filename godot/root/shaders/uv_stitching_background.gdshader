@@ -36,5 +36,5 @@ void fragment() {
 	vec4 tex2 = texture(texture_2, texture_uv);
 	vec4 tex_color = mix(tex1, tex2, selector);
 	vec4 color = mix(solid_color, tex_color, gap_mask);
-	COLOR = mix(solid_color, color, step(0.9, color.a));
+	COLOR = mix(solid_color, color, step(0.5, color.a));
 }
