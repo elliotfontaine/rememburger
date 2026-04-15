@@ -25,6 +25,9 @@ var _score_tween: Tween
 @onready var temp_tip_customer_head: Node2D = %TempTipCustomerHead
 @onready var temp_tip_points_label: Label = %TempTipPointsLabel
 @onready var timer_label: Label = %TimerLabel
+@onready var info_popup: Label = %InfoPopup
+@onready var info_popup_canvas_group: CanvasGroup = %InfoPopupCanvasGroup
+@onready var info_popup_animation_player: AnimationPlayer = %InfoPopupAnimationPlayer
 @onready var up_arrow_anchor: Control = %UpArrowAnchor
 @onready var down_arrow_anchor: Control = %DownArrowAnchor
 
@@ -36,6 +39,7 @@ func _ready() -> void:
 	temp_meal_points_container.hide()
 	temp_tip_points_container.hide()
 	up_arrow_anchor.hide()
+	info_popup_canvas_group.self_modulate = Color.TRANSPARENT
 	down_arrow_anchor.show()
 
 	SignalBus.camera_target_changed.connect(_on_camera_target_changed)
@@ -59,7 +63,23 @@ func _process(_delta: float) -> void:
 func score_points(customer_data: CustomerData, meal_points: int, tip_points: int) -> void:
 	var current_score: int = GlobalScore.score
 	GlobalScore.score += meal_points + tip_points
-		
+
+	if meal_points > 0:
+		if meal_points == customer_data.order.base_price:
+			info_popup.text = "Perfect!"
+			info_popup.add_theme_color_override(&"font_color", MainColorPalette.COLOR_SUCCESS)
+		elif tip_points > 0:
+			info_popup.text = "Nice!"
+			info_popup.add_theme_color_override(&"font_color", MainColorPalette.COLOR_SUCCESS)
+		else:
+			info_popup.text = "Meh..."
+			info_popup.add_theme_color_override(&"font_color", MainColorPalette.COLOR_WARNING)
+	else:
+		info_popup.text = "Terrible!"
+		info_popup.add_theme_color_override(&"font_color", MainColorPalette.COLOR_FAILURE)
+	
+	info_popup_animation_player.play(&"popup_info")
+
 	if meal_points > 0:
 		temp_meal_points_label.text = "+ %d €" % meal_points
 		temp_meal_points_container.show()
@@ -75,11 +95,11 @@ func score_points(customer_data: CustomerData, meal_points: int, tip_points: int
 	
 	if _score_tween:
 		_score_tween.kill()
-	_score_tween = create_tween().set_parallel()
+	_score_tween = create_tween().set_parallel().set_trans(Tween.TRANS_SINE)
 	@warning_ignore_start("untyped_declaration")
-	_score_tween.tween_method(func(v): score_label.set_text("%d €" % v), current_score, GlobalScore.score, 1.0).set_delay(1.5)
-	_score_tween.tween_method(func(v): temp_meal_points_label.set_text("+ %d €" % v), meal_points, 0, 1.0).set_delay(1.5)
-	_score_tween.tween_method(func(v): temp_tip_points_label.set_text("+ %d €" % v), tip_points, 0, 1.0).set_delay(1.5)
+	_score_tween.tween_method(func(v): score_label.set_text("%d €" % v), current_score, GlobalScore.score, 1.0).set_delay(2.0)
+	_score_tween.tween_method(func(v): temp_meal_points_label.set_text("+ %d €" % v), meal_points, 0, 1.0).set_delay(2.0)
+	_score_tween.tween_method(func(v): temp_tip_points_label.set_text("+ %d €" % v), tip_points, 0, 1.0).set_delay(2.0)
 	@warning_ignore_restore("untyped_declaration")
 	_score_tween.set_parallel(false)
 	_score_tween.tween_callback(temp_meal_points_container.set_visible.bind(false))
