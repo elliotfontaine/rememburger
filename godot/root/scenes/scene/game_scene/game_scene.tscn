@@ -11,9 +11,6 @@
 process_mode = 3
 script = ExtResource("1_cc2ll")
 
-[node name="UiBuilder" parent="." unique_id=1240177524 instance=ExtResource("5_4r42l")]
-unique_name_in_owner = true
-
 [node name="GameContent" parent="." unique_id=1938081867 instance=ExtResource("3_33wd1")]
 unique_name_in_owner = true
 
@@ -36,3 +33,8 @@ z_as_relative = false
 [node name="GameEnd" parent="Popups" unique_id=411140280 instance=ExtResource("6_keakv")]
 unique_name_in_owner = true
 visible = false
+z_index = 1000
+z_as_relative = false
+
+[node name="UiBuilder" parent="." unique_id=1240177524 instance=ExtResource("5_4r42l")]
+unique_name_in_owner = true

@@ -76,12 +76,13 @@ func _on_submit_username_button_pressed() -> void:
 		could_not_save.show()
 
 
-
 func _on_main_menu_button_pressed() -> void:
+	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
 	SceneManagerWrapper.change_scene(SceneManagerEnum.Scene.MENU_SCENE, "fade_play")
 
 
 func _on_play_again_button_pressed() -> void:
+	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
 	SceneManagerWrapper.change_scene(SceneManagerEnum.Scene.GAME_SCENE, "fade_play")
