@@ -7,6 +7,9 @@
 [ext_resource type="FontFile" uid="uid://bebx73slpb2l5" path="res://root/assets/font/DynaPuff/static/DynaPuff-Regular.ttf" id="4_yqtai"]
 [ext_resource type="FontFile" uid="uid://dgyk82hf884mn" path="res://root/assets/font/Alan_Sans/static/AlanSans-Regular.ttf" id="5_5urn5"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_517xi"]
+content_margin_left = 5.0
+
 [node name="Credits" type="Control" unique_id=1939499851]
 layout_mode = 3
 anchors_preset = 15
@@ -15,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4")
+current_speed = 100.0
 h1_font = ExtResource("2_5urn5")
 h2_font = ExtResource("2_rhkgh")
 h3_font = ExtResource("4_yqtai")
@@ -23,7 +27,6 @@ scroll_offset = 100.0
 stretch_minimum_size = false
 x_minimum_size = 1000.0
 align = "left"
-center_padding = true
 keywords = {
 "Art": "CREDITS_ART",
 "Assets": "CREDITS_ASSETS",
@@ -52,7 +55,6 @@ unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-scroll_vertical = 8
 horizontal_scroll_mode = 0
 
 [node name="RootMarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=446166122]
@@ -84,6 +86,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
 theme_override_fonts/normal_font = ExtResource("5_5urn5")
 theme_override_font_sizes/normal_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_517xi")
 bbcode_enabled = true
 text = "[left]asd[/left]
 [left]asd[/left]"

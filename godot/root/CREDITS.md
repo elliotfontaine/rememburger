@@ -10,7 +10,7 @@ Programming
 Game Design
 Animations
 
-#### ZStorm
+#### Mélanie Archambeau (Zstorm)
 Game Design
 Assets (characters, backgrounds, objects)
 Programming
@@ -61,7 +61,7 @@ License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0
 [comment]: # (`addition_symbol.png`)
 [comment]: # (`subtraction_symbol.png`)
 
-### Font:
+### Fonts:
 
 #### DynaPuff (Game Title)
 Created by: [The DynaPuff Project Authors](https://github.com/googlefonts/dynapuff/graphs/contributors)
