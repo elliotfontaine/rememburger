@@ -4,6 +4,11 @@ extends Resource
 enum State { IN_QUEUE, AT_COUNTER, SERVED, LEFT_ANGRY }
 
 const MENU_ENTRY_REGISTRY: Registry = preload("uid://b7eqya2l1ru20")
+const EYEBROWS_REGISTRY = preload("uid://1ohd70sqvhkq")
+const EYES_REGISTRY = preload("uid://ws8rnmdop37h")
+const MOUTH_REGISTRY = preload("uid://bex11e6h012jd")
+const NOSE_REGISTRY = preload("uid://bic7bqjfx2rjs")
+
 
 const NAMES = [
 	"Max", "Kim", "Pat", "Lee", "Mel", "Sasha", "Robin", "Casey", "Riley",
@@ -51,13 +56,6 @@ const CAP_COLORS = [
 	Color("6a74ffff"),
 	Color("dadbcdff"),
 ]
-const FACE_TEXTURES = [
-	preload("res://root/assets/image/game/characters/faces/face0000.png"),
-	preload("res://root/assets/image/game/characters/faces/face0001.png"),
-	preload("res://root/assets/image/game/characters/faces/face0002.png"),
-	preload("res://root/assets/image/game/characters/faces/face0003.png"),
-	preload("res://root/assets/image/game/characters/faces/face0004.png")
-]
 const HAIR_OUTLINES = [
 	preload("res://root/assets/image/game/characters/hair/outline/image0000.png"),
 	preload("res://root/assets/image/game/characters/hair/outline/image0001.png"),
@@ -84,7 +82,10 @@ var order: MenuEntry
 
 var shirt_color: Color
 var skin_color: Color
-var face: Texture2D
+var face_mouth: StringName
+var face_nose: StringName
+var face_eyes: StringName
+var face_eyebrows: StringName
 var hair_outline: Texture2D
 var hair_color_texture: Texture2D
 var hair_color: Color
@@ -111,8 +112,13 @@ func generate_order(difficulty: MenuEntry.Difficulty = MenuEntry.Difficulty.NORM
 
 func _generate_random_look() -> void:
 	shirt_color = SHIRT_COLORS.pick_random()
+	
 	skin_color = SKIN_COLORS.pick_random()
-	face = FACE_TEXTURES.pick_random()
+	face_mouth = MOUTH_REGISTRY.get_all_string_ids().pick_random()
+	face_nose = NOSE_REGISTRY.get_all_string_ids().pick_random()
+	face_eyes = EYES_REGISTRY.get_all_string_ids().pick_random()
+	face_eyebrows = EYEBROWS_REGISTRY.get_all_string_ids().pick_random()
+	
 	var hair_id: int = randi() % 6
 	hair_outline = HAIR_OUTLINES[hair_id]
 	hair_color_texture = HAIR_COLORS_TEXTURES[hair_id]
