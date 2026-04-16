@@ -202,7 +202,7 @@ axis_stretch_vertical = 1
 region_rect = Rect2(1, 310, 100, 100)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_p1gel"]
-color = Color(0.73, 0.528885, 0.31390002, 1)
+color = Color(0.73333335, 0.49411765, 0.23921569, 1)
 thickness = 6
 vertical = true
 

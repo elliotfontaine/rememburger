@@ -35,10 +35,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -255.5
-offset_top = -436.5
-offset_right = 255.5
-offset_bottom = -315.5
+offset_left = -297.0
+offset_top = -484.0
+offset_right = 297.0
+offset_bottom = -300.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 300)
@@ -48,6 +48,7 @@ theme_override_fonts/font = ExtResource("2_new3g")
 theme_override_font_sizes/font_size = 100
 text = "Time’s up !"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1757618657]
 unique_name_in_owner = true
