@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xqntvyuo85wg"]
 
 [ext_resource type="Script" uid="uid://dnnml4cotsah" path="res://root/scenes/scene/boot_splash_scene/boot_splash_scene.gd" id="1_ycea6"]
-[ext_resource type="Texture2D" uid="uid://dtbe1tivagux3" path="res://root/assets/image/boot_splash/png/boot_splash_2560_1440.png" id="2_o65q5"]
+[ext_resource type="Texture2D" uid="uid://b3frhqpl1f2jp" path="res://root/assets/image/boot_splash/png/icon-light.png" id="2_w6evj"]
 
 [node name="BootSplash" type="Control" unique_id=998569830]
 layout_mode = 3
@@ -23,11 +23,11 @@ grow_vertical = 2
 [node name="BootSplashColorRect" type="ColorRect" parent="BootSplashMarginContainer" unique_id=2051478801]
 unique_name_in_owner = true
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.9647059, 0.9019608, 0.88235295, 1)
 
 [node name="BootSplashTextureRect" type="TextureRect" parent="BootSplashMarginContainer" unique_id=1434115442]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("2_o65q5")
+texture = ExtResource("2_w6evj")
 expand_mode = 2
 stretch_mode = 5

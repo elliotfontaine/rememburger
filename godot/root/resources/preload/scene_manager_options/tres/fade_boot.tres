@@ -5,4 +5,6 @@
 [resource]
 script = ExtResource("1_e1tew")
 fade_out_speed = 0.5
-fade_in_speed = 0.5
+fade_out_smoothness = 0.2
+fade_in_speed = 0.8
+fade_in_smoothness = 0.2

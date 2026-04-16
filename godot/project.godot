@@ -31,8 +31,8 @@ config/name="RememBurger"
 config/version="0.1.0"
 run/main_scene="res://root/scenes/scene/boot_splash_scene/boot_splash_scene.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://root/assets/image/boot_splash/png/boot_splash_2560_1440.png"
+boot_splash/bg_color=Color(0.9647059, 0.9019608, 0.88235295, 1)
+boot_splash/image="uid://b3frhqpl1f2jp"
 config/icon="res://root/assets/image/boot_splash/png/icon_1024_1024.png"
 
 [audio]

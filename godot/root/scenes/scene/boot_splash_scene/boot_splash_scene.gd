@@ -19,7 +19,8 @@ func _ready() -> void:
 
 	if Engine.is_editor_hint():
 		return
-
+	
+	await get_tree().create_timer(1.5).timeout
 	SceneManagerWrapper.change_scene(scene, scene_manager_options_id)
 
 
