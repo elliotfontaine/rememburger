@@ -48,10 +48,10 @@ size_flags_vertical = 4
 
 [node name="SolidPanelMarginContainer" type="MarginContainer" parent="MainMenuMarginContainer" unique_id=1935319144]
 layout_mode = 2
-theme_override_constants/margin_left = -40
+theme_override_constants/margin_left = -70
 theme_override_constants/margin_top = -40
-theme_override_constants/margin_right = -40
-theme_override_constants/margin_bottom = -40
+theme_override_constants/margin_right = -70
+theme_override_constants/margin_bottom = -60
 
 [node name="SolidPanel" type="PanelContainer" parent="MainMenuMarginContainer/SolidPanelMarginContainer" unique_id=1294976859]
 layout_mode = 2

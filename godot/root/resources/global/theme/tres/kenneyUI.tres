@@ -1,17 +1,18 @@
 [gd_resource type="Theme" format=3 uid="uid://6shp5ck1tnja"]
 
 [ext_resource type="Texture2D" uid="uid://d00ws7wljnit4" path="res://root/assets/image/ui/UIpack_vector.svg" id="1"]
-[ext_resource type="Texture2D" uid="uid://m8pvfgahjkib" path="res://root/assets/image/ui/panel_burger_9patch.png" id="1_p1gel"]
+[ext_resource type="Texture2D" uid="uid://daenv1tgd4rf" path="res://root/assets/image/ui/burger_panel.png" id="1_p1gel"]
 [ext_resource type="FontFile" uid="uid://vovyvvn5wsjb" path="res://root/assets/font/sour_gummy/static/SourGummy-Light.ttf" id="3_p1gel"]
 [ext_resource type="FontFile" uid="uid://co2jfmiah2iw0" path="res://root/assets/font/sour_gummy/static/SourGummy-Bold.ttf" id="4_p1gel"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3vagx"]
 texture = ExtResource("1_p1gel")
-texture_margin_left = 40.0
-texture_margin_top = 54.0
-texture_margin_right = 40.0
-texture_margin_bottom = 40.0
+texture_margin_left = 80.0
+texture_margin_top = 80.0
+texture_margin_right = 80.0
+texture_margin_bottom = 80.0
 axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [sub_resource type="StyleBoxTexture" id="1"]
 texture = ExtResource("1")
@@ -201,8 +202,8 @@ axis_stretch_vertical = 1
 region_rect = Rect2(1, 310, 100, 100)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_p1gel"]
-color = Color(0.59036696, 0.38092908, 0.10331405, 1)
-thickness = 3
+color = Color(0.73, 0.528885, 0.31390002, 1)
+thickness = 6
 vertical = true
 
 [sub_resource type="AtlasTexture" id="29"]

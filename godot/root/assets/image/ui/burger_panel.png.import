@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m8pvfgahjkib"
-path="res://.godot/imported/panel_burger_9patch.png-1ab9c806310207c911fc0912031ab403.ctex"
+uid="uid://daenv1tgd4rf"
+path="res://.godot/imported/burger_panel.png-f0947e31ddfac70773a4064232574127.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://root/assets/image/ui/panel_burger_9patch.png"
-dest_files=["res://.godot/imported/panel_burger_9patch.png-1ab9c806310207c911fc0912031ab403.ctex"]
+source_file="res://root/assets/image/ui/burger_panel.png"
+dest_files=["res://.godot/imported/burger_panel.png-f0947e31ddfac70773a4064232574127.ctex"]
 
 [params]
 
