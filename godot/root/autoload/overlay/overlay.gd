@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 ## Container for global overlays. Currently, contains the FPS counter.
 ## [br][br]
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
