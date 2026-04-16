@@ -66,6 +66,7 @@ ResourceReference="*res://root/autoload/reference/resource_reference/resource_re
 GlobalScore="*uid://7apdt74lskam"
 Talo="*uid://bpmdn8oc34pg7"
 MainColorPalette="*uid://d135arqtyy8cb"
+MouseCursorManager="*uid://d2knuvr4gebc0"
 
 [debug]
 
@@ -81,6 +82,7 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
+mouse_cursor/custom_image="uid://dcgig2xivp0vj"
 
 [editor_plugins]
 

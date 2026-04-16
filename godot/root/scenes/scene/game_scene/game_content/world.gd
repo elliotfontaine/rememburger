@@ -53,7 +53,12 @@ func _on_queue_view_customer_entered(customer_data: CustomerData) -> void:
 		bubble.show()
 
 func _on_queue_changed(queue: Array[CustomerData]) -> void:
-	send_back_button.disabled = queue.size() <= 1
+	var is_alone_or_empty := queue.size() <= 1
+	send_back_button.disabled = is_alone_or_empty
+	if is_alone_or_empty:
+		send_back_button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+	else:
+		send_back_button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 
 func _on_send_back_button_pressed() -> void:
