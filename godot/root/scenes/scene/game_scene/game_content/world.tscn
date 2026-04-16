@@ -107,6 +107,7 @@ offset_left = -165.0
 offset_top = -76.0
 offset_right = 144.32413
 offset_bottom = 11.250999
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 48
 disabled = true
 text = "Send Back"
@@ -121,6 +122,7 @@ offset_left = -477.0
 offset_top = -76.0
 offset_right = -207.67587
 offset_bottom = 11.250999
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 48
 text = "Take Order"
 
