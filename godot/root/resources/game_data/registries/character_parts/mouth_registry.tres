@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://bex11e6h012jd"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_el8wf"]
+
+[resource]
+script = ExtResource("1_el8wf")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([]),
+&"class_restrictions": Array[StringName]([&"CompressedTexture2D"]),
+&"recursive_scan": false,
+&"scan_directories": Array[String](["res://root/assets/image/game/characters/faces/mouth"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://b13adacv5c1m5": &"mouth0008",
+&"uid://b6c54skgl548s": &"mouth0002",
+&"uid://b7s7wbokkeyxf": &"mouth0014",
+&"uid://bjxges6e4cwka": &"mouth0001",
+&"uid://bx5cqmf8st7qc": &"mouth0011",
+&"uid://c5l85asvr2k0l": &"mouth0004",
+&"uid://cgjrynli1gik2": &"mouth0013",
+&"uid://cw3dc8didqncn": &"mouth0010",
+&"uid://d0esydsuveapp": &"mouth0006",
+&"uid://d3lb5bmng02np": &"mouth0000",
+&"uid://ddoheypcoitjn": &"mouth0003",
+&"uid://few4ji6tqq7q": &"mouth0009",
+&"uid://mjstra51xes8": &"mouth0012",
+&"uid://nv5lthevtm20": &"mouth0007",
+&"uid://ults3ligqmnp": &"mouth0005"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"mouth0000": &"uid://d3lb5bmng02np",
+&"mouth0001": &"uid://bjxges6e4cwka",
+&"mouth0002": &"uid://b6c54skgl548s",
+&"mouth0003": &"uid://ddoheypcoitjn",
+&"mouth0004": &"uid://c5l85asvr2k0l",
+&"mouth0005": &"uid://ults3ligqmnp",
+&"mouth0006": &"uid://d0esydsuveapp",
+&"mouth0007": &"uid://nv5lthevtm20",
+&"mouth0008": &"uid://b13adacv5c1m5",
+&"mouth0009": &"uid://few4ji6tqq7q",
+&"mouth0010": &"uid://cw3dc8didqncn",
+&"mouth0011": &"uid://bx5cqmf8st7qc",
+&"mouth0012": &"uid://mjstra51xes8",
+&"mouth0013": &"uid://cgjrynli1gik2",
+&"mouth0014": &"uid://b7s7wbokkeyxf"
+})
