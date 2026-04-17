@@ -36,7 +36,7 @@ var _score_tween: Tween
 func _ready() -> void:
 	GlobalScore.score = 0
 	remaining_time = game_duration
-	score_label.text = "%d" % GlobalScore.score
+	score_label.text = "%d €" % GlobalScore.score
 	info_popup_subtitle.add_theme_color_override(&"default_color", MainColorPalette.COLOR_FAILURE)
 	temp_meal_points_container.hide()
 	temp_tip_points_container.hide()
