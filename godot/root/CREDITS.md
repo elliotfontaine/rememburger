@@ -5,24 +5,24 @@
 
 ### Development:
 
+#### Mélanie Archambeau (Zstorm)
+Programming
+Game Design (original idea)
+Assets (characters, backgrounds, objects)
+
 #### Elliot Fontaine (The_Lunarian)
 Programming
-Game Design
+Game Design (scoring system)
+Assets (characters, backgrounds, UI panels)
 Animations
-
-#### Mélanie Archambeau (Zstorm)
-Game Design
-Assets (characters, backgrounds, objects)
-Programming
 
 ## Assets:
 
 ### Audio:
 
-#### Music: Menu Doodle 2 (Loop)
-Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
-Created by: [StumpyStrust](https://opengameart.org/users/stumpystrust)\
-Source: [opengameart: Menu Doodle 2](https://opengameart.org/content/menu-doodle-2)\
+#### Music: Sketchbook 2024-10-30
+Created by: [Abstraction Music](https://abstractionmusic.com/)
+Source: [itch.io: Music Loop Bundle](https://tallbeard.itch.io/music-loop-bundle)
 License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 #### SFX: Kenney UI Audio
@@ -62,6 +62,11 @@ License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0
 [comment]: # (`subtraction_symbol.png`)
 
 ### Fonts:
+
+#### Sour Gummy
+Created by: [Stefie Justprince, Emma Marichal & Contributors](https://github.com/eifetx/Sour-Gummy-Fonts/graphs/contributors)
+Source[github: Sour Gummy](https://github.com/eifetx/Sour-Gummy-Fonts)
+License: [Open Font License](https://openfontlicense.org/)
 
 #### DynaPuff (Game Title)
 Created by: [The DynaPuff Project Authors](https://github.com/googlefonts/dynapuff/graphs/contributors)

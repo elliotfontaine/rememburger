@@ -4,8 +4,8 @@ extends Node
 ## Original File MIT License Copyright (c) 2024 TinyTakinTeller
 
 # Music
-const MENU_DOODLE_2_LOOP: AudioStream = preload(
-	PathConsts.ASSETS + "audio/music/menu_doodle_2_loop/ogg/menu_doodle_2_loop.ogg"
+const SKETCHBOOK_2024_10_30: AudioStream = preload(
+	PathConsts.ASSETS + "audio/music/abstraction_music/Sketchbook_2024-10-30_normalized.ogg"
 )
 
 # SFX
