@@ -26,6 +26,7 @@ var _score_tween: Tween
 @onready var temp_tip_points_label: Label = %TempTipPointsLabel
 @onready var timer_label: Label = %TimerLabel
 @onready var info_popup: Label = %InfoPopup
+@onready var info_popup_subtitle: RichTextLabel = %InfoPopupSubtitle
 @onready var info_popup_canvas_group: CanvasGroup = %InfoPopupCanvasGroup
 @onready var info_popup_animation_player: AnimationPlayer = %InfoPopupAnimationPlayer
 @onready var up_arrow_anchor: Control = %UpArrowAnchor
@@ -36,6 +37,7 @@ func _ready() -> void:
 	GlobalScore.score = 0
 	remaining_time = game_duration
 	score_label.text = "%d" % GlobalScore.score
+	info_popup_subtitle.add_theme_color_override(&"default_color", MainColorPalette.COLOR_FAILURE)
 	temp_meal_points_container.hide()
 	temp_tip_points_container.hide()
 	up_arrow_anchor.hide()
@@ -63,6 +65,7 @@ func _process(_delta: float) -> void:
 func score_points(customer_data: CustomerData, meal_points: int, tip_points: int) -> void:
 	var current_score: int = GlobalScore.score
 	GlobalScore.score += meal_points + tip_points
+	info_popup_subtitle.text = ""
 
 	if meal_points > 0:
 		if meal_points == customer_data.order.base_price:
@@ -77,6 +80,12 @@ func score_points(customer_data: CustomerData, meal_points: int, tip_points: int
 	else:
 		info_popup.text = "Terrible!"
 		info_popup.add_theme_color_override(&"font_color", MainColorPalette.COLOR_FAILURE)
+		var order_name := customer_data.order.name
+		info_popup_subtitle.text = "That's not %s[color=white]%s[/color]..." % [
+			"" if order_name.begins_with("The") else "a ",
+			order_name,
+		]
+		
 	
 	info_popup_animation_player.play(&"popup_info")
 
