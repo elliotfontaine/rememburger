@@ -24,6 +24,7 @@ color = Color(0.90824616, 0.0006653595, 0.90823996, 1)
 [node name="Head" type="Node2D" parent="." unique_id=183556738]
 
 [node name="Color" type="Sprite2D" parent="Head" unique_id=882738078]
+modulate = Color(0.99607843, 0.8901961, 0.83137256, 1)
 position = Vector2(-2, 0)
 texture = ExtResource("2_qqnqk")
 
@@ -56,6 +57,7 @@ position = Vector2(-8, -42)
 
 [node name="HairColor" type="Sprite2D" parent="Hair" unique_id=1750000141]
 unique_name_in_owner = true
+modulate = Color(0.6666667, 0.53333336, 0.4, 1)
 texture = ExtResource("8_junxs")
 
 [node name="HairOutline" type="Sprite2D" parent="Hair" unique_id=2063415270]

@@ -7,7 +7,7 @@ signal customer_entered(customer_data: CustomerData)
 signal customer_exited(customer_data: CustomerData)
 
 const CUSTOMER_VIEW_SCENE: PackedScene = preload("uid://cokofndbolbnc")
-const SPREAD: Vector2 = Vector2(200, -10)
+const SPREAD: Vector2 = Vector2(190, -10)
 const CUSTOMER_OFFSET := Vector2(100.0, -20.0)
 const START_POSITION := Vector2(1200, CUSTOMER_OFFSET.y)
 
@@ -28,7 +28,7 @@ func add_customer(customer_data: CustomerData) -> void:
 	var new_customer: CustomerView  = CUSTOMER_VIEW_SCENE.instantiate()
 	new_customer.data = customer_data
 	new_customer.apply_visuals()
-	new_customer.position = Vector2(1200, CUSTOMER_OFFSET.y)
+	new_customer.position = START_POSITION
 	waiting_group.add_child(new_customer)
 	if _first_client:
 		_first_client = false

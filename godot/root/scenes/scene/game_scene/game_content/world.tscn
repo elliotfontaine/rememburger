@@ -26,7 +26,7 @@ script = ExtResource("1_fha1o")
 scroll_scale = Vector2(0.9, 0.9)
 
 [node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=301049078]
-position = Vector2(0, 50)
+position = Vector2(100, 50)
 texture = ExtResource("2_mpuab")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1269833815]
@@ -34,7 +34,7 @@ scroll_scale = Vector2(0.95, 0.95)
 
 [node name="QueueView" parent="Parallax2D2" unique_id=47794637 instance=ExtResource("2_fha1o")]
 unique_name_in_owner = true
-position = Vector2(-321, 152)
+position = Vector2(-361, 152)
 scale = Vector2(1.4, 1.4)
 
 [node name="Bubble" type="Node2D" parent="Parallax2D2" unique_id=165283928]
