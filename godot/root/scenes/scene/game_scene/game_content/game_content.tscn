@@ -144,12 +144,12 @@ script = ExtResource("1_qs7kg")
 [node name="QueueManager" type="Node" parent="." unique_id=1427118529]
 unique_name_in_owner = true
 script = ExtResource("2_yqwvd")
-spawn_interval_min = 15.0
-spawn_interval_max = 20.0
-tip_decay_waiting = 3.0
-tip_decay_ordered = 1.5
+spawn_interval_min = 10.0
+spawn_interval_max = 15.0
+tip_decay_waiting = 2.0
+tip_decay_ordered = 1.0
 reject_penalty = 6.6
-accept_bonus = 50.0
+accept_bonus = 66.6
 
 [node name="Timer" type="Timer" parent="." unique_id=1151807056]
 autostart = true
@@ -458,6 +458,26 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 36
 theme_override_font_sizes/font_size = 96
 text = "Perfect!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoPopupSubtitle" type="RichTextLabel" parent="HUD/InfoPopupAnchor/InfoPopupCanvasGroup/InfoPopup" unique_id=1652123859]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = 31.0
+offset_right = 322.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Not a Fooburger..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
