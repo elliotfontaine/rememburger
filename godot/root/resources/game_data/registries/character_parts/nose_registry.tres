@@ -25,8 +25,10 @@ _uids_to_string_ids = Dictionary[StringName, StringName]({
 &"uid://c0kjcvvysh1yl": &"nose0004",
 &"uid://cgt3gsfxycj8k": &"nose0006",
 &"uid://dhvar2tv5wcya": &"nose0002",
+&"uid://lo40k88uwnnm": &"nose0013",
 &"uid://mkdbwokj07": &"nose0012",
-&"uid://pew2vqsbgkhb": &"nose0001"
+&"uid://pew2vqsbgkhb": &"nose0001",
+&"uid://vp4j865akoy6": &"nose0014"
 })
 _string_ids_to_uids = Dictionary[StringName, StringName]({
 &"nose0000": &"uid://b4j42ds3xlw5n",
@@ -41,5 +43,7 @@ _string_ids_to_uids = Dictionary[StringName, StringName]({
 &"nose0009": &"uid://34y8nbfoi2ob",
 &"nose0010": &"uid://bjkac7i2f6gyj",
 &"nose0011": &"uid://4uns4jii0ans",
-&"nose0012": &"uid://mkdbwokj07"
+&"nose0012": &"uid://mkdbwokj07",
+&"nose0013": &"uid://lo40k88uwnnm",
+&"nose0014": &"uid://vp4j865akoy6"
 })

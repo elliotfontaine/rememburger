@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HairData" format=3 uid="uid://cb20jd0327j3x"]
+
+[ext_resource type="Texture2D" uid="uid://qoe6oyx281f" path="res://root/assets/image/game/characters/hair/color/image0001.png" id="1_cthny"]
+[ext_resource type="Script" uid="uid://58i304ro4con" path="res://root/resources/game_data/_classes/hair_data.gd" id="1_m5x8i"]
+[ext_resource type="Texture2D" uid="uid://51pmxxyilwsk" path="res://root/assets/image/game/characters/hair/outline/image0001.png" id="2_bny67"]
+
+[sub_resource type="ColorPalette" id="ColorPalette_ug5bm"]
+
+[resource]
+script = ExtResource("1_m5x8i")
+outline_texture = ExtResource("2_bny67")
+color_texture = ExtResource("1_cthny")
+color_palette = SubResource("ColorPalette_ug5bm")
+metadata/_custom_type_script = "uid://58i304ro4con"

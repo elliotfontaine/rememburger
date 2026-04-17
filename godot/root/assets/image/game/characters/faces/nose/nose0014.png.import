@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kv81pfuvkg2"
-path="res://.godot/imported/hair0004.png-fcf24a241f8396f355b20607ed466167.ctex"
+uid="uid://vp4j865akoy6"
+path="res://.godot/imported/nose0014.png-ca6412ab5b725a327a19fab7fc2888f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://root/assets/image/game/characters/hair/hair0004.png"
-dest_files=["res://.godot/imported/hair0004.png-fcf24a241f8396f355b20607ed466167.ctex"]
+source_file="res://root/assets/image/game/characters/faces/nose/nose0014.png"
+dest_files=["res://.godot/imported/nose0014.png-ca6412ab5b725a327a19fab7fc2888f7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du867x26nl2t5"
-path="res://.godot/imported/hair0000.png-f5318ff11b96f5dce94ba29650f1114e.ctex"
+uid="uid://dywovsx7xv5hp"
+path="res://.godot/imported/eyebrows0009.png-6b84cbcabf5cbf2de263afb2fcec8104.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://root/assets/image/game/characters/hair/hair0000.png"
-dest_files=["res://.godot/imported/hair0000.png-f5318ff11b96f5dce94ba29650f1114e.ctex"]
+source_file="res://root/assets/image/game/characters/faces/eyebrows/eyebrows0009.png"
+dest_files=["res://.godot/imported/eyebrows0009.png-6b84cbcabf5cbf2de263afb2fcec8104.ctex"]
 
 [params]
 

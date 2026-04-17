@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://gtqjb3b5c3eo"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_l8tlu"]
+
+[resource]
+script = ExtResource("1_l8tlu")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([]),
+&"class_restrictions": Array[StringName]([&"HairData"]),
+&"recursive_scan": false,
+&"scan_directories": Array[String](["res://root/resources/game_data/customer/hair_data"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://bhvvwjew6rbj4": &"hair0000",
+&"uid://bk3lhavuu71fm": &"hair0004",
+&"uid://c2yuifx3034du": &"hair0002",
+&"uid://cb20jd0327j3x": &"hair0001",
+&"uid://dldq4igdt62wk": &"hair0003",
+&"uid://dmpowmbgvs47n": &"hair0005"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"hair0000": &"uid://bhvvwjew6rbj4",
+&"hair0001": &"uid://cb20jd0327j3x",
+&"hair0002": &"uid://c2yuifx3034du",
+&"hair0003": &"uid://dldq4igdt62wk",
+&"hair0004": &"uid://bk3lhavuu71fm",
+&"hair0005": &"uid://dmpowmbgvs47n"
+})

@@ -3,15 +3,23 @@
 [ext_resource type="Script" uid="uid://cero5jwsqq8el" path="res://root/scenes/scene/game_scene/game_content/queue/customer/customer_head.gd" id="1_q8t7r"]
 [ext_resource type="Texture2D" uid="uid://dt0y6u2oq5vjn" path="res://root/assets/image/game/characters/base_character/Head_color.PNG" id="2_qqnqk"]
 [ext_resource type="Texture2D" uid="uid://c3gux68clxtlu" path="res://root/assets/image/game/characters/base_character/Head_outline.PNG" id="3_7uumd"]
-[ext_resource type="Texture2D" uid="uid://d1hhl7yqetv6v" path="res://root/assets/image/game/characters/faces/eyebrows/eyebrows0003.png" id="4_junxs"]
-[ext_resource type="Texture2D" uid="uid://dp3t8bqxodw2" path="res://root/assets/image/game/characters/hair/color/image0000.png" id="4_mei4k"]
-[ext_resource type="Texture2D" uid="uid://ble8y657h4ugr" path="res://root/assets/image/game/characters/hair/outline/image0000.png" id="5_eok68"]
+[ext_resource type="Texture2D" uid="uid://d2i6dmjtcfdw" path="res://root/assets/image/game/characters/faces/eyebrows/eyebrows0004.png" id="4_junxs"]
 [ext_resource type="Texture2D" uid="uid://dyasd4g5p3i8g" path="res://root/assets/image/game/characters/faces/eyes/eyes0007.png" id="5_rr76f"]
 [ext_resource type="Texture2D" uid="uid://b4j42ds3xlw5n" path="res://root/assets/image/game/characters/faces/nose/nose0000.png" id="6_2ncyd"]
-[ext_resource type="Texture2D" uid="uid://ddoheypcoitjn" path="res://root/assets/image/game/characters/faces/mouth/mouth0003.png" id="7_v7kx3"]
+[ext_resource type="Texture2D" uid="uid://b13adacv5c1m5" path="res://root/assets/image/game/characters/faces/mouth/mouth0008.png" id="7_rr76f"]
+[ext_resource type="Texture2D" uid="uid://dal84e8217awa" path="res://root/assets/image/game/characters/hair/color/image0002.png" id="8_junxs"]
+[ext_resource type="Texture2D" uid="uid://c3s6ywk148q2s" path="res://root/assets/image/game/characters/hair/outline/image0002.png" id="9_rr76f"]
 
 [node name="CustomerHead" type="Node2D" unique_id=1340818636]
 script = ExtResource("1_q8t7r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1198141536]
+visible = false
+offset_left = -106.0
+offset_top = -101.0
+offset_right = 94.0
+offset_bottom = 99.0
+color = Color(0.90824616, 0.0006653595, 0.90823996, 1)
 
 [node name="Head" type="Node2D" parent="." unique_id=183556738]
 
@@ -24,8 +32,7 @@ position = Vector2(14, 26)
 texture = ExtResource("3_7uumd")
 
 [node name="Face" type="Node2D" parent="." unique_id=1066767013]
-position = Vector2(1, 13)
-scale = Vector2(0.9, 0.9)
+position = Vector2(-1, 6)
 
 [node name="Eyebrows" type="Sprite2D" parent="Face" unique_id=1773190865]
 unique_name_in_owner = true
@@ -41,18 +48,18 @@ texture = ExtResource("6_2ncyd")
 
 [node name="Mouth" type="Sprite2D" parent="Face" unique_id=1253922922]
 unique_name_in_owner = true
-texture = ExtResource("7_v7kx3")
+position = Vector2(0, -2)
+texture = ExtResource("7_rr76f")
 
 [node name="Hair" type="Node2D" parent="." unique_id=244209467]
+position = Vector2(-8, -42)
 
 [node name="HairColor" type="Sprite2D" parent="Hair" unique_id=1750000141]
 unique_name_in_owner = true
-position = Vector2(-7, -40)
-texture = ExtResource("4_mei4k")
+texture = ExtResource("8_junxs")
 
 [node name="HairOutline" type="Sprite2D" parent="Hair" unique_id=2063415270]
 unique_name_in_owner = true
-position = Vector2(-7, -40)
-texture = ExtResource("5_eok68")
+texture = ExtResource("9_rr76f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1048909411]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://1ohd70sqvhkq"]
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://cntama5dodoaj"]
 
 [ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_io2d3"]
 
@@ -18,11 +18,15 @@ _uids_to_string_ids = Dictionary[StringName, StringName]({
 &"uid://7a8csk1suvgo": &"eyebrows0000",
 &"uid://b58ejq1lyayt2": &"eyebrows0005",
 &"uid://ba2h6eic5blbr": &"eyebrows0002",
+&"uid://ccagbf2ma7nkr": &"eyebrows0010",
 &"uid://cgaqgaijkyuna": &"eyebrows0001",
 &"uid://csygnt4ivtra6": &"eyebrows0008",
 &"uid://d1hhl7yqetv6v": &"eyebrows0003",
 &"uid://d2i6dmjtcfdw": &"eyebrows0004",
-&"uid://j7co7j5e8ogj": &"eyebrows0006"
+&"uid://dywovsx7xv5hp": &"eyebrows0009",
+&"uid://hfoclijht3d1": &"eyebrows0011",
+&"uid://j7co7j5e8ogj": &"eyebrows0006",
+&"uid://ux4e5rrxpjoh": &"eyebrows0012"
 })
 _string_ids_to_uids = Dictionary[StringName, StringName]({
 &"eyebrows0000": &"uid://7a8csk1suvgo",
@@ -33,5 +37,9 @@ _string_ids_to_uids = Dictionary[StringName, StringName]({
 &"eyebrows0005": &"uid://b58ejq1lyayt2",
 &"eyebrows0006": &"uid://j7co7j5e8ogj",
 &"eyebrows0007": &"uid://2h2ec4fj55g3",
-&"eyebrows0008": &"uid://csygnt4ivtra6"
+&"eyebrows0008": &"uid://csygnt4ivtra6",
+&"eyebrows0009": &"uid://dywovsx7xv5hp",
+&"eyebrows0010": &"uid://ccagbf2ma7nkr",
+&"eyebrows0011": &"uid://hfoclijht3d1",
+&"eyebrows0012": &"uid://ux4e5rrxpjoh"
 })
