@@ -4,7 +4,7 @@ extends Resource
 enum State { IN_QUEUE, AT_COUNTER, SERVED, LEFT_ANGRY }
 
 const MENU_ENTRY_REGISTRY: Registry = preload("uid://b7eqya2l1ru20")
-const EYEBROWS_REGISTRY: Registry = preload("uid://1ohd70sqvhkq")
+const EYEBROWS_REGISTRY: Registry = preload("uid://cntama5dodoaj")
 const EYES_REGISTRY: Registry = preload("uid://ws8rnmdop37h")
 const MOUTH_REGISTRY: Registry = preload("uid://bex11e6h012jd")
 const NOSE_REGISTRY: Registry = preload("uid://bic7bqjfx2rjs")

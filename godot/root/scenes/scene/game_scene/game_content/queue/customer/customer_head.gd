@@ -1,6 +1,6 @@
 extends Node2D
 
-const EYEBROWS_REGISTRY = preload("uid://1ohd70sqvhkq")
+const EYEBROWS_REGISTRY = preload("uid://cntama5dodoaj")
 const EYES_REGISTRY = preload("uid://ws8rnmdop37h")
 const MOUTH_REGISTRY = preload("uid://bex11e6h012jd")
 const NOSE_REGISTRY = preload("uid://bic7bqjfx2rjs")
