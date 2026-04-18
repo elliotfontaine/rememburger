@@ -144,8 +144,8 @@ script = ExtResource("1_qs7kg")
 [node name="QueueManager" type="Node" parent="." unique_id=1427118529]
 unique_name_in_owner = true
 script = ExtResource("2_yqwvd")
-spawn_interval_min = 10.0
-spawn_interval_max = 15.0
+spawn_interval_min = 12.0
+spawn_interval_max = 18.0
 tip_decay_waiting = 2.0
 tip_decay_ordered = 1.0
 reject_penalty = 6.6
