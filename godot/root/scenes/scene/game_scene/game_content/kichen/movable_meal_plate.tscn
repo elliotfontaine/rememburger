@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dud5fw1fewwoy" path="res://root/scenes/scene/game_scene/game_content/kichen/movable_meal_plate.gd" id="1_s1y10"]
 [ext_resource type="Texture2D" uid="uid://d22k215eb5aiw" path="res://root/assets/image/game/items/image0000.png" id="2_qx2j7"]
-[ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/MealStack.tscn" id="3_qx2j7"]
+[ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/meal_views/meal_stack.tscn" id="3_qx2j7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ypdhy"]
 radius = 70.0

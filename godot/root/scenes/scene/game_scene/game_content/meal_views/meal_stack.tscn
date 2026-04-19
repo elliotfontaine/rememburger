@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chxq2llds2cyf"]
 
-[ext_resource type="Script" uid="uid://co7e720myb2uo" path="res://root/scenes/scene/game_scene/game_content/meal_stack.gd" id="1_rgu2r"]
+[ext_resource type="Script" uid="uid://co7e720myb2uo" path="res://root/scenes/scene/game_scene/game_content/meal_views/meal_stack.gd" id="1_rgu2r"]
 [ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="2_n37v4"]
 [ext_resource type="Texture2D" uid="uid://c0aj8xcw3afvl" path="res://root/assets/image/game/ingredients/ingredient0000.png" id="3_ytnoi"]
 [ext_resource type="Texture2D" uid="uid://71qyich8cspf" path="res://root/assets/image/game/ingredients/ingredient0003.png" id="4_lwn1u"]

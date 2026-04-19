@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bkwmgrw0mg3p8" path="res://root/scenes/scene/game_scene/game_content/kichen/kitchen.tscn" id="6_q3v8v"]
 [ext_resource type="Texture2D" uid="uid://bw6nlph411pit" path="res://root/assets/image/game/backgrounds/speech_bubble.png" id="7_k2e8o"]
 [ext_resource type="Texture2D" uid="uid://bqjamshr2hxd0" path="res://root/assets/image/game/items/image0005.png" id="7_v103c"]
-[ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/MealStack.tscn" id="8_iqpcp"]
-[ext_resource type="PackedScene" uid="uid://sxhvflj8q4k5" path="res://root/scenes/scene/game_scene/game_content/MealDesc.tscn" id="8_v103c"]
+[ext_resource type="PackedScene" uid="uid://chxq2llds2cyf" path="res://root/scenes/scene/game_scene/game_content/meal_views/meal_stack.tscn" id="8_iqpcp"]
+[ext_resource type="PackedScene" uid="uid://sxhvflj8q4k5" path="res://root/scenes/scene/game_scene/game_content/meal_views/meal_desc.tscn" id="8_v103c"]
 [ext_resource type="Script" uid="uid://cp63ho2tbyfik" path="res://root/resources/game_data/_classes/meal_data.gd" id="10_birb1"]
 
 [sub_resource type="Resource" id="Resource_mpuab"]
