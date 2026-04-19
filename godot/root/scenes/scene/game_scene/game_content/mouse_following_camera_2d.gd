@@ -18,6 +18,9 @@ var offset_target := Vector2.ZERO
 
 
 func _input(event: InputEvent) -> void:
+	if get_tree().paused:
+		return
+	
 	if event is InputEventMouseMotion:
 		var mouse_pos: Vector2 = event.global_position
 
@@ -38,5 +41,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
+	if get_tree().paused:
+		return
+	
 	position = position.lerp(base_target, TRANSITION_LERP_SPEED * delta)
 	offset = offset.lerp(offset_target, OFFSET_LERP_SPEED * delta)

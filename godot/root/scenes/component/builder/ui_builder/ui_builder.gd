@@ -24,7 +24,7 @@ func _ready() -> void:
 	attach_components = [twist_component, control_focus_on_hover]
 
 	# Will ignore target nodes of types [Tree], [GameButton].
-	no_condition_classes = [Tree, RichTextLabel, VScrollBar, HScrollBar]#[Tree, GameButton]
+	no_condition_classes = [Tree, RichTextLabel, VScrollBar, HScrollBar, TabBar]#[Tree, GameButton]
 
 	# Scale down the [TwistMotion] animation for larger targets: [SaveFileButton], [CodeTextEdit].
 	customize = {}
@@ -35,6 +35,10 @@ func _ready() -> void:
 	customize["CodeTextEdit"] = {
 		TwistMotion:
 		{"offset_target_level": 2, "max_motion_factor": 0.988, "max_rotation_degrees": 0.625}
+	}
+	customize[CheckBox] = {
+		TwistMotion:
+		{"max_motion_factor": 0.975, "max_rotation_degrees": 1.0}
 	}
 
 	# Will target only [Control] type nodes.

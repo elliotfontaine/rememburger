@@ -92,6 +92,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MouseFollowingCamera2D" type="Camera2D" parent="." unique_id=2119427164]
+process_mode = 3
 position = Vector2(0, -500)
 limit_left = -1000
 limit_top = -1080

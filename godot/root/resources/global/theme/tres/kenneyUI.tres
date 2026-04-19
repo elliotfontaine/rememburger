@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://daenv1tgd4rf" path="res://root/assets/image/ui/burger_panel.png" id="1_p1gel"]
 [ext_resource type="FontFile" uid="uid://vovyvvn5wsjb" path="res://root/assets/font/sour_gummy/static/SourGummy-Light.ttf" id="3_p1gel"]
 [ext_resource type="FontFile" uid="uid://co2jfmiah2iw0" path="res://root/assets/font/sour_gummy/static/SourGummy-Bold.ttf" id="4_p1gel"]
+[ext_resource type="FontFile" uid="uid://eosp3budh4rb" path="res://root/assets/font/sour_gummy/static/SourGummy-Black.ttf" id="4_t4n8e"]
+[ext_resource type="FontFile" uid="uid://d1bxj5h2endi8" path="res://root/assets/font/sour_gummy/static/SourGummy-BlackItalic.ttf" id="5_fg14u"]
+[ext_resource type="FontFile" uid="uid://cshfxkv2ga5ke" path="res://root/assets/font/sour_gummy/static/SourGummy-MediumItalic.ttf" id="6_tueft"]
+[ext_resource type="FontFile" uid="uid://dxb846yj5f23j" path="res://root/assets/font/sour_gummy/static/SourGummy-Medium.ttf" id="7_uh7me"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3vagx"]
 texture = ExtResource("1_p1gel")
@@ -190,6 +194,40 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jnwr2"]
+texture = ExtResource("1")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(1, 310, 100, 100)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fg14u"]
+texture = ExtResource("1")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(1, 310, 100, 100)
+modulate_color = Color(0.49223727, 0.4922372, 0.49223745, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u08n"]
+texture = ExtResource("1")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(1, 310, 100, 100)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4n8e"]
+texture = ExtResource("1")
+texture_margin_left = 12.3202
+texture_margin_top = 13.3469
+texture_margin_right = 13.3469
+texture_margin_bottom = 11.2935
+region_rect = Rect2(1, 310, 100, 100)
+modulate_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
+
 [sub_resource type="StyleBoxTexture" id="28"]
 content_margin_left = 12.0
 content_margin_top = 10.0
@@ -344,6 +382,16 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_p1gel")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
 RichTextLabel/constants/outline_size = 16
+RichTextLabel/fonts/bold_font = ExtResource("4_t4n8e")
+RichTextLabel/fonts/bold_italics_font = ExtResource("5_fg14u")
+RichTextLabel/fonts/italics_font = ExtResource("6_tueft")
+RichTextLabel/fonts/normal_font = ExtResource("7_uh7me")
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
+TabContainer/styles/panel = SubResource("StyleBoxTexture_jnwr2")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_fg14u")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_7u08n")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_t4n8e")
 TextEdit/colors/background_color = Color(0, 0, 0, 0)
 TextEdit/colors/bookmark_color = Color(0.08, 0.49, 0.98, 1)
 TextEdit/colors/brace_mismatch_color = Color(1, 0.2, 0.2, 1)

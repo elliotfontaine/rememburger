@@ -16,8 +16,22 @@ extends Node
 @onready var pause_menu: PauseMenu = %PauseMenu
 @onready var options_menu: OptionsMenu = %OptionsMenu
 @onready var game_end: Control = %GameEnd
+@onready var tutorial: Control = %Tutorial
 
 @onready var ui_builder: UiBuilder = %UiBuilder
+
+
+func _ready() -> void:
+	#_load_game_content_scene()
+
+	ui_builder.build()
+	_connect_signals()
+
+	LogWrapper.debug(self, "Ready.")
+	
+	await SceneManager.fade_in_finished
+	tutorial.popup()
+	get_tree().paused = true
 
 
 # Esc key shortcut toggles pause menu or exits from options via back button
@@ -26,20 +40,12 @@ func _input(_event: InputEvent) -> void:
 		if get_tree().paused:
 			if pause_menu.visible:
 				_action_continue_menu_button()
-			else:
+			elif options_menu.visible:
 				_action_options_back_menu_button()
+			elif tutorial.visible:
+				_action_close_tutorial()
 		else:
 			_action_game_pause_menu_button()
-
-
-func _ready() -> void:
-	#_load_game_content_scene()
-
-	ui_builder.build()
-
-	_connect_signals()
-
-	LogWrapper.debug(self, "Ready.")
 
 
 func _after_pause() -> void:
@@ -75,6 +81,7 @@ func _load_game_content_scene() -> void:
 
 func _action_game_pause_menu_button() -> void:
 	game_content.visible = true
+	tutorial.hide()
 	pause_menu.popup()
 	options_menu.visible = false
 	get_tree().paused = true
@@ -122,6 +129,12 @@ func _action_quit_menu_button() -> void:
 	get_tree().quit()
 
 
+func _action_close_tutorial() -> void:
+	game_content.show()
+	tutorial.hide()
+	get_tree().paused = false
+
+
 func _connect_signals() -> void:
 	if "pause_menu_button" in game_content:
 		game_content.pause_menu_button.confirmed.connect(_action_game_pause_menu_button)
@@ -134,6 +147,8 @@ func _connect_signals() -> void:
 	options_menu.back_menu_button.confirmed.connect(_action_options_back_menu_button)
 
 	game_content.game_ended.connect(_on_game_content_game_ended)
+	
+	tutorial.close_button.confirmed.connect(_action_close_tutorial)
 
 
 func _on_game_content_game_ended() -> void:

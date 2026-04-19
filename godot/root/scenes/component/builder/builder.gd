@@ -128,11 +128,13 @@ func is_skip(node: Node, parent: Node) -> bool:
 
 
 func customize_component(node: Node, parent: Node) -> void:
-	for custom_name: String in customize:
-		if parent.name != custom_name:
+	for custom_type: Variant in customize:
+		if custom_type is String and parent.name != custom_type:
+			continue
+		elif custom_type is not String and not is_instance_of(parent, custom_type):
 			continue
 
-		var custom: Dictionary = customize[custom_name]
+		var custom: Dictionary = customize[custom_type]
 		for type: Variant in custom:
 			if is_instance_of(node, type):
 				var properties: Dictionary = custom[type]

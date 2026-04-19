@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cvaa73qxuiw6n" path="res://root/scenes/component/builder/ui_builder/ui_builder.tscn" id="5_4r42l"]
 [ext_resource type="PackedScene" uid="uid://bea1npdsg7ii1" path="res://root/scenes/scene/menu_scene/options_menu/options_menu.tscn" id="5_4rg8g"]
 [ext_resource type="PackedScene" uid="uid://4arov5jfx1y7" path="res://root/scenes/scene/game_scene/game_end/game_end.tscn" id="6_keakv"]
+[ext_resource type="PackedScene" uid="uid://btis5cjl75n5m" path="res://root/scenes/scene/game_scene/tutorial/tutorial.tscn" id="6_yuvuv"]
 
 [node name="GameScene" type="Node" unique_id=471783781]
 process_mode = 3
@@ -35,6 +36,10 @@ unique_name_in_owner = true
 visible = false
 z_index = 1000
 z_as_relative = false
+
+[node name="Tutorial" parent="Popups" unique_id=237729813 instance=ExtResource("6_yuvuv")]
+unique_name_in_owner = true
+visible = false
 
 [node name="UiBuilder" parent="." unique_id=1240177524 instance=ExtResource("5_4r42l")]
 unique_name_in_owner = true
