@@ -45,16 +45,42 @@ func add_ingredient_to_plate(ingredient: StringName) -> bool:
 	return true
 
 
+func remove_top_ingredient() -> StringName:
+	if not meal_data or meal_data.is_empty():
+		return &""
+	
+	var top_ingredient: StringName = meal_data.ingredients.pop_back()
+	_update_stack_view()
+	return top_ingredient
+
+
 func _is_mouse_left_click(event: InputEvent) -> bool:
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
 
 
+func _is_mouse_right_click(event: InputEvent) -> bool:
+	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()
+
+
 func _on_grabbing_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if _is_mouse_left_click(event) and kitchen:
-		var grabbed := kitchen.try_grab(self)
-		if grabbed:
+	if not kitchen:
+		return
+
+	if _is_mouse_left_click(event):
+		if kitchen.try_grab(self):
 			get_viewport().set_input_as_handled()
 			LogWrapper.debug(self, "Meal plate item grabbed")
+
+	elif _is_mouse_right_click(event):
+		var ingredient := remove_top_ingredient()
+		if not ingredient:
+			return
+		var ingr_object := kitchen.spawn_ingredient(ingredient, get_local_mouse_position(), false)
+		if kitchen.try_grab(ingr_object):
+			LogWrapper.debug(self, "%s removed from meal plate" % ingredient)
+		else:
+			ingr_object.free()
+			add_ingredient_to_plate(ingredient)
 
 
 func _update_stack_view() -> void:
