@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2iy8wfgenjka"]
+[gd_scene format=3 uid="uid://2iy8wfgenjka"]
 
 [ext_resource type="Script" uid="uid://csb3t65so2j5p" path="res://addons/scene_manager/scene_manager.gd" id="1"]
 [ext_resource type="Material" uid="uid://0q7ifty8us3v" path="res://addons/scene_manager/scene_manager.tres" id="2"]
@@ -71,12 +71,13 @@ _data = {
 &"no_color": SubResource("10")
 }
 
-[node name="scene_manager" type="Node2D"]
+[node name="scene_manager" type="Node2D" unique_id=1310596333]
 script = ExtResource("1")
 
-[node name="canvas" type="CanvasLayer" parent="."]
+[node name="canvas" type="CanvasLayer" parent="." unique_id=1438451530]
+layer = 100
 
-[node name="fade" type="ColorRect" parent="canvas"]
+[node name="fade" type="ColorRect" parent="canvas" unique_id=1311317272]
 material = ExtResource("2")
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,7 +87,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="animation_player" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_p2st6")
-}
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=1824054811]
+libraries/ = SubResource("AnimationLibrary_p2st6")

@@ -4,6 +4,7 @@
 
 [node name="Overlay" type="CanvasLayer" unique_id=367358395]
 process_mode = 3
+layer = 101
 script = ExtResource("1_dgt80")
 
 [node name="FPSCounterMarginContainer" type="MarginContainer" parent="." unique_id=837313384]
