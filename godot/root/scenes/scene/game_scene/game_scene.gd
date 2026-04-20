@@ -44,6 +44,8 @@ func _input(_event: InputEvent) -> void:
 				_action_options_back_menu_button()
 			elif tutorial.visible:
 				_action_close_tutorial()
+			elif game_end.visible:
+				game_end.main_menu_button.pressed.emit()
 		else:
 			_action_game_pause_menu_button()
 
@@ -153,4 +155,5 @@ func _connect_signals() -> void:
 
 func _on_game_content_game_ended() -> void:
 	game_content.process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = true
 	game_end.popup()

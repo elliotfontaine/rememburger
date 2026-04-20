@@ -85,8 +85,7 @@ func score_points(customer_data: CustomerData, meal_points: int, tip_points: int
 			"" if order_name.begins_with("The") else "a ",
 			order_name,
 		]
-		
-	
+
 	info_popup_animation_player.play(&"popup_info")
 
 	if meal_points > 0:
@@ -151,6 +150,7 @@ func _on_timer_timeout() -> void:
 	remaining_time -= 1
 	if remaining_time == 0:
 		AudioManagerWrapper.play_sfx(AudioEnum.Sfx.GAME_OVER)
+		timer_label.text = "00:00"
 		game_ended.emit()
 
 

@@ -11,6 +11,7 @@ const TINT_COLOR := Color("000000bf")
 @onready var first_time_save: PanelContainer = %FirstTimeSave
 @onready var could_not_save: Label = %CouldNotSave
 @onready var new_best: RichTextLabel = %NewBest
+@onready var main_menu_button: MenuButtonClass = %MainMenuButton
 
 
 func popup() -> void:
@@ -79,10 +80,12 @@ func _on_submit_username_button_pressed() -> void:
 func _on_main_menu_button_pressed() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = false
 	SceneManagerWrapper.change_scene(SceneManagerEnum.Scene.MENU_SCENE, "fade_play")
 
 
 func _on_play_again_button_pressed() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = false
 	SceneManagerWrapper.change_scene(SceneManagerEnum.Scene.GAME_SCENE, "fade_play")
