@@ -7,9 +7,8 @@ const LOREM_IPSUM := "Lorem ipsum dolor sit amet, consectetur adipiscing elit, s
 	set = set_title, get = get_title
 @export_multiline() var text: String = LOREM_IPSUM:
 	set = set_text, get = get_text
-@export var image: CompressedTexture2D:
-	set = set_image, get = get_image
-
+@export_custom(PROPERTY_HINT_RESOURCE_TYPE,"CompressedTexture2D,VideoStreamTheora") var media: Resource:
+	set = set_media, get = get_media
 
 func set_title(value: String) -> void:
 	if %TitleLabel:
@@ -29,10 +28,38 @@ func get_text() -> String:
 	return %RichTextLabel.text if %RichTextLabel else ""
 
 
-func set_image(value: CompressedTexture2D) -> void:
-	if %TextureRect:
+func set_media(value: Resource) -> void:
+	if value is CompressedTexture2D and %TextureRect:
 		%TextureRect.texture = value
+		%TextureRect.show()
+		%VideoStreamPlayer.stream = null
+		%AspectRatioContainer.hide()
+	elif value is VideoStreamTheora and %VideoStreamPlayer:
+		%VideoStreamPlayer.stream = value
+		%AspectRatioContainer.show()
+		%TextureRect.texture = null
+		%TextureRect.hide()
+	elif not value:
+		%TextureRect.texture = null
+		%TextureRect.hide()
+		%VideoStreamPlayer.stream = null
+		%AspectRatioContainer.hide()
 
 
-func get_image() -> CompressedTexture2D:
-	return %TextureRect.texture if %TextureRect else null
+func get_media() -> Resource:
+	if %TextureRect and %TextureRect.texture:
+		return %TextureRect.texture
+	elif %VideoStreamPlayer and %VideoStreamPlayer.stream:
+		return %VideoStreamPlayer.stream
+	else:
+		return null
+
+
+func _on_visibility_changed() -> void:
+	if not is_inside_tree():
+		return
+	if visible:
+		%VideoStreamPlayer.play()
+	else:
+		%VideoStreamPlayer.stop()
+		

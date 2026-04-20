@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://btis5cjl75n5m"]
 
-[ext_resource type="PackedScene" uid="uid://gq1c4n31wx35" path="res://root/scenes/scene/game_scene/tutorial/TutorialContent.tscn" id="1_3k5bi"]
+[ext_resource type="PackedScene" uid="uid://gq1c4n31wx35" path="res://root/scenes/scene/game_scene/tutorial/tutorial_content.tscn" id="1_3k5bi"]
 [ext_resource type="Script" uid="uid://0y652sd6miw6" path="res://root/scenes/scene/game_scene/tutorial/tutorial.gd" id="1_q20s2"]
 [ext_resource type="Script" uid="uid://ux5x10ua2kd" path="res://root/scenes/node/menu/menu_button/menu_button.gd" id="1_vx7xx"]
-[ext_resource type="Texture2D" uid="uid://cxr2jncuv3reu" path="res://root/assets/image/ui/burger_mini.png" id="2_cxpb3"]
-[ext_resource type="Texture2D" uid="uid://bw6nlph411pit" path="res://root/assets/image/game/backgrounds/speech_bubble.png" id="4_pfone"]
-[ext_resource type="Texture2D" uid="uid://b8slcdf55s482" path="res://root/assets/image/game/items/image0004.png" id="5_c4plt"]
+[ext_resource type="Texture2D" uid="uid://dafnxbjjnfkuj" path="res://root/assets/image/game/tutorial/overview.png" id="3_q20s2"]
+[ext_resource type="VideoStream" uid="uid://b7q7hdekudcmg" path="res://root/assets/image/game/tutorial/orders_ffmpeg.ogv" id="4_q20s2"]
+[ext_resource type="VideoStream" uid="uid://c22vhn0voyw8j" path="res://root/assets/image/game/tutorial/cooking_ffmpeg.ogv" id="5_q20s2"]
 [ext_resource type="Texture2D" uid="uid://kwuj02cd8apk" path="res://root/assets/image/game/backgrounds/background.png" id="6_kqrg2"]
 
 [node name="Tutorial" type="Control" unique_id=237729813]
@@ -35,19 +35,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -800.0
+offset_left = -875.0
 offset_top = -450.0
-offset_right = 800.0
+offset_right = 875.0
 offset_bottom = 450.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_type_variation = &"BurgerPanelContainer"
-
-[node name="Control" type="Control" parent="PanelContainer" unique_id=627265913]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=824266699]
 layout_mode = 2
@@ -57,6 +52,7 @@ theme_override_constants/separation = 16
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+use_hidden_tabs_for_min_size = true
 
 [node name="Welcome" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=202632296 instance=ExtResource("1_3k5bi")]
 layout_mode = 2
@@ -66,42 +62,42 @@ text = "Customers are lining up! Take their orders, cook their burgers, and serv
 Each customer comes with a tip that drops over time. Serve them fast to earn more!
 
 You have 5 minutes to earn as much money as you can."
-image = ExtResource("2_cxpb3")
+media = ExtResource("3_q20s2")
 metadata/_tab_index = 0
 
 [node name="Orders" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=1785599928 instance=ExtResource("1_3k5bi")]
 visible = false
 layout_mode = 2
-title = "Take Orders and Remember Them"
+title = "Take Their Order... Then Forget."
 text = "When a customer reaches the counter, they'll tell you what they want.
 
 [b]<Take Order>[/b] to accept it (tip  [color=FOREST_GREEN]+20€[/color]).
 [b]<Send Back>[/b] to push them to the back of the line (tip [color=ORANGE_RED]-2€[/color]).
 
 But be careful: once accepted, their order won't be shown again. You'll have to remember it!"
-image = ExtResource("4_pfone")
+media = ExtResource("4_q20s2")
 metadata/_tab_index = 1
 
-[node name="Kitchen" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=969362812 instance=ExtResource("1_3k5bi")]
+[node name="Cooking" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=969362812 instance=ExtResource("1_3k5bi")]
 visible = false
 layout_mode = 2
-title = "In the Kitchen"
+title = "Time to Cook!"
 text = "[b]Left-click[/b] to grab an item, [b]left-click[/b] again to place it. [b]Right-click[/b] on a plate to undo the top ingredient.
 
 To build a burger: grab a plate, add a bottom bun, stack ingredients, then a top bun.
 
 Use the grill for steaks, the cutting board for veggies, and sauce bottles directly on your plate."
-image = ExtResource("5_c4plt")
+media = ExtResource("5_q20s2")
 metadata/_tab_index = 2
 
-[node name="Serve" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=2012283745 instance=ExtResource("1_3k5bi")]
+[node name="Serving" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=2012283745 instance=ExtResource("1_3k5bi")]
 visible = false
 layout_mode = 2
-title = "Serve to Score"
+title = "Serve It Hot!"
 text = "Grab your plate and drop it on the serving area. The closer the burger matches the order, the more you earn.
 
 Don't keep them waiting — [b][shake rate=15.0 level=5 connected=0]tips shrink every second![/shake]"
-image = ExtResource("6_kqrg2")
+media = ExtResource("6_kqrg2")
 metadata/_tab_index = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1391508190]
